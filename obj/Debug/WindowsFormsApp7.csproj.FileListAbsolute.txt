@@ -8,3 +8,12 @@ C:\Users\Dev_Teacher\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\Wi
 C:\Users\Dev_Teacher\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.csproj.CoreCompileInputs.cache
 C:\Users\Dev_Teacher\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.exe
 C:\Users\Dev_Teacher\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.pdb
+C:\Users\40in\source\repos\Kalkulator\PaintProgram\obj\Debug\WindowsFormsApp7.csprojAssemblyReference.cache
+C:\Users\40in\source\repos\Kalkulator\PaintProgram\obj\Debug\WindowsFormsApp7.Form1.resources
+C:\Users\40in\source\repos\Kalkulator\PaintProgram\obj\Debug\WindowsFormsApp7.Properties.Resources.resources
+C:\Users\40in\source\repos\Kalkulator\PaintProgram\obj\Debug\WindowsFormsApp7.csproj.GenerateResource.cache
+C:\Users\40in\source\repos\Kalkulator\PaintProgram\obj\Debug\WindowsFormsApp7.exe
+C:\Users\40in\source\repos\Kalkulator\PaintProgram\obj\Debug\WindowsFormsApp7.pdb
+C:\Users\40in\source\repos\Kalkulator\PaintProgram\bin\Debug\WindowsFormsApp7.exe.config
+C:\Users\40in\source\repos\Kalkulator\PaintProgram\bin\Debug\WindowsFormsApp7.exe
+C:\Users\40in\source\repos\Kalkulator\PaintProgram\bin\Debug\WindowsFormsApp7.pdb
