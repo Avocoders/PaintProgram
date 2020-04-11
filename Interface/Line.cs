@@ -16,11 +16,11 @@ namespace WindowsFormsApp7.Interface
         {
             Width = x;
             Height = y;
-             bitmap = new Bitmap(Width, Height);
+            bitmap = new Bitmap(Width, Height);
         }
         public Bitmap DrawFigure(int x, int y, Color color)
         {
-             bitmap.SetPixel(x, y,color);
+            bitmap.SetPixel(x, y,color);
             return bitmap;
         }
     }
