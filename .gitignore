@@ -1,4 +1,4 @@
 # My Ignore
-**/obj
-**/bin
-**/.vs
+obj
+bin
+.vs
