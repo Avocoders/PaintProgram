@@ -29,7 +29,7 @@ namespace WindowsFormsApp7
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isDrow == true)
+            if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
             {
                 q = figure.DrawFigure(e.X, e.Y, color);
                 pictureBox1.Image = q;
@@ -39,6 +39,7 @@ namespace WindowsFormsApp7
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             isDrow = true;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -51,6 +52,7 @@ namespace WindowsFormsApp7
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             isDrow = false;
+            figure.DrawFigure(1, 1, q.GetPixel(0, 0));
         }
 
         private void tabPage1_MouseClick(object sender, MouseEventArgs e)
