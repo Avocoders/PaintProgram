@@ -15,7 +15,7 @@ namespace WindowsFormsApp7
     {   
         Bitmap q;
         IFigure figure;
-        public  Color color = Color.Red;
+        public  Color color = Color.Black;
         bool isDrow;
         public Form1()
         {
