@@ -27,12 +27,12 @@ namespace WindowsFormsApp7.Interface
             {
                 double k = (y - lastY) / (x - lastX);
                 double b = lastY - k * lastX;
-                for (int i = lastX; i <= x; i++)
+                for (int i = lastX; i < x; i++)
                 {
                     bitmap.SetPixel(i, Convert.ToInt32(k * i + b), color);
 
                 }
-                for (int i = lastX; i >= x; i--)
+                for (int i = lastX; i > x; i--)
                 {
                     bitmap.SetPixel(i, Convert.ToInt32(k * i + b), color);
 
@@ -44,19 +44,37 @@ namespace WindowsFormsApp7.Interface
             {
                 double k;
                 if (x != lastX)
-                    {  k = (y - lastY) / (x - lastX); }
-                else
-                    {  k = 1; }
-                double b = lastY - k * lastX;
-                for (int i = lastY; i <= y; i++)
                 {
-                    bitmap.SetPixel(Convert.ToInt32((i-b)/k), i, color);
+                    k = (y - lastY) / (x - lastX);
 
+                    double b = lastY - k * lastX;
+                    if (lastY > y)
+                    {
+                        for (int i = lastY; i < y; i++)
+                        {
+                            bitmap.SetPixel(Convert.ToInt32((i - b) / k), i, color);
+
+                        }
+                    }
+                    else
+                    {
+                        for (int i = lastY; i > y; i--)
+                        {
+                            bitmap.SetPixel(Convert.ToInt32((i - b) / k), i, color);
+
+                        }
+                    }
                 }
-                for (int i = lastY; i >= y; i--)
+                else
                 {
-                    bitmap.SetPixel(Convert.ToInt32((i - b) / k), i, color);
-
+                    for(int i = lastY;i<y;i++)
+                    {
+                        bitmap.SetPixel(x, i, color);
+                    }
+                    for (int i = lastY; i > y; i--)
+                    {
+                        bitmap.SetPixel(x, i, color);
+                    }
                 }
                 lastX = x;
                 lastY = y;
