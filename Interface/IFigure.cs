@@ -9,6 +9,6 @@ namespace WindowsFormsApp7.Interface
 {
     interface IFigure
     {
-        Bitmap DrawFigure(int x, int y, Color color);
+        Bitmap DrawFigure(int x, int y, Color color,Boolean isFirst);
     }
 }

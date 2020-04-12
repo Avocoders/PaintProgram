@@ -16,7 +16,7 @@ namespace WindowsFormsApp7
         Bitmap q;
         IFigure figure;
         public  Color color = Color.Black;
-        bool isDrow;
+        bool isDrow,isFirst;
         public Form1()
         {
             InitializeComponent();
@@ -31,15 +31,16 @@ namespace WindowsFormsApp7
         {
             if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
             {
-                q = figure.DrawFigure(e.X, e.Y, color);
+                q = figure.DrawFigure(e.X, e.Y, color, isFirst);
                 pictureBox1.Image = q;
+                isFirst = false;
             }
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             isDrow = true;
-            
+            isFirst = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -47,12 +48,13 @@ namespace WindowsFormsApp7
             
             figure = new Line(pictureBox1.Width, pictureBox1.Height);
             isDrow = false;
+            isFirst = false;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             isDrow = false;
-            figure.DrawFigure(1, 1, q.GetPixel(0, 0));
+            
         }
 
         private void tabPage1_MouseClick(object sender, MouseEventArgs e)
