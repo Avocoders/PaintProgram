@@ -60,8 +60,8 @@ namespace WindowsFormsApp7.Interface
             {
                 double dal = Math.Sqrt(Math.Pow(lastX - x, 2) + Math.Pow(lastY - y, 2));
                 //double dal = (y - lastY) / (x - lastX);
-                double xd = (x - lastX) / dal;
-                double yd = (y - lastY) / dal;
+                double xd = (x - lastX) / (dal/1.5);
+                double yd = (y - lastY) / (dal/1.5);
                 while(lastY!=y&&lastX!=x)
                 {
                     bitmap.SetPixel(lastX, lastY, color);
