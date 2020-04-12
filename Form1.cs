@@ -54,9 +54,10 @@ namespace WindowsFormsApp7
             isDrow = false;
             figure.DrawFigure(1, 1, q.GetPixel(0, 0));
         }
+
         private void tabPage1_MouseClick(object sender, MouseEventArgs e)
         {
-
+          
         }
 
         private void buttonBlue_CheckedChanged(object sender, EventArgs e)
@@ -105,4 +106,3 @@ namespace WindowsFormsApp7
         }
     }
 }
-
