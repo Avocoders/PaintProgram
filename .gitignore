@@ -8,3 +8,9 @@
 obj/Debug/WindowsFormsApp7.csproj.GenerateResource.cache
 
 obj/Debug/WindowsFormsApp7.csprojAssemblyReference.cache
+
+bin/
+
+packages/
+
+.vs/
