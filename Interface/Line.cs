@@ -29,12 +29,12 @@ namespace WindowsFormsApp7.Interface
                 double b = lastY - k * lastX;
                 for (int i = lastX; i < x; i++)
                 {
-                    bitmap.SetPixel(i, Convert.ToInt32(k * i + b), color);
+                    bitmap.SetPixel(i, y, color);
 
                 }
                 for (int i = lastX; i > x; i--)
                 {
-                    bitmap.SetPixel(i, Convert.ToInt32(k * i + b), color);
+                    bitmap.SetPixel(i, y, color);
 
                 }
                 lastX = x;
