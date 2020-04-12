@@ -29,7 +29,7 @@ namespace WindowsFormsApp7
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isDrow == true)
+            if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
             {
                 q = figure.DrawFigure(e.X, e.Y, color);
                 pictureBox1.Image = q;
@@ -39,6 +39,7 @@ namespace WindowsFormsApp7
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             isDrow = true;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -51,56 +52,7 @@ namespace WindowsFormsApp7
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             isDrow = false;
-        }
-
-        private void tabPage1_MouseClick(object sender, MouseEventArgs e)
-        {
-          
-        }
-
-        private void buttonBlue_CheckedChanged(object sender, EventArgs e)
-        {
-            color = Color.Blue;
-        }
-
-        private void buttonBlack_CheckedChanged(object sender, EventArgs e)
-        {
-            color = Color.Black;
-        }
-
-        private void buttonRed_CheckedChanged(object sender, EventArgs e)
-        {
-            color = Color.Red;
-        }
-
-        private void buttonOrange_CheckedChanged(object sender, EventArgs e)
-        {
-            color = Color.Orange;
-        }
-
-        private void buttonWhite_CheckedChanged(object sender, EventArgs e)
-        {
-            color = Color.White;
-        }
-
-        private void buttonGrey_CheckedChanged(object sender, EventArgs e)
-        {
-            color = Color.Gray;
-        }
-
-        private void buttonGreen_CheckedChanged(object sender, EventArgs e)
-        {
-            color = Color.Green;
-        }
-
-        private void buttonPurple_CheckedChanged(object sender, EventArgs e)
-        {
-            color = Color.Purple;
-        }
-
-        private void buttonYellow_CheckedChanged(object sender, EventArgs e)
-        {
-            color = Color.Yellow;
+            figure.DrawFigure(1, 1, q.GetPixel(0, 0));
         }
     }
 }
