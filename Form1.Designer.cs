@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApp7
+﻿using System.Windows.Forms;
+
+namespace WindowsFormsApp7
 {
     partial class Form1
     {
@@ -301,6 +303,18 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStrip toolStrip1;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private RadioButton buttonYellow;
+        private RadioButton buttonPurple;
+        private RadioButton buttonGreen;
+        private RadioButton buttonGrey;
+        private RadioButton buttonWhite;
+        private RadioButton buttonOrange;
+        private RadioButton buttonBlue;
+        private RadioButton buttonRed;
+        private RadioButton buttonBlack;
+        private TabPage tabPage2;
         private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton1;
         private System.Windows.Forms.ToolStripMenuItem создатьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
