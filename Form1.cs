@@ -133,7 +133,7 @@ namespace WindowsFormsApp7
         private void Pixel_5_CheckedChanged(object sender, EventArgs e)
         {
             n = 3;
-        }        
+        }
 
         private void DrawLine(int x, int y)
         {

@@ -46,13 +46,6 @@
             this.Pixel_5 = new System.Windows.Forms.RadioButton();
             this.Pixel_3 = new System.Windows.Forms.RadioButton();
             this.Pixel_1 = new System.Windows.Forms.RadioButton();
-            this.file = new System.Windows.Forms.ToolStripDropDownButton();
-            this.createNew = new System.Windows.Forms.ToolStripMenuItem();
-            this.open = new System.Windows.Forms.ToolStripMenuItem();
-            this.save = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteTheLastOne = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.deleteAll = new System.Windows.Forms.ToolStripButton();
             this.insert = new System.Windows.Forms.Button();
             this.choosePen = new System.Windows.Forms.Button();
             this.chooseEraser = new System.Windows.Forms.Button();
@@ -62,12 +55,28 @@
             this.brushes = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.circle = new System.Windows.Forms.Button();
+            this.oval = new System.Windows.Forms.Button();
+            this.square = new System.Windows.Forms.Button();
+            this.rectangle = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.file = new System.Windows.Forms.ToolStripDropDownButton();
+            this.createNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.open = new System.Windows.Forms.ToolStripMenuItem();
+            this.save = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteTheLastOne = new System.Windows.Forms.ToolStripButton();
+            this.deleteAll = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.button3 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -273,73 +282,6 @@
             this.Pixel_1.UseVisualStyleBackColor = true;
             this.Pixel_1.CheckedChanged += new System.EventHandler(this.Pixel_1_CheckedChanged);
             // 
-            // file
-            // 
-            this.file.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.file.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createNew,
-            this.open,
-            this.save});
-            this.file.Image = ((System.Drawing.Image)(resources.GetObject("file.Image")));
-            this.file.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.file.Name = "file";
-            this.file.Size = new System.Drawing.Size(49, 22);
-            this.file.Text = "Файл";
-            // 
-            // createNew
-            // 
-            this.createNew.Image = ((System.Drawing.Image)(resources.GetObject("createNew.Image")));
-            this.createNew.Name = "createNew";
-            this.createNew.Size = new System.Drawing.Size(133, 22);
-            this.createNew.Text = "Создать";
-            // 
-            // open
-            // 
-            this.open.Image = ((System.Drawing.Image)(resources.GetObject("open.Image")));
-            this.open.Name = "open";
-            this.open.Size = new System.Drawing.Size(133, 22);
-            this.open.Text = "Открыть";
-            // 
-            // save
-            // 
-            this.save.Image = ((System.Drawing.Image)(resources.GetObject("save.Image")));
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(133, 22);
-            this.save.Text = "Сохранить";
-            // 
-            // deleteTheLastOne
-            // 
-            this.deleteTheLastOne.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.deleteTheLastOne.Image = ((System.Drawing.Image)(resources.GetObject("deleteTheLastOne.Image")));
-            this.deleteTheLastOne.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deleteTheLastOne.Name = "deleteTheLastOne";
-            this.deleteTheLastOne.Size = new System.Drawing.Size(23, 22);
-            this.deleteTheLastOne.Text = "toolStripButton1";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.file,
-            this.deleteTheLastOne,
-            this.deleteAll});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(1123, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // deleteAll
-            // 
-            this.deleteAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.deleteAll.Image = ((System.Drawing.Image)(resources.GetObject("deleteAll.Image")));
-            this.deleteAll.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deleteAll.Name = "deleteAll";
-            this.deleteAll.Size = new System.Drawing.Size(23, 22);
-            this.deleteAll.Text = "toolStripButton2";
-            // 
             // insert
             // 
             this.insert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -440,17 +382,196 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(374, 97);
+            this.label1.Location = new System.Drawing.Point(333, 97);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 23);
             this.label1.TabIndex = 12;
             this.label1.Text = "Фигуры";
+            // 
+            // circle
+            // 
+            this.circle.BackColor = System.Drawing.Color.White;
+            this.circle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.circle.Image = ((System.Drawing.Image)(resources.GetObject("circle.Image")));
+            this.circle.Location = new System.Drawing.Point(282, 28);
+            this.circle.Name = "circle";
+            this.circle.Size = new System.Drawing.Size(49, 29);
+            this.circle.TabIndex = 13;
+            this.circle.UseVisualStyleBackColor = false;
+            // 
+            // oval
+            // 
+            this.oval.BackColor = System.Drawing.Color.White;
+            this.oval.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.oval.Image = ((System.Drawing.Image)(resources.GetObject("oval.Image")));
+            this.oval.Location = new System.Drawing.Point(337, 28);
+            this.oval.Name = "oval";
+            this.oval.Size = new System.Drawing.Size(49, 29);
+            this.oval.TabIndex = 14;
+            this.oval.UseVisualStyleBackColor = false;
+            // 
+            // square
+            // 
+            this.square.BackColor = System.Drawing.Color.White;
+            this.square.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.square.Image = ((System.Drawing.Image)(resources.GetObject("square.Image")));
+            this.square.Location = new System.Drawing.Point(282, 63);
+            this.square.Name = "square";
+            this.square.Size = new System.Drawing.Size(49, 29);
+            this.square.TabIndex = 15;
+            this.square.UseVisualStyleBackColor = false;
+            // 
+            // rectangle
+            // 
+            this.rectangle.BackColor = System.Drawing.Color.White;
+            this.rectangle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rectangle.Image = ((System.Drawing.Image)(resources.GetObject("rectangle.Image")));
+            this.rectangle.Location = new System.Drawing.Point(337, 63);
+            this.rectangle.Name = "rectangle";
+            this.rectangle.Size = new System.Drawing.Size(49, 29);
+            this.rectangle.TabIndex = 16;
+            this.rectangle.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(392, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(49, 29);
+            this.button1.TabIndex = 17;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(392, 63);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(49, 29);
+            this.button2.TabIndex = 18;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // file
+            // 
+            this.file.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.file.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createNew,
+            this.open,
+            this.save});
+            this.file.Image = ((System.Drawing.Image)(resources.GetObject("file.Image")));
+            this.file.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.file.Name = "file";
+            this.file.Size = new System.Drawing.Size(49, 22);
+            this.file.Text = "Файл";
+            // 
+            // createNew
+            // 
+            this.createNew.Image = ((System.Drawing.Image)(resources.GetObject("createNew.Image")));
+            this.createNew.Name = "createNew";
+            this.createNew.Size = new System.Drawing.Size(133, 22);
+            this.createNew.Text = "Создать";
+            // 
+            // open
+            // 
+            this.open.Image = ((System.Drawing.Image)(resources.GetObject("open.Image")));
+            this.open.Name = "open";
+            this.open.Size = new System.Drawing.Size(133, 22);
+            this.open.Text = "Открыть";
+            // 
+            // save
+            // 
+            this.save.Image = ((System.Drawing.Image)(resources.GetObject("save.Image")));
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(133, 22);
+            this.save.Text = "Сохранить";
+            // 
+            // deleteTheLastOne
+            // 
+            this.deleteTheLastOne.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteTheLastOne.Image = ((System.Drawing.Image)(resources.GetObject("deleteTheLastOne.Image")));
+            this.deleteTheLastOne.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteTheLastOne.Name = "deleteTheLastOne";
+            this.deleteTheLastOne.Size = new System.Drawing.Size(23, 22);
+            this.deleteTheLastOne.Text = "toolStripButton1";
+            // 
+            // deleteAll
+            // 
+            this.deleteAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteAll.Image = ((System.Drawing.Image)(resources.GetObject("deleteAll.Image")));
+            this.deleteAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteAll.Name = "deleteAll";
+            this.deleteAll.Size = new System.Drawing.Size(23, 22);
+            this.deleteAll.Text = "toolStripButton2";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.file,
+            this.deleteTheLastOne,
+            this.deleteAll});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip1.Size = new System.Drawing.Size(1123, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button3.Location = new System.Drawing.Point(554, 28);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(90, 96);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "Толщина";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Location = new System.Drawing.Point(650, 28);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(363, 96);
+            this.panel1.TabIndex = 20;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button4.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button4.Location = new System.Drawing.Point(1019, 29);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(104, 96);
+            this.button4.TabIndex = 21;
+            this.button4.Text = " Цвет";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1123, 685);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.rectangle);
+            this.Controls.Add(this.square);
+            this.Controls.Add(this.oval);
+            this.Controls.Add(this.circle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.brushes);
@@ -473,9 +594,9 @@
             this.tabPage1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -500,13 +621,6 @@
         private System.Windows.Forms.RadioButton Pixel_5;
         private System.Windows.Forms.RadioButton Pixel_3;
         private System.Windows.Forms.RadioButton Pixel_1;
-        private System.Windows.Forms.ToolStripDropDownButton file;
-        private System.Windows.Forms.ToolStripMenuItem createNew;
-        private System.Windows.Forms.ToolStripMenuItem open;
-        private System.Windows.Forms.ToolStripMenuItem save;
-        private System.Windows.Forms.ToolStripButton deleteTheLastOne;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton deleteAll;
         private System.Windows.Forms.Button insert;
         private System.Windows.Forms.Button choosePen;
         private System.Windows.Forms.Button chooseEraser;
@@ -516,6 +630,22 @@
         private System.Windows.Forms.Button brushes;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button circle;
+        private System.Windows.Forms.Button oval;
+        private System.Windows.Forms.Button square;
+        private System.Windows.Forms.Button rectangle;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripDropDownButton file;
+        private System.Windows.Forms.ToolStripMenuItem createNew;
+        private System.Windows.Forms.ToolStripMenuItem open;
+        private System.Windows.Forms.ToolStripMenuItem save;
+        private System.Windows.Forms.ToolStripButton deleteTheLastOne;
+        private System.Windows.Forms.ToolStripButton deleteAll;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button4;
     }
 }
 
