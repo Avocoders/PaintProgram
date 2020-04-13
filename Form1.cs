@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 
 namespace WindowsFormsApp7
@@ -48,6 +49,7 @@ namespace WindowsFormsApp7
             {
                 isFirst = true;
             }
+            
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -66,7 +68,11 @@ namespace WindowsFormsApp7
             isFirst = false;
             color = Color.Black;
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+<<<<<<< HEAD
             brush = new Brush(pictureBox1.Width, pictureBox1.Height);
+=======
+            
+>>>>>>> Nas
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -144,7 +150,157 @@ namespace WindowsFormsApp7
             brush.ChangePaint(3);
         }
 
+<<<<<<< HEAD
        
+=======
+        private void DrawLine(int x, int y)
+        {
+            if ((lastX == x && lastY == y) || (lastX == 0 && lastY == 0) || (isFirst == true))
+            { lastY = y; lastX = x; Pain(x, y, color); }
+
+            if (lastX != x || lastY != y)
+            {
+
+            }
+            if (lastX != x && lastY == y)
+            {
+                double k = (y - lastY) / (x - lastX);
+                double b = lastY - k * lastX;
+                for (int i = lastX; i < x; i++)
+                {
+                    Pain(i, y, color);
+
+                }
+                for (int i = lastX; i > x; i--)
+                {
+                    Pain(i, y, color);
+
+                }
+                lastX = x;
+                lastY = y;
+            }
+            if (lastY != y && lastX == x)
+            {
+
+                for (int i = lastY; i < y; i++)
+                {
+                    Pain(x, i, color);
+                }
+                for (int i = lastY; i > y; i--)
+                {
+                    Pain(x, i, color);
+                }
+
+                lastX = x;
+                lastY = y;
+            }
+            if ((lastX != x && lastY != y) && (lastX != 0 && lastY != 0))
+            {
+                double dal = Math.Sqrt(Math.Pow(lastX - x, 2) + Math.Pow(lastY - y, 2));
+                //double dal = (y - lastY) / (x - lastX);
+                double xd = (x - lastX) / (dal / 1.5);
+                double yd = (y - lastY) / (dal / 1.5);
+                while (lastY != y && lastX != x)
+                {
+                    Pain(lastX, lastY, color);
+                    
+                    lastY = lastY + System.Convert.ToInt32(yd);
+                    lastX = lastX + System.Convert.ToInt32(xd);
+                }
+            }
+            
+
+        }
+        public Bitmap Pain(int x, int y, Color color)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (x - i > 0 && x + i < pictureBox1.Width && y - j > 0 && y + j < pictureBox1.Height)
+                    {
+                        q.SetPixel(x - i, y - j, color);
+                        q.SetPixel(x + i, y + j, color);
+                    }
+                        q.SetPixel(x, y, color);
+                }
+            }
+            return q;
+        }
+>>>>>>> Nas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
