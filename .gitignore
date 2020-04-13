@@ -1,4 +1,18 @@
-# My Ignore
-obj
-bin
-.vs
+
+.vs/WindowsFormsApp7/v16/Server/sqlite3/storage.ide-shm
+
+.vs/WindowsFormsApp7/v16/Server/sqlite3/storage.ide-wal
+
+.vs/WindowsFormsApp7/v16/.suo
+
+obj/Debug/WindowsFormsApp7.csproj.GenerateResource.cache
+
+obj/Debug/WindowsFormsApp7.csprojAssemblyReference.cache
+
+bin/
+
+packages/
+
+.vs/
+
+obj/

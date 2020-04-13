@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.создатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,8 +47,15 @@
             this.buttonRed = new System.Windows.Forms.RadioButton();
             this.buttonBlack = new System.Windows.Forms.RadioButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.Pixel_5 = new System.Windows.Forms.RadioButton();
+            this.Pixel_3 = new System.Windows.Forms.RadioButton();
+            this.Pixel_1 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -64,19 +70,6 @@
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSplitButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripSplitButton1
             // 
@@ -129,6 +122,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(13, 445);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -158,10 +152,9 @@
             // buttonYellow
             // 
             this.buttonYellow.AutoSize = true;
-            this.buttonYellow.Font = new System.Drawing.Font("Kristen ITC", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonYellow.Location = new System.Drawing.Point(189, 54);
             this.buttonYellow.Name = "buttonYellow";
-            this.buttonYellow.Size = new System.Drawing.Size(64, 21);
+            this.buttonYellow.Size = new System.Drawing.Size(56, 17);
             this.buttonYellow.TabIndex = 8;
             this.buttonYellow.Text = "Yellow";
             this.buttonYellow.UseVisualStyleBackColor = true;
@@ -170,10 +163,9 @@
             // buttonPurple
             // 
             this.buttonPurple.AutoSize = true;
-            this.buttonPurple.Font = new System.Drawing.Font("Kristen ITC", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPurple.Location = new System.Drawing.Point(189, 31);
             this.buttonPurple.Name = "buttonPurple";
-            this.buttonPurple.Size = new System.Drawing.Size(64, 21);
+            this.buttonPurple.Size = new System.Drawing.Size(55, 17);
             this.buttonPurple.TabIndex = 7;
             this.buttonPurple.Text = "Purple";
             this.buttonPurple.UseVisualStyleBackColor = true;
@@ -182,10 +174,9 @@
             // buttonGreen
             // 
             this.buttonGreen.AutoSize = true;
-            this.buttonGreen.Font = new System.Drawing.Font("Kristen ITC", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGreen.Location = new System.Drawing.Point(189, 7);
             this.buttonGreen.Name = "buttonGreen";
-            this.buttonGreen.Size = new System.Drawing.Size(62, 21);
+            this.buttonGreen.Size = new System.Drawing.Size(54, 17);
             this.buttonGreen.TabIndex = 6;
             this.buttonGreen.Text = "Green";
             this.buttonGreen.UseVisualStyleBackColor = true;
@@ -194,10 +185,9 @@
             // buttonGrey
             // 
             this.buttonGrey.AutoSize = true;
-            this.buttonGrey.Font = new System.Drawing.Font("Kristen ITC", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGrey.Location = new System.Drawing.Point(98, 54);
             this.buttonGrey.Name = "buttonGrey";
-            this.buttonGrey.Size = new System.Drawing.Size(53, 21);
+            this.buttonGrey.Size = new System.Drawing.Size(47, 17);
             this.buttonGrey.TabIndex = 5;
             this.buttonGrey.Text = "Grey";
             this.buttonGrey.UseVisualStyleBackColor = true;
@@ -206,10 +196,9 @@
             // buttonWhite
             // 
             this.buttonWhite.AutoSize = true;
-            this.buttonWhite.Font = new System.Drawing.Font("Kristen ITC", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonWhite.Location = new System.Drawing.Point(98, 31);
             this.buttonWhite.Name = "buttonWhite";
-            this.buttonWhite.Size = new System.Drawing.Size(61, 21);
+            this.buttonWhite.Size = new System.Drawing.Size(53, 17);
             this.buttonWhite.TabIndex = 4;
             this.buttonWhite.Text = "White";
             this.buttonWhite.UseVisualStyleBackColor = true;
@@ -218,10 +207,9 @@
             // buttonOrange
             // 
             this.buttonOrange.AutoSize = true;
-            this.buttonOrange.Font = new System.Drawing.Font("Kristen ITC", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOrange.Location = new System.Drawing.Point(98, 7);
             this.buttonOrange.Name = "buttonOrange";
-            this.buttonOrange.Size = new System.Drawing.Size(69, 21);
+            this.buttonOrange.Size = new System.Drawing.Size(60, 17);
             this.buttonOrange.TabIndex = 3;
             this.buttonOrange.Text = "Orange";
             this.buttonOrange.UseVisualStyleBackColor = true;
@@ -230,10 +218,9 @@
             // buttonBlue
             // 
             this.buttonBlue.AutoSize = true;
-            this.buttonBlue.Font = new System.Drawing.Font("Kristen ITC", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBlue.Location = new System.Drawing.Point(7, 54);
             this.buttonBlue.Name = "buttonBlue";
-            this.buttonBlue.Size = new System.Drawing.Size(52, 21);
+            this.buttonBlue.Size = new System.Drawing.Size(46, 17);
             this.buttonBlue.TabIndex = 2;
             this.buttonBlue.Text = "Blue";
             this.buttonBlue.UseVisualStyleBackColor = true;
@@ -242,26 +229,21 @@
             // buttonRed
             // 
             this.buttonRed.AutoSize = true;
-            this.buttonRed.BackColor = System.Drawing.Color.Transparent;
-            this.buttonRed.Font = new System.Drawing.Font("Kristen ITC", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRed.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonRed.ImageKey = "(none)";
             this.buttonRed.Location = new System.Drawing.Point(7, 31);
             this.buttonRed.Name = "buttonRed";
-            this.buttonRed.Size = new System.Drawing.Size(50, 21);
+            this.buttonRed.Size = new System.Drawing.Size(45, 17);
             this.buttonRed.TabIndex = 1;
             this.buttonRed.Text = "Red";
-            this.buttonRed.UseVisualStyleBackColor = false;
+            this.buttonRed.UseVisualStyleBackColor = true;
             this.buttonRed.CheckedChanged += new System.EventHandler(this.buttonRed_CheckedChanged);
             // 
             // buttonBlack
             // 
             this.buttonBlack.AutoSize = true;
             this.buttonBlack.Checked = true;
-            this.buttonBlack.Font = new System.Drawing.Font("Kristen ITC", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBlack.Location = new System.Drawing.Point(7, 7);
             this.buttonBlack.Name = "buttonBlack";
-            this.buttonBlack.Size = new System.Drawing.Size(58, 21);
+            this.buttonBlack.Size = new System.Drawing.Size(52, 17);
             this.buttonBlack.TabIndex = 0;
             this.buttonBlack.TabStop = true;
             this.buttonBlack.Text = "Black";
@@ -278,11 +260,60 @@
             this.tabPage2.Text = "Figure";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.Pixel_5);
+            this.tabPage3.Controls.Add(this.Pixel_3);
+            this.tabPage3.Controls.Add(this.Pixel_1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(767, 82);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Pain";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // Pixel_5
+            // 
+            this.Pixel_5.AutoSize = true;
+            this.Pixel_5.Location = new System.Drawing.Point(6, 52);
+            this.Pixel_5.Name = "Pixel_5";
+            this.Pixel_5.Size = new System.Drawing.Size(56, 17);
+            this.Pixel_5.TabIndex = 2;
+            this.Pixel_5.Text = "5 Pixel";
+            this.Pixel_5.UseVisualStyleBackColor = true;
+            this.Pixel_5.CheckedChanged += new System.EventHandler(this.Pixel_5_CheckedChanged);
+            // 
+            // Pixel_3
+            // 
+            this.Pixel_3.AutoSize = true;
+            this.Pixel_3.Location = new System.Drawing.Point(6, 29);
+            this.Pixel_3.Name = "Pixel_3";
+            this.Pixel_3.Size = new System.Drawing.Size(56, 17);
+            this.Pixel_3.TabIndex = 1;
+            this.Pixel_3.Text = "3 Pixel";
+            this.Pixel_3.UseVisualStyleBackColor = true;
+            this.Pixel_3.CheckedChanged += new System.EventHandler(this.Pixel_3_CheckedChanged);
+            // 
+            // Pixel_1
+            // 
+            this.Pixel_1.AutoSize = true;
+            this.Pixel_1.Checked = true;
+            this.Pixel_1.Location = new System.Drawing.Point(6, 6);
+            this.Pixel_1.Name = "Pixel_1";
+            this.Pixel_1.Size = new System.Drawing.Size(56, 17);
+            this.Pixel_1.TabIndex = 0;
+            this.Pixel_1.TabStop = true;
+            this.Pixel_1.Text = "1 Pixel";
+            this.Pixel_1.UseVisualStyleBackColor = true;
+            this.Pixel_1.CheckedChanged += new System.EventHandler(this.Pixel_1_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 565);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -292,6 +323,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,11 +336,27 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton1;
         private System.Windows.Forms.ToolStripMenuItem создатьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.RadioButton buttonYellow;
+        private System.Windows.Forms.RadioButton buttonPurple;
+        private System.Windows.Forms.RadioButton buttonGreen;
+        private System.Windows.Forms.RadioButton buttonGrey;
+        private System.Windows.Forms.RadioButton buttonWhite;
+        private System.Windows.Forms.RadioButton buttonOrange;
+        private System.Windows.Forms.RadioButton buttonBlue;
+        private System.Windows.Forms.RadioButton buttonRed;
+        private System.Windows.Forms.RadioButton buttonBlack;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.RadioButton Pixel_5;
+        private System.Windows.Forms.RadioButton Pixel_3;
+        private System.Windows.Forms.RadioButton Pixel_1;
     }
 }
 
