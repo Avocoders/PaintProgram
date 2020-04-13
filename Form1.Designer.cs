@@ -37,20 +37,25 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.buttonBlack = new System.Windows.Forms.RadioButton();
-            this.buttonRed = new System.Windows.Forms.RadioButton();
-            this.buttonBlue = new System.Windows.Forms.RadioButton();
-            this.buttonOrange = new System.Windows.Forms.RadioButton();
-            this.buttonWhite = new System.Windows.Forms.RadioButton();
-            this.buttonGrey = new System.Windows.Forms.RadioButton();
-            this.buttonGreen = new System.Windows.Forms.RadioButton();
-            this.buttonPurple = new System.Windows.Forms.RadioButton();
             this.buttonYellow = new System.Windows.Forms.RadioButton();
+            this.buttonPurple = new System.Windows.Forms.RadioButton();
+            this.buttonGreen = new System.Windows.Forms.RadioButton();
+            this.buttonGrey = new System.Windows.Forms.RadioButton();
+            this.buttonWhite = new System.Windows.Forms.RadioButton();
+            this.buttonOrange = new System.Windows.Forms.RadioButton();
+            this.buttonBlue = new System.Windows.Forms.RadioButton();
+            this.buttonRed = new System.Windows.Forms.RadioButton();
+            this.buttonBlack = new System.Windows.Forms.RadioButton();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.Pixel_5 = new System.Windows.Forms.RadioButton();
+            this.Pixel_3 = new System.Windows.Forms.RadioButton();
+            this.Pixel_1 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -117,6 +122,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(13, 445);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -143,15 +149,93 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tabPage1_MouseClick);
             // 
-            // tabPage2
+            // buttonYellow
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(767, 82);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Figure";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.buttonYellow.AutoSize = true;
+            this.buttonYellow.Location = new System.Drawing.Point(189, 54);
+            this.buttonYellow.Name = "buttonYellow";
+            this.buttonYellow.Size = new System.Drawing.Size(56, 17);
+            this.buttonYellow.TabIndex = 8;
+            this.buttonYellow.Text = "Yellow";
+            this.buttonYellow.UseVisualStyleBackColor = true;
+            this.buttonYellow.CheckedChanged += new System.EventHandler(this.buttonYellow_CheckedChanged);
+            // 
+            // buttonPurple
+            // 
+            this.buttonPurple.AutoSize = true;
+            this.buttonPurple.Location = new System.Drawing.Point(189, 31);
+            this.buttonPurple.Name = "buttonPurple";
+            this.buttonPurple.Size = new System.Drawing.Size(55, 17);
+            this.buttonPurple.TabIndex = 7;
+            this.buttonPurple.Text = "Purple";
+            this.buttonPurple.UseVisualStyleBackColor = true;
+            this.buttonPurple.CheckedChanged += new System.EventHandler(this.buttonPurple_CheckedChanged);
+            // 
+            // buttonGreen
+            // 
+            this.buttonGreen.AutoSize = true;
+            this.buttonGreen.Location = new System.Drawing.Point(189, 7);
+            this.buttonGreen.Name = "buttonGreen";
+            this.buttonGreen.Size = new System.Drawing.Size(54, 17);
+            this.buttonGreen.TabIndex = 6;
+            this.buttonGreen.Text = "Green";
+            this.buttonGreen.UseVisualStyleBackColor = true;
+            this.buttonGreen.CheckedChanged += new System.EventHandler(this.buttonGreen_CheckedChanged);
+            // 
+            // buttonGrey
+            // 
+            this.buttonGrey.AutoSize = true;
+            this.buttonGrey.Location = new System.Drawing.Point(98, 54);
+            this.buttonGrey.Name = "buttonGrey";
+            this.buttonGrey.Size = new System.Drawing.Size(47, 17);
+            this.buttonGrey.TabIndex = 5;
+            this.buttonGrey.Text = "Grey";
+            this.buttonGrey.UseVisualStyleBackColor = true;
+            this.buttonGrey.CheckedChanged += new System.EventHandler(this.buttonGrey_CheckedChanged);
+            // 
+            // buttonWhite
+            // 
+            this.buttonWhite.AutoSize = true;
+            this.buttonWhite.Location = new System.Drawing.Point(98, 31);
+            this.buttonWhite.Name = "buttonWhite";
+            this.buttonWhite.Size = new System.Drawing.Size(53, 17);
+            this.buttonWhite.TabIndex = 4;
+            this.buttonWhite.Text = "White";
+            this.buttonWhite.UseVisualStyleBackColor = true;
+            this.buttonWhite.CheckedChanged += new System.EventHandler(this.buttonWhite_CheckedChanged);
+            // 
+            // buttonOrange
+            // 
+            this.buttonOrange.AutoSize = true;
+            this.buttonOrange.Location = new System.Drawing.Point(98, 7);
+            this.buttonOrange.Name = "buttonOrange";
+            this.buttonOrange.Size = new System.Drawing.Size(60, 17);
+            this.buttonOrange.TabIndex = 3;
+            this.buttonOrange.Text = "Orange";
+            this.buttonOrange.UseVisualStyleBackColor = true;
+            this.buttonOrange.CheckedChanged += new System.EventHandler(this.buttonOrange_CheckedChanged);
+            // 
+            // buttonBlue
+            // 
+            this.buttonBlue.AutoSize = true;
+            this.buttonBlue.Location = new System.Drawing.Point(7, 54);
+            this.buttonBlue.Name = "buttonBlue";
+            this.buttonBlue.Size = new System.Drawing.Size(46, 17);
+            this.buttonBlue.TabIndex = 2;
+            this.buttonBlue.Text = "Blue";
+            this.buttonBlue.UseVisualStyleBackColor = true;
+            this.buttonBlue.CheckedChanged += new System.EventHandler(this.buttonBlue_CheckedChanged);
+            // 
+            // buttonRed
+            // 
+            this.buttonRed.AutoSize = true;
+            this.buttonRed.Location = new System.Drawing.Point(7, 31);
+            this.buttonRed.Name = "buttonRed";
+            this.buttonRed.Size = new System.Drawing.Size(45, 17);
+            this.buttonRed.TabIndex = 1;
+            this.buttonRed.Text = "Red";
+            this.buttonRed.UseVisualStyleBackColor = true;
+            this.buttonRed.CheckedChanged += new System.EventHandler(this.buttonRed_CheckedChanged);
             // 
             // buttonBlack
             // 
@@ -166,93 +250,63 @@
             this.buttonBlack.UseVisualStyleBackColor = true;
             this.buttonBlack.CheckedChanged += new System.EventHandler(this.buttonBlack_CheckedChanged);
             // 
-            // buttonRed
+            // tabPage2
             // 
-            this.buttonRed.AutoSize = true;
-            this.buttonRed.Location = new System.Drawing.Point(7, 31);
-            this.buttonRed.Name = "buttonRed";
-            this.buttonRed.Size = new System.Drawing.Size(45, 17);
-            this.buttonRed.TabIndex = 1;
-            this.buttonRed.Text = "Red";
-            this.buttonRed.UseVisualStyleBackColor = true;
-            this.buttonRed.CheckedChanged += new System.EventHandler(this.buttonRed_CheckedChanged);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(767, 82);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Figure";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // buttonBlue
+            // tabPage3
             // 
-            this.buttonBlue.AutoSize = true;
-            this.buttonBlue.Location = new System.Drawing.Point(7, 54);
-            this.buttonBlue.Name = "buttonBlue";
-            this.buttonBlue.Size = new System.Drawing.Size(46, 17);
-            this.buttonBlue.TabIndex = 2;
-            this.buttonBlue.Text = "Blue";
-            this.buttonBlue.UseVisualStyleBackColor = true;
-            this.buttonBlue.CheckedChanged += new System.EventHandler(this.buttonBlue_CheckedChanged);
+            this.tabPage3.Controls.Add(this.Pixel_5);
+            this.tabPage3.Controls.Add(this.Pixel_3);
+            this.tabPage3.Controls.Add(this.Pixel_1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(767, 82);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Pain";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // buttonOrange
+            // Pixel_5
             // 
-            this.buttonOrange.AutoSize = true;
-            this.buttonOrange.Location = new System.Drawing.Point(98, 7);
-            this.buttonOrange.Name = "buttonOrange";
-            this.buttonOrange.Size = new System.Drawing.Size(60, 17);
-            this.buttonOrange.TabIndex = 3;
-            this.buttonOrange.Text = "Orange";
-            this.buttonOrange.UseVisualStyleBackColor = true;
-            this.buttonOrange.CheckedChanged += new System.EventHandler(this.buttonOrange_CheckedChanged);
+            this.Pixel_5.AutoSize = true;
+            this.Pixel_5.Location = new System.Drawing.Point(6, 52);
+            this.Pixel_5.Name = "Pixel_5";
+            this.Pixel_5.Size = new System.Drawing.Size(56, 17);
+            this.Pixel_5.TabIndex = 2;
+            this.Pixel_5.Text = "5 Pixel";
+            this.Pixel_5.UseVisualStyleBackColor = true;
+            this.Pixel_5.CheckedChanged += new System.EventHandler(this.Pixel_5_CheckedChanged);
             // 
-            // buttonWhite
+            // Pixel_3
             // 
-            this.buttonWhite.AutoSize = true;
-            this.buttonWhite.Location = new System.Drawing.Point(98, 31);
-            this.buttonWhite.Name = "buttonWhite";
-            this.buttonWhite.Size = new System.Drawing.Size(53, 17);
-            this.buttonWhite.TabIndex = 4;
-            this.buttonWhite.Text = "White";
-            this.buttonWhite.UseVisualStyleBackColor = true;
-            this.buttonWhite.CheckedChanged += new System.EventHandler(this.buttonWhite_CheckedChanged);
+            this.Pixel_3.AutoSize = true;
+            this.Pixel_3.Location = new System.Drawing.Point(6, 29);
+            this.Pixel_3.Name = "Pixel_3";
+            this.Pixel_3.Size = new System.Drawing.Size(56, 17);
+            this.Pixel_3.TabIndex = 1;
+            this.Pixel_3.Text = "3 Pixel";
+            this.Pixel_3.UseVisualStyleBackColor = true;
+            this.Pixel_3.CheckedChanged += new System.EventHandler(this.Pixel_3_CheckedChanged);
             // 
-            // buttonGrey
+            // Pixel_1
             // 
-            this.buttonGrey.AutoSize = true;
-            this.buttonGrey.Location = new System.Drawing.Point(98, 54);
-            this.buttonGrey.Name = "buttonGrey";
-            this.buttonGrey.Size = new System.Drawing.Size(47, 17);
-            this.buttonGrey.TabIndex = 5;
-            this.buttonGrey.Text = "Grey";
-            this.buttonGrey.UseVisualStyleBackColor = true;
-            this.buttonGrey.CheckedChanged += new System.EventHandler(this.buttonGrey_CheckedChanged);
-            // 
-            // buttonGreen
-            // 
-            this.buttonGreen.AutoSize = true;
-            this.buttonGreen.Location = new System.Drawing.Point(189, 7);
-            this.buttonGreen.Name = "buttonGreen";
-            this.buttonGreen.Size = new System.Drawing.Size(54, 17);
-            this.buttonGreen.TabIndex = 6;
-            this.buttonGreen.Text = "Green";
-            this.buttonGreen.UseVisualStyleBackColor = true;
-            this.buttonGreen.CheckedChanged += new System.EventHandler(this.buttonGreen_CheckedChanged);
-            // 
-            // buttonPurple
-            // 
-            this.buttonPurple.AutoSize = true;
-            this.buttonPurple.Location = new System.Drawing.Point(189, 31);
-            this.buttonPurple.Name = "buttonPurple";
-            this.buttonPurple.Size = new System.Drawing.Size(55, 17);
-            this.buttonPurple.TabIndex = 7;
-            this.buttonPurple.Text = "Purple";
-            this.buttonPurple.UseVisualStyleBackColor = true;
-            this.buttonPurple.CheckedChanged += new System.EventHandler(this.buttonPurple_CheckedChanged);
-            // 
-            // buttonYellow
-            // 
-            this.buttonYellow.AutoSize = true;
-            this.buttonYellow.Location = new System.Drawing.Point(189, 54);
-            this.buttonYellow.Name = "buttonYellow";
-            this.buttonYellow.Size = new System.Drawing.Size(56, 17);
-            this.buttonYellow.TabIndex = 8;
-            this.buttonYellow.Text = "Yellow";
-            this.buttonYellow.UseVisualStyleBackColor = true;
-            this.buttonYellow.CheckedChanged += new System.EventHandler(this.buttonYellow_CheckedChanged);
+            this.Pixel_1.AutoSize = true;
+            this.Pixel_1.Checked = true;
+            this.Pixel_1.Location = new System.Drawing.Point(6, 6);
+            this.Pixel_1.Name = "Pixel_1";
+            this.Pixel_1.Size = new System.Drawing.Size(56, 17);
+            this.Pixel_1.TabIndex = 0;
+            this.Pixel_1.TabStop = true;
+            this.Pixel_1.Text = "1 Pixel";
+            this.Pixel_1.UseVisualStyleBackColor = true;
+            this.Pixel_1.CheckedChanged += new System.EventHandler(this.Pixel_1_CheckedChanged);
             // 
             // Form1
             // 
@@ -272,6 +326,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,6 +353,10 @@
         private System.Windows.Forms.RadioButton buttonRed;
         private System.Windows.Forms.RadioButton buttonBlack;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.RadioButton Pixel_5;
+        private System.Windows.Forms.RadioButton Pixel_3;
+        private System.Windows.Forms.RadioButton Pixel_1;
     }
 }
 
