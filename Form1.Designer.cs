@@ -48,9 +48,9 @@
             this.buttonBlack = new System.Windows.Forms.RadioButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.Pixel_1 = new System.Windows.Forms.RadioButton();
-            this.Pixel_3 = new System.Windows.Forms.RadioButton();
             this.Pixel_5 = new System.Windows.Forms.RadioButton();
+            this.Pixel_3 = new System.Windows.Forms.RadioButton();
+            this.Pixel_1 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -273,17 +273,16 @@
             this.tabPage3.Text = "Pain";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // Pixel_1
+            // Pixel_5
             // 
-            this.Pixel_1.AutoSize = true;
-            this.Pixel_1.Location = new System.Drawing.Point(6, 6);
-            this.Pixel_1.Name = "Pixel_1";
-            this.Pixel_1.Size = new System.Drawing.Size(56, 17);
-            this.Pixel_1.TabIndex = 0;
-            this.Pixel_1.TabStop = true;
-            this.Pixel_1.Text = "1 Pixel";
-            this.Pixel_1.UseVisualStyleBackColor = true;
-            this.Pixel_1.CheckedChanged += new System.EventHandler(this.Pixel_1_CheckedChanged);
+            this.Pixel_5.AutoSize = true;
+            this.Pixel_5.Location = new System.Drawing.Point(6, 52);
+            this.Pixel_5.Name = "Pixel_5";
+            this.Pixel_5.Size = new System.Drawing.Size(56, 17);
+            this.Pixel_5.TabIndex = 2;
+            this.Pixel_5.Text = "5 Pixel";
+            this.Pixel_5.UseVisualStyleBackColor = true;
+            this.Pixel_5.CheckedChanged += new System.EventHandler(this.Pixel_5_CheckedChanged);
             // 
             // Pixel_3
             // 
@@ -292,22 +291,22 @@
             this.Pixel_3.Name = "Pixel_3";
             this.Pixel_3.Size = new System.Drawing.Size(56, 17);
             this.Pixel_3.TabIndex = 1;
-            this.Pixel_3.TabStop = true;
             this.Pixel_3.Text = "3 Pixel";
             this.Pixel_3.UseVisualStyleBackColor = true;
             this.Pixel_3.CheckedChanged += new System.EventHandler(this.Pixel_3_CheckedChanged);
             // 
-            // Pixel_5
+            // Pixel_1
             // 
-            this.Pixel_5.AutoSize = true;
-            this.Pixel_5.Location = new System.Drawing.Point(6, 52);
-            this.Pixel_5.Name = "Pixel_5";
-            this.Pixel_5.Size = new System.Drawing.Size(56, 17);
-            this.Pixel_5.TabIndex = 2;
-            this.Pixel_5.TabStop = true;
-            this.Pixel_5.Text = "5 Pixel";
-            this.Pixel_5.UseVisualStyleBackColor = true;
-            this.Pixel_5.CheckedChanged += new System.EventHandler(this.Pixel_5_CheckedChanged);
+            this.Pixel_1.AutoSize = true;
+            this.Pixel_1.Checked = true;
+            this.Pixel_1.Location = new System.Drawing.Point(6, 6);
+            this.Pixel_1.Name = "Pixel_1";
+            this.Pixel_1.Size = new System.Drawing.Size(56, 17);
+            this.Pixel_1.TabIndex = 0;
+            this.Pixel_1.TabStop = true;
+            this.Pixel_1.Text = "1 Pixel";
+            this.Pixel_1.UseVisualStyleBackColor = true;
+            this.Pixel_1.CheckedChanged += new System.EventHandler(this.Pixel_1_CheckedChanged);
             // 
             // Form1
             // 
