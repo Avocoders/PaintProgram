@@ -17,6 +17,7 @@ namespace WindowsFormsApp7
         int n = 1;
         
          Color color;
+        Brush brush;
         bool isDrow,isFirst;
         int lastX, lastY;
         public Form1()
@@ -33,9 +34,15 @@ namespace WindowsFormsApp7
         {
             if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
             {
-                DrawLine(e.X, e.Y);
+                //DrawLine(e.X, e.Y);
+                brush.SetBitmap(q);
+                brush.SetIsFirst(isFirst);
+                brush.DrawLine(lastX,lastY,e.X, e.Y);
+                q = brush.GetBitmap();
                 pictureBox1.Image = q;
-                isFirst = false; 
+                isFirst = false;
+                lastX = e.X;
+                lastY = e.Y;
             }
             if ( e.X < 0 || e.X >pictureBox1.Width || e.Y  < 0 || e.Y > pictureBox1.Height)
             {
@@ -49,7 +56,7 @@ namespace WindowsFormsApp7
             lastY = e.Y;
             isDrow = true;
             isFirst = true;
-        }
+        }     
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -59,6 +66,7 @@ namespace WindowsFormsApp7
             isFirst = false;
             color = Color.Black;
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            brush = new Brush(pictureBox1.Width, pictureBox1.Height);
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -75,158 +83,68 @@ namespace WindowsFormsApp7
         private void buttonBlue_CheckedChanged(object sender, EventArgs e)
         {
             color = Color.Blue;
+            brush.SetColor(color);
         }
 
         private void buttonBlack_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.Black;
+            color = Color.Black; brush.SetColor(color);
         }
 
         private void buttonRed_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.Red;
+            color = Color.Red; brush.SetColor(color);
         }
 
         private void buttonOrange_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.Orange;
+            color = Color.Orange; brush.SetColor(color);
         }
 
         private void buttonWhite_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.White;
+            color = Color.White; brush.SetColor(color);
         }
 
         private void buttonGrey_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.Gray;
+            color = Color.Gray; brush.SetColor(color);
         }
 
         private void buttonGreen_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.Green;
+            color = Color.Green; brush.SetColor(color);
         }
 
         private void buttonPurple_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.Purple;
+            color = Color.Purple; brush.SetColor(color);
         }
 
         private void buttonYellow_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.Yellow;
+            color = Color.Yellow; brush.SetColor(color);
         }
 
         private void Pixel_1_CheckedChanged(object sender, EventArgs e)
         {
             n = 1;
+            brush.ChangePaint(1);
         }
 
         private void Pixel_3_CheckedChanged(object sender, EventArgs e)
         {
             n = 2;
+            brush.ChangePaint(2);
         }
 
         private void Pixel_5_CheckedChanged(object sender, EventArgs e)
         {
             n = 3;
+            brush.ChangePaint(3);
         }
 
-        private void DrawLine(int x, int y)
-        {
-            
-
-            if (lastX == x && lastY == y||isFirst==true)
-            {
-                Pain(x, y, color);
-                pictureBox1.Image = q;
-                lastX = x;
-                lastY = y;
-            }
-
-            while ((lastX != x || lastY != y) /*&& (radioButton1.Checked == false)*/)
-            {
-                if (lastX < x && lastY > y) //1   
-                {
-                    Pain(lastX + 1, lastY - 1, color);
-                    
-                    lastX = lastX + 1;
-                    lastY = lastY - 1;
-                }
-
-                if (lastX > x && lastY < y)//2
-                {
-                    Pain(lastX - 1, lastY + 1, color);
-
-                    lastX = lastX - 1;
-                    lastY = lastY + 1;
-                }
-
-                if (lastX == x && lastY <= y) //3
-                {
-                    Pain(lastX, lastY + 1, color);
-
-                    lastY = lastY + 1;
-
-                }
-
-                if (lastX < x && lastY == y) //4
-                {
-                    Pain(lastX + 1, lastY, color);
-
-                    lastX = lastX + 1;
-                }
-
-                if (lastX > x && lastY > y) //5
-                {
-                    Pain(lastX - 1, lastY - 1, color);
-
-                    lastX = lastX - 1;
-                    lastY = lastY - 1;
-                }
-
-                if (lastX < x && lastY < y) //6
-                {
-                    Pain(lastX + 1, lastY + 1, color);
-
-                    lastX = lastX + 1;
-                    lastY = lastY + 1;
-                }
-
-                if (lastX == x && lastY > y) //7
-                {
-                    Pain(lastX, lastY - 1, color);
-
-                    lastY = lastY - 1;
-                }
-
-                if (lastX > x && lastY == y) //8
-                {
-                    Pain(lastX - 1, lastY, color);
-
-                    lastX = lastX - 1;
-                }
-            }
-            lastX = x;
-            lastY = y;
-
-        }
-        public Bitmap Pain(int x, int y, Color color)
-        {
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    if (x - i > 0 && x + i < pictureBox1.Width && y - j > 0 && y + j < pictureBox1.Height)
-                    {
-                        q.SetPixel(x - i, y - j, color);
-                        q.SetPixel(x + i, y + j, color);
-                    }
-                        q.SetPixel(x, y, color);
-                }
-            }
-            return q;
-        }
+       
 
 
     }
