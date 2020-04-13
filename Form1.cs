@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp7.Interface;
+
 
 namespace WindowsFormsApp7
 {
     public partial class Form1 : Form
     {   
         Bitmap q;
-        IFigure figure;
+        
          Color color;
         bool isDrow,isFirst;
         int lastX, lastY;
