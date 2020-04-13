@@ -30,11 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.создатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonYellow = new System.Windows.Forms.RadioButton();
@@ -51,79 +46,46 @@
             this.Pixel_5 = new System.Windows.Forms.RadioButton();
             this.Pixel_3 = new System.Windows.Forms.RadioButton();
             this.Pixel_1 = new System.Windows.Forms.RadioButton();
+            this.file = new System.Windows.Forms.ToolStripDropDownButton();
+            this.createNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.open = new System.Windows.Forms.ToolStripMenuItem();
+            this.save = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteTheLastOne = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.deleteAll = new System.Windows.Forms.ToolStripButton();
+            this.insert = new System.Windows.Forms.Button();
+            this.choosePen = new System.Windows.Forms.Button();
+            this.chooseEraser = new System.Windows.Forms.Button();
+            this.chooseFill = new System.Windows.Forms.Button();
+            this.choosePipette = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 51);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 130);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(776, 387);
+            this.pictureBox1.Size = new System.Drawing.Size(1123, 391);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.создатьToolStripMenuItem,
-            this.открытьToolStripMenuItem,
-            this.сохранитьToolStripMenuItem});
-            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(49, 22);
-            this.toolStripSplitButton1.Text = "Файл";
-            // 
-            // создатьToolStripMenuItem
-            // 
-            this.создатьToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("создатьToolStripMenuItem.Image")));
-            this.создатьToolStripMenuItem.Name = "создатьToolStripMenuItem";
-            this.создатьToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.создатьToolStripMenuItem.Text = "Создать";
-            // 
-            // открытьToolStripMenuItem
-            // 
-            this.открытьToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("открытьToolStripMenuItem.Image")));
-            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.открытьToolStripMenuItem.Text = "Открыть";
-            // 
-            // сохранитьToolStripMenuItem
-            // 
-            this.сохранитьToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("сохранитьToolStripMenuItem.Image")));
-            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.сохранитьToolStripMenuItem.Text = "Сохранить";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSplitButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(13, 445);
+            this.tabControl1.Location = new System.Drawing.Point(12, 527);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(775, 108);
@@ -308,11 +270,156 @@
             this.Pixel_1.UseVisualStyleBackColor = true;
             this.Pixel_1.CheckedChanged += new System.EventHandler(this.Pixel_1_CheckedChanged);
             // 
+            // file
+            // 
+            this.file.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.file.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createNew,
+            this.open,
+            this.save});
+            this.file.Image = ((System.Drawing.Image)(resources.GetObject("file.Image")));
+            this.file.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.file.Name = "file";
+            this.file.Size = new System.Drawing.Size(49, 22);
+            this.file.Text = "Файл";
+            // 
+            // createNew
+            // 
+            this.createNew.Image = ((System.Drawing.Image)(resources.GetObject("createNew.Image")));
+            this.createNew.Name = "createNew";
+            this.createNew.Size = new System.Drawing.Size(180, 22);
+            this.createNew.Text = "Создать";
+            // 
+            // open
+            // 
+            this.open.Image = ((System.Drawing.Image)(resources.GetObject("open.Image")));
+            this.open.Name = "open";
+            this.open.Size = new System.Drawing.Size(180, 22);
+            this.open.Text = "Открыть";
+            // 
+            // save
+            // 
+            this.save.Image = ((System.Drawing.Image)(resources.GetObject("save.Image")));
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(180, 22);
+            this.save.Text = "Сохранить";
+            // 
+            // deleteTheLastOne
+            // 
+            this.deleteTheLastOne.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteTheLastOne.Image = ((System.Drawing.Image)(resources.GetObject("deleteTheLastOne.Image")));
+            this.deleteTheLastOne.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteTheLastOne.Name = "deleteTheLastOne";
+            this.deleteTheLastOne.Size = new System.Drawing.Size(23, 22);
+            this.deleteTheLastOne.Text = "toolStripButton1";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.file,
+            this.deleteTheLastOne,
+            this.deleteAll});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip1.Size = new System.Drawing.Size(1123, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // deleteAll
+            // 
+            this.deleteAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteAll.Image = ((System.Drawing.Image)(resources.GetObject("deleteAll.Image")));
+            this.deleteAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteAll.Name = "deleteAll";
+            this.deleteAll.Size = new System.Drawing.Size(23, 22);
+            this.deleteAll.Text = "toolStripButton2";
+            // 
+            // insert
+            // 
+            this.insert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.insert.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.insert.FlatAppearance.BorderSize = 5;
+            this.insert.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.insert.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.insert.Image = ((System.Drawing.Image)(resources.GetObject("insert.Image")));
+            this.insert.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.insert.Location = new System.Drawing.Point(0, 28);
+            this.insert.Name = "insert";
+            this.insert.Size = new System.Drawing.Size(101, 96);
+            this.insert.TabIndex = 3;
+            this.insert.Text = "Вставить";
+            this.insert.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.insert.UseVisualStyleBackColor = false;
+            // 
+            // choosePen
+            // 
+            this.choosePen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.choosePen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.choosePen.Image = ((System.Drawing.Image)(resources.GetObject("choosePen.Image")));
+            this.choosePen.Location = new System.Drawing.Point(107, 28);
+            this.choosePen.Name = "choosePen";
+            this.choosePen.Size = new System.Drawing.Size(46, 46);
+            this.choosePen.TabIndex = 4;
+            this.choosePen.UseVisualStyleBackColor = false;
+            // 
+            // chooseEraser
+            // 
+            this.chooseEraser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.chooseEraser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.chooseEraser.Image = ((System.Drawing.Image)(resources.GetObject("chooseEraser.Image")));
+            this.chooseEraser.Location = new System.Drawing.Point(107, 78);
+            this.chooseEraser.Name = "chooseEraser";
+            this.chooseEraser.Size = new System.Drawing.Size(46, 46);
+            this.chooseEraser.TabIndex = 6;
+            this.chooseEraser.UseVisualStyleBackColor = false;
+            // 
+            // chooseFill
+            // 
+            this.chooseFill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.chooseFill.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.chooseFill.Image = ((System.Drawing.Image)(resources.GetObject("chooseFill.Image")));
+            this.chooseFill.Location = new System.Drawing.Point(159, 28);
+            this.chooseFill.Name = "chooseFill";
+            this.chooseFill.Size = new System.Drawing.Size(46, 46);
+            this.chooseFill.TabIndex = 7;
+            this.chooseFill.UseVisualStyleBackColor = false;
+            // 
+            // choosePipette
+            // 
+            this.choosePipette.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.choosePipette.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.choosePipette.Image = ((System.Drawing.Image)(resources.GetObject("choosePipette.Image")));
+            this.choosePipette.Location = new System.Drawing.Point(159, 78);
+            this.choosePipette.Name = "choosePipette";
+            this.choosePipette.Size = new System.Drawing.Size(46, 46);
+            this.choosePipette.TabIndex = 8;
+            this.choosePipette.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(211, 28);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(65, 71);
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 565);
+            this.ClientSize = new System.Drawing.Size(1123, 685);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.choosePipette);
+            this.Controls.Add(this.chooseFill);
+            this.Controls.Add(this.chooseEraser);
+            this.Controls.Add(this.choosePen);
+            this.Controls.Add(this.insert);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pictureBox1);
@@ -321,13 +428,14 @@
             this.Text = "TheBestPaint";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,11 +444,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton1;
-        private System.Windows.Forms.ToolStripMenuItem создатьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.RadioButton buttonYellow;
@@ -357,6 +460,19 @@
         private System.Windows.Forms.RadioButton Pixel_5;
         private System.Windows.Forms.RadioButton Pixel_3;
         private System.Windows.Forms.RadioButton Pixel_1;
+        private System.Windows.Forms.ToolStripDropDownButton file;
+        private System.Windows.Forms.ToolStripMenuItem createNew;
+        private System.Windows.Forms.ToolStripMenuItem open;
+        private System.Windows.Forms.ToolStripMenuItem save;
+        private System.Windows.Forms.ToolStripButton deleteTheLastOne;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton deleteAll;
+        private System.Windows.Forms.Button insert;
+        private System.Windows.Forms.Button choosePen;
+        private System.Windows.Forms.Button chooseEraser;
+        private System.Windows.Forms.Button chooseFill;
+        private System.Windows.Forms.Button choosePipette;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

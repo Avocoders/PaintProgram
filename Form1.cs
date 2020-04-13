@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 
 namespace WindowsFormsApp7
@@ -41,6 +42,7 @@ namespace WindowsFormsApp7
             {
                 isFirst = true;
             }
+            
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -59,6 +61,7 @@ namespace WindowsFormsApp7
             isFirst = false;
             color = Color.Black;
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -136,6 +139,11 @@ namespace WindowsFormsApp7
         {
             if ((lastX == x && lastY == y) || (lastX == 0 && lastY == 0) || (isFirst == true))
             { lastY = y; lastX = x; Pain(x, y, color); }
+
+            if (lastX != x || lastY != y)
+            {
+
+            }
             if (lastX != x && lastY == y)
             {
                 double k = (y - lastY) / (x - lastX);
@@ -182,7 +190,8 @@ namespace WindowsFormsApp7
                     lastX = lastX + System.Convert.ToInt32(xd);
                 }
             }
-          
+            
+
         }
         public Bitmap Pain(int x, int y, Color color)
         {
