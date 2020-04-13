@@ -14,6 +14,7 @@ namespace WindowsFormsApp7
     public partial class Form1 : Form
     {   
         Bitmap q;
+        int n = 0;
         
          Color color;
         bool isDrow,isFirst;
@@ -112,22 +113,38 @@ namespace WindowsFormsApp7
         {
             color = Color.Yellow;
         }
+
+        private void Pixel_1_CheckedChanged(object sender, EventArgs e)
+        {
+            n = 1;
+        }
+
+        private void Pixel_3_CheckedChanged(object sender, EventArgs e)
+        {
+            n = 2;
+        }
+
+        private void Pixel_5_CheckedChanged(object sender, EventArgs e)
+        {
+            n = 3;
+        }
+
         private void DrawLine(int x, int y)
         {
             if ((lastX == x && lastY == y) || (lastX == 0 && lastY == 0) || (isFirst == true))
-            { lastY = y; lastX = x; q.SetPixel(x, y, color); }
+            { lastY = y; lastX = x; Pain(x, y, color); }
             if (lastX != x && lastY == y)
             {
                 double k = (y - lastY) / (x - lastX);
                 double b = lastY - k * lastX;
                 for (int i = lastX; i < x; i++)
                 {
-                    q.SetPixel(i, y, color);
+                    Pain(i, y, color);
 
                 }
                 for (int i = lastX; i > x; i--)
                 {
-                    q.SetPixel(i, y, color);
+                    Pain(i, y, color);
 
                 }
                 lastX = x;
@@ -138,11 +155,11 @@ namespace WindowsFormsApp7
 
                 for (int i = lastY; i < y; i++)
                 {
-                    q.SetPixel(x, i, color);
+                    Pain(x, i, color);
                 }
                 for (int i = lastY; i > y; i--)
                 {
-                    q.SetPixel(x, i, color);
+                    Pain(x, i, color);
                 }
 
                 lastX = x;
@@ -156,17 +173,28 @@ namespace WindowsFormsApp7
                 double yd = (y - lastY) / (dal / 1.5);
                 while (lastY != y && lastX != x)
                 {
-                    q.SetPixel(lastX, lastY, color);
+                    Pain(lastX, lastY, color);
                     
                     lastY = lastY + System.Convert.ToInt32(yd);
                     lastX = lastX + System.Convert.ToInt32(xd);
                 }
-
-
-
-
             }
-            
+          
         }
+        public Bitmap Pain(int x, int y, Color color)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    q.SetPixel(x - i, y - j, color);
+                    q.SetPixel(x, y, color);
+                    q.SetPixel(x + i, y + j, color);
+                }
+            }
+            return q;
+        }
+
+
     }
 }
