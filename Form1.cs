@@ -134,55 +134,82 @@ namespace WindowsFormsApp7
 
         private void DrawLine(int x, int y)
         {
-            if ((lastX == x && lastY == y) || (lastX == 0 && lastY == 0) || (isFirst == true))
-            { lastY = y; lastX = x; Pain(x, y, color); }
-            if (lastX != x && lastY == y)
+            
+
+            if (lastX == x && lastY == y||isFirst==true)
             {
-                double k = (y - lastY) / (x - lastX);
-                double b = lastY - k * lastX;
-                for (int i = lastX; i < x; i++)
-                {
-                    Pain(i, y, color);
-
-                }
-                for (int i = lastX; i > x; i--)
-                {
-                    Pain(i, y, color);
-
-                }
+                Pain(x, y, color);
+                pictureBox1.Image = q;
                 lastX = x;
                 lastY = y;
             }
-            if (lastY != y && lastX == x)
-            {
 
-                for (int i = lastY; i < y; i++)
-                {
-                    Pain(x, i, color);
-                }
-                for (int i = lastY; i > y; i--)
-                {
-                    Pain(x, i, color);
-                }
-
-                lastX = x;
-                lastY = y;
-            }
-            if ((lastX != x && lastY != y) && (lastX != 0 && lastY != 0))
+            while ((lastX != x || lastY != y) /*&& (radioButton1.Checked == false)*/)
             {
-                double dal = Math.Sqrt(Math.Pow(lastX - x, 2) + Math.Pow(lastY - y, 2));
-                //double dal = (y - lastY) / (x - lastX);
-                double xd = (x - lastX) / (dal / 1.5);
-                double yd = (y - lastY) / (dal / 1.5);
-                while (lastY != y && lastX != x)
+                if (lastX < x && lastY > y) //1   
                 {
-                    Pain(lastX, lastY, color);
+                    Pain(lastX + 1, lastY - 1, color);
                     
-                    lastY = lastY + System.Convert.ToInt32(yd);
-                    lastX = lastX + System.Convert.ToInt32(xd);
+                    lastX = lastX + 1;
+                    lastY = lastY - 1;
+                }
+
+                if (lastX > x && lastY < y)//2
+                {
+                    Pain(lastX - 1, lastY + 1, color);
+
+                    lastX = lastX - 1;
+                    lastY = lastY + 1;
+                }
+
+                if (lastX == x && lastY <= y) //3
+                {
+                    Pain(lastX, lastY + 1, color);
+
+                    lastY = lastY + 1;
+
+                }
+
+                if (lastX < x && lastY == y) //4
+                {
+                    Pain(lastX + 1, lastY, color);
+
+                    lastX = lastX + 1;
+                }
+
+                if (lastX > x && lastY > y) //5
+                {
+                    Pain(lastX - 1, lastY - 1, color);
+
+                    lastX = lastX - 1;
+                    lastY = lastY - 1;
+                }
+
+                if (lastX < x && lastY < y) //6
+                {
+                    Pain(lastX + 1, lastY + 1, color);
+
+                    lastX = lastX + 1;
+                    lastY = lastY + 1;
+                }
+
+                if (lastX == x && lastY > y) //7
+                {
+                    Pain(lastX, lastY - 1, color);
+
+                    lastY = lastY - 1;
+                }
+
+                if (lastX > x && lastY == y) //8
+                {
+                    Pain(lastX - 1, lastY, color);
+
+                    lastX = lastX - 1;
                 }
             }
-          
+            lastX = x;
+            lastY = y;
+
         }
         public Bitmap Pain(int x, int y, Color color)
         {
