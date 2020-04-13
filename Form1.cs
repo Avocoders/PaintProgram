@@ -14,7 +14,7 @@ namespace WindowsFormsApp7
     public partial class Form1 : Form
     {   
         Bitmap q;
-        int n = 0;
+        int n = 1;
         
          Color color;
         bool isDrow,isFirst;
@@ -35,8 +35,11 @@ namespace WindowsFormsApp7
             {
                 DrawLine(e.X, e.Y);
                 pictureBox1.Image = q;
-                isFirst = false;
-                
+                isFirst = false; 
+            }
+            if ( e.X < 0 || e.X >pictureBox1.Width || e.Y  < 0 || e.Y > pictureBox1.Height)
+            {
+                isFirst = true;
             }
         }
 
@@ -187,9 +190,12 @@ namespace WindowsFormsApp7
             {
                 for (int j = 0; j < n; j++)
                 {
-                    q.SetPixel(x - i, y - j, color);
-                    q.SetPixel(x, y, color);
-                    q.SetPixel(x + i, y + j, color);
+                    if (x - i > 0 && x + i < pictureBox1.Width && y - j > 0 && y + j < pictureBox1.Height)
+                    {
+                        q.SetPixel(x - i, y - j, color);
+                        q.SetPixel(x + i, y + j, color);
+                    }
+                        q.SetPixel(x, y, color);
                 }
             }
             return q;
