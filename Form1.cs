@@ -68,11 +68,9 @@ namespace WindowsFormsApp7
             isFirst = false;
             color = Color.Black;
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-<<<<<<< HEAD
-            brush = new Brush(pictureBox1.Width, pictureBox1.Height);
-=======
-            
->>>>>>> Nas
+
+            brush = new Brush(pictureBox1.Width, pictureBox1.Height);           
+
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -148,11 +146,8 @@ namespace WindowsFormsApp7
         {
             n = 3;
             brush.ChangePaint(3);
-        }
+        }       
 
-<<<<<<< HEAD
-       
-=======
         private void DrawLine(int x, int y)
         {
             if ((lastX == x && lastY == y) || (lastX == 0 && lastY == 0) || (isFirst == true))
@@ -227,7 +222,6 @@ namespace WindowsFormsApp7
             }
             return q;
         }
->>>>>>> Nas
 
 
 
