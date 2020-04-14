@@ -204,6 +204,11 @@ namespace WindowsFormsApp7
             pictureBox1.Image = q;
         }
 
+        private void deleteTheLastOne_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = bitmap3;
+        }
+
         private void chooseEraser_Click(object sender, EventArgs e)
         {
             tmp = 0;
