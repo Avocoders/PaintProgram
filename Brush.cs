@@ -52,8 +52,7 @@ namespace WindowsFormsApp7
                 lastX = x;
                 lastY = y;
             }
-
-            //double dal = Math.Sqrt(Math.Pow(lastX - x, 2) + Math.Pow(lastY - y, 2));            
+                        
             int xd = (x - lastX);
             int yd = (y - lastY);
             xd = Math.Abs(xd);
