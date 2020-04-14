@@ -13,13 +13,13 @@ namespace WindowsFormsApp7
         bool isFirst;
         int width, heigth;
         Bitmap q;
-        public Brush(int width,int heigth)
+        public Brush(int width, int heigth)
         {
             this.width = width;
             this.heigth = heigth;
         }
         Color color = Color.Black;
-        int n=1;
+        int n = 1;
         public void SetBitmap(Bitmap q)
         {
             this.q = q;
@@ -40,7 +40,7 @@ namespace WindowsFormsApp7
         {
             n = a;
         }
-        public void DrawLine(int lastX,int lastY,int x, int y)
+        public void DrawLine(int lastX, int lastY, int x, int y)
         {
 
 
@@ -51,9 +51,48 @@ namespace WindowsFormsApp7
                 lastY = y;
             }
 
-            while ((lastX != x || lastY != y) /*&& (radioButton1.Checked == false)*/)
+            while ((lastX != x || lastY != y))
             {
-                if (lastX < x && lastY > y) //1   
+                if (lastX == x && lastY < y)
+                {
+                    Pain(lastX, lastY + 1);
+
+                    lastY = lastY + 1;
+
+                }
+                if (lastX == x && lastY >= y)
+                {
+                    Pain(lastX, lastY - 1);
+
+                    lastY = lastY - 1;
+                }
+                if (lastX < x && lastY == y)
+                {
+                    Pain(lastX + 1, lastY);
+
+                    lastX = lastX + 1;
+                }
+                if (lastX > x && lastY == y)
+                {
+                    Pain(lastX - 1, lastY);
+
+                    lastX = lastX - 1;
+                }
+                if (lastX > x && lastY > y)
+                {
+                    Pain(lastX - 1, lastY - 1);
+
+                    lastX = lastX - 1;
+                    lastY = lastY - 1;
+                }
+                if (lastX < x && lastY < y)
+                {
+                    Pain(lastX + 1, lastY + 1);
+
+                    lastX = lastX + 1;
+                    lastY = lastY + 1;
+                }
+                if (lastX < x && lastY > y)
                 {
                     Pain(lastX + 1, lastY - 1);
 
@@ -61,65 +100,18 @@ namespace WindowsFormsApp7
                     lastY = lastY - 1;
                 }
 
-                if (lastX > x && lastY < y)//2
+                if (lastX > x && lastY < y)
                 {
                     Pain(lastX - 1, lastY + 1);
 
                     lastX = lastX - 1;
                     lastY = lastY + 1;
                 }
-
-                if (lastX == x && lastY <= y) //3
-                {
-                    Pain(lastX, lastY + 1);
-
-                    lastY = lastY + 1;
-
-                }
-
-                if (lastX < x && lastY == y) //4
-                {
-                    Pain(lastX + 1, lastY);
-
-                    lastX = lastX + 1;
-                }
-
-                if (lastX > x && lastY > y) //5
-                {
-                    Pain(lastX - 1, lastY - 1);
-
-                    lastX = lastX - 1;
-                    lastY = lastY - 1;
-                }
-
-                if (lastX < x && lastY < y) //6
-                {
-                    Pain(lastX + 1, lastY + 1);
-
-                    lastX = lastX + 1;
-                    lastY = lastY + 1;
-                }
-
-                if (lastX == x && lastY > y) //7
-                {
-                    Pain(lastX, lastY - 1);
-
-                    lastY = lastY - 1;
-                }
-
-                if (lastX > x && lastY == y) //8
-                {
-                    Pain(lastX - 1, lastY);
-
-                    lastX = lastX - 1;
-                }
             }
             lastX = x;
             lastY = y;
 
         }
-
-        
 
         public void Pain(int x, int y)
         {
@@ -135,7 +127,6 @@ namespace WindowsFormsApp7
                     q.SetPixel(x, y, color);
                 }
             }
-            //return q;
         }
     }
 }
