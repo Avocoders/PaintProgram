@@ -143,9 +143,5 @@ namespace WindowsFormsApp7
             n = 3;
             brush.ChangePaint(3);
         }
-
-       
-
-
     }
 }

@@ -40,10 +40,8 @@ namespace WindowsFormsApp7
         {
             n = a;
         }
-        public void DrawLine(int lastX,int lastY,int x, int y)
+        public void DrawLine(int lastX, int lastY, int x, int y)
         {
-
-
             if (lastX == x && lastY == y || isFirst == true)
             {
                 Pain(x, y);
@@ -51,66 +49,160 @@ namespace WindowsFormsApp7
                 lastY = y;
             }
 
-            while ((lastX != x || lastY != y)) 
+            int xd = (x - lastX);
+            int yd = (y - lastY);
+            xd = Math.Abs(xd);
+            yd = Math.Abs(yd);
+            if (lastX == x)
             {
-                if (lastX == x && lastY < y)
+                if (lastY < y)
                 {
-                    Pain(lastX, lastY + 1);
-
-                    lastY = lastY + 1;
-
+                    for (int i = lastY; i <= y; i++)
+                    {
+                        Pain(x, i);
+                    }
+                    lastY = y;
                 }
-                if (lastX == x && lastY >= y)
+                if (lastY > y)
                 {
-                    Pain(lastX, lastY - 1);
-
-                    lastY = lastY - 1;
+                    for (int i = lastY; i >= y; i--)
+                    {
+                        Pain(x, i);
+                    }
+                    lastY = y;
                 }
-                if (lastX < x && lastY == y)
-                {
-                    Pain(lastX + 1, lastY);
-
-                    lastX = lastX + 1;
-                }
-                if (lastX > x && lastY == y)
-                {
-                    Pain(lastX - 1, lastY);
-
-                    lastX = lastX - 1;
-                }
-                if (lastX > x && lastY > y)
-                {
-                    Pain(lastX - 1, lastY - 1);
-
-                    lastX = lastX - 1;
-                    lastY = lastY - 1;
-                }
-                if (lastX < x && lastY < y)
-                {
-                    Pain(lastX + 1, lastY + 1);
-
-                    lastX = lastX + 1;
-                    lastY = lastY + 1;
-                }
-                if (lastX < x && lastY > y)  
-                {
-                    Pain(lastX + 1, lastY - 1);
-
-                    lastX = lastX + 1;
-                    lastY = lastY - 1;
-                }
-
-                if (lastX > x && lastY < y)
-                {
-                    Pain(lastX - 1, lastY + 1);
-
-                    lastX = lastX - 1;
-                    lastY = lastY + 1;
-                }               
             }
-            lastX = x;
-            lastY = y;
+            if (lastY == y)
+            {
+                if (lastX < x)
+                {
+                    for (int i = lastX; i <= x; i++)
+                    {
+                        Pain(i, y);
+                    }
+                    lastX = x;
+                }
+                if (lastX > x)
+                {
+                    for (int i = lastX; i >= x; i--)
+                    {
+                        Pain(i, y);
+                    }
+                    lastX = x;
+                }
+            }
 
+            if (lastX < x && lastY > y)  // 1 четверть
+            {
+                if (xd >= yd)
+                {
+                    int firstX = lastX;
+                    int firstY = lastY;
+                    for (int i = lastX; i <= x; i++)
+                    {
+                        Pain(i, lastY);
+                        lastY = ((i - firstX) * (y - firstY)) / (x - firstX) + firstY;
+                    }
+                    lastX = x;
+                    lastY = y;
+                }
+                if (xd < yd)
+                {
+                    int firstX = lastX;
+                    int firstY = lastY;
+                    for (int i = lastY; i >= y; i--)
+                    {
+                        Pain(lastX, i);
+                        lastX = ((i - firstY) * (x - firstX)) / (y - firstY) + firstX;
+                    }
+                    lastX = x;
+                    lastY = y;
+                }
+            }
+
+            if (lastX < x && lastY < y)
+            {
+                if (xd >= yd)
+                {
+                    int firstX = lastX;
+                    int firstY = lastY;
+                    for (int i = lastX; i <= x; i++)
+                    {
+                        Pain(i, lastY);
+                        lastY = ((i - firstX) * (y - firstY)) / (x - firstX) + firstY;
+                    }
+                    lastX = x;
+                    lastY = y;
+                }
+                if (xd < yd)
+                {
+                    int firstX = lastX;
+                    int firstY = lastY;
+                    for (int i = lastY; i <= y; i++)
+                    {
+                        Pain(lastX, i);
+                        lastX = ((i - firstY) * (x - firstX)) / (y - firstY) + firstX;
+                    }
+                    lastX = x;
+                    lastY = y;
+                }
+            }
+
+            if (lastX > x && lastY > y)
+            {
+                if (xd >= yd)
+                {
+                    int firstX = lastX;
+                    int firstY = lastY;
+                    for (int i = lastX; i >= x; i--)
+                    {
+                        Pain(i, lastY);
+                        lastY = ((i - firstX) * (y - firstY)) / (x - firstX) + firstY;
+                    }
+                    lastX = x;
+                    lastY = y;
+                }
+                if (xd < yd)
+                {
+                    int firstX = lastX;
+                    int firstY = lastY;
+                    for (int i = lastY; i >= y; i--)
+                    {
+                        Pain(lastX, i);
+                        lastX = ((i - firstY) * (x - firstX)) / (y - firstY) + firstX;
+                    }
+                    lastX = x;
+                    lastY = y;
+                }
+            }
+
+            if (lastX > x && lastY < y)
+            {
+                if (xd >= yd)
+                {
+                    int firstX = lastX;
+                    int firstY = lastY;
+                    for (int i = lastX; i >= x; i--)
+                    {
+                        Pain(i, lastY);
+                        lastY = ((i - firstX) * (y - firstY)) / (x - firstX) + firstY;
+                    }
+                    lastX = x;
+                    lastY = y;
+                }
+                if (xd < yd)
+                {
+                    int firstX = lastX;
+                    int firstY = lastY;
+                    for (int i = lastY; i <= y; i++)
+                    {
+                        Pain(lastX, i);
+                        lastX = ((i - firstY) * (x - firstX)) / (y - firstY) + firstX;
+                    }
+                    lastX = x;
+                    lastY = y;
+                }
+            }
         }        
 
         public void Pain(int x, int y)
@@ -126,8 +218,7 @@ namespace WindowsFormsApp7
                     }
                     q.SetPixel(x, y, color);
                 }
-            }
-            
+            }            
         }
     }
 }
