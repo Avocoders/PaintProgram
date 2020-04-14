@@ -182,6 +182,12 @@ namespace WindowsFormsApp7
             Figure = new IsoscelesTriangle(brush);
         }
 
+        private void deleteAll_Click(object sender, EventArgs e)
+        {
+            q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            pictureBox1.Image = q;
+        }
+
         private void Pixel_3_CheckedChanged(object sender, EventArgs e)
         {
             n = 2;

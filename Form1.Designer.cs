@@ -510,6 +510,7 @@
             this.deleteAll.Name = "deleteAll";
             this.deleteAll.Size = new System.Drawing.Size(23, 22);
             this.deleteAll.Text = "toolStripButton2";
+            this.deleteAll.Click += new System.EventHandler(this.deleteAll_Click);
             // 
             // toolStrip1
             // 
