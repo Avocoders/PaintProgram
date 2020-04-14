@@ -170,6 +170,18 @@ namespace WindowsFormsApp7
             Figure = new Rectangl(brush);
         }
 
+        private void RightTriangle_Click(object sender, EventArgs e)
+        {
+            tmp = 3;
+            Figure = new RightTriangle(brush);
+        }
+
+        private void IsoscelesTriangle_Click(object sender, EventArgs e)
+        {
+            tmp = 4;
+            Figure = new IsoscelesTriangle(brush);
+        }
+
         private void Pixel_3_CheckedChanged(object sender, EventArgs e)
         {
             n = 2;

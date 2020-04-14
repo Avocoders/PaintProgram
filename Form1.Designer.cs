@@ -59,8 +59,8 @@
             this.oval = new System.Windows.Forms.Button();
             this.square = new System.Windows.Forms.Button();
             this.rectangle = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.IsoscelesTriangle = new System.Windows.Forms.Button();
+            this.RightTriangle = new System.Windows.Forms.Button();
             this.file = new System.Windows.Forms.ToolStripDropDownButton();
             this.createNew = new System.Windows.Forms.ToolStripMenuItem();
             this.open = new System.Windows.Forms.ToolStripMenuItem();
@@ -435,27 +435,29 @@
             this.rectangle.UseVisualStyleBackColor = false;
             this.rectangle.Click += new System.EventHandler(this.rectangle_Click);
             // 
-            // button1
+            // IsoscelesTriangle
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(392, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(49, 29);
-            this.button1.TabIndex = 17;
-            this.button1.UseVisualStyleBackColor = false;
+            this.IsoscelesTriangle.BackColor = System.Drawing.Color.White;
+            this.IsoscelesTriangle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.IsoscelesTriangle.Image = ((System.Drawing.Image)(resources.GetObject("IsoscelesTriangle.Image")));
+            this.IsoscelesTriangle.Location = new System.Drawing.Point(392, 28);
+            this.IsoscelesTriangle.Name = "IsoscelesTriangle";
+            this.IsoscelesTriangle.Size = new System.Drawing.Size(49, 29);
+            this.IsoscelesTriangle.TabIndex = 17;
+            this.IsoscelesTriangle.UseVisualStyleBackColor = false;
+            this.IsoscelesTriangle.Click += new System.EventHandler(this.IsoscelesTriangle_Click);
             // 
-            // button2
+            // RightTriangle
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(392, 63);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(49, 29);
-            this.button2.TabIndex = 18;
-            this.button2.UseVisualStyleBackColor = false;
+            this.RightTriangle.BackColor = System.Drawing.Color.White;
+            this.RightTriangle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RightTriangle.Image = ((System.Drawing.Image)(resources.GetObject("RightTriangle.Image")));
+            this.RightTriangle.Location = new System.Drawing.Point(392, 63);
+            this.RightTriangle.Name = "RightTriangle";
+            this.RightTriangle.Size = new System.Drawing.Size(49, 29);
+            this.RightTriangle.TabIndex = 18;
+            this.RightTriangle.UseVisualStyleBackColor = false;
+            this.RightTriangle.Click += new System.EventHandler(this.RightTriangle_Click);
             // 
             // file
             // 
@@ -565,8 +567,8 @@
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.RightTriangle);
+            this.Controls.Add(this.IsoscelesTriangle);
             this.Controls.Add(this.rectangle);
             this.Controls.Add(this.square);
             this.Controls.Add(this.oval);
@@ -634,8 +636,8 @@
         private System.Windows.Forms.Button oval;
         private System.Windows.Forms.Button square;
         private System.Windows.Forms.Button rectangle;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button IsoscelesTriangle;
+        private System.Windows.Forms.Button RightTriangle;
         private System.Windows.Forms.ToolStripDropDownButton file;
         private System.Windows.Forms.ToolStripMenuItem createNew;
         private System.Windows.Forms.ToolStripMenuItem open;
