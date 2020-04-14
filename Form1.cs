@@ -7,18 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 
 namespace WindowsFormsApp7
 {
     public partial class Form1 : Form
-    {   
+    {
         Bitmap q;
         int n = 1;
-        
-         Color color;
+
+        Color color;
         Brush brush;
-        bool isDrow,isFirst;
+        bool isDrow, isFirst;
         int lastX, lastY;
         public Form1()
         {
@@ -34,17 +35,17 @@ namespace WindowsFormsApp7
         {
             if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
             {
-                
+
                 brush.SetBitmap(q);
                 brush.SetIsFirst(isFirst);
-                brush.DrawLine(lastX,lastY,e.X, e.Y);
+                brush.DrawLine(lastX, lastY, e.X, e.Y);
                 q = brush.GetBitmap();
                 pictureBox1.Image = q;
                 isFirst = false;
                 lastX = e.X;
                 lastY = e.Y;
             }
-            if ( e.X < 0 || e.X >pictureBox1.Width || e.Y  < 0 || e.Y > pictureBox1.Height)
+            if (e.X < 0 || e.X > pictureBox1.Width || e.Y < 0 || e.Y > pictureBox1.Height)
             {
                 isFirst = true;
             }
@@ -56,12 +57,12 @@ namespace WindowsFormsApp7
             lastY = e.Y;
             isDrow = true;
             isFirst = true;
-        }     
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            
+
+
             isDrow = false;
             isFirst = false;
             color = Color.Black;
@@ -72,12 +73,12 @@ namespace WindowsFormsApp7
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             isDrow = false;
-            
+
         }
 
         private void tabPage1_MouseClick(object sender, MouseEventArgs e)
         {
-          
+
         }
 
         private void buttonBlue_CheckedChanged(object sender, EventArgs e)
@@ -143,5 +144,10 @@ namespace WindowsFormsApp7
             n = 3;
             brush.ChangePaint(3);
         }
+
+
+
+
     }
 }
+

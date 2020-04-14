@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormsApp7
 {
@@ -13,13 +15,13 @@ namespace WindowsFormsApp7
         bool isFirst;
         int width, heigth;
         Bitmap q;
-        public Brush(int width,int heigth)
+        public Brush(int width, int heigth)
         {
             this.width = width;
             this.heigth = heigth;
         }
         Color color = Color.Black;
-        int n=1;
+        int n = 1;
         public void SetBitmap(Bitmap q)
         {
             this.q = q;
@@ -48,7 +50,7 @@ namespace WindowsFormsApp7
                 lastX = x;
                 lastY = y;
             }
-
+                        
             int xd = (x - lastX);
             int yd = (y - lastY);
             xd = Math.Abs(xd);
@@ -203,7 +205,13 @@ namespace WindowsFormsApp7
                     lastY = y;
                 }
             }
-        }        
+
+            //while ((lastX != x || lastY != y))
+            //{
+                
+            //}     
+
+        }
 
         public void Pain(int x, int y)
         {
@@ -218,7 +226,7 @@ namespace WindowsFormsApp7
                     }
                     q.SetPixel(x, y, color);
                 }
-            }            
+            }
         }
     }
 }
