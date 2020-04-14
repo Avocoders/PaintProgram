@@ -97,9 +97,9 @@ namespace WindowsFormsApp7
                 }
             }
 
-            if (lastX < x && lastY > y)
+            if (lastX < x && lastY > y)  // 1 четверть
             {
-                if (xd > yd)
+                if (xd >= yd)
                 {
                     int firstX = lastX;
                     int firstY = lastY;
@@ -127,7 +127,7 @@ namespace WindowsFormsApp7
 
             if (lastX < x && lastY < y)
             {
-                if (xd > yd)
+                if (xd >= yd)
                 {
                     int firstX = lastX;
                     int firstY = lastY;
@@ -155,7 +155,7 @@ namespace WindowsFormsApp7
 
             if (lastX > x && lastY > y)
             {
-                if (xd > yd)
+                if (xd >= yd)
                 {
                     int firstX = lastX;
                     int firstY = lastY;
@@ -183,7 +183,7 @@ namespace WindowsFormsApp7
 
             if (lastX > x && lastY < y)
             {
-                if (xd > yd)
+                if (xd >= yd)
                 {
                     int firstX = lastX;
                     int firstY = lastY;
