@@ -19,6 +19,7 @@ namespace WindowsFormsApp7
 
         Color color;
         Brush brush;
+        Holst holst;
         bool isDrow, isFirst;
         int lastX, lastY;
         int startX = 0;
@@ -65,10 +66,14 @@ namespace WindowsFormsApp7
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {
 
-                    brush.SetBitmap(q);
-                    q = brush.GetBitmap();
-                    pictureBox1.Image = q;
+                    // brush.SetBitmap(q);
+
+                    // q = brush.GetBitmap();
+                    holst.SetBitmapToBrush();
                     Figure.Drow(startX, startY, e.X, e.Y);
+                    // q = holst.DrowFigure();
+                    q = holst.GetBitmap();
+                    pictureBox1.Image = q;
 
                 }
             }
@@ -82,6 +87,7 @@ namespace WindowsFormsApp7
             isFirst = true;
             startX = e.X;
             startY = e.Y;
+            holst.SetBitmap(q);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -93,6 +99,7 @@ namespace WindowsFormsApp7
             color = Color.Black;
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             brush = new Brush(pictureBox1.Width, pictureBox1.Height);
+            holst = new Holst(q,brush);
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -186,6 +193,12 @@ namespace WindowsFormsApp7
         {
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = q;
+        }
+
+        private void chooseEraser_Click(object sender, EventArgs e)
+        {
+            tmp = 0;
+            brush.SetColor(Color.White);
         }
 
         private void Pixel_3_CheckedChanged(object sender, EventArgs e)

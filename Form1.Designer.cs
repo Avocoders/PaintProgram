@@ -321,6 +321,7 @@
             this.chooseEraser.Size = new System.Drawing.Size(46, 46);
             this.chooseEraser.TabIndex = 6;
             this.chooseEraser.UseVisualStyleBackColor = false;
+            this.chooseEraser.Click += new System.EventHandler(this.chooseEraser_Click);
             // 
             // chooseFill
             // 
