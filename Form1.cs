@@ -34,7 +34,7 @@ namespace WindowsFormsApp7
         {
             if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
             {
-                //DrawLine(e.X, e.Y);
+                
                 brush.SetBitmap(q);
                 brush.SetIsFirst(isFirst);
                 brush.DrawLine(lastX,lastY,e.X, e.Y);
@@ -61,7 +61,7 @@ namespace WindowsFormsApp7
         private void Form1_Load(object sender, EventArgs e)
         {
             
-            //figure = new Line(pictureBox1.Width, pictureBox1.Height);
+            
             isDrow = false;
             isFirst = false;
             color = Color.Black;
