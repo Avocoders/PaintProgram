@@ -223,8 +223,8 @@ namespace WindowsFormsApp7
                     {
                         q.SetPixel(x - i, y - j, color);
                         q.SetPixel(x + i, y + j, color);
-                    }
-                    q.SetPixel(x, y, color);
+                        q.SetPixel(x, y, color);
+                    }                    
                 }
             }
         }

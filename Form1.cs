@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
-
+using WindowsFormsApp7.Figure;
 
 namespace WindowsFormsApp7
 {
@@ -21,6 +21,12 @@ namespace WindowsFormsApp7
         Brush brush;
         bool isDrow, isFirst;
         int lastX, lastY;
+        int startX = 0;
+        int startY = 0;
+        IFigur Figure;
+        int tmp = 0;
+
+        
         public Form1()
         {
             InitializeComponent();
@@ -33,21 +39,38 @@ namespace WindowsFormsApp7
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
+            if (tmp == 0)
             {
+                if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
+                {
 
-                brush.SetBitmap(q);
-                brush.SetIsFirst(isFirst);
-                brush.DrawLine(lastX, lastY, e.X, e.Y);
-                q = brush.GetBitmap();
-                pictureBox1.Image = q;
-                isFirst = false;
-                lastX = e.X;
-                lastY = e.Y;
+                    brush.SetBitmap(q);
+                    brush.SetIsFirst(isFirst);
+                    brush.DrawLine(lastX, lastY, e.X, e.Y);
+                    q = brush.GetBitmap();
+                    pictureBox1.Image = q;
+                    isFirst = false;
+                    lastX = e.X;
+                    lastY = e.Y;
+                    //Figure.Drow(startX, startY, e.X, e.Y);
+
+                }
+                if (e.X < 0 || e.X > pictureBox1.Width || e.Y < 0 || e.Y > pictureBox1.Height)
+                {
+                    isFirst = true;
+                }
             }
-            if (e.X < 0 || e.X > pictureBox1.Width || e.Y < 0 || e.Y > pictureBox1.Height)
+            else 
             {
-                isFirst = true;
+                if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
+                {
+
+                    brush.SetBitmap(q);
+                    q = brush.GetBitmap();
+                    pictureBox1.Image = q;
+                    Figure.Drow(startX, startY, e.X, e.Y);
+
+                }
             }
         }
 
@@ -57,6 +80,8 @@ namespace WindowsFormsApp7
             lastY = e.Y;
             isDrow = true;
             isFirst = true;
+            startX = e.X;
+            startY = e.Y;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -131,6 +156,18 @@ namespace WindowsFormsApp7
         {
             n = 1;
             brush.ChangePaint(1);
+        }
+
+        private void square_Click(object sender, EventArgs e)
+        {
+            tmp = 1;
+            Figure = new Square(brush);
+        }
+
+        private void rectangle_Click(object sender, EventArgs e)
+        {
+            tmp = 2;
+            Figure = new Rectangl(brush);
         }
 
         private void Pixel_3_CheckedChanged(object sender, EventArgs e)

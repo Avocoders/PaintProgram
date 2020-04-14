@@ -421,6 +421,7 @@
             this.square.Size = new System.Drawing.Size(49, 29);
             this.square.TabIndex = 15;
             this.square.UseVisualStyleBackColor = false;
+            this.square.Click += new System.EventHandler(this.square_Click);
             // 
             // rectangle
             // 
@@ -432,6 +433,7 @@
             this.rectangle.Size = new System.Drawing.Size(49, 29);
             this.rectangle.TabIndex = 16;
             this.rectangle.UseVisualStyleBackColor = false;
+            this.rectangle.Click += new System.EventHandler(this.rectangle_Click);
             // 
             // button1
             // 
