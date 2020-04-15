@@ -19,7 +19,7 @@ namespace WindowsFormsApp7
 
         Color color;
         Brush brush;
-        Holst holst;
+        
         bool isDrow, isFirst;
         int lastX, lastY;
         int startX = 0;
@@ -107,7 +107,7 @@ namespace WindowsFormsApp7
             color = Color.Black;
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             brush = new Brush(pictureBox1.Width, pictureBox1.Height);
-            holst = new Holst(q,brush);
+            
             pictureBox1.Image = q;
         }
 
