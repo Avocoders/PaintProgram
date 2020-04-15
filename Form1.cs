@@ -35,6 +35,8 @@ namespace WindowsFormsApp7
         public Form1()
         {
             InitializeComponent();
+            lineThickness.Minimum = 1;
+            lineThickness.Maximum = 6;
         }
         public Color GetColor()
         {
@@ -122,6 +124,20 @@ namespace WindowsFormsApp7
 
         }
 
+        private void lineThickness_Scroll(object sender, EventArgs e)
+        {
+            switch(lineThickness.Value)
+            {
+                case 1: n = 1; break;
+                case 2: n = 2; break;
+                case 3: n = 3; break;
+                case 4: n = 4; break;
+                case 5: n = 5; break;
+                case 6: n = 6; break;
+            }
+            brush.ChangePaint(n);
+        }
+
         private void buttonBlue_CheckedChanged(object sender, EventArgs e)
         {
             color = Color.Blue;
@@ -167,13 +183,7 @@ namespace WindowsFormsApp7
         {
             color = Color.Yellow; brush.SetColor(color);
         }
-
-        private void Pixel_1_CheckedChanged(object sender, EventArgs e)
-        {
-            n = 1;
-            brush.ChangePaint(1);
-        }
-
+    
         private void square_Click(object sender, EventArgs e)
         {
             tmp = 1;
@@ -196,7 +206,7 @@ namespace WindowsFormsApp7
         {
             tmp = 4;
             Figure = new IsoscelesTriangle(brush);
-        }
+        }        
 
         private void deleteAll_Click(object sender, EventArgs e)
         {
@@ -216,17 +226,9 @@ namespace WindowsFormsApp7
             brush.SetColor(Color.White);
         }
 
-        private void Pixel_3_CheckedChanged(object sender, EventArgs e)
-        {
-            n = 2;
-            brush.ChangePaint(2);
-        }
 
-        private void Pixel_5_CheckedChanged(object sender, EventArgs e)
-        {
-            n = 3;
-            brush.ChangePaint(3);
-        }
+
+        
 
 
 
