@@ -67,8 +67,8 @@
             this.buttonBlack = new System.Windows.Forms.RadioButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonRollUp = new System.Windows.Forms.Button();
+            this.buttonExpend = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -289,21 +289,21 @@
             // 
             this.createNew.Image = ((System.Drawing.Image)(resources.GetObject("createNew.Image")));
             this.createNew.Name = "createNew";
-            this.createNew.Size = new System.Drawing.Size(180, 22);
+            this.createNew.Size = new System.Drawing.Size(133, 22);
             this.createNew.Text = "Создать";
             // 
             // open
             // 
             this.open.Image = ((System.Drawing.Image)(resources.GetObject("open.Image")));
             this.open.Name = "open";
-            this.open.Size = new System.Drawing.Size(180, 22);
+            this.open.Size = new System.Drawing.Size(133, 22);
             this.open.Text = "Открыть";
             // 
             // save
             // 
             this.save.Image = ((System.Drawing.Image)(resources.GetObject("save.Image")));
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(180, 22);
+            this.save.Size = new System.Drawing.Size(133, 22);
             this.save.Text = "Сохранить";
             // 
             // deleteTheLastOne
@@ -520,27 +520,29 @@
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
-            // button1
+            // buttonRollUp
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1036, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(46, 43);
-            this.button1.TabIndex = 24;
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonRollUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonRollUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.buttonRollUp.Image = ((System.Drawing.Image)(resources.GetObject("buttonRollUp.Image")));
+            this.buttonRollUp.Location = new System.Drawing.Point(994, 0);
+            this.buttonRollUp.Name = "buttonRollUp";
+            this.buttonRollUp.Size = new System.Drawing.Size(46, 43);
+            this.buttonRollUp.TabIndex = 24;
+            this.buttonRollUp.UseVisualStyleBackColor = false;
+            this.buttonRollUp.Click += new System.EventHandler(this.buttonRollUp_Click);
             // 
-            // button2
+            // buttonExpend
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(994, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(46, 43);
-            this.button2.TabIndex = 25;
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonExpend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonExpend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.buttonExpend.Image = ((System.Drawing.Image)(resources.GetObject("buttonExpend.Image")));
+            this.buttonExpend.Location = new System.Drawing.Point(1036, 0);
+            this.buttonExpend.Name = "buttonExpend";
+            this.buttonExpend.Size = new System.Drawing.Size(46, 43);
+            this.buttonExpend.TabIndex = 25;
+            this.buttonExpend.UseVisualStyleBackColor = false;
+            this.buttonExpend.Click += new System.EventHandler(this.buttonExpend_Click);
             // 
             // Form1
             // 
@@ -548,8 +550,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
             this.ClientSize = new System.Drawing.Size(1123, 685);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonExpend);
+            this.Controls.Add(this.buttonRollUp);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.lineThickness);
             this.Controls.Add(this.button4);
@@ -630,8 +632,8 @@
         private System.Windows.Forms.RadioButton buttonBlack;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button buttonClose;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonRollUp;
+        private System.Windows.Forms.Button buttonExpend;
     }
 }
 

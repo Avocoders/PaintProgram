@@ -78,6 +78,16 @@ namespace WindowsFormsApp7
             this.Close();
         }
 
+        private void buttonRollUp_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void buttonExpend_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
         public Color GetColor()
         {
             return color;
