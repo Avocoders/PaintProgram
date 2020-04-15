@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Brush.cs" />
+    <Compile Include="Figure\Circle.cs" />
     <Compile Include="Figure\IsoscelesTriangle.cs" />
     <Compile Include="Figure\RightTriangle.cs" />
     <Compile Include="Figure\Rectangle.cs" />
