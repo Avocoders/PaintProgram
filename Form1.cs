@@ -27,6 +27,8 @@ namespace WindowsFormsApp7
         IFigur Figure;
         int tmp = 0;
         Bitmap bitmap3;
+        RectangleF cloneRect;
+        System.Drawing.Imaging.PixelFormat format;
 
 
 
@@ -68,17 +70,14 @@ namespace WindowsFormsApp7
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {
 
-                    RectangleF cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
-                    System.Drawing.Imaging.PixelFormat format = bitmap3.PixelFormat;
+                    
                     bitmap2 = bitmap3.Clone(cloneRect, format);
                     brush.SetBitmap(bitmap2);
                      Figure.Drow(startX, startY, e.X, e.Y);
                      q = brush.GetBitmap();
-                    //holst.SetBitmapToBrush();
-                    // q = holst.DrowFigure();
-                    //q = holst.GetBitmap();
+                    
                     pictureBox1.Image = q;
-                    //pictureBox1.Image = bitmap2;
+                    
 
                 }
             }
@@ -92,10 +91,11 @@ namespace WindowsFormsApp7
             isFirst = true;
             startX = e.X;
             startY = e.Y;
-            //RectangleF cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
-            //System.Drawing.Imaging.PixelFormat format = q.PixelFormat;
-            //bitmap2 = q.Clone(cloneRect, format);
+            
             bitmap3 = new Bitmap(pictureBox1.Image);
+            cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
+            format = bitmap3.PixelFormat;
+            bitmap2 = bitmap3.Clone(cloneRect, format);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -202,6 +202,12 @@ namespace WindowsFormsApp7
         {
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = q;
+        }
+
+        private void deleteTheLastOne_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = bitmap3;
+            q = bitmap3;
         }
 
         private void chooseEraser_Click(object sender, EventArgs e)

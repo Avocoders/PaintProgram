@@ -502,6 +502,7 @@
             this.deleteTheLastOne.Name = "deleteTheLastOne";
             this.deleteTheLastOne.Size = new System.Drawing.Size(23, 22);
             this.deleteTheLastOne.Text = "toolStripButton1";
+            this.deleteTheLastOne.Click += new System.EventHandler(this.deleteTheLastOne_Click);
             // 
             // deleteAll
             // 
