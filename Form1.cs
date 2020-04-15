@@ -14,12 +14,12 @@ namespace WindowsFormsApp7
 {
     public partial class Form1 : Form
     {
-        Bitmap q,bitmap2;
+        Bitmap q, bitmap2;
         int n = 1;
 
         Color color;
         Brush brush;
-        
+
         bool isDrow, isFirst;
         int lastX, lastY;
         int startX = 0;
@@ -67,20 +67,19 @@ namespace WindowsFormsApp7
                     isFirst = true;
                 }
             }
-            else if (tmp!=10)
-            
+            else
             {
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {
 
-                    
+
                     bitmap2 = bitmap3.Clone(cloneRect, format);
                     brush.SetBitmap(bitmap2);
-                     Figure.Drow(startX, startY, e.X, e.Y);
-                     q = brush.GetBitmap();
-                    
+                    Figure.Drow(startX, startY, e.X, e.Y);
+                    q = brush.GetBitmap();
+
                     pictureBox1.Image = q;
-                    
+
 
                 }
             }
@@ -94,28 +93,23 @@ namespace WindowsFormsApp7
             isFirst = true;
             startX = e.X;
             startY = e.Y;
-            
+
             bitmap3 = new Bitmap(pictureBox1.Image);
             cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
             format = bitmap3.PixelFormat;
             bitmap2 = bitmap3.Clone(cloneRect, format);
-
-            if (tmp==10)
-            {
-                brush.SetColor(q.GetPixel(e.X, e.Y));
-            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            
+
             isDrow = false;
             isFirst = false;
             color = Color.Black;
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             brush = new Brush(pictureBox1.Width, pictureBox1.Height);
-            
+
             pictureBox1.Image = q;
         }
 
@@ -132,7 +126,7 @@ namespace WindowsFormsApp7
 
         private void lineThickness_Scroll(object sender, EventArgs e)
         {
-            switch(lineThickness.Value)
+            switch (lineThickness.Value)
             {
                 case 1: n = 1; break;
                 case 2: n = 2; break;
@@ -189,7 +183,7 @@ namespace WindowsFormsApp7
         {
             color = Color.Yellow; brush.SetColor(color);
         }
-    
+
         private void square_Click(object sender, EventArgs e)
         {
             tmp = 1;
@@ -212,22 +206,6 @@ namespace WindowsFormsApp7
         {
             tmp = 4;
             Figure = new IsoscelesTriangle(brush);
-        }
-
-        private void choosePen_Click(object sender, EventArgs e)
-        {
-            tmp = 0;
-        }
-
-        private void choosePipette_Click(object sender, EventArgs e)
-        {
-            tmp = 10;
-        }
-
-        private void deleteAll_Click(object sender, EventArgs e)
-        {
-            q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            pictureBox1.Image = q;
         }
 
         private void circle_Click(object sender, EventArgs e)
@@ -242,7 +220,12 @@ namespace WindowsFormsApp7
             Figure = new Ellipse(brush);
         }
 
-        private void Pixel_3_CheckedChanged(object sender, EventArgs e)
+        private void deleteAll_Click(object sender, EventArgs e)
+        {
+            q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            pictureBox1.Image = q;
+        }
+
         private void deleteTheLastOne_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = bitmap3;
@@ -257,7 +240,7 @@ namespace WindowsFormsApp7
 
 
 
-        
+
 
 
 

@@ -20,7 +20,7 @@ namespace WindowsFormsApp7.Figure
             int xNext = 0;
             int yNext = 0;
 
-            for (int i = 0; i < 360; i++)
+            for (int i = 0; i < 361; i++)
             {
                 xNext = x1 + Convert.ToInt32(rad * Math.Cos(i * 3.14159 / 180));
                 yNext = y1 + Convert.ToInt32(rad * Math.Sin(i * 3.14159 / 180));
