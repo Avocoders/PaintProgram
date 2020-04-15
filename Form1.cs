@@ -67,7 +67,8 @@ namespace WindowsFormsApp7
                     isFirst = true;
                 }
             }
-            else 
+            else if (tmp!=10)
+            
             {
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {
@@ -98,6 +99,11 @@ namespace WindowsFormsApp7
             cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
             format = bitmap3.PixelFormat;
             bitmap2 = bitmap3.Clone(cloneRect, format);
+
+            if (tmp==10)
+            {
+                brush.SetColor(q.GetPixel(e.X, e.Y));
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -206,7 +212,17 @@ namespace WindowsFormsApp7
         {
             tmp = 4;
             Figure = new IsoscelesTriangle(brush);
-        }        
+        }
+
+        private void choosePen_Click(object sender, EventArgs e)
+        {
+            tmp = 0;
+        }
+
+        private void choosePipette_Click(object sender, EventArgs e)
+        {
+            tmp = 10;
+        }
 
         private void deleteAll_Click(object sender, EventArgs e)
         {
