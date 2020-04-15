@@ -321,6 +321,7 @@
             this.chooseEraser.Size = new System.Drawing.Size(46, 46);
             this.chooseEraser.TabIndex = 6;
             this.chooseEraser.UseVisualStyleBackColor = false;
+            this.chooseEraser.Click += new System.EventHandler(this.chooseEraser_Click);
             // 
             // chooseFill
             // 
@@ -501,6 +502,7 @@
             this.deleteTheLastOne.Name = "deleteTheLastOne";
             this.deleteTheLastOne.Size = new System.Drawing.Size(23, 22);
             this.deleteTheLastOne.Text = "toolStripButton1";
+            this.deleteTheLastOne.Click += new System.EventHandler(this.deleteTheLastOne_Click);
             // 
             // deleteAll
             // 
@@ -510,6 +512,7 @@
             this.deleteAll.Name = "deleteAll";
             this.deleteAll.Size = new System.Drawing.Size(23, 22);
             this.deleteAll.Text = "toolStripButton2";
+            this.deleteAll.Click += new System.EventHandler(this.deleteAll_Click);
             // 
             // toolStrip1
             // 

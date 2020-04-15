@@ -14,19 +14,22 @@ namespace WindowsFormsApp7
 {
     public partial class Form1 : Form
     {
-        Bitmap q;
+        Bitmap q,bitmap2;
         int n = 1;
 
         Color color;
         Brush brush;
+        Holst holst;
         bool isDrow, isFirst;
         int lastX, lastY;
         int startX = 0;
         int startY = 0;
         IFigur Figure;
         int tmp = 0;
+        Bitmap bitmap3;
 
-        
+
+
         public Form1()
         {
             InitializeComponent();
@@ -65,10 +68,17 @@ namespace WindowsFormsApp7
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {
 
-                    brush.SetBitmap(q);
-                    q = brush.GetBitmap();
+                    RectangleF cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
+                    System.Drawing.Imaging.PixelFormat format = bitmap3.PixelFormat;
+                    bitmap2 = bitmap3.Clone(cloneRect, format);
+                    brush.SetBitmap(bitmap2);
+                     Figure.Drow(startX, startY, e.X, e.Y);
+                     q = brush.GetBitmap();
+                    //holst.SetBitmapToBrush();
+                    // q = holst.DrowFigure();
+                    //q = holst.GetBitmap();
                     pictureBox1.Image = q;
-                    Figure.Drow(startX, startY, e.X, e.Y);
+                    //pictureBox1.Image = bitmap2;
 
                 }
             }
@@ -82,17 +92,23 @@ namespace WindowsFormsApp7
             isFirst = true;
             startX = e.X;
             startY = e.Y;
+            //RectangleF cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
+            //System.Drawing.Imaging.PixelFormat format = q.PixelFormat;
+            //bitmap2 = q.Clone(cloneRect, format);
+            bitmap3 = new Bitmap(pictureBox1.Image);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
-
+            
             isDrow = false;
             isFirst = false;
             color = Color.Black;
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             brush = new Brush(pictureBox1.Width, pictureBox1.Height);
+            holst = new Holst(q,brush);
+            pictureBox1.Image = q;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -180,6 +196,23 @@ namespace WindowsFormsApp7
         {
             tmp = 4;
             Figure = new IsoscelesTriangle(brush);
+        }
+
+        private void deleteAll_Click(object sender, EventArgs e)
+        {
+            q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            pictureBox1.Image = q;
+        }
+
+        private void deleteTheLastOne_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = bitmap3;
+        }
+
+        private void chooseEraser_Click(object sender, EventArgs e)
+        {
+            tmp = 0;
+            brush.SetColor(Color.White);
         }
 
         private void Pixel_3_CheckedChanged(object sender, EventArgs e)
