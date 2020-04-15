@@ -411,6 +411,7 @@
             this.oval.Size = new System.Drawing.Size(49, 29);
             this.oval.TabIndex = 14;
             this.oval.UseVisualStyleBackColor = false;
+            this.oval.Click += new System.EventHandler(this.oval_Click);
             // 
             // square
             // 

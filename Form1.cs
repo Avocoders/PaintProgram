@@ -188,6 +188,12 @@ namespace WindowsFormsApp7
             Figure = new Сircle(brush);
         }
 
+        private void oval_Click(object sender, EventArgs e)
+        {
+            tmp = 6;
+            Figure = new Ellipse(brush);
+        }
+
         private void Pixel_3_CheckedChanged(object sender, EventArgs e)
         {
             n = 2;
