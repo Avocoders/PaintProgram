@@ -66,6 +66,9 @@
             this.buttonRed = new System.Windows.Forms.RadioButton();
             this.buttonBlack = new System.Windows.Forms.RadioButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.buttonClose = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -76,11 +79,14 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 130);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 199);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1123, 391);
+            this.pictureBox1.Size = new System.Drawing.Size(1123, 321);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -96,7 +102,7 @@
             this.insert.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.insert.Image = ((System.Drawing.Image)(resources.GetObject("insert.Image")));
             this.insert.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.insert.Location = new System.Drawing.Point(0, 28);
+            this.insert.Location = new System.Drawing.Point(0, 98);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(101, 96);
             this.insert.TabIndex = 3;
@@ -109,7 +115,7 @@
             this.choosePen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.choosePen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.choosePen.Image = ((System.Drawing.Image)(resources.GetObject("choosePen.Image")));
-            this.choosePen.Location = new System.Drawing.Point(107, 28);
+            this.choosePen.Location = new System.Drawing.Point(107, 98);
             this.choosePen.Name = "choosePen";
             this.choosePen.Size = new System.Drawing.Size(46, 46);
             this.choosePen.TabIndex = 4;
@@ -121,7 +127,7 @@
             this.chooseEraser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.chooseEraser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.chooseEraser.Image = ((System.Drawing.Image)(resources.GetObject("chooseEraser.Image")));
-            this.chooseEraser.Location = new System.Drawing.Point(107, 78);
+            this.chooseEraser.Location = new System.Drawing.Point(107, 148);
             this.chooseEraser.Name = "chooseEraser";
             this.chooseEraser.Size = new System.Drawing.Size(46, 46);
             this.chooseEraser.TabIndex = 6;
@@ -133,7 +139,7 @@
             this.chooseFill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.chooseFill.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.chooseFill.Image = ((System.Drawing.Image)(resources.GetObject("chooseFill.Image")));
-            this.chooseFill.Location = new System.Drawing.Point(159, 28);
+            this.chooseFill.Location = new System.Drawing.Point(159, 97);
             this.chooseFill.Name = "chooseFill";
             this.chooseFill.Size = new System.Drawing.Size(46, 46);
             this.chooseFill.TabIndex = 7;
@@ -144,7 +150,7 @@
             this.choosePipette.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.choosePipette.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.choosePipette.Image = ((System.Drawing.Image)(resources.GetObject("choosePipette.Image")));
-            this.choosePipette.Location = new System.Drawing.Point(159, 78);
+            this.choosePipette.Location = new System.Drawing.Point(159, 148);
             this.choosePipette.Name = "choosePipette";
             this.choosePipette.Size = new System.Drawing.Size(46, 46);
             this.choosePipette.TabIndex = 8;
@@ -156,7 +162,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(211, 28);
+            this.pictureBox2.Location = new System.Drawing.Point(211, 97);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(65, 71);
             this.pictureBox2.TabIndex = 9;
@@ -167,7 +173,7 @@
             this.brushes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.brushes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.brushes.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.brushes.Location = new System.Drawing.Point(211, 97);
+            this.brushes.Location = new System.Drawing.Point(211, 167);
             this.brushes.Name = "brushes";
             this.brushes.Size = new System.Drawing.Size(65, 27);
             this.brushes.TabIndex = 10;
@@ -179,10 +185,10 @@
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(282, 28);
+            this.textBox1.Location = new System.Drawing.Point(282, 98);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(266, 96);
+            this.textBox1.Size = new System.Drawing.Size(266, 95);
             this.textBox1.TabIndex = 11;
             // 
             // label1
@@ -190,7 +196,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(333, 97);
+            this.label1.Location = new System.Drawing.Point(358, 174);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 23);
             this.label1.TabIndex = 12;
@@ -201,7 +207,7 @@
             this.circle.BackColor = System.Drawing.Color.White;
             this.circle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.circle.Image = ((System.Drawing.Image)(resources.GetObject("circle.Image")));
-            this.circle.Location = new System.Drawing.Point(282, 28);
+            this.circle.Location = new System.Drawing.Point(282, 98);
             this.circle.Name = "circle";
             this.circle.Size = new System.Drawing.Size(49, 29);
             this.circle.TabIndex = 13;
@@ -212,7 +218,7 @@
             this.oval.BackColor = System.Drawing.Color.White;
             this.oval.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.oval.Image = ((System.Drawing.Image)(resources.GetObject("oval.Image")));
-            this.oval.Location = new System.Drawing.Point(337, 28);
+            this.oval.Location = new System.Drawing.Point(337, 98);
             this.oval.Name = "oval";
             this.oval.Size = new System.Drawing.Size(49, 29);
             this.oval.TabIndex = 14;
@@ -223,7 +229,7 @@
             this.square.BackColor = System.Drawing.Color.White;
             this.square.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.square.Image = ((System.Drawing.Image)(resources.GetObject("square.Image")));
-            this.square.Location = new System.Drawing.Point(282, 63);
+            this.square.Location = new System.Drawing.Point(282, 133);
             this.square.Name = "square";
             this.square.Size = new System.Drawing.Size(49, 29);
             this.square.TabIndex = 15;
@@ -235,7 +241,7 @@
             this.rectangle.BackColor = System.Drawing.Color.White;
             this.rectangle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rectangle.Image = ((System.Drawing.Image)(resources.GetObject("rectangle.Image")));
-            this.rectangle.Location = new System.Drawing.Point(337, 63);
+            this.rectangle.Location = new System.Drawing.Point(337, 133);
             this.rectangle.Name = "rectangle";
             this.rectangle.Size = new System.Drawing.Size(49, 29);
             this.rectangle.TabIndex = 16;
@@ -247,7 +253,7 @@
             this.IsoscelesTriangle.BackColor = System.Drawing.Color.White;
             this.IsoscelesTriangle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.IsoscelesTriangle.Image = ((System.Drawing.Image)(resources.GetObject("IsoscelesTriangle.Image")));
-            this.IsoscelesTriangle.Location = new System.Drawing.Point(392, 28);
+            this.IsoscelesTriangle.Location = new System.Drawing.Point(392, 98);
             this.IsoscelesTriangle.Name = "IsoscelesTriangle";
             this.IsoscelesTriangle.Size = new System.Drawing.Size(49, 29);
             this.IsoscelesTriangle.TabIndex = 17;
@@ -259,7 +265,7 @@
             this.RightTriangle.BackColor = System.Drawing.Color.White;
             this.RightTriangle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.RightTriangle.Image = ((System.Drawing.Image)(resources.GetObject("RightTriangle.Image")));
-            this.RightTriangle.Location = new System.Drawing.Point(392, 63);
+            this.RightTriangle.Location = new System.Drawing.Point(392, 133);
             this.RightTriangle.Name = "RightTriangle";
             this.RightTriangle.Size = new System.Drawing.Size(49, 29);
             this.RightTriangle.TabIndex = 18;
@@ -283,21 +289,21 @@
             // 
             this.createNew.Image = ((System.Drawing.Image)(resources.GetObject("createNew.Image")));
             this.createNew.Name = "createNew";
-            this.createNew.Size = new System.Drawing.Size(133, 22);
+            this.createNew.Size = new System.Drawing.Size(180, 22);
             this.createNew.Text = "Создать";
             // 
             // open
             // 
             this.open.Image = ((System.Drawing.Image)(resources.GetObject("open.Image")));
             this.open.Name = "open";
-            this.open.Size = new System.Drawing.Size(133, 22);
+            this.open.Size = new System.Drawing.Size(180, 22);
             this.open.Text = "Открыть";
             // 
             // save
             // 
             this.save.Image = ((System.Drawing.Image)(resources.GetObject("save.Image")));
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(133, 22);
+            this.save.Size = new System.Drawing.Size(180, 22);
             this.save.Text = "Сохранить";
             // 
             // deleteTheLastOne
@@ -323,14 +329,15 @@
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.file,
             this.deleteTheLastOne,
             this.deleteAll});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 660);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(1123, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
@@ -338,7 +345,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(680, 28);
+            this.panel1.Location = new System.Drawing.Point(680, 101);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(333, 96);
             this.panel1.TabIndex = 20;
@@ -349,7 +356,7 @@
             this.button4.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(1019, 29);
+            this.button4.Location = new System.Drawing.Point(1019, 101);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(104, 96);
             this.button4.TabIndex = 21;
@@ -360,7 +367,7 @@
             // lineThickness
             // 
             this.lineThickness.BackColor = System.Drawing.SystemColors.Control;
-            this.lineThickness.Location = new System.Drawing.Point(554, 80);
+            this.lineThickness.Location = new System.Drawing.Point(554, 152);
             this.lineThickness.Maximum = 6;
             this.lineThickness.Minimum = 1;
             this.lineThickness.Name = "lineThickness";
@@ -501,11 +508,49 @@
             this.tabControl1.Size = new System.Drawing.Size(775, 108);
             this.tabControl1.TabIndex = 2;
             // 
+            // buttonClose
+            // 
+            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.buttonClose.Image = ((System.Drawing.Image)(resources.GetObject("buttonClose.Image")));
+            this.buttonClose.Location = new System.Drawing.Point(1077, 0);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(46, 43);
+            this.buttonClose.TabIndex = 23;
+            this.buttonClose.UseVisualStyleBackColor = false;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(1036, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(46, 43);
+            this.button1.TabIndex = 24;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(994, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(46, 43);
+            this.button2.TabIndex = 25;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
             this.ClientSize = new System.Drawing.Size(1123, 685);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.lineThickness);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.panel1);
@@ -527,6 +572,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "TheBestPaint";
@@ -583,6 +629,9 @@
         private System.Windows.Forms.RadioButton buttonRed;
         private System.Windows.Forms.RadioButton buttonBlack;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

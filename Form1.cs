@@ -14,6 +14,7 @@ namespace WindowsFormsApp7
 {
     public partial class Form1 : Form
     {
+        Point moveStart;
         Bitmap q,bitmap2;
         int n = 1;
 
@@ -37,7 +38,46 @@ namespace WindowsFormsApp7
             InitializeComponent();
             lineThickness.Minimum = 1;
             lineThickness.Maximum = 6;
+            this.MouseDown += Form1_MouseDown;
+            this.MouseMove += Form1_MouseMove;
+            this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Normal;
         }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int WS_SIZEBOX = 0x40000;
+                var cp = base.CreateParams;
+                cp.Style |= WS_SIZEBOX;
+                return cp;
+            }
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {            
+            if (e.Button == MouseButtons.Left)
+            {
+                moveStart = new Point(e.X, e.Y);
+            }
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {            
+            if ((e.Button & MouseButtons.Left) != 0)
+            {                
+                Point deltaPos = new Point(e.X - moveStart.X, e.Y - moveStart.Y);                
+                this.Location = new Point(this.Location.X + deltaPos.X,
+                this.Location.Y + deltaPos.Y);
+            }
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         public Color GetColor()
         {
             return color;
@@ -223,6 +263,11 @@ namespace WindowsFormsApp7
         {
             tmp = 10;
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }        
 
         private void deleteAll_Click(object sender, EventArgs e)
         {
