@@ -182,6 +182,12 @@ namespace WindowsFormsApp7
             Figure = new IsoscelesTriangle(brush);
         }
 
+        private void circle_Click(object sender, EventArgs e)
+        {
+            tmp = 5;
+            Figure = new Сircle(brush);
+        }
+
         private void Pixel_3_CheckedChanged(object sender, EventArgs e)
         {
             n = 2;

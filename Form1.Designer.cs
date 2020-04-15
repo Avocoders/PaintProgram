@@ -399,6 +399,7 @@
             this.circle.Size = new System.Drawing.Size(49, 29);
             this.circle.TabIndex = 13;
             this.circle.UseVisualStyleBackColor = false;
+            this.circle.Click += new System.EventHandler(this.circle_Click);
             // 
             // oval
             // 
