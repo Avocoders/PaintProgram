@@ -14,22 +14,29 @@ namespace WindowsFormsApp7
 {
     public partial class Form1 : Form
     {
-        Bitmap q;
+        Bitmap q,bitmap2;
         int n = 1;
 
         Color color;
         Brush brush;
+        
         bool isDrow, isFirst;
         int lastX, lastY;
         int startX = 0;
         int startY = 0;
         IFigur Figure;
         int tmp = 0;
+        Bitmap bitmap3;
+        RectangleF cloneRect;
+        System.Drawing.Imaging.PixelFormat format;
 
-        
+
+
         public Form1()
         {
             InitializeComponent();
+            lineThickness.Minimum = 1;
+            lineThickness.Maximum = 6;
         }
         public Color GetColor()
         {
@@ -60,15 +67,20 @@ namespace WindowsFormsApp7
                     isFirst = true;
                 }
             }
-            else 
+            else if (tmp!=10)
+            
             {
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {
 
-                    brush.SetBitmap(q);
-                    q = brush.GetBitmap();
+                    
+                    bitmap2 = bitmap3.Clone(cloneRect, format);
+                    brush.SetBitmap(bitmap2);
+                     Figure.Drow(startX, startY, e.X, e.Y);
+                     q = brush.GetBitmap();
+                    
                     pictureBox1.Image = q;
-                    Figure.Drow(startX, startY, e.X, e.Y);
+                    
 
                 }
             }
@@ -82,17 +94,29 @@ namespace WindowsFormsApp7
             isFirst = true;
             startX = e.X;
             startY = e.Y;
+            
+            bitmap3 = new Bitmap(pictureBox1.Image);
+            cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
+            format = bitmap3.PixelFormat;
+            bitmap2 = bitmap3.Clone(cloneRect, format);
+
+            if (tmp==10)
+            {
+                brush.SetColor(q.GetPixel(e.X, e.Y));
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
-
+            
             isDrow = false;
             isFirst = false;
             color = Color.Black;
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             brush = new Brush(pictureBox1.Width, pictureBox1.Height);
+            
+            pictureBox1.Image = q;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -104,6 +128,20 @@ namespace WindowsFormsApp7
         private void tabPage1_MouseClick(object sender, MouseEventArgs e)
         {
 
+        }
+
+        private void lineThickness_Scroll(object sender, EventArgs e)
+        {
+            switch(lineThickness.Value)
+            {
+                case 1: n = 1; break;
+                case 2: n = 2; break;
+                case 3: n = 3; break;
+                case 4: n = 4; break;
+                case 5: n = 5; break;
+                case 6: n = 6; break;
+            }
+            brush.ChangePaint(n);
         }
 
         private void buttonBlue_CheckedChanged(object sender, EventArgs e)
@@ -151,13 +189,7 @@ namespace WindowsFormsApp7
         {
             color = Color.Yellow; brush.SetColor(color);
         }
-
-        private void Pixel_1_CheckedChanged(object sender, EventArgs e)
-        {
-            n = 1;
-            brush.ChangePaint(1);
-        }
-
+    
         private void square_Click(object sender, EventArgs e)
         {
             tmp = 1;
@@ -180,6 +212,22 @@ namespace WindowsFormsApp7
         {
             tmp = 4;
             Figure = new IsoscelesTriangle(brush);
+        }
+
+        private void choosePen_Click(object sender, EventArgs e)
+        {
+            tmp = 0;
+        }
+
+        private void choosePipette_Click(object sender, EventArgs e)
+        {
+            tmp = 10;
+        }
+
+        private void deleteAll_Click(object sender, EventArgs e)
+        {
+            q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            pictureBox1.Image = q;
         }
 
         private void circle_Click(object sender, EventArgs e)
@@ -195,16 +243,21 @@ namespace WindowsFormsApp7
         }
 
         private void Pixel_3_CheckedChanged(object sender, EventArgs e)
+        private void deleteTheLastOne_Click(object sender, EventArgs e)
         {
-            n = 2;
-            brush.ChangePaint(2);
+            pictureBox1.Image = bitmap3;
+            q = bitmap3;
         }
 
-        private void Pixel_5_CheckedChanged(object sender, EventArgs e)
+        private void chooseEraser_Click(object sender, EventArgs e)
         {
-            n = 3;
-            brush.ChangePaint(3);
+            tmp = 0;
+            brush.SetColor(Color.White);
         }
+
+
+
+        
 
 
 
