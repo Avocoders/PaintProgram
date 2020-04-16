@@ -129,16 +129,17 @@ namespace WindowsFormsApp7
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            lastX = e.X;
-            lastY = e.Y;
+           
             isDrow = true;
             isFirst = true;
-            startX = e.X;
-            startY = e.Y;
+            
             if (tmp != 11)
             {
                 bitmap2 = CreateNewLayer();
-
+             lastX = e.X;
+            lastY = e.Y;
+                startX = e.X;
+            startY = e.Y;
                 brush.SetBitmap(bitmap2);
             }
             if(tmp==0)
@@ -156,7 +157,7 @@ namespace WindowsFormsApp7
             {
                 if (isFirstPoligon == true)
                 {
-                    CreateNewLayer();
+                    q = CreateNewLayer();
                     brush.SetBitmap(q);
                     startX = e.X;
                     startY = e.Y;
@@ -167,7 +168,7 @@ namespace WindowsFormsApp7
                     q = brush.GetBitmap();
                     pictureBox1.Image = q;
                 }
-                else if(lastX!=e.X||lastY!=e.Y)
+                else 
                 {
                     xnow = e.X;
                     ynow = e.Y;
@@ -299,11 +300,23 @@ namespace WindowsFormsApp7
             tmp = 0;
         }
 
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+
+            if (tmp == 11)
+            {
+                brush.DrawLine(startX, startY, lastX, lastY);
+                q = brush.GetBitmap();
+                pictureBox1.Image = q;
+                isFirstPoligon = true;
+            }
+        }
+
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if(tmp==11)
             {
-                brush.DrawLine(startX, startY, e.X,e.Y);
+                brush.DrawLine(startX, startY, lastX, lastY);
                 q = brush.GetBitmap();
                 pictureBox1.Image = q;
                 isFirstPoligon = true;
