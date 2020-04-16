@@ -281,12 +281,9 @@ namespace WindowsFormsApp7
             Figure = new Ellipse(brush);
         }
 
-        private void choosePipette_Click(object sender, EventArgs e)
-        {
+        
 
-        }
-
-        }
+        
 
         private void choosePen_Click(object sender, EventArgs e)
         {
