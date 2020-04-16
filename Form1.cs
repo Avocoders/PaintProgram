@@ -17,15 +17,16 @@ namespace WindowsFormsApp7
         Point moveStart;
         Bitmap q,bitmap2;
         int n = 1;
+        int xnow, ynow;
         Color color;
         Brush brush;        
-        bool isDrow, isFirst;
+        bool isDrow, isFirst,isFirstPoligon;
         int lastX, lastY;
         int startX = 0;
         int startY = 0;
         IFigur Figure;
         int tmp = 0;
-        Bitmap bitmap3;
+        Bitmap bitmap3,bitmap4;
         RectangleF cloneRect;
         System.Drawing.Imaging.PixelFormat format;
 
@@ -112,7 +113,7 @@ namespace WindowsFormsApp7
                     isFirst = true;
                 }
             }
-            else if (tmp!=10)
+            else if (tmp!=10&&tmp!=11)
             
             {
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
@@ -128,17 +129,19 @@ namespace WindowsFormsApp7
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            lastX = e.X;
-            lastY = e.Y;
+           
             isDrow = true;
             isFirst = true;
-            startX = e.X;
+            
+            if (tmp != 11)
+            {
+                bitmap2 = CreateNewLayer();
+             lastX = e.X;
+            lastY = e.Y;
+                startX = e.X;
             startY = e.Y;
-            bitmap3 = new Bitmap(pictureBox1.Image);
-            cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
-            format = bitmap3.PixelFormat;
-            bitmap2 = bitmap3.Clone(cloneRect, format);
-            brush.SetBitmap(bitmap2);
+                brush.SetBitmap(bitmap2);
+            }
             if(tmp==0)
             {
                 brush.SetDot(e.X,e.Y);
@@ -147,14 +150,56 @@ namespace WindowsFormsApp7
             }
             if (tmp==10)
             {
+                
                 brush.SetColor(q.GetPixel(e.X, e.Y));
             }
+            if(tmp==11)
+            {
+                if (isFirstPoligon == true)
+                {
+                    q = CreateNewLayer();
+                    brush.SetBitmap(q);
+                    startX = e.X;
+                    startY = e.Y;
+                    lastX = startX;
+                    lastY = startY;
+                    brush.SetDot(startX, startY);
+                    isFirstPoligon = false;
+                    q = brush.GetBitmap();
+                    pictureBox1.Image = q;
+                }
+                else 
+                {
+                    xnow = e.X;
+                    ynow = e.Y;
+                    brush.DrawLine(lastX, lastY, xnow, ynow);
+                    q = brush.GetBitmap();
+                    lastX = e.X;
+                    lastY = e.Y;
+                    pictureBox1.Image = q;
+                }
+
+            }
+        }
+        private Bitmap CreateNewLayer()
+        {
+            bitmap3 = new Bitmap(pictureBox1.Image);
+            bitmap4 = new Bitmap(pictureBox1.Image);
+            cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
+            format = bitmap3.PixelFormat;
+            //bitmap2 = bitmap3.Clone(cloneRect, format);
+            return bitmap3.Clone(cloneRect, format);
+        }
+        private void DrowIrregularPolygon(int x,int y)
+        {
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {            
             isDrow = false;
             isFirst = false;
+            isFirstPoligon = false;
             color = Color.Black;
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             brush = new Brush(pictureBox1.Width, pictureBox1.Height);            
@@ -255,9 +300,38 @@ namespace WindowsFormsApp7
             tmp = 0;
         }
 
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+
+            if (tmp == 11)
+            {
+                brush.DrawLine(startX, startY, lastX, lastY);
+                q = brush.GetBitmap();
+                pictureBox1.Image = q;
+                isFirstPoligon = true;
+            }
+        }
+
+        private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if(tmp==11)
+            {
+                brush.DrawLine(startX, startY, lastX, lastY);
+                q = brush.GetBitmap();
+                pictureBox1.Image = q;
+                isFirstPoligon = true;
+            }
+        }
+
         private void choosePipette_Click(object sender, EventArgs e)
         {
             tmp = 10;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tmp = 11;
+            isFirstPoligon = true;
         }
 
         private void deleteAll_Click(object sender, EventArgs e)
@@ -268,8 +342,8 @@ namespace WindowsFormsApp7
 
         private void deleteTheLastOne_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = bitmap3;
-            q = bitmap3;
+            pictureBox1.Image = bitmap4;
+            //q = bitmap3;
         }
 
         private void chooseEraser_Click(object sender, EventArgs e)
