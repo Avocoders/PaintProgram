@@ -17,10 +17,8 @@ namespace WindowsFormsApp7
         Point moveStart;
         Bitmap q,bitmap2;
         int n = 1;
-
         Color color;
-        Brush brush;
-        
+        Brush brush;        
         bool isDrow, isFirst;
         int lastX, lastY;
         int startX = 0;
@@ -30,8 +28,6 @@ namespace WindowsFormsApp7
         Bitmap bitmap3;
         RectangleF cloneRect;
         System.Drawing.Imaging.PixelFormat format;
-
-
 
         public Form1()
         {
@@ -93,7 +89,6 @@ namespace WindowsFormsApp7
             return color;
         }
 
-
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             if (tmp == 0)
@@ -121,17 +116,12 @@ namespace WindowsFormsApp7
             
             {
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
-                {
-
-                    
+                {                    
                     bitmap2 = bitmap3.Clone(cloneRect, format);
                     brush.SetBitmap(bitmap2);
-                     Figure.Drow(startX, startY, e.X, e.Y);
-                     q = brush.GetBitmap();
-                    
+                    Figure.Drow(startX, startY, e.X, e.Y);
+                    q = brush.GetBitmap();                    
                     pictureBox1.Image = q;
-                    
-
                 }
             }
         }
@@ -162,28 +152,19 @@ namespace WindowsFormsApp7
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-
-            
+        {            
             isDrow = false;
             isFirst = false;
             color = Color.Black;
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            brush = new Brush(pictureBox1.Width, pictureBox1.Height);
-            
+            brush = new Brush(pictureBox1.Width, pictureBox1.Height);            
             pictureBox1.Image = q;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             isDrow = false;
-
-        }
-
-        private void tabPage1_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
+        }        
 
         private void lineThickness_Scroll(object sender, EventArgs e)
         {
@@ -279,11 +260,6 @@ namespace WindowsFormsApp7
             tmp = 10;
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }        
-
         private void deleteAll_Click(object sender, EventArgs e)
         {
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -301,14 +277,6 @@ namespace WindowsFormsApp7
             tmp = 0;
             brush.SetColor(Color.White);
         }
-
-
-
-        
-
-
-
-
     }
 }
 

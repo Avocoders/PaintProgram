@@ -209,7 +209,6 @@ namespace WindowsFormsApp7
 
         public void Pain(int x, int y)
         {
-
             int del = n / 2;
             for (int i = 0; i < n; i++)
             {
@@ -219,10 +218,10 @@ namespace WindowsFormsApp7
                     q.SetPixel(x - del + i, y - del, color);
                     q.SetPixel(x + del, y - del + i, color);
                     q.SetPixel(x - del, y - del + i, color);
-                }
-                
+                }                
             }
         }
+
         public void SetDot(int x, int y)
         {
             int del = n /2 ;
@@ -231,10 +230,8 @@ namespace WindowsFormsApp7
                 for (int j = 0; j < n; j++)
                 {
                     if (x - del > 0 && x + del < width && y - del > 0 && y + del < heigth)
-                    {
-                    
-                        q.SetPixel(x - del+i, y - del+j, color);
-                       
+                    {                    
+                        q.SetPixel(x - del+i, y - del+j, color);                       
                     }
                 }
             }
