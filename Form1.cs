@@ -34,54 +34,54 @@ namespace WindowsFormsApp7
             InitializeComponent();
             lineThickness.Minimum = 1;
             lineThickness.Maximum = 6;
-            this.MouseDown += Form1_MouseDown;
-            this.MouseMove += Form1_MouseMove;
-            this.WindowState = FormWindowState.Maximized;
+            this.MouseDown += Form1_MouseDown;
+            this.MouseMove += Form1_MouseMove;
+            this.WindowState = FormWindowState.Maximized;
             this.WindowState = FormWindowState.Normal;
         }
 
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                const int WS_SIZEBOX = 0x40000;
-                var cp = base.CreateParams;
-                cp.Style |= WS_SIZEBOX;
-                return cp;
-            }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int WS_SIZEBOX = 0x40000;
+                var cp = base.CreateParams;
+                cp.Style |= WS_SIZEBOX;
+                return cp;
+            }
         }
 
-        private void Form1_MouseDown(object sender, MouseEventArgs e)
-        {            
-            if (e.Button == MouseButtons.Left)
-            {
-                moveStart = new Point(e.X, e.Y);
-            }
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {            
+            if (e.Button == MouseButtons.Left)
+            {
+                moveStart = new Point(e.X, e.Y);
+            }
         }
 
-        private void Form1_MouseMove(object sender, MouseEventArgs e)
-        {            
-            if ((e.Button & MouseButtons.Left) != 0)
-            {                
-                Point deltaPos = new Point(e.X - moveStart.X, e.Y - moveStart.Y);                
-                this.Location = new Point(this.Location.X + deltaPos.X,
-                this.Location.Y + deltaPos.Y);
-            }
-        }
-
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void buttonRollUp_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void buttonExpend_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {            
+            if ((e.Button & MouseButtons.Left) != 0)
+            {                
+                Point deltaPos = new Point(e.X - moveStart.X, e.Y - moveStart.Y);                
+                this.Location = new Point(this.Location.X + deltaPos.X,
+                this.Location.Y + deltaPos.Y);
+            }
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonRollUp_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void buttonExpend_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
         }
 
         public Color GetColor()
@@ -112,8 +112,7 @@ namespace WindowsFormsApp7
                     isFirst = true;
                 }
             }
-            else if (tmp!=10)
-            
+            else
             {
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {                    
@@ -134,20 +133,21 @@ namespace WindowsFormsApp7
             isFirst = true;
             startX = e.X;
             startY = e.Y;
+            
             bitmap3 = new Bitmap(pictureBox1.Image);
             cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
             format = bitmap3.PixelFormat;
             bitmap2 = bitmap3.Clone(cloneRect, format);
             brush.SetBitmap(bitmap2);
-            if(tmp==0)
-            {
-                brush.SetDot(e.X,e.Y);
-                q = brush.GetBitmap();
-                pictureBox1.Image = q;
+            if(tmp==0)
+            {
+                brush.SetDot(e.X,e.Y);
+                q = brush.GetBitmap();
+                pictureBox1.Image = q;
             }
-            if (tmp==10)
-            {
-                brush.SetColor(q.GetPixel(e.X, e.Y));
+            if (tmp==10)
+            {
+                brush.SetColor(q.GetPixel(e.X, e.Y));
             }
         }
 
@@ -168,7 +168,7 @@ namespace WindowsFormsApp7
 
         private void lineThickness_Scroll(object sender, EventArgs e)
         {
-            switch(lineThickness.Value)
+            switch (lineThickness.Value)
             {
                 case 1: n = 1; break;
                 case 2: n = 2; break;
@@ -225,7 +225,7 @@ namespace WindowsFormsApp7
         {
             color = Color.Yellow; brush.SetColor(color);
         }
-    
+
         private void square_Click(object sender, EventArgs e)
         {
             tmp = 1;
@@ -250,16 +250,32 @@ namespace WindowsFormsApp7
             Figure = new IsoscelesTriangle(brush);
         }
 
-        private void choosePen_Click(object sender, EventArgs e)
+        private void circle_Click(object sender, EventArgs e)
         {
-            tmp = 0;
+            tmp = 5;
+            Figure = new Сircle(brush);
         }
 
-        private void choosePipette_Click(object sender, EventArgs e)
+        private void oval_Click(object sender, EventArgs e)
         {
-            tmp = 10;
+            tmp = 6;
+            Figure = new Ellipse(brush);
         }
 
+        
+
+        
+
+        private void choosePen_Click(object sender, EventArgs e)
+        {
+            tmp = 0;
+        }
+
+        private void choosePipette_Click(object sender, EventArgs e)
+        {
+            tmp = 10;
+        }
+
         private void deleteAll_Click(object sender, EventArgs e)
         {
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
