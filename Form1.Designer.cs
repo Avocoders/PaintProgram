@@ -148,6 +148,7 @@
             this.choosePipette.Size = new System.Drawing.Size(46, 46);
             this.choosePipette.TabIndex = 8;
             this.choosePipette.UseVisualStyleBackColor = false;
+            this.choosePipette.Click += new System.EventHandler(this.choosePipette_Click);
             // 
             // pictureBox2
             // 

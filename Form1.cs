@@ -220,6 +220,11 @@ namespace WindowsFormsApp7
             Figure = new Ellipse(brush);
         }
 
+        private void choosePipette_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void deleteAll_Click(object sender, EventArgs e)
         {
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
