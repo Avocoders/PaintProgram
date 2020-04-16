@@ -14,7 +14,8 @@ namespace WindowsFormsApp7
 {
     public partial class Form1 : Form
     {
-        Bitmap q, bitmap2;
+        Point moveStart;
+        Bitmap q,bitmap2;
         int n = 1;
 
         Color color;
@@ -37,7 +38,56 @@ namespace WindowsFormsApp7
             InitializeComponent();
             lineThickness.Minimum = 1;
             lineThickness.Maximum = 6;
+            this.MouseDown += Form1_MouseDown;
+            this.MouseMove += Form1_MouseMove;
+            this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Normal;
         }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int WS_SIZEBOX = 0x40000;
+                var cp = base.CreateParams;
+                cp.Style |= WS_SIZEBOX;
+                return cp;
+            }
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {            
+            if (e.Button == MouseButtons.Left)
+            {
+                moveStart = new Point(e.X, e.Y);
+            }
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {            
+            if ((e.Button & MouseButtons.Left) != 0)
+            {                
+                Point deltaPos = new Point(e.X - moveStart.X, e.Y - moveStart.Y);                
+                this.Location = new Point(this.Location.X + deltaPos.X,
+                this.Location.Y + deltaPos.Y);
+            }
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonRollUp_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void buttonExpend_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
         public Color GetColor()
         {
             return color;
@@ -93,11 +143,22 @@ namespace WindowsFormsApp7
             isFirst = true;
             startX = e.X;
             startY = e.Y;
-
+            
             bitmap3 = new Bitmap(pictureBox1.Image);
             cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
             format = bitmap3.PixelFormat;
             bitmap2 = bitmap3.Clone(cloneRect, format);
+            brush.SetBitmap(bitmap2);
+            if(tmp==0)
+            {
+                brush.SetDot(e.X,e.Y);
+                q = brush.GetBitmap();
+                pictureBox1.Image = q;
+            }
+            if (tmp==10)
+            {
+                brush.SetColor(q.GetPixel(e.X, e.Y));
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -225,6 +286,23 @@ namespace WindowsFormsApp7
 
         }
 
+        }
+
+        private void choosePen_Click(object sender, EventArgs e)
+        {
+            tmp = 0;
+        }
+
+        private void choosePipette_Click(object sender, EventArgs e)
+        {
+            tmp = 10;
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }        
+
         private void deleteAll_Click(object sender, EventArgs e)
         {
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
