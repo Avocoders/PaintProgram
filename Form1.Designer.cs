@@ -30,12 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.insert = new System.Windows.Forms.Button();
             this.choosePen = new System.Windows.Forms.Button();
             this.chooseEraser = new System.Windows.Forms.Button();
             this.chooseFill = new System.Windows.Forms.Button();
             this.choosePipette = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.brushes = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,8 +50,6 @@
             this.deleteTheLastOne = new System.Windows.Forms.ToolStripButton();
             this.deleteAll = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
             this.lineThickness = new System.Windows.Forms.TrackBar();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonYellow = new System.Windows.Forms.RadioButton();
@@ -72,6 +68,10 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.blackColor = new System.Windows.Forms.Button();
+            this.redColor = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.blueColor = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -81,12 +81,7 @@
             this.straightLine = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.redColor = new System.Windows.Forms.Button();
-            this.blackColor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lineThickness)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -101,10 +96,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 402);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 232);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1128, 308);
+            this.pictureBox1.Size = new System.Drawing.Size(1128, 401);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
@@ -113,29 +107,12 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // insert
-            // 
-            this.insert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.insert.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.insert.FlatAppearance.BorderSize = 5;
-            this.insert.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.insert.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.insert.Image = ((System.Drawing.Image)(resources.GetObject("insert.Image")));
-            this.insert.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.insert.Location = new System.Drawing.Point(0, 310);
-            this.insert.Name = "insert";
-            this.insert.Size = new System.Drawing.Size(101, 96);
-            this.insert.TabIndex = 3;
-            this.insert.Text = "Вставить";
-            this.insert.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.insert.UseVisualStyleBackColor = false;
-            // 
             // choosePen
             // 
             this.choosePen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.choosePen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.choosePen.Image = ((System.Drawing.Image)(resources.GetObject("choosePen.Image")));
-            this.choosePen.Location = new System.Drawing.Point(102, 298);
+            this.choosePen.Location = new System.Drawing.Point(102, 16);
             this.choosePen.Name = "choosePen";
             this.choosePen.Size = new System.Drawing.Size(46, 46);
             this.choosePen.TabIndex = 4;
@@ -147,7 +124,7 @@
             this.chooseEraser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.chooseEraser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.chooseEraser.Image = ((System.Drawing.Image)(resources.GetObject("chooseEraser.Image")));
-            this.chooseEraser.Location = new System.Drawing.Point(102, 350);
+            this.chooseEraser.Location = new System.Drawing.Point(102, 65);
             this.chooseEraser.Name = "chooseEraser";
             this.chooseEraser.Size = new System.Drawing.Size(46, 46);
             this.chooseEraser.TabIndex = 6;
@@ -159,7 +136,7 @@
             this.chooseFill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.chooseFill.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.chooseFill.Image = ((System.Drawing.Image)(resources.GetObject("chooseFill.Image")));
-            this.chooseFill.Location = new System.Drawing.Point(154, 310);
+            this.chooseFill.Location = new System.Drawing.Point(154, 16);
             this.chooseFill.Name = "chooseFill";
             this.chooseFill.Size = new System.Drawing.Size(46, 46);
             this.chooseFill.TabIndex = 7;
@@ -170,30 +147,19 @@
             this.choosePipette.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.choosePipette.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.choosePipette.Image = ((System.Drawing.Image)(resources.GetObject("choosePipette.Image")));
-            this.choosePipette.Location = new System.Drawing.Point(154, 360);
+            this.choosePipette.Location = new System.Drawing.Point(154, 65);
             this.choosePipette.Name = "choosePipette";
             this.choosePipette.Size = new System.Drawing.Size(46, 46);
             this.choosePipette.TabIndex = 8;
             this.choosePipette.UseVisualStyleBackColor = false;
             this.choosePipette.Click += new System.EventHandler(this.choosePipette_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(211, 310);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(65, 71);
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            // 
             // brushes
             // 
             this.brushes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.brushes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.brushes.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.brushes.Location = new System.Drawing.Point(211, 377);
+            this.brushes.Location = new System.Drawing.Point(706, 68);
             this.brushes.Name = "brushes";
             this.brushes.Size = new System.Drawing.Size(65, 27);
             this.brushes.TabIndex = 10;
@@ -205,10 +171,10 @@
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(282, 307);
+            this.textBox1.Location = new System.Drawing.Point(233, 9);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(266, 95);
+            this.textBox1.Size = new System.Drawing.Size(332, 112);
             this.textBox1.TabIndex = 11;
             // 
             // label1
@@ -216,7 +182,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(357, 379);
+            this.label1.Location = new System.Drawing.Point(475, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 23);
             this.label1.TabIndex = 12;
@@ -227,7 +193,7 @@
             this.circle.BackColor = System.Drawing.Color.White;
             this.circle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.circle.Image = ((System.Drawing.Image)(resources.GetObject("circle.Image")));
-            this.circle.Location = new System.Drawing.Point(282, 310);
+            this.circle.Location = new System.Drawing.Point(233, 15);
             this.circle.Name = "circle";
             this.circle.Size = new System.Drawing.Size(49, 29);
             this.circle.TabIndex = 13;
@@ -238,7 +204,7 @@
             this.oval.BackColor = System.Drawing.Color.White;
             this.oval.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.oval.Image = ((System.Drawing.Image)(resources.GetObject("oval.Image")));
-            this.oval.Location = new System.Drawing.Point(337, 350);
+            this.oval.Location = new System.Drawing.Point(401, 77);
             this.oval.Name = "oval";
             this.oval.Size = new System.Drawing.Size(49, 29);
             this.oval.TabIndex = 14;
@@ -249,7 +215,7 @@
             this.square.BackColor = System.Drawing.Color.White;
             this.square.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.square.Image = ((System.Drawing.Image)(resources.GetObject("square.Image")));
-            this.square.Location = new System.Drawing.Point(282, 345);
+            this.square.Location = new System.Drawing.Point(233, 77);
             this.square.Name = "square";
             this.square.Size = new System.Drawing.Size(49, 29);
             this.square.TabIndex = 15;
@@ -261,7 +227,7 @@
             this.rectangle.BackColor = System.Drawing.Color.White;
             this.rectangle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rectangle.Image = ((System.Drawing.Image)(resources.GetObject("rectangle.Image")));
-            this.rectangle.Location = new System.Drawing.Point(337, 315);
+            this.rectangle.Location = new System.Drawing.Point(288, 15);
             this.rectangle.Name = "rectangle";
             this.rectangle.Size = new System.Drawing.Size(49, 29);
             this.rectangle.TabIndex = 16;
@@ -273,7 +239,7 @@
             this.IsoscelesTriangle.BackColor = System.Drawing.Color.White;
             this.IsoscelesTriangle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.IsoscelesTriangle.Image = ((System.Drawing.Image)(resources.GetObject("IsoscelesTriangle.Image")));
-            this.IsoscelesTriangle.Location = new System.Drawing.Point(392, 309);
+            this.IsoscelesTriangle.Location = new System.Drawing.Point(288, 77);
             this.IsoscelesTriangle.Name = "IsoscelesTriangle";
             this.IsoscelesTriangle.Size = new System.Drawing.Size(49, 29);
             this.IsoscelesTriangle.TabIndex = 17;
@@ -285,7 +251,7 @@
             this.RightTriangle.BackColor = System.Drawing.Color.White;
             this.RightTriangle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.RightTriangle.Image = ((System.Drawing.Image)(resources.GetObject("RightTriangle.Image")));
-            this.RightTriangle.Location = new System.Drawing.Point(392, 347);
+            this.RightTriangle.Location = new System.Drawing.Point(343, 77);
             this.RightTriangle.Name = "RightTriangle";
             this.RightTriangle.Size = new System.Drawing.Size(49, 29);
             this.RightTriangle.TabIndex = 18;
@@ -355,43 +321,21 @@
             this.file,
             this.deleteTheLastOne,
             this.deleteAll});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 805);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 778);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(1128, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(680, 306);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(333, 96);
-            this.panel1.TabIndex = 20;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button4.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(1019, 308);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(104, 96);
-            this.button4.TabIndex = 21;
-            this.button4.Text = " Цвет";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // lineThickness
             // 
-            this.lineThickness.BackColor = System.Drawing.SystemColors.Control;
-            this.lineThickness.Location = new System.Drawing.Point(554, 351);
+            this.lineThickness.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(246)))), ((int)(((byte)(125)))));
+            this.lineThickness.Location = new System.Drawing.Point(636, 9);
             this.lineThickness.Maximum = 6;
             this.lineThickness.Minimum = 1;
             this.lineThickness.Name = "lineThickness";
-            this.lineThickness.Size = new System.Drawing.Size(120, 45);
+            this.lineThickness.Size = new System.Drawing.Size(204, 45);
             this.lineThickness.SmallChange = 0;
             this.lineThickness.TabIndex = 22;
             this.lineThickness.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
@@ -475,7 +419,7 @@
             // buttonOrange
             // 
             this.buttonOrange.AutoSize = true;
-            this.buttonOrange.Location = new System.Drawing.Point(98, 7);
+            this.buttonOrange.Location = new System.Drawing.Point(98, 6);
             this.buttonOrange.Name = "buttonOrange";
             this.buttonOrange.Size = new System.Drawing.Size(60, 17);
             this.buttonOrange.TabIndex = 3;
@@ -521,7 +465,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(0, 686);
+            this.tabControl1.Location = new System.Drawing.Point(0, 639);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(775, 108);
@@ -603,19 +547,81 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(246)))), ((int)(((byte)(125)))));
+            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.straightLine);
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.button7);
             this.panel2.Controls.Add(this.blackColor);
+            this.panel2.Controls.Add(this.chooseEraser);
+            this.panel2.Controls.Add(this.choosePipette);
+            this.panel2.Controls.Add(this.choosePen);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.chooseFill);
+            this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.redColor);
             this.panel2.Controls.Add(this.button8);
             this.panel2.Controls.Add(this.blueColor);
             this.panel2.Controls.Add(this.button10);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.lineThickness);
+            this.panel2.Controls.Add(this.oval);
+            this.panel2.Controls.Add(this.RightTriangle);
+            this.panel2.Controls.Add(this.brushes);
+            this.panel2.Controls.Add(this.IsoscelesTriangle);
+            this.panel2.Controls.Add(this.circle);
+            this.panel2.Controls.Add(this.rectangle);
+            this.panel2.Controls.Add(this.square);
+            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Location = new System.Drawing.Point(0, 105);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1128, 114);
+            this.panel2.Size = new System.Drawing.Size(1128, 126);
             this.panel2.TabIndex = 28;
+            // 
+            // button6
+            // 
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.Location = new System.Drawing.Point(1020, 89);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(25, 25);
+            this.button6.TabIndex = 34;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
+            this.button7.Location = new System.Drawing.Point(1005, 50);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(28, 24);
+            this.button7.TabIndex = 35;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // blackColor
+            // 
+            this.blackColor.FlatAppearance.BorderSize = 0;
+            this.blackColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.blackColor.Image = ((System.Drawing.Image)(resources.GetObject("blackColor.Image")));
+            this.blackColor.Location = new System.Drawing.Point(1013, 9);
+            this.blackColor.Name = "blackColor";
+            this.blackColor.Size = new System.Drawing.Size(20, 20);
+            this.blackColor.TabIndex = 40;
+            this.blackColor.UseVisualStyleBackColor = true;
+            // 
+            // redColor
+            // 
+            this.redColor.FlatAppearance.BorderSize = 0;
+            this.redColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.redColor.Image = ((System.Drawing.Image)(resources.GetObject("redColor.Image")));
+            this.redColor.Location = new System.Drawing.Point(1031, 25);
+            this.redColor.Name = "redColor";
+            this.redColor.Size = new System.Drawing.Size(25, 19);
+            this.redColor.TabIndex = 39;
+            this.redColor.UseVisualStyleBackColor = true;
             // 
             // button8
             // 
@@ -656,7 +662,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1072, 9);
+            this.button1.Location = new System.Drawing.Point(1072, 15);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 98);
             this.button1.TabIndex = 0;
@@ -678,7 +684,7 @@
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(447, 310);
+            this.button2.Location = new System.Drawing.Point(343, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(42, 44);
             this.button2.TabIndex = 29;
@@ -690,7 +696,7 @@
             this.straightLine.BackColor = System.Drawing.Color.White;
             this.straightLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.straightLine.Image = ((System.Drawing.Image)(resources.GetObject("straightLine.Image")));
-            this.straightLine.Location = new System.Drawing.Point(495, 315);
+            this.straightLine.Location = new System.Drawing.Point(479, 25);
             this.straightLine.Name = "straightLine";
             this.straightLine.Size = new System.Drawing.Size(48, 29);
             this.straightLine.TabIndex = 30;
@@ -702,7 +708,7 @@
             this.button5.BackColor = System.Drawing.Color.White;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(504, 354);
+            this.button5.Location = new System.Drawing.Point(401, 15);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(39, 33);
             this.button5.TabIndex = 31;
@@ -710,89 +716,23 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(447, 354);
+            this.textBox3.Location = new System.Drawing.Point(401, 48);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(42, 20);
             this.textBox3.TabIndex = 32;
-            // 
-            // button6
-            // 
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(1020, 89);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(25, 25);
-            this.button6.TabIndex = 34;
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.Location = new System.Drawing.Point(1005, 50);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(28, 24);
-            this.button7.TabIndex = 35;
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // redColor
-            // 
-            this.redColor.FlatAppearance.BorderSize = 0;
-            this.redColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.redColor.Image = ((System.Drawing.Image)(resources.GetObject("redColor.Image")));
-            this.redColor.Location = new System.Drawing.Point(1031, 25);
-            this.redColor.Name = "redColor";
-            this.redColor.Size = new System.Drawing.Size(25, 19);
-            this.redColor.TabIndex = 39;
-            this.redColor.UseVisualStyleBackColor = true;
-            // 
-            // blackColor
-            // 
-            this.blackColor.FlatAppearance.BorderSize = 0;
-            this.blackColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.blackColor.Image = ((System.Drawing.Image)(resources.GetObject("blackColor.Image")));
-            this.blackColor.Location = new System.Drawing.Point(1013, 9);
-            this.blackColor.Name = "blackColor";
-            this.blackColor.Size = new System.Drawing.Size(20, 20);
-            this.blackColor.TabIndex = 40;
-            this.blackColor.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
-            this.ClientSize = new System.Drawing.Size(1128, 830);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.straightLine);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1128, 803);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.buttonExpend);
             this.Controls.Add(this.buttonRollUp);
             this.Controls.Add(this.buttonClose);
-            this.Controls.Add(this.lineThickness);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.RightTriangle);
-            this.Controls.Add(this.IsoscelesTriangle);
-            this.Controls.Add(this.rectangle);
-            this.Controls.Add(this.square);
-            this.Controls.Add(this.oval);
-            this.Controls.Add(this.circle);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.brushes);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.choosePipette);
-            this.Controls.Add(this.chooseFill);
-            this.Controls.Add(this.chooseEraser);
-            this.Controls.Add(this.choosePen);
-            this.Controls.Add(this.insert);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pictureBox1);
@@ -802,7 +742,6 @@
             this.Text = "TheBestPaint";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lineThickness)).EndInit();
@@ -811,6 +750,7 @@
             this.tabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -819,12 +759,10 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button insert;
         private System.Windows.Forms.Button choosePen;
         private System.Windows.Forms.Button chooseEraser;
         private System.Windows.Forms.Button chooseFill;
         private System.Windows.Forms.Button choosePipette;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button brushes;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
@@ -841,8 +779,6 @@
         private System.Windows.Forms.ToolStripButton deleteTheLastOne;
         private System.Windows.Forms.ToolStripButton deleteAll;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TrackBar lineThickness;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.RadioButton buttonYellow;
