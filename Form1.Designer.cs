@@ -74,7 +74,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.straightLine = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -621,16 +621,17 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // straightLine
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(495, 315);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(48, 29);
-            this.button3.TabIndex = 30;
-            this.button3.UseVisualStyleBackColor = false;
+            this.straightLine.BackColor = System.Drawing.Color.White;
+            this.straightLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.straightLine.Image = ((System.Drawing.Image)(resources.GetObject("straightLine.Image")));
+            this.straightLine.Location = new System.Drawing.Point(495, 315);
+            this.straightLine.Name = "straightLine";
+            this.straightLine.Size = new System.Drawing.Size(48, 29);
+            this.straightLine.TabIndex = 30;
+            this.straightLine.UseVisualStyleBackColor = false;
+            this.straightLine.Click += new System.EventHandler(this.straightLine_Click);
             // 
             // button5
             // 
@@ -658,7 +659,7 @@
             this.ClientSize = new System.Drawing.Size(1123, 822);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.straightLine);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.textBox2);
@@ -754,7 +755,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button straightLine;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox3;
     }

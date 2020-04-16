@@ -295,6 +295,12 @@ namespace WindowsFormsApp7
             Figure = new IsoscelesTriangle(brush);
         }
 
+        private void straightLine_Click(object sender, EventArgs e)
+        {
+            tmp = 12;
+            Figure = new StraightLine(brush);
+        }
+
         private void choosePen_Click(object sender, EventArgs e)
         {
             tmp = 0;
@@ -310,7 +316,7 @@ namespace WindowsFormsApp7
                 pictureBox1.Image = q;
                 isFirstPoligon = true;
             }
-        }
+        }        
 
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {

@@ -53,8 +53,9 @@ namespace WindowsFormsApp7
 
             int xd = (x - lastX);
             int yd = (y - lastY);
-            xd = Math.Abs(xd);
-            yd = Math.Abs(yd);
+            //xd = Math.Abs(xd);
+            //yd = Math.Abs(yd);
+            double xy;
             if (lastX == x)
             {
                 if (lastY < y)
@@ -94,119 +95,112 @@ namespace WindowsFormsApp7
                 }
             }
 
+
             if (lastX < x && lastY > y)  // 1 четверть
             {
-                if (xd >= yd)
+                if (Math.Abs(xd) >= Math.Abs(yd))
                 {
+                    xy = (double) yd / xd;
+                    int firstX = lastX;
+                    int firstY = lastY;
+                    for (int i = lastX; i <= x; i++)
+                    {                        
+                        lastY = (int)(Math.Round((i - firstX) * xy)) + firstY;
+                        Pain(i, lastY);
+                    }                    
+                }
+                if (Math.Abs(xd) < Math.Abs(yd))
+                {
+
+                    int firstX = lastX;
+                    int firstY = lastY;
+                    xy = (double) xd / yd;
+                    for (int i = lastY; i >= y; i--)
+                    {
+                        lastX = (int)(Math.Round((i - firstY) * xy)) + firstX;
+                        Pain(lastX, i);
+                    }                    
+                }
+            }
+            if (lastX < x && lastY < y)  // 2 четверть
+            {
+                if (Math.Abs(xd) >= Math.Abs(yd))
+                {
+                    xy = (double)yd / xd;
                     int firstX = lastX;
                     int firstY = lastY;
                     for (int i = lastX; i <= x; i++)
                     {
+                        lastY = (int)(Math.Round((i - firstX) * xy)) + firstY;
                         Pain(i, lastY);
-                        lastY = ((i - firstX) * (y - firstY)) / (x - firstX) + firstY;
-                    }
-                    lastX = x;
-                    lastY = y;
+                    }                    
                 }
-                if (xd < yd)
+                if (Math.Abs(xd) < Math.Abs(yd))
                 {
-                    int firstX = lastX;
-                    int firstY = lastY;
-                    for (int i = lastY; i >= y; i--)
-                    {
-                        Pain(lastX, i);
-                        lastX = ((i - firstY) * (x - firstX)) / (y - firstY) + firstX;
-                    }
-                    lastX = x;
-                    lastY = y;
-                }
-            }
-
-            if (lastX < x && lastY < y)
-            {
-                if (xd >= yd)
-                {
-                    int firstX = lastX;
-                    int firstY = lastY;
-                    for (int i = lastX; i <= x; i++)
-                    {
-                        Pain(i, lastY);
-                        lastY = ((i - firstX) * (y - firstY)) / (x - firstX) + firstY;
-                    }
-                    lastX = x;
-                    lastY = y;
-                }
-                if (xd < yd)
-                {
+                    xy = (double)xd / yd;
                     int firstX = lastX;
                     int firstY = lastY;
                     for (int i = lastY; i <= y; i++)
                     {
+                        lastX = (int)(Math.Round((i - firstY) * xy)) + firstX;  
                         Pain(lastX, i);
-                        lastX = ((i - firstY) * (x - firstX)) / (y - firstY) + firstX;
-                    }
-                    lastX = x;
-                    lastY = y;
+                    }                    
                 }
             }
 
-            if (lastX > x && lastY > y)
+            if (lastX > x && lastY > y)  // 3 четверть
             {
-                if (xd >= yd)
+                if (Math.Abs(xd) >= Math.Abs(yd))
                 {
+                    xy = (double)yd / xd;
                     int firstX = lastX;
                     int firstY = lastY;
                     for (int i = lastX; i >= x; i--)
                     {
+                        lastY = (int)(Math.Round((i - firstX) * xy)) + firstY;
                         Pain(i, lastY);
-                        lastY = ((i - firstX) * (y - firstY)) / (x - firstX) + firstY;
-                    }
-                    lastX = x;
-                    lastY = y;
+                    }                    
                 }
-                if (xd < yd)
+                if (Math.Abs(xd) < Math.Abs(yd))
                 {
+                    xy = (double)xd / yd;
                     int firstX = lastX;
                     int firstY = lastY;
                     for (int i = lastY; i >= y; i--)
                     {
+                        lastX = (int)(Math.Round((i - firstY) * xy)) + firstX;
                         Pain(lastX, i);
-                        lastX = ((i - firstY) * (x - firstX)) / (y - firstY) + firstX;
-                    }
-                    lastX = x;
-                    lastY = y;
+                    }                   
                 }
             }
 
-            if (lastX > x && lastY < y)
+            if (lastX > x && lastY < y) // 4 четверть
             {
-                if (xd >= yd)
+                if (Math.Abs(xd) >= Math.Abs(yd))
                 {
+                    xy = (double)yd / xd;
                     int firstX = lastX;
                     int firstY = lastY;
                     for (int i = lastX; i >= x; i--)
                     {
+                        lastY = (int)(Math.Round((i - firstX) * xy)) + firstY;
                         Pain(i, lastY);
-                        lastY = ((i - firstX) * (y - firstY)) / (x - firstX) + firstY;
                     }
-                    lastX = x;
-                    lastY = y;
+                    
                 }
-                if (xd < yd)
+                if (Math.Abs(xd) < Math.Abs(yd))
                 {
+                    xy = (double)xd / yd;
                     int firstX = lastX;
                     int firstY = lastY;
                     for (int i = lastY; i <= y; i++)
                     {
+                        lastX = (int)(Math.Round((i - firstY) * xy)) + firstX;
                         Pain(lastX, i);
-                        lastX = ((i - firstY) * (x - firstX)) / (y - firstY) + firstX;
-                    }
-                    lastX = x;
-                    lastY = y;
+                    }                    
                 }
             }
         }
-
         public void Pain(int x, int y)
         {
             int del = n / 2;
@@ -218,24 +212,24 @@ namespace WindowsFormsApp7
                     q.SetPixel(x - del + i, y - del, color);
                     q.SetPixel(x + del, y - del + i, color);
                     q.SetPixel(x - del, y - del + i, color);
-                }                
+                }
             }
         }
 
         public void SetDot(int x, int y)
         {
-            int del = n /2 ;
+            int del = n / 2;
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
                     if (x - del > 0 && x + del < width && y - del > 0 && y + del < heigth)
-                    {                    
-                        q.SetPixel(x - del+i, y - del+j, color);                       
+                    {
+                        q.SetPixel(x - del + i, y - del + j, color);
                     }
                 }
             }
-        }
+        }        
     }
 }
 
