@@ -144,12 +144,17 @@ namespace WindowsFormsApp7
             isFirst = true;
             startX = e.X;
             startY = e.Y;
-            
             bitmap3 = new Bitmap(pictureBox1.Image);
             cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
             format = bitmap3.PixelFormat;
             bitmap2 = bitmap3.Clone(cloneRect, format);
-
+            brush.SetBitmap(bitmap2);
+            if(tmp==0)
+            {
+                brush.SetDot(e.X,e.Y);
+                q = brush.GetBitmap();
+                pictureBox1.Image = q;
+            }
             if (tmp==10)
             {
                 brush.SetColor(q.GetPixel(e.X, e.Y));
