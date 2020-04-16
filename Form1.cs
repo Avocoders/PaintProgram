@@ -43,7 +43,7 @@ namespace WindowsFormsApp7
             // расширенное окно для выбора цвета
             colorDialog1.FullOpen = true;
             // установка начального цвета для colorDialog
-            colorDialog1.Color = this.BackColor;
+            colorDialog1.Color = color;
         }
 
         protected override CreateParams CreateParams
@@ -328,7 +328,22 @@ namespace WindowsFormsApp7
             if (colorDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
             // установка цвета формы
-            this.BackColor = colorDialog1.Color;
+            color = colorDialog1.Color;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
