@@ -229,7 +229,7 @@ namespace WindowsFormsApp7
         {
             color = Color.Blue;
             brush.SetColor(color);
-        }
+        }               
 
         private void buttonBlack_CheckedChanged(object sender, EventArgs e)
         {
