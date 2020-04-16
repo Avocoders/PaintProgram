@@ -151,7 +151,7 @@ namespace WindowsFormsApp7
             brush.SetBitmap(bitmap2);
             if(tmp==0)
             {
-                brush.DrawLine(lastX, lastY, startX, startY);
+                brush.SetDot(e.X,e.Y);
                 q = brush.GetBitmap();
                 pictureBox1.Image = q;
             }

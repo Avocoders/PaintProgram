@@ -50,7 +50,7 @@ namespace WindowsFormsApp7
                 lastX = x;
                 lastY = y;
             }
-                        
+
             int xd = (x - lastX);
             int yd = (y - lastY);
             xd = Math.Abs(xd);
@@ -205,36 +205,40 @@ namespace WindowsFormsApp7
                     lastY = y;
                 }
             }
-
-            //while ((lastX != x || lastY != y))
-            //{
-                
-            //}     
-
         }
 
         public void Pain(int x, int y)
         {
-            //int x2=0;
-            //int y2=0;
-            //for (int i = 0; i < 181; i++)
-            //{
-            //    x2 = x2 + Convert.ToInt32(n * Math.Cos(i * 3.14159 / 180));
-            //    y2 = y2 + Convert.ToInt32(n * Math.Sin(i * 3.14159 / 180));
-            //    q.SetPixel(x2, y2, color);
+
+            int del = n / 2;
+            for (int i = 0; i < n; i++)
+            {
+                if (x - del > 0 && x + del < width && y - del > 0 && y + del < heigth)
+                {
+                    q.SetPixel(x - del + i, y + del, color);
+                    q.SetPixel(x - del + i, y - del, color);
+                    q.SetPixel(x + del, y - del + i, color);
+                    q.SetPixel(x - del, y - del + i, color);
+                }
+                
+            }
+        }
+        public void SetDot(int x, int y)
+        {
+            int del = n /2 ;
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
-                    if (x - i > 0 && x + i < width && y - j > 0 && y + j < heigth)
+                    if (x - del > 0 && x + del < width && y - del > 0 && y + del < heigth)
                     {
-                        q.SetPixel(x - i, y - j, color);
-                        q.SetPixel(x + i, y + j, color);
-                        q.SetPixel(x, y, color);
+                    
+                        q.SetPixel(x - del+i, y - del+j, color);
+                       
                     }
                 }
             }
         }
-        }
     }
+}
 
