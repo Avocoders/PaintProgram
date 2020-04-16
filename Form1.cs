@@ -39,6 +39,11 @@ namespace WindowsFormsApp7
             this.MouseMove += Form1_MouseMove;
             this.WindowState = FormWindowState.Maximized;
             this.WindowState = FormWindowState.Normal;
+            moreColor.Click += moreColor_Click;
+            // расширенное окно для выбора цвета
+            colorDialog1.FullOpen = true;
+            // установка начального цвета для colorDialog
+            colorDialog1.Color = this.BackColor;
         }
 
         protected override CreateParams CreateParams
@@ -316,7 +321,15 @@ namespace WindowsFormsApp7
                 pictureBox1.Image = q;
                 isFirstPoligon = true;
             }
-        }        
+        }
+
+        private void moreColor_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            // установка цвета формы
+            this.BackColor = colorDialog1.Color;
+        }
 
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
