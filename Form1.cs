@@ -249,24 +249,7 @@ namespace WindowsFormsApp7
             tmp = 4;
             Figure = new IsoscelesTriangle(brush);
         }
-
-        private void circle_Click(object sender, EventArgs e)
-        {
-            tmp = 5;
-            Figure = new Сircle(brush);
-        }
-
-        private void oval_Click(object sender, EventArgs e)
-        {
-            tmp = 6;
-            Figure = new Ellipse(brush);
-        }
-
-        
-
-        
-
-        private void choosePen_Click(object sender, EventArgs e)
+          private void choosePen_Click(object sender, EventArgs e)
         {
             tmp = 0;
         }
@@ -274,8 +257,26 @@ namespace WindowsFormsApp7
         private void choosePipette_Click(object sender, EventArgs e)
         {
             tmp = 10;
-        }
-
+        }
+
+        private void circle_Click_1(object sender, EventArgs e)
+        {
+            tmp = 5;
+            Figure = new Сircle(brush);
+        }
+
+        private void oval_Click_1(object sender, EventArgs e)
+        {
+            tmp = 6;
+            Figure = new Ellipse(brush);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            tmp = 7;
+            Figure = new Poligon(brush);
+        }
+
         private void deleteAll_Click(object sender, EventArgs e)
         {
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);

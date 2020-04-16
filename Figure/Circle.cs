@@ -15,18 +15,17 @@ namespace WindowsFormsApp7.Figure
         }
         public void Drow(int x1, int y1, int x2, int y2)
         {
-            int r = Convert.ToInt32(Math.Sqrt(Math.Abs((x2 * x2 - x1 * x1)) + Math.Abs((y2 * y2 - y1 * y1))));
-            int rad = r;
-            int xNext = 0;
-            int yNext = 0;
+            int r = Convert.ToInt32(Math.Sqrt(Math.Abs((x2 - x1)* (x2 - x1)) + Math.Abs((y2 - y1)* (y2 - y1))));
+            int x = x1 + Convert.ToInt32(r * Math.Cos(0 * Math.PI / 180));
+            int y = y1 + Convert.ToInt32(r * Math.Sin(0 * Math.PI / 180)); ;
 
-            for (int i = 0; i < 361; i++)
+            for (int i = 1; i < 360; i++)
             {
-                xNext = x1 + Convert.ToInt32(rad * Math.Cos(i * 3.14159 / 180));
-                yNext = y1 + Convert.ToInt32(rad * Math.Sin(i * 3.14159 / 180));
-                q.DrawLine(xNext, yNext, x2, y2);
-                x2 = xNext;
-                y2 = yNext;
+                int xNext = x1 + Convert.ToInt32(r * Math.Cos(i * Math.PI / 180));
+                int yNext = y1 + Convert.ToInt32(r * Math.Sin(i * Math.PI / 180));
+                q.DrawLine(xNext, yNext, x, y);
+                x = xNext;
+                y = yNext;
             }
         }
 

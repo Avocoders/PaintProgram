@@ -96,7 +96,7 @@
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(0, 402);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1123, 300);
+            this.pictureBox1.Size = new System.Drawing.Size(1123, 266);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -222,6 +222,7 @@
             this.circle.Size = new System.Drawing.Size(49, 29);
             this.circle.TabIndex = 13;
             this.circle.UseVisualStyleBackColor = false;
+            this.circle.Click += new System.EventHandler(this.circle_Click_1);
             // 
             // oval
             // 
@@ -233,6 +234,7 @@
             this.oval.Size = new System.Drawing.Size(49, 29);
             this.oval.TabIndex = 14;
             this.oval.UseVisualStyleBackColor = false;
+            this.oval.Click += new System.EventHandler(this.oval_Click_1);
             // 
             // square
             // 
@@ -345,7 +347,7 @@
             this.file,
             this.deleteTheLastOne,
             this.deleteAll});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 797);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 763);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(1123, 25);
@@ -639,6 +641,7 @@
             this.button5.Size = new System.Drawing.Size(39, 33);
             this.button5.TabIndex = 31;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // textBox3
             // 
@@ -652,7 +655,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
-            this.ClientSize = new System.Drawing.Size(1123, 822);
+            this.ClientSize = new System.Drawing.Size(1123, 788);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
