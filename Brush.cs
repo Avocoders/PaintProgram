@@ -215,6 +215,13 @@ namespace WindowsFormsApp7
 
         public void Pain(int x, int y)
         {
+            //int x2=0;
+            //int y2=0;
+            //for (int i = 0; i < 181; i++)
+            //{
+            //    x2 = x2 + Convert.ToInt32(n * Math.Cos(i * 3.14159 / 180));
+            //    y2 = y2 + Convert.ToInt32(n * Math.Sin(i * 3.14159 / 180));
+            //    q.SetPixel(x2, y2, color);
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
@@ -224,9 +231,10 @@ namespace WindowsFormsApp7
                         q.SetPixel(x - i, y - j, color);
                         q.SetPixel(x + i, y + j, color);
                         q.SetPixel(x, y, color);
-                    }                    
+                    }
                 }
             }
         }
+        }
     }
-}
+
