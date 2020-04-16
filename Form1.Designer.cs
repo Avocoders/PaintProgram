@@ -69,12 +69,15 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonRollUp = new System.Windows.Forms.Button();
             this.buttonExpend = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lineThickness)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -512,6 +515,8 @@
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Image = ((System.Drawing.Image)(resources.GetObject("buttonClose.Image")));
             this.buttonClose.Location = new System.Drawing.Point(1077, 0);
             this.buttonClose.Name = "buttonClose";
@@ -524,6 +529,8 @@
             // 
             this.buttonRollUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonRollUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.buttonRollUp.FlatAppearance.BorderSize = 0;
+            this.buttonRollUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRollUp.Image = ((System.Drawing.Image)(resources.GetObject("buttonRollUp.Image")));
             this.buttonRollUp.Location = new System.Drawing.Point(994, 0);
             this.buttonRollUp.Name = "buttonRollUp";
@@ -536,6 +543,8 @@
             // 
             this.buttonExpend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonExpend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.buttonExpend.FlatAppearance.BorderSize = 0;
+            this.buttonExpend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExpend.Image = ((System.Drawing.Image)(resources.GetObject("buttonExpend.Image")));
             this.buttonExpend.Location = new System.Drawing.Point(1036, 0);
             this.buttonExpend.Name = "buttonExpend";
@@ -544,12 +553,42 @@
             this.buttonExpend.UseVisualStyleBackColor = false;
             this.buttonExpend.Click += new System.EventHandler(this.buttonExpend_Click);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(101, 67);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 26;
+            this.pictureBox3.TabStop = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.textBox2.HideSelection = false;
+            this.textBox2.Location = new System.Drawing.Point(325, 5);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.ShortcutsEnabled = false;
+            this.textBox2.Size = new System.Drawing.Size(426, 27);
+            this.textBox2.TabIndex = 27;
+            this.textBox2.Text = "Название приложения";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
             this.ClientSize = new System.Drawing.Size(1123, 685);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.buttonExpend);
             this.Controls.Add(this.buttonRollUp);
             this.Controls.Add(this.buttonClose);
@@ -587,6 +626,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -634,6 +674,8 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonRollUp;
         private System.Windows.Forms.Button buttonExpend;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 
