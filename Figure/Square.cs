@@ -14,7 +14,7 @@ namespace WindowsFormsApp7.Figure
             q = bruch;
         }
         
-        public void Drow(int x1, int y1, int x2, int y2)
+        public void Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             int dx = Math.Abs(x2 - x1);
             if (x2 > x1 && y2 > y1)

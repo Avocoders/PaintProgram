@@ -169,6 +169,7 @@
             this.circle.Size = new System.Drawing.Size(49, 48);
             this.circle.TabIndex = 13;
             this.circle.UseVisualStyleBackColor = false;
+            this.circle.Click += new System.EventHandler(this.circle_Click_1);
             // 
             // oval
             // 
@@ -181,6 +182,7 @@
             this.oval.Size = new System.Drawing.Size(63, 42);
             this.oval.TabIndex = 14;
             this.oval.UseVisualStyleBackColor = false;
+            this.oval.Click += new System.EventHandler(this.oval_Click_1);
             // 
             // square
             // 
