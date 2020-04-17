@@ -155,6 +155,10 @@ namespace WindowsFormsApp7
                         {
                             Figure = new Square(brush);
                         }
+                        if(tmp==4)
+                        {
+                            Figure = new RightTriangle(brush);
+                        }
                     }
                     if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
                     {
@@ -165,6 +169,10 @@ namespace WindowsFormsApp7
                         if (tmp == 2)
                         {
                             Figure = new Rectangl(brush);
+                        }
+                        if (tmp == 4)
+                        {
+                            Figure = new IsoscelesTriangle(brush);
                         }
                     }
                         bitmap2 = bitmap3.Clone(cloneRect, format);
