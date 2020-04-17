@@ -8,6 +8,6 @@ namespace WindowsFormsApp7
 {
     interface IFigur
     {
-        void Drow(int x1, int y1, int x2, int y2);
+        void Drow(int x1, int y1, int x2, int y2, int nAngle);
     }
 }

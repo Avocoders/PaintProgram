@@ -28,7 +28,7 @@ namespace WindowsFormsApp7
         Bitmap bitmap3;
         RectangleF cloneRect;
         System.Drawing.Imaging.PixelFormat format;
-
+        int nAngle=5;
         public Form1()
         {
             InitializeComponent();
@@ -57,6 +57,14 @@ namespace WindowsFormsApp7
             {
                 moveStart = new Point(e.X, e.Y);
             }
+        }
+
+        private void textBox3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                nAngle = Convert.ToInt32(textBox3.Text);
+            }
         }
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
@@ -118,7 +126,7 @@ namespace WindowsFormsApp7
                 {                    
                     bitmap2 = bitmap3.Clone(cloneRect, format);
                     brush.SetBitmap(bitmap2);
-                    Figure.Drow(startX, startY, e.X, e.Y);
+                    Figure.Drow(startX, startY, e.X, e.Y, nAngle);
                     q = brush.GetBitmap();                    
                     pictureBox1.Image = q;
                 }
@@ -133,6 +141,7 @@ namespace WindowsFormsApp7
             isFirst = true;
             startX = e.X;
             startY = e.Y;
+
             
             bitmap3 = new Bitmap(pictureBox1.Image);
             cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
