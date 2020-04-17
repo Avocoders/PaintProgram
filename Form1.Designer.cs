@@ -78,7 +78,7 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pictureBox1.Location = new System.Drawing.Point(0, 230);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1128, 501);
+            this.pictureBox1.Size = new System.Drawing.Size(1105, 501);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -243,7 +243,7 @@
             this.buttonClose.FlatAppearance.BorderSize = 0;
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Image = ((System.Drawing.Image)(resources.GetObject("buttonClose.Image")));
-            this.buttonClose.Location = new System.Drawing.Point(1316, 0);
+            this.buttonClose.Location = new System.Drawing.Point(1059, 0);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(46, 43);
             this.buttonClose.TabIndex = 23;
@@ -257,7 +257,7 @@
             this.buttonRollUp.FlatAppearance.BorderSize = 0;
             this.buttonRollUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRollUp.Image = ((System.Drawing.Image)(resources.GetObject("buttonRollUp.Image")));
-            this.buttonRollUp.Location = new System.Drawing.Point(1233, 0);
+            this.buttonRollUp.Location = new System.Drawing.Point(976, 0);
             this.buttonRollUp.Name = "buttonRollUp";
             this.buttonRollUp.Size = new System.Drawing.Size(46, 43);
             this.buttonRollUp.TabIndex = 24;
@@ -271,7 +271,7 @@
             this.buttonExpend.FlatAppearance.BorderSize = 0;
             this.buttonExpend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExpend.Image = ((System.Drawing.Image)(resources.GetObject("buttonExpend.Image")));
-            this.buttonExpend.Location = new System.Drawing.Point(1275, 0);
+            this.buttonExpend.Location = new System.Drawing.Point(1018, 0);
             this.buttonExpend.Name = "buttonExpend";
             this.buttonExpend.Size = new System.Drawing.Size(46, 43);
             this.buttonExpend.TabIndex = 25;
@@ -297,7 +297,7 @@
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(83)))), ((int)(((byte)(54)))));
             this.textBox2.HideSelection = false;
-            this.textBox2.Location = new System.Drawing.Point(445, 5);
+            this.textBox2.Location = new System.Drawing.Point(316, 5);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -339,7 +339,7 @@
             this.panel2.Controls.Add(this.square);
             this.panel2.Location = new System.Drawing.Point(0, 105);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1362, 126);
+            this.panel2.Size = new System.Drawing.Size(1105, 126);
             this.panel2.TabIndex = 28;
             // 
             // straightLine
@@ -492,9 +492,9 @@
             this.moreColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.moreColor.Image = ((System.Drawing.Image)(resources.GetObject("moreColor.Image")));
             this.moreColor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.moreColor.Location = new System.Drawing.Point(1127, 1);
+            this.moreColor.Location = new System.Drawing.Point(899, 4);
             this.moreColor.Name = "moreColor";
-            this.moreColor.Size = new System.Drawing.Size(235, 128);
+            this.moreColor.Size = new System.Drawing.Size(203, 117);
             this.moreColor.TabIndex = 0;
             this.moreColor.UseVisualStyleBackColor = false;
             this.moreColor.Click += new System.EventHandler(this.moreColor_Click);
@@ -553,7 +553,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
-            this.ClientSize = new System.Drawing.Size(1362, 772);
+            this.ClientSize = new System.Drawing.Size(1105, 772);
             this.Controls.Add(this.buttonReturn);
             this.Controls.Add(this.buttonDeleteLastOne);
             this.Controls.Add(this.buttonDeleteAll);
