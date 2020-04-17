@@ -63,6 +63,7 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.buttonDeleteAll = new System.Windows.Forms.Button();
             this.buttonDeleteLastOne = new System.Windows.Forms.Button();
+            this.buttonReturn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -77,15 +78,18 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pictureBox1.Location = new System.Drawing.Point(0, 230);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1128, 501);
+            this.pictureBox1.Size = new System.Drawing.Size(1362, 501);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.SizeModeChanged += new System.EventHandler(this.pictureBox1_SizeModeChanged);
+            this.pictureBox1.ClientSizeChanged += new System.EventHandler(this.pictureBox1_ClientSizeChanged);
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
             this.pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDoubleClick);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+            this.pictureBox1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.pictureBox1_PreviewKeyDown);
             // 
             // choosePen
             // 
@@ -239,7 +243,7 @@
             this.buttonClose.FlatAppearance.BorderSize = 0;
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Image = ((System.Drawing.Image)(resources.GetObject("buttonClose.Image")));
-            this.buttonClose.Location = new System.Drawing.Point(1082, 0);
+            this.buttonClose.Location = new System.Drawing.Point(1316, 0);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(46, 43);
             this.buttonClose.TabIndex = 23;
@@ -253,7 +257,7 @@
             this.buttonRollUp.FlatAppearance.BorderSize = 0;
             this.buttonRollUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRollUp.Image = ((System.Drawing.Image)(resources.GetObject("buttonRollUp.Image")));
-            this.buttonRollUp.Location = new System.Drawing.Point(999, 0);
+            this.buttonRollUp.Location = new System.Drawing.Point(1233, 0);
             this.buttonRollUp.Name = "buttonRollUp";
             this.buttonRollUp.Size = new System.Drawing.Size(46, 43);
             this.buttonRollUp.TabIndex = 24;
@@ -267,7 +271,7 @@
             this.buttonExpend.FlatAppearance.BorderSize = 0;
             this.buttonExpend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExpend.Image = ((System.Drawing.Image)(resources.GetObject("buttonExpend.Image")));
-            this.buttonExpend.Location = new System.Drawing.Point(1041, 0);
+            this.buttonExpend.Location = new System.Drawing.Point(1275, 0);
             this.buttonExpend.Name = "buttonExpend";
             this.buttonExpend.Size = new System.Drawing.Size(46, 43);
             this.buttonExpend.TabIndex = 25;
@@ -293,7 +297,7 @@
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(83)))), ((int)(((byte)(54)))));
             this.textBox2.HideSelection = false;
-            this.textBox2.Location = new System.Drawing.Point(328, 5);
+            this.textBox2.Location = new System.Drawing.Point(445, 5);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -335,7 +339,7 @@
             this.panel2.Controls.Add(this.square);
             this.panel2.Location = new System.Drawing.Point(0, 105);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1128, 126);
+            this.panel2.Size = new System.Drawing.Size(1362, 126);
             this.panel2.TabIndex = 28;
             // 
             // straightLine
@@ -488,7 +492,7 @@
             this.moreColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.moreColor.Image = ((System.Drawing.Image)(resources.GetObject("moreColor.Image")));
             this.moreColor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.moreColor.Location = new System.Drawing.Point(893, 1);
+            this.moreColor.Location = new System.Drawing.Point(1127, 1);
             this.moreColor.Name = "moreColor";
             this.moreColor.Size = new System.Drawing.Size(235, 128);
             this.moreColor.TabIndex = 0;
@@ -526,19 +530,32 @@
             this.buttonDeleteLastOne.FlatAppearance.BorderSize = 0;
             this.buttonDeleteLastOne.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteLastOne.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteLastOne.Image")));
-            this.buttonDeleteLastOne.Location = new System.Drawing.Point(0, 60);
+            this.buttonDeleteLastOne.Location = new System.Drawing.Point(12, 73);
             this.buttonDeleteLastOne.Name = "buttonDeleteLastOne";
-            this.buttonDeleteLastOne.Size = new System.Drawing.Size(67, 49);
+            this.buttonDeleteLastOne.Size = new System.Drawing.Size(42, 36);
             this.buttonDeleteLastOne.TabIndex = 30;
             this.buttonDeleteLastOne.UseVisualStyleBackColor = true;
             this.buttonDeleteLastOne.Click += new System.EventHandler(this.deleteTheLastOne_Click);
+            // 
+            // buttonReturn
+            // 
+            this.buttonReturn.FlatAppearance.BorderSize = 0;
+            this.buttonReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonReturn.Image = ((System.Drawing.Image)(resources.GetObject("buttonReturn.Image")));
+            this.buttonReturn.Location = new System.Drawing.Point(49, 73);
+            this.buttonReturn.Name = "buttonReturn";
+            this.buttonReturn.Size = new System.Drawing.Size(42, 36);
+            this.buttonReturn.TabIndex = 31;
+            this.buttonReturn.UseVisualStyleBackColor = true;
+            this.buttonReturn.Click += new System.EventHandler(this.buttonReturn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
-            this.ClientSize = new System.Drawing.Size(1128, 772);
+            this.ClientSize = new System.Drawing.Size(1362, 772);
+            this.Controls.Add(this.buttonReturn);
             this.Controls.Add(this.buttonDeleteLastOne);
             this.Controls.Add(this.buttonDeleteAll);
             this.Controls.Add(this.panel2);
@@ -564,8 +581,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button choosePen;
         private System.Windows.Forms.Button chooseEraser;
         private System.Windows.Forms.Button chooseFill;
@@ -599,6 +614,8 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button buttonDeleteAll;
         private System.Windows.Forms.Button buttonDeleteLastOne;
+        private System.Windows.Forms.Button buttonReturn;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

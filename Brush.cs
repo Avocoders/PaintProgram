@@ -17,9 +17,12 @@ namespace WindowsFormsApp7
         Bitmap q;
         public Brush(int width, int heigth)
         {
+            
             this.width = width;
             this.heigth = heigth;
         }
+        //public int width { get; set; }
+        //public int height { get; set; }
         Color color = Color.Black;
         int n = 1;
         public void SetBitmap(Bitmap q)
