@@ -366,6 +366,7 @@ namespace WindowsFormsApp7
             if (e.KeyCode == Keys.Enter)
             {
                 nAngle = Convert.ToInt32(textBox3.Text);
+                textBox3.Text = "";
             }
         }
 

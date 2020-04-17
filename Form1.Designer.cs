@@ -510,10 +510,11 @@
             // 
             // buttonDeleteAll
             // 
+            this.buttonDeleteAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonDeleteAll.FlatAppearance.BorderSize = 0;
             this.buttonDeleteAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteAll.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteAll.Image")));
-            this.buttonDeleteAll.Location = new System.Drawing.Point(0, 73);
+            this.buttonDeleteAll.Location = new System.Drawing.Point(0, 737);
             this.buttonDeleteAll.Name = "buttonDeleteAll";
             this.buttonDeleteAll.Size = new System.Drawing.Size(59, 36);
             this.buttonDeleteAll.TabIndex = 29;
@@ -525,7 +526,7 @@
             this.buttonDeleteLastOne.FlatAppearance.BorderSize = 0;
             this.buttonDeleteLastOne.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteLastOne.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteLastOne.Image")));
-            this.buttonDeleteLastOne.Location = new System.Drawing.Point(468, 60);
+            this.buttonDeleteLastOne.Location = new System.Drawing.Point(0, 60);
             this.buttonDeleteLastOne.Name = "buttonDeleteLastOne";
             this.buttonDeleteLastOne.Size = new System.Drawing.Size(67, 49);
             this.buttonDeleteLastOne.TabIndex = 30;
