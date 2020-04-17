@@ -20,6 +20,11 @@ namespace WindowsFormsApp7
             this.width = width;
             this.heigth = heigth;
         }
+        public void  SetSize(int width, int heigth)
+        {
+            this.width = width;
+            this.heigth = heigth;
+        }
         Color color = Color.Black;
         int n = 1;
         public void SetBitmap(Bitmap q)
