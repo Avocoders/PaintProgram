@@ -547,7 +547,7 @@
             this.buttonReturn.Size = new System.Drawing.Size(42, 36);
             this.buttonReturn.TabIndex = 31;
             this.buttonReturn.UseVisualStyleBackColor = true;
-            this.buttonReturn.Click += new System.EventHandler(this.buttonReturn_Click);
+           // this.buttonReturn.Click += new System.EventHandler(this.buttonReturn_Click);
             // 
             // Form1
             // 
