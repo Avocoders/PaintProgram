@@ -487,6 +487,13 @@ namespace WindowsFormsApp7
             }
         }
 
+        private void buttonReturn_Click(object sender, EventArgs e)
+        {
+            
+            pictureBox1.Image = bitmap2;
+            //q = bitmap3;
+        }
+
         //private void pictureBox1_SizeChanged(object sender, EventArgs e)
         //{
         //    q = new Bitmap(pictureBox1.Image);
@@ -514,6 +521,7 @@ namespace WindowsFormsApp7
 
         private void deleteTheLastOne_Click(object sender, EventArgs e)
         {
+
             pictureBox1.Image = bitmap4;
             //q = bitmap3;
         }
