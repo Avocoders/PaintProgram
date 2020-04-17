@@ -408,9 +408,14 @@ namespace WindowsFormsApp7
 
         }
 
-        private void buttonReturn_Click(object sender, EventArgs e)
+        private void pictureBox1_SizeChanged(object sender, EventArgs e)
         {
-
+            if (pictureBox1.Image != null)
+            {
+                q = new Bitmap(pictureBox1.Image, pictureBox1.Width, pictureBox1.Height);
+                pictureBox1.Image = q;
+                brush.SetSize(pictureBox1.Width, pictureBox1.Height);
+            }
         }
 
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
