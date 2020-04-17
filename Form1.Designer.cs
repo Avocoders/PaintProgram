@@ -169,7 +169,7 @@
             this.circle.Size = new System.Drawing.Size(49, 48);
             this.circle.TabIndex = 13;
             this.circle.UseVisualStyleBackColor = false;
-            this.circle.Click += new System.EventHandler(this.circle_Click_1);
+            this.circle.Click += new System.EventHandler(this.circle_Click);
             // 
             // oval
             // 
@@ -182,7 +182,7 @@
             this.oval.Size = new System.Drawing.Size(63, 42);
             this.oval.TabIndex = 14;
             this.oval.UseVisualStyleBackColor = false;
-            this.oval.Click += new System.EventHandler(this.oval_Click_1);
+            this.oval.Click += new System.EventHandler(this.oval_Click);
             // 
             // square
             // 
@@ -254,21 +254,21 @@
             // 
             this.createNew.Image = ((System.Drawing.Image)(resources.GetObject("createNew.Image")));
             this.createNew.Name = "createNew";
-            this.createNew.Size = new System.Drawing.Size(132, 22);
+            this.createNew.Size = new System.Drawing.Size(133, 22);
             this.createNew.Text = "Создать";
             // 
             // open
             // 
             this.open.Image = ((System.Drawing.Image)(resources.GetObject("open.Image")));
             this.open.Name = "open";
-            this.open.Size = new System.Drawing.Size(132, 22);
+            this.open.Size = new System.Drawing.Size(133, 22);
             this.open.Text = "Открыть";
             // 
             // save
             // 
             this.save.Image = ((System.Drawing.Image)(resources.GetObject("save.Image")));
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(132, 22);
+            this.save.Size = new System.Drawing.Size(133, 22);
             this.save.Text = "Сохранить";
             // 
             // deleteTheLastOne
@@ -298,8 +298,8 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.file,
-            this.deleteTheLastOne,
-            this.deleteAll});
+            this.deleteAll,
+            this.deleteTheLastOne});
             this.toolStrip1.Location = new System.Drawing.Point(0, 747);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -309,7 +309,7 @@
             // 
             // lineThickness
             // 
-            this.lineThickness.BackColor = System.Drawing.Color.White;
+            this.lineThickness.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
             this.lineThickness.Location = new System.Drawing.Point(534, 74);
             this.lineThickness.Maximum = 6;
             this.lineThickness.Minimum = 1;
@@ -508,7 +508,7 @@
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Open Sans Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(83)))), ((int)(((byte)(54)))));
             this.textBox2.HideSelection = false;
             this.textBox2.Location = new System.Drawing.Point(328, 5);
@@ -571,11 +571,15 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(419, 70);
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBox3.Location = new System.Drawing.Point(419, 74);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(48, 49);
+            this.textBox3.Size = new System.Drawing.Size(48, 28);
             this.textBox3.TabIndex = 32;
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown_1);
             // 
             // button6
             // 
@@ -594,11 +598,12 @@
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(299, 69);
+            this.button5.Location = new System.Drawing.Point(356, 69);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(48, 45);
             this.button5.TabIndex = 31;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button7
             // 
@@ -650,7 +655,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(362, 70);
+            this.button2.Location = new System.Drawing.Point(299, 68);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(51, 50);
             this.button2.TabIndex = 29;

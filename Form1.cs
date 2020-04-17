@@ -351,8 +351,40 @@ namespace WindowsFormsApp7
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
-        }
-
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            tmp = 7;
+            Figure = new Poligon(brush);
+            
+        }
+
+        private void textBox3_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                nAngle = Convert.ToInt32(textBox3.Text);
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void oval_Click(object sender, EventArgs e)
+        {
+            tmp = 8;
+            Figure = new Ellipse(brush);
+        }
+
+        private void circle_Click(object sender, EventArgs e)
+        {
+            tmp = 9;
+            Figure = new Сircle(brush);
+        }
+
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if(tmp==11)
