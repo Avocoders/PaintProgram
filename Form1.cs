@@ -21,6 +21,8 @@ namespace WindowsFormsApp7
         Color color;
         Brush brush;        
         bool isDrow, isFirst,isFirstPoligon;
+        bool expend = false;
+        bool noexpend = true;
         int lastX, lastY;
         int startX = 0;
         int startY = 0;
@@ -36,13 +38,15 @@ namespace WindowsFormsApp7
             lineThickness.Minimum = 1;
             lineThickness.Maximum = 6;
             this.MouseDown += Form1_MouseDown;
-            this.MouseMove += Form1_MouseMove;
+            this.MouseMove += Form1_MouseMove;            
             this.WindowState = FormWindowState.Maximized;
             this.WindowState = FormWindowState.Normal;
             // расширенное окно для выбора цвета
             colorDialog1.FullOpen = true;
             // установка начального цвета для colorDialog
             colorDialog1.Color = color;
+
+
         }
 
         protected override CreateParams CreateParams
@@ -53,7 +57,7 @@ namespace WindowsFormsApp7
                 var cp = base.CreateParams;
                 cp.Style |= WS_SIZEBOX;
                 return cp;
-            }
+            }
         }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
@@ -78,10 +82,10 @@ namespace WindowsFormsApp7
             {                
                 Point deltaPos = new Point(e.X - moveStart.X, e.Y - moveStart.Y);                
                 this.Location = new Point(this.Location.X + deltaPos.X,
-                this.Location.Y + deltaPos.Y);
+                this.Location.Y + deltaPos.Y);               
             }
-        }
-
+        }
+        
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -93,8 +97,19 @@ namespace WindowsFormsApp7
         }
 
         private void buttonExpend_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
+        {                        if (expend == false)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                expend = true;
+                noexpend = false;
+               
+            }
+            else if (noexpend == false)
+            {
+                this.WindowState = FormWindowState.Normal;
+                noexpend = true;
+                expend = false;
+            }
         }
 
         public Color GetColor()
@@ -377,8 +392,9 @@ namespace WindowsFormsApp7
 
         private void oval_Click(object sender, EventArgs e)
         {
-            tmp = 8;
             Figure = new Ellipse(brush);
+            
+            
         }
 
         private void circle_Click(object sender, EventArgs e)
@@ -406,8 +422,32 @@ namespace WindowsFormsApp7
                 pictureBox1.Image = q;
                 isFirstPoligon = true;
             }
-        }
-
+        }
+
+        
+
+        private void pictureBox1_SizeModeChanged(object sender, EventArgs e)
+        {
+            PictureBox pictureBox1 = new PictureBox();
+            //pictureBox1.Size = new Size();
+            //q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            //brush = new Brush(pictureBox1.Width, pictureBox1.Height);
+            //pictureBox1.Image = q;
+        }
+
+        private void pictureBox1_ClientSizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //private void pictureBox1_SizeChanged(object sender, EventArgs e)
+        //{
+        //    q = new Bitmap(pictureBox1.Image);
+        //    bitmap2 = new Bitmap(pictureBox1.Image);
+
+
+        //}
+
         private void choosePipette_Click(object sender, EventArgs e)
         {
             tmp = 10;
@@ -435,6 +475,15 @@ namespace WindowsFormsApp7
         {
             tmp = 0;
             brush.SetColor(Color.White);
+        }
+
+        
+        private void pictureBox1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+            {
+                //isShift = true;
+            }
         }
     }
 }
