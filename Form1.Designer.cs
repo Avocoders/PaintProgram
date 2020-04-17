@@ -63,6 +63,7 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.buttonDeleteAll = new System.Windows.Forms.Button();
             this.buttonDeleteLastOne = new System.Windows.Forms.Button();
+            this.buttonReturn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -526,12 +527,24 @@
             this.buttonDeleteLastOne.FlatAppearance.BorderSize = 0;
             this.buttonDeleteLastOne.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteLastOne.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteLastOne.Image")));
-            this.buttonDeleteLastOne.Location = new System.Drawing.Point(0, 60);
+            this.buttonDeleteLastOne.Location = new System.Drawing.Point(12, 73);
             this.buttonDeleteLastOne.Name = "buttonDeleteLastOne";
-            this.buttonDeleteLastOne.Size = new System.Drawing.Size(67, 49);
+            this.buttonDeleteLastOne.Size = new System.Drawing.Size(42, 36);
             this.buttonDeleteLastOne.TabIndex = 30;
             this.buttonDeleteLastOne.UseVisualStyleBackColor = true;
             this.buttonDeleteLastOne.Click += new System.EventHandler(this.deleteTheLastOne_Click);
+            // 
+            // buttonReturn
+            // 
+            this.buttonReturn.FlatAppearance.BorderSize = 0;
+            this.buttonReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonReturn.Image = ((System.Drawing.Image)(resources.GetObject("buttonReturn.Image")));
+            this.buttonReturn.Location = new System.Drawing.Point(49, 73);
+            this.buttonReturn.Name = "buttonReturn";
+            this.buttonReturn.Size = new System.Drawing.Size(42, 36);
+            this.buttonReturn.TabIndex = 31;
+            this.buttonReturn.UseVisualStyleBackColor = true;
+            this.buttonReturn.Click += new System.EventHandler(this.buttonReturn_Click);
             // 
             // Form1
             // 
@@ -539,6 +552,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
             this.ClientSize = new System.Drawing.Size(1128, 772);
+            this.Controls.Add(this.buttonReturn);
             this.Controls.Add(this.buttonDeleteLastOne);
             this.Controls.Add(this.buttonDeleteAll);
             this.Controls.Add(this.panel2);
@@ -599,6 +613,7 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button buttonDeleteAll;
         private System.Windows.Forms.Button buttonDeleteLastOne;
+        private System.Windows.Forms.Button buttonReturn;
     }
 }
 
