@@ -144,8 +144,30 @@ namespace WindowsFormsApp7
             
             {
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
-                {                    
-                    bitmap2 = bitmap3.Clone(cloneRect, format);
+                {
+                    if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+                    {
+                        if (tmp == 8)
+                        {
+                            Figure = new Сircle(brush);
+                        }
+                        if(tmp ==2)
+                        {
+                            Figure = new Square(brush);
+                        }
+                    }
+                    if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
+                    {
+                        if (tmp == 8)
+                        {
+                            Figure = new Ellipse(brush);
+                        }
+                        if (tmp == 2)
+                        {
+                            Figure = new Rectangl(brush);
+                        }
+                    }
+                        bitmap2 = bitmap3.Clone(cloneRect, format);
                     brush.SetBitmap(bitmap2);
                     Figure.Drow(startX, startY, e.X, e.Y, nAngle);
                     q = brush.GetBitmap();                    
@@ -393,8 +415,9 @@ namespace WindowsFormsApp7
         private void oval_Click(object sender, EventArgs e)
         {
             Figure = new Ellipse(brush);
-            
-            
+
+            tmp = 8;
+
         }
 
         private void circle_Click(object sender, EventArgs e)
@@ -445,6 +468,17 @@ namespace WindowsFormsApp7
 
         }
 
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+            {
+                if (tmp == 8)
+                {
+                    Figure = new Сircle(brush);
+                }
+            }
+        }
+
         //private void pictureBox1_SizeChanged(object sender, EventArgs e)
         //{
         //    q = new Bitmap(pictureBox1.Image);
@@ -485,9 +519,10 @@ namespace WindowsFormsApp7
         
         private void pictureBox1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+            if (Control.ModifierKeys == Keys.Shift)
             {
                 //isShift = true;
+                Figure = new Сircle(brush);
             }
         }
     }

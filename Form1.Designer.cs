@@ -547,7 +547,6 @@
             this.buttonReturn.Size = new System.Drawing.Size(42, 36);
             this.buttonReturn.TabIndex = 31;
             this.buttonReturn.UseVisualStyleBackColor = true;
-           // this.buttonReturn.Click += new System.EventHandler(this.buttonReturn_Click);
             // 
             // Form1
             // 
@@ -570,6 +569,7 @@
             this.Name = "Form1";
             this.Text = "TheBestPaint";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineThickness)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

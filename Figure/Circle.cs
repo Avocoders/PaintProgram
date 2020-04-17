@@ -19,7 +19,7 @@ namespace WindowsFormsApp7.Figure
             int x = x1 + Convert.ToInt32(r * Math.Cos(0 * Math.PI / 180));
             int y = y1 + Convert.ToInt32(r * Math.Sin(0 * Math.PI / 180)); ;
 
-            for (int i = 1; i < 360; i++)
+            for (int i = 1; i <= 360; i++)
             {
                 int xNext = x1 + Convert.ToInt32(r * Math.Cos(i * Math.PI / 180));
                 int yNext = y1 + Convert.ToInt32(r * Math.Sin(i * Math.PI / 180));
