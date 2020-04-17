@@ -385,6 +385,11 @@ namespace WindowsFormsApp7
             Figure = new Сircle(brush);
         }
 
+        private void redColor_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if(tmp==11)
