@@ -331,11 +331,12 @@ namespace WindowsFormsApp7
         }
 
         private void moreColor_Click(object sender, EventArgs e)
-        {
-            if (colorDialog1.ShowDialog() == DialogResult.Cancel)
-                return;
+        {            colorDialog1.AllowFullOpen = true;
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+
+            { color = colorDialog1.Color; }
             // установка цвета формы
-            color = colorDialog1.Color;
+            brush.SetColor(color);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
