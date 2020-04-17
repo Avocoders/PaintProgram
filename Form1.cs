@@ -39,7 +39,6 @@ namespace WindowsFormsApp7
             this.MouseMove += Form1_MouseMove;
             this.WindowState = FormWindowState.Maximized;
             this.WindowState = FormWindowState.Normal;
-            moreColor.Click += moreColor_Click;
             // расширенное окно для выбора цвета
             colorDialog1.FullOpen = true;
             // установка начального цвета для colorDialog
