@@ -521,7 +521,15 @@ namespace WindowsFormsApp7
             if (open.ShowDialog() == DialogResult.OK)
             {
                 q = new Bitmap(open.FileName);
-                pictureBox1.Image = q;                
+                pictureBox1.Image = q;
+                isDrow = false;
+                isFirst = false;
+                isFirstPoligon = false;
+                color = Color.Black;                
+                brush = new Brush(pictureBox1.Width, pictureBox1.Height);
+                bitmap4 = q;
+                bitmap2 = q;
+                
             }
         }
 
@@ -546,8 +554,10 @@ namespace WindowsFormsApp7
 
         private void deleteAll_Click(object sender, EventArgs e)
         {
+            bitmap4 = q;
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = q;
+            bitmap2 = q;
         }
 
         private void deleteTheLastOne_Click(object sender, EventArgs e)
