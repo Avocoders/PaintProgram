@@ -21,7 +21,7 @@ namespace WindowsFormsApp7
         int xnow, ynow;
         Color color;
         Brush brush;        
-        bool isDrow, isFirst,isFirstPoligon;
+        bool isDrow, isFirst,isFirstPoligon,isCollapsed;
         bool expend = false;
         bool noexpend = true;
         int lastX, lastY;
@@ -95,8 +95,12 @@ namespace WindowsFormsApp7
         }
 
         private void buttonRollUp_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
+        {            if (isCollapsed != true)
+            {
+                isCollapsed = true;
+                this.WindowState = FormWindowState.Minimized;
+            }
+            
         }
 
         private void buttonExpend_Click(object sender, EventArgs e)
@@ -267,6 +271,7 @@ namespace WindowsFormsApp7
             q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             brush = new Brush(pictureBox1.Width, pictureBox1.Height);            
             pictureBox1.Image = q;
+            isCollapsed = false;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -447,12 +452,14 @@ namespace WindowsFormsApp7
 
         private void pictureBox1_SizeChanged(object sender, EventArgs e)
         {
-            if (pictureBox1.Image != null)
+            if (pictureBox1.Image != null && isCollapsed!=true)
             {
                 q = new Bitmap(pictureBox1.Image, pictureBox1.Width, pictureBox1.Height);
                 pictureBox1.Image = q;
                 brush.SetSize(pictureBox1.Width, pictureBox1.Height);
+                
             }
+                isCollapsed = false;
         }
 
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
