@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using WindowsFormsApp7.Figure;
+using System.Drawing.Imaging;
 
 namespace WindowsFormsApp7
 {
@@ -31,6 +32,8 @@ namespace WindowsFormsApp7
         Bitmap bitmap3,bitmap4;
         RectangleF cloneRect;
         System.Drawing.Imaging.PixelFormat format;
+        SaveFileDialog save = new SaveFileDialog();
+        OpenFileDialog open = new OpenFileDialog();
         int nAngle=5;
         public Form1()
         {
@@ -224,6 +227,9 @@ namespace WindowsFormsApp7
                     isFirstPoligon = false;
                     q = brush.GetBitmap();
                     pictureBox1.Image = q;
+                }                if (tmp == 13)
+                {
+
                 }
                 else 
                 {
@@ -492,6 +498,31 @@ namespace WindowsFormsApp7
             
             pictureBox1.Image = bitmap2;
             //q = bitmap3;
+        }
+
+        private void chooseFill_Click(object sender, EventArgs e)
+        {
+            tmp = 13;
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (bitmap2 != null)
+            {
+                if (save.ShowDialog() == DialogResult.OK)
+                {                    
+                    bitmap2.Save(save.FileName);
+                }
+            }            
+        }
+
+        private void buttonOpen_Click(object sender, EventArgs e)
+        {
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                q = new Bitmap(open.FileName);
+                pictureBox1.Image = q;                
+            }
         }
 
         //private void pictureBox1_SizeChanged(object sender, EventArgs e)

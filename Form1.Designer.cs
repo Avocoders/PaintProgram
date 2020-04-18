@@ -64,6 +64,8 @@
             this.buttonDeleteAll = new System.Windows.Forms.Button();
             this.buttonDeleteLastOne = new System.Windows.Forms.Button();
             this.buttonReturn = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonOpen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -129,6 +131,7 @@
             this.chooseFill.Size = new System.Drawing.Size(46, 46);
             this.chooseFill.TabIndex = 7;
             this.chooseFill.UseVisualStyleBackColor = false;
+            this.chooseFill.Click += new System.EventHandler(this.chooseFill_Click);
             // 
             // choosePipette
             // 
@@ -549,12 +552,40 @@
             this.buttonReturn.UseVisualStyleBackColor = true;
             this.buttonReturn.Click += new System.EventHandler(this.buttonReturn_Click);
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonSave.FlatAppearance.BorderSize = 0;
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
+            this.buttonSave.Location = new System.Drawing.Point(502, 737);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(39, 35);
+            this.buttonSave.TabIndex = 32;
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonOpen
+            // 
+            this.buttonOpen.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonOpen.FlatAppearance.BorderSize = 0;
+            this.buttonOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOpen.Image = ((System.Drawing.Image)(resources.GetObject("buttonOpen.Image")));
+            this.buttonOpen.Location = new System.Drawing.Point(547, 737);
+            this.buttonOpen.Name = "buttonOpen";
+            this.buttonOpen.Size = new System.Drawing.Size(39, 35);
+            this.buttonOpen.TabIndex = 33;
+            this.buttonOpen.UseVisualStyleBackColor = true;
+            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
             this.ClientSize = new System.Drawing.Size(1105, 772);
+            this.Controls.Add(this.buttonOpen);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonReturn);
             this.Controls.Add(this.buttonDeleteLastOne);
             this.Controls.Add(this.buttonDeleteAll);
@@ -617,6 +648,8 @@
         private System.Windows.Forms.Button buttonDeleteLastOne;
         private System.Windows.Forms.Button buttonReturn;
         public System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonOpen;
     }
 }
 
