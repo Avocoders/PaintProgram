@@ -196,7 +196,7 @@ namespace WindowsFormsApp7
             
             if (tmp != 11)
             {
-                q.Clone();
+                q.Clone2();
              lastX = e.X;
             lastY = e.Y;
                 startX = e.X;
@@ -275,7 +275,7 @@ namespace WindowsFormsApp7
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             isDrow = false;
-            //q.Clone2();
+            q.Clone();
         }        
 
         private void lineThickness_Scroll(object sender, EventArgs e)
@@ -454,7 +454,7 @@ namespace WindowsFormsApp7
             if (pictureBox1.Image != null && isCollapsed!=true)
             {
                 q.bitmap = new Bitmap(pictureBox1.Image, pictureBox1.Width, pictureBox1.Height);
-                q.CreateBitmapList();
+                //q.CreateBitmapList();
                 pictureBox1.Image = q.bitmap;
                 brush.SetSize(pictureBox1.Width, pictureBox1.Height);
                 
@@ -529,6 +529,7 @@ namespace WindowsFormsApp7
             {
                 q.bitmap = new Bitmap(open.FileName);
                 pictureBox1.Image = q.bitmap;
+                q.CreateBitmapList();
                 isDrow = false;
                 isFirst = false;
                 isFirstPoligon = false;
@@ -561,9 +562,10 @@ namespace WindowsFormsApp7
 
         private void deleteAll_Click(object sender, EventArgs e)
         {
-            q.Clone();
+            //q.Clone();
             q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = q.bitmap;
+            q.CreateBitmapList();
             //q.Clone2();
         }
 

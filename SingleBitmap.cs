@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,6 +27,7 @@ namespace WindowsFormsApp7
         }
 
         public Bitmap bitmap;
+        public Bitmap first;
         public List<Bitmap> bitmap2;
         public Bitmap tmp1;
         public Bitmap tmp2;
@@ -33,10 +35,12 @@ namespace WindowsFormsApp7
 
         public void CreateBitmapList()
         {
+            first = new Bitmap(bitmap);
             bitmap2 = new List<Bitmap>();
-            //bitmap2.Add(bitmap);
-            n = 0;           
-        }       
+            bitmap2.Add(bitmap);
+            n = 0;
+            end = n;
+        }
 
         public void Clone()
         {
@@ -55,29 +59,46 @@ namespace WindowsFormsApp7
             bitmap2[n] = bitmap;
         }
 
-        //public void Clone2()
-        //{
-        //    tmp2 = new Bitmap(bitmap);
-        //}
+        public void Clone2()
+        {
+            for(int i = end; i > n; i--)
+            {
+                bitmap2.RemoveAt(i);                
+            }
+            end = n;
+                        
+        }
 
         public void Undo()
         {
-            bitmap2.Add(bitmap);
-            if (n > 0)
+            //bitmap2.Add(bitmap);
+            //n++;
+            //end = n;
+            if (n > 1)
             {
                 n--;
                 bitmap = bitmap2[n];
             }
+            else if(n == 1)
+            {
+                n--;
+                bitmap = first;
+            }
+            
+            
         }
 
         public void Redo()
         {
-            
-            if (n < end && n >= 0)
+            //bitmap2.Add(bitmap);
+            //n++;
+            //end = n;
+            if (n < end)
             {
                 n++;
                 bitmap = bitmap2[n];
             }
         }
+
     }
 }
