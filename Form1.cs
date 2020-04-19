@@ -16,7 +16,7 @@ namespace WindowsFormsApp7
     public partial class Form1 : Form
     {
         Point moveStart;
-        Bitmap q,bitmap2;
+        Bitmap q;//,bitmap2;
         BitmapST bit;
         int n = 1;
         int xnow, ynow;
@@ -30,9 +30,9 @@ namespace WindowsFormsApp7
         int startY = 0;
         IFigur Figure;
         int tmp = 0;
-        Bitmap bitmap3,bitmap4;
-        RectangleF cloneRect;
-        System.Drawing.Imaging.PixelFormat format;
+        //Bitmap bitmap3,bitmap4;
+        //RectangleF cloneRect;
+        //System.Drawing.Imaging.PixelFormat format;
         SaveFileDialog save = new SaveFileDialog();
         OpenFileDialog open = new OpenFileDialog();
         int nAngle=5;
@@ -132,10 +132,10 @@ namespace WindowsFormsApp7
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {
 
-                    brush.SetBitmap(q);
+                    //brush.SetBitmap(q);
                     brush.SetIsFirst(isFirst);
                     brush.DrawLine(lastX, lastY, e.X, e.Y);
-                    q = brush.GetBitmap();
+                    q = BitmapST.getInstance();
                     pictureBox1.Image = q;
                     isFirst = false;
                     lastX = e.X;
@@ -183,10 +183,10 @@ namespace WindowsFormsApp7
                             Figure = new IsoscelesTriangle(brush);
                         }
                     }
-                        bitmap2 = bitmap3.Clone(cloneRect, format);
-                    brush.SetBitmap(bitmap2);
+                    //bitmap2 = bitmap3.Clone(cloneRect, format);
+                    //brush.SetBitmap(bitmap2);
                     Figure.Drow(startX, startY, e.X, e.Y, nAngle);
-                    q = brush.GetBitmap();                    
+                    q = BitmapST.getInstance();                    
                     pictureBox1.Image = q;
                 }
             }
@@ -197,20 +197,24 @@ namespace WindowsFormsApp7
            
             isDrow = true;
             isFirst = true;
+            BitmapST.SetSize(pictureBox1.Width, pictureBox1.Height);
             
-            if (tmp != 11)
-            {
-                bitmap2 = CreateNewLayer();
+            q = BitmapST.getInstance();
+            pictureBox1.Image = q;
+            if (tmp != 11)
+            {
+                //bitmap2 = CreateNewLayer();
+                BitmapST.AddLayer(pictureBox1.Image);
              lastX = e.X;
             lastY = e.Y;
                 startX = e.X;
             startY = e.Y;
-                brush.SetBitmap(bitmap2);
+               // brush.SetBitmap(bitmap2);
             }
             if(tmp==0)
             {
                 brush.SetDot(e.X,e.Y);
-                q = brush.GetBitmap();
+                q = BitmapST.getInstance();
                 pictureBox1.Image = q;
             }
             if (tmp==10)
@@ -221,16 +225,18 @@ namespace WindowsFormsApp7
             if(tmp==11)
             {
                 if (isFirstPoligon == true)
-                {
-                    q = CreateNewLayer();
-                    brush.SetBitmap(q);
+                {
+
+                    //q = CreateNewLayer();
+                    BitmapST.AddLayer(pictureBox1.Image);
+                    //brush.SetBitmap(q);
                     startX = e.X;
                     startY = e.Y;
                     lastX = startX;
                     lastY = startY;
                     brush.SetDot(startX, startY);
                     isFirstPoligon = false;
-                    q = brush.GetBitmap();
+                    q = BitmapST.getInstance();
                     pictureBox1.Image = q;
                 }                if (tmp == 13)
                 {
@@ -241,7 +247,7 @@ namespace WindowsFormsApp7
                     xnow = e.X;
                     ynow = e.Y;
                     brush.DrawLine(lastX, lastY, xnow, ynow);
-                    q = brush.GetBitmap();
+                    q = BitmapST.getInstance();
                     lastX = e.X;
                     lastY = e.Y;
                     pictureBox1.Image = q;
@@ -249,15 +255,15 @@ namespace WindowsFormsApp7
 
             }
         }
-        private Bitmap CreateNewLayer()
-        {
-            bitmap3 = new Bitmap(pictureBox1.Image);
-            bitmap4 = new Bitmap(pictureBox1.Image);
-            cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
-            format = bitmap3.PixelFormat;
-            //bitmap2 = bitmap3.Clone(cloneRect, format);
-            return bitmap3.Clone(cloneRect, format);
-        }
+        //private Bitmap CreateNewLayer()
+        //{
+        //    bitmap3 = new Bitmap(pictureBox1.Image);
+        //    bitmap4 = new Bitmap(pictureBox1.Image);
+        //    cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
+        //    format = bitmap3.PixelFormat;
+        //    //bitmap2 = bitmap3.Clone(cloneRect, format);
+        //    return bitmap3.Clone(cloneRect, format);
+        //}
         private void DrowIrregularPolygon(int x,int y)
         {
             
@@ -269,9 +275,12 @@ namespace WindowsFormsApp7
             isFirst = false;
             isFirstPoligon = false;
             color = Color.Black;
-            q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            //bit.ChangeSize();
+            //BitmapST.getInstance();
+            //BitmapST.SetSize(pictureBox1.Width, pictureBox1.Height);
+            //q = bit.getInstance() ;
             brush = new Brush(pictureBox1.Width, pictureBox1.Height);            
-            pictureBox1.Image = q;
+            //pictureBox1.Image = q;
             isCollapsed = false;
         }
 
@@ -381,7 +390,7 @@ namespace WindowsFormsApp7
             if (tmp == 11)
             {
                 brush.DrawLine(startX, startY, lastX, lastY);
-                q = brush.GetBitmap();
+                q = BitmapST.getInstance();
                 pictureBox1.Image = q;
                 isFirstPoligon = true;
             }
@@ -468,7 +477,7 @@ namespace WindowsFormsApp7
             if(tmp==11)
             {
                 brush.DrawLine(startX, startY, lastX, lastY);
-                q = brush.GetBitmap();
+                q = BitmapST.getInstance();
                 pictureBox1.Image = q;
                 isFirstPoligon = true;
             }
@@ -503,8 +512,11 @@ namespace WindowsFormsApp7
 
         private void buttonReturn_Click(object sender, EventArgs e)
         {
-            
-            pictureBox1.Image = bitmap2;
+
+            //pictureBox1.Image = bitmap2;
+            BitmapST.Redo();
+            q = BitmapST.getInstance();
+            pictureBox1.Image = q;
             //q = bitmap3;
         }
 
@@ -515,11 +527,11 @@ namespace WindowsFormsApp7
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (bitmap2 != null)
+            if (q != null)
             {
                 if (save.ShowDialog() == DialogResult.OK)
                 {                    
-                    bitmap2.Save(save.FileName);
+                    q.Save(save.FileName);
                 }
             }            
         }
@@ -535,8 +547,8 @@ namespace WindowsFormsApp7
                 isFirstPoligon = false;
                 color = Color.Black;                
                 brush = new Brush(pictureBox1.Width, pictureBox1.Height);
-                bitmap4 = q;
-                bitmap2 = q;
+                //bitmap4 = q;
+                //bitmap2 = q;
                 
             }
         }
@@ -562,16 +574,20 @@ namespace WindowsFormsApp7
 
         private void deleteAll_Click(object sender, EventArgs e)
         {
-            bitmap4 = q;
-            q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            //bitmap4 = q;
+            //q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            BitmapST.ChangeSize();
+            q = BitmapST.getInstance();
             pictureBox1.Image = q;
-            bitmap2 = q;
+            //bitmap2 = q;
         }
 
         private void deleteTheLastOne_Click(object sender, EventArgs e)
         {
-
-            pictureBox1.Image = bitmap4;
+            BitmapST.Undo();
+            q = BitmapST.getInstance();
+            pictureBox1.Image = q;
+            //pictureBox1.Image = bitmap4;
             //q = bitmap3;
         }
 

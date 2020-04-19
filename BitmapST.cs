@@ -11,38 +11,37 @@ namespace WindowsFormsApp7
     {
 
         private static Bitmap instance;
-        private Bitmap tmp;
-        private List<Bitmap> bitmap;
+        private static Bitmap tmp;
+        private static List<Bitmap> bitmap;
         Form1 form = new Form1();
-        int n, end;
-        int width, heigth;
+        static int n, end;
+        static int width, heigth;
         private BitmapST()
         { }
-        public Bitmap getInstance()
+        public static Bitmap getInstance()
         {
             if (instance == null)
             {
-                instance = new Bitmap(form.pictureBox1.Image,form.pictureBox1.Size);
+                instance = new Bitmap(width, heigth);
                 bitmap = new List<Bitmap>();
                 bitmap.Add(instance);
                 n = 0;
             }
             return instance;
         }
-        //public void SetSize(int width, int height)
-        //{
-        //    this.width = width;
-        //    this.heigth = height;
-            
-        //}
-        public void ChangeSize()
+        public static void SetSize(int w, int h)
         {
-            instance = new Bitmap(form.pictureBox1.Image, form.pictureBox1.Size);
+            width = w;
+            heigth = h;
+        }
+        public static void ChangeSize()
+        {
+            instance = new Bitmap(width, heigth);
             bitmap = new List<Bitmap>();
             bitmap.Add(instance);
             n = 0;
         }
-        public void AddLayer(Image image)
+        public static void AddLayer(Image image)
         {
             tmp = new Bitmap(image);
             bitmap.Add(tmp);
@@ -50,7 +49,7 @@ namespace WindowsFormsApp7
             end = n;
             instance = bitmap[n];
         }
-        public void Undo()
+        public static void Undo()
         {
             if (n > 0)
             {
@@ -58,10 +57,13 @@ namespace WindowsFormsApp7
                 instance = bitmap[n];
             }
         }
-        public void Redo()
+        public static void Redo()
         {
-            n++;
-            instance = bitmap[n];
+            if (n < end)
+            {
+                n++;
+                instance = bitmap[n];
+            }
         }
         
     }
