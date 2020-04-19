@@ -11,9 +11,11 @@ namespace WindowsFormsApp7
     {
 
         private static Bitmap instance;
-        private static Bitmap tmp;
+        private static Bitmap tmp,tmp2;
         private static List<Bitmap> bitmap;
-        Form1 form = new Form1();
+        static System.Drawing.Imaging.PixelFormat format;
+        static RectangleF cloneRect;
+        static Form1 form = new Form1();
         static int n, end;
         static int width, heigth;
         private BitmapST()
@@ -41,13 +43,23 @@ namespace WindowsFormsApp7
             bitmap.Add(instance);
             n = 0;
         }
-        public static void AddLayer(Image image)
+        public static void AddLayer(Bitmap q)
         {
-            tmp = new Bitmap(image);
-            bitmap.Add(tmp);
+            tmp = new Bitmap( q);
+            cloneRect = new RectangleF(0, 0,width, heigth);
+            format = tmp.PixelFormat;
+            tmp2 = tmp.Clone(cloneRect, format);
             n++;
             end = n;
-            instance = bitmap[n];
+            bitmap.Add(tmp2);
+            
+            instance = tmp2;
+            
+        }
+        public static void DrawFigure()
+        {
+            tmp2 = tmp.Clone(cloneRect, format);
+            instance = tmp2;
         }
         public static void Undo()
         {

@@ -131,7 +131,7 @@ namespace WindowsFormsApp7
             {
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {
-
+                    BitmapST.AddLayer(q);
                     //brush.SetBitmap(q);
                     brush.SetIsFirst(isFirst);
                     brush.DrawLine(lastX, lastY, e.X, e.Y);
@@ -151,8 +151,11 @@ namespace WindowsFormsApp7
             else if (tmp!=10&&tmp!=11)
             
             {
+               
+                //q = BitmapST.getInstance();
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {
+                    BitmapST.DrawFigure();
                     if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
                     {
                         if (tmp == 8)
@@ -197,14 +200,14 @@ namespace WindowsFormsApp7
            
             isDrow = true;
             isFirst = true;
-            BitmapST.SetSize(pictureBox1.Width, pictureBox1.Height);
             
+            BitmapST.AddLayer(q);
             q = BitmapST.getInstance();
             pictureBox1.Image = q;
             if (tmp != 11)
             {
                 //bitmap2 = CreateNewLayer();
-                BitmapST.AddLayer(pictureBox1.Image);
+               // BitmapST.AddLayer(q);
              lastX = e.X;
             lastY = e.Y;
                 startX = e.X;
@@ -228,7 +231,7 @@ namespace WindowsFormsApp7
                 {
 
                     //q = CreateNewLayer();
-                    BitmapST.AddLayer(pictureBox1.Image);
+                   // BitmapST.AddLayer(q);
                     //brush.SetBitmap(q);
                     startX = e.X;
                     startY = e.Y;
@@ -255,12 +258,14 @@ namespace WindowsFormsApp7
 
             }
         }
-        //private Bitmap CreateNewLayer()
-        //{
+        //private Bitmap CreateNewLayer()
+
+        //{
+
         //    bitmap3 = new Bitmap(pictureBox1.Image);
         //    bitmap4 = new Bitmap(pictureBox1.Image);
-        //    cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
-        //    format = bitmap3.PixelFormat;
+        //cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
+        //format = bitmap3.PixelFormat;
         //    //bitmap2 = bitmap3.Clone(cloneRect, format);
         //    return bitmap3.Clone(cloneRect, format);
         //}
@@ -275,6 +280,10 @@ namespace WindowsFormsApp7
             isFirst = false;
             isFirstPoligon = false;
             color = Color.Black;
+            BitmapST.SetSize(pictureBox1.Width, pictureBox1.Height);
+            BitmapST.getInstance();
+            q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            BitmapST.AddLayer(q);
             //bit.ChangeSize();
             //BitmapST.getInstance();
             //BitmapST.SetSize(pictureBox1.Width, pictureBox1.Height);
