@@ -28,46 +28,44 @@ namespace WindowsFormsApp7
         int startX = 0;
         int startY = 0;
         IFigur Figure;
-        int tmp = 0;        
-        RectangleF cloneRect;
-        System.Drawing.Imaging.PixelFormat format;
+        int tmp = 0;               
         SaveFileDialog save = new SaveFileDialog();
         OpenFileDialog open = new OpenFileDialog();
         int nAngle=5;
         public Form1()
         {
             InitializeComponent();
+
             lineThickness.Minimum = 1;
             lineThickness.Maximum = 6;
-            this.MouseDown += Form1_MouseDown;
-            this.MouseMove += Form1_MouseMove;            
-            this.WindowState = FormWindowState.Maximized;
+
+            this.MouseDown += Form1_MouseDown;
+            this.MouseMove += Form1_MouseMove;
+            this.WindowState = FormWindowState.Maximized;
             this.WindowState = FormWindowState.Normal;
-            // расширенное окно для выбора цвета
-            colorDialog1.FullOpen = true;
-            // установка начального цвета для colorDialog
+            // расширенное окно для выбора цвета
+            colorDialog1.FullOpen = true;
+            // установка начального цвета для colorDialog
             colorDialog1.Color = color;
-
-
         }
 
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                const int WS_SIZEBOX = 0x40000;
-                var cp = base.CreateParams;
-                cp.Style |= WS_SIZEBOX;
-                return cp;
-            }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int WS_SIZEBOX = 0x40000;
+                var cp = base.CreateParams;
+                cp.Style |= WS_SIZEBOX;
+                return cp;
+            }
         }
 
-        private void Form1_MouseDown(object sender, MouseEventArgs e)
-        {            
-            if (e.Button == MouseButtons.Left)
-            {
-                moveStart = new Point(e.X, e.Y);
-            }
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {   
+            if (e.Button == MouseButtons.Left)
+            {
+                moveStart = new Point(e.X, e.Y);
+            }
         }
 
         private void textBox3_KeyDown(object sender, KeyEventArgs e)
@@ -78,31 +76,27 @@ namespace WindowsFormsApp7
             }
         }
 
-        private void Form1_MouseMove(object sender, MouseEventArgs e)
-        {            
-            if ((e.Button & MouseButtons.Left) != 0)
-            {                
-                Point deltaPos = new Point(e.X - moveStart.X, e.Y - moveStart.Y);                
-                this.Location = new Point(this.Location.X + deltaPos.X,
-                this.Location.Y + deltaPos.Y);               
-            }
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {   
+            if ((e.Button & MouseButtons.Left) != 0)
+            { 
+                Point deltaPos = new Point(e.X - moveStart.X, e.Y - moveStart.Y);
+                this.Location = new Point(this.Location.X + deltaPos.X, this.Location.Y + deltaPos.Y);  
+            }
         }
         
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
-
-        private void buttonRollUp_Click(object sender, EventArgs e)
+        private void buttonRollUp_Click(object sender, EventArgs e)
         {            if (isCollapsed != true)
             {
                 isCollapsed = true;
                 this.WindowState = FormWindowState.Minimized;
-            }
-            
+            }            
         }
-
-        private void buttonExpend_Click(object sender, EventArgs e)
+        private void buttonExpend_Click(object sender, EventArgs e)
         {                        if (expend == false)
             {
                 this.WindowState = FormWindowState.Maximized;
@@ -115,7 +109,7 @@ namespace WindowsFormsApp7
                 this.WindowState = FormWindowState.Normal;
                 noexpend = true;
                 expend = false;
-            }
+            }
         }
 
         public Color GetColor()
@@ -129,39 +123,33 @@ namespace WindowsFormsApp7
             {
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {
-
-                    //brush.SetBitmap(q);
                     brush.SetIsFirst(isFirst);
                     brush.DrawLine(lastX, lastY, e.X, e.Y);                    
                     pictureBox1.Image = q.bitmap;
                     isFirst = false;
                     lastX = e.X;
                     lastY = e.Y;
-                    //Figure.Drow(startX, startY, e.X, e.Y);
-
                 }
                 if (e.X < 0 || e.X > pictureBox1.Width || e.Y < 0 || e.Y > pictureBox1.Height)
                 {
                     isFirst = true;
                 }
             }
-            else if (tmp!=10&&tmp!=11)
-            
+            else if (tmp !=10 && tmp != 11)            
             {
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
-                {
-                    //q.DrawFigure();
+                {                    
                     if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
                     {
                         if (tmp == 8)
                         {
                             Figure = new Сircle(brush);
                         }
-                        if(tmp ==2)
+                        if(tmp == 2)
                         {
                             Figure = new Square(brush);
                         }
-                        if(tmp==4)
+                        if(tmp == 4)
                         {
                             Figure = new RightTriangle(brush);
                         }
@@ -181,8 +169,7 @@ namespace WindowsFormsApp7
                             Figure = new IsoscelesTriangle(brush);
                         }
                     }
-                                        
-                    
+                    q.DrawFigure();
                     Figure.Drow(startX, startY, e.X, e.Y, nAngle);
                     pictureBox1.Image = q.bitmap;
                 }
@@ -190,41 +177,35 @@ namespace WindowsFormsApp7
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
-        {
-           
+        {           
             isDrow = true;
             isFirst = true;
             
-            if (tmp != 11)
-            {
-                q.Clone2();
-             lastX = e.X;
-            lastY = e.Y;
-                startX = e.X;
-            startY = e.Y;
-                //brush.SetBitmap(bitmap2);
+            if (tmp != 11)
+            {
+                q.Clone2();
+                lastX = e.X;
+                lastY = e.Y;
+                startX = e.X;                startY = e.Y;
             }
-            if(tmp==0)
-            {                
-                brush.SetDot(e.X,e.Y);
-                //q = brush.GetBitmap();
-                pictureBox1.Image = q.bitmap;
+            if(tmp == 0)
+            {                
+                brush.SetDot(e.X,e.Y);                
+                pictureBox1.Image = q.bitmap;
             }
-            if (tmp==10)
-            {
-                
-                brush.SetColor(q.bitmap.GetPixel(e.X, e.Y));
+            if (tmp == 10)
+            {
+                brush.SetColor(q.bitmap.GetPixel(e.X, e.Y));
             }
-            if(tmp==11)
-            {
-                if (isFirstPoligon == true)
-                {
-                    q.bitmap = q.tmp1;
-                    //brush.SetBitmap(q);
-                    startX = e.X;
-                    startY = e.Y;
-                    lastX = startX;
-                    lastY = startY;
+            if(tmp==11)
+            {
+                if (isFirstPoligon == true)
+                {
+                    q.bitmap = q.tmp1;
+                    startX = e.X;
+                    startY = e.Y;
+                    lastX = startX;
+                    lastY = startY;
                     brush.SetDot(startX, startY);
                     isFirstPoligon = false;
                     //q = brush.GetBitmap();
