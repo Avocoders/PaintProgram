@@ -34,8 +34,11 @@ namespace WindowsFormsApp7
             width = w;
             heigth = h;
         }
-        public static void ChangeSize()
+        public static void ChangeSize(int w, int h)
         {
+            width = w;
+            heigth = h;
+            
             instance = new Bitmap(width, heigth);
             bitmap = new List<Bitmap>();
             bitmap.Add(instance);

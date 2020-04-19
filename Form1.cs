@@ -201,28 +201,33 @@ namespace WindowsFormsApp7
             isDrow = true;
             isFirst = true;
             
-            BitmapST.AddLayer(q);
+           
             q = BitmapST.getInstance();
             pictureBox1.Image = q;
             if (tmp != 11)
             {
+                BitmapST.AddLayer(q);
                 //bitmap2 = CreateNewLayer();
-               // BitmapST.AddLayer(q);
-             lastX = e.X;
+                // BitmapST.AddLayer(q);
+                lastX = e.X;
             lastY = e.Y;
                 startX = e.X;
             startY = e.Y;
                // brush.SetBitmap(bitmap2);
             }
             if(tmp==0)
-            {
+            {
+                BitmapST.AddLayer(q);
                 brush.SetDot(e.X,e.Y);
                 q = BitmapST.getInstance();
                 pictureBox1.Image = q;
             }
             if (tmp==10)
-            {
-                
+            {
+                BitmapST.AddLayer(q);
+
+
+
                 brush.SetColor(q.GetPixel(e.X, e.Y));
             }
             if(tmp==11)
@@ -473,7 +478,9 @@ namespace WindowsFormsApp7
         {
             if (pictureBox1.Image != null && isCollapsed!=true)
             {
-                q = new Bitmap(pictureBox1.Image, pictureBox1.Width, pictureBox1.Height);
+                BitmapST.ChangeSize(pictureBox1.Width, pictureBox1.Height);
+               //q = new Bitmap(pictureBox1.Image, pictureBox1.Width, pictureBox1.Height);
+                q = BitmapST.getInstance();
                 pictureBox1.Image = q;
                 brush.SetSize(pictureBox1.Width, pictureBox1.Height);
                 
@@ -585,7 +592,7 @@ namespace WindowsFormsApp7
         {
             //bitmap4 = q;
             //q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            BitmapST.ChangeSize();
+            BitmapST.ChangeSize(pictureBox1.Width, pictureBox1.Height);
             q = BitmapST.getInstance();
             pictureBox1.Image = q;
             //bitmap2 = q;
