@@ -17,6 +17,7 @@ namespace WindowsFormsApp7
     {
         Point moveStart;
         Bitmap q,bitmap2;
+        BitmapST bit;
         int n = 1;
         int xnow, ynow;
         Color color;
@@ -41,7 +42,7 @@ namespace WindowsFormsApp7
             lineThickness.Minimum = 1;
             lineThickness.Maximum = 6;
             this.MouseDown += Form1_MouseDown;
-            this.MouseMove += Form1_MouseMove;            
+            this.MouseMove += Form1_MouseMove;           
             this.WindowState = FormWindowState.Maximized;
             this.WindowState = FormWindowState.Normal;
             // расширенное окно для выбора цвета
