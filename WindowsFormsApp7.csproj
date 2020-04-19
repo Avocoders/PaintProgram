@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitmapST.cs" />
     <Compile Include="Brush.cs" />
     <Compile Include="Figure\Circle.cs" />
     <Compile Include="Figure\Ellipse.cs" />
