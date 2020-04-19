@@ -131,7 +131,7 @@ namespace WindowsFormsApp7
             {
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {
-                    BitmapST.AddLayer(q);
+                    //BitmapST.AddLayer(q);
                     //brush.SetBitmap(q);
                     brush.SetIsFirst(isFirst);
                     brush.DrawLine(lastX, lastY, e.X, e.Y);
