@@ -200,54 +200,34 @@ namespace WindowsFormsApp7
             if(tmp==11)
             {
                 if (isFirstPoligon == true)
-                {
-                    q.bitmap = q.tmp1;
+                {                    
                     startX = e.X;
                     startY = e.Y;
                     lastX = startX;
                     lastY = startY;
-                    brush.SetDot(startX, startY);
-                    isFirstPoligon = false;
-                    //q = brush.GetBitmap();
-                    pictureBox1.Image = q.bitmap;
-                }                if (tmp == 13)
+                    brush.SetDot(startX, startY);
+                    isFirstPoligon = false;
+                    pictureBox1.Image = q.bitmap;
+                }                
+                else 
                 {
-
-                }
-                else 
-                {
-                    xnow = e.X;
-                    ynow = e.Y;
-                    brush.DrawLine(lastX, lastY, xnow, ynow);
-                    //q = brush.GetBitmap();
-                    lastX = e.X;
-                    lastY = e.Y;
-                    pictureBox1.Image = q.bitmap;
-                }
-
+                    xnow = e.X;
+                    ynow = e.Y;
+                    brush.DrawLine(lastX, lastY, xnow, ynow);                    
+                    lastX = e.X;
+                    lastY = e.Y;
+                    pictureBox1.Image = q.bitmap;
+                }
             }
         }
-        //private Bitmap CreateNewLayer()
-        //{
-        //    bitmap3 = new Bitmap(pictureBox1.Image);
-        //    bitmap4 = new Bitmap(pictureBox1.Image);
-        //    cloneRect = new RectangleF(0, 0, pictureBox1.Width, pictureBox1.Height);
-        //    format = bitmap3.PixelFormat;
-        //    //bitmap2 = bitmap3.Clone(cloneRect, format);
-        //    return bitmap3.Clone(cloneRect, format);
-        //}
-        private void DrowIrregularPolygon(int x,int y)
-        {
-            
-        }
-
+       
         private void Form1_Load(object sender, EventArgs e)
         {            
             isDrow = false;
             isFirst = false;
             isFirstPoligon = false;
             color = Color.Black;
-            q.bitmap = new Bitmap (pictureBox1.Width, pictureBox1.Height);
+            q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             q.CreateBitmapList();
             brush = new Brush(pictureBox1.Width, pictureBox1.Height);            
             pictureBox1.Image = q.bitmap;
@@ -343,59 +323,35 @@ namespace WindowsFormsApp7
             tmp = 4;
             Figure = new IsoscelesTriangle(brush);
         }
-
-        private void straightLine_Click(object sender, EventArgs e)
-        {
-            tmp = 12;
-            Figure = new StraightLine(brush);
+        private void straightLine_Click(object sender, EventArgs e)
+        {
+            tmp = 12;
+            Figure = new StraightLine(brush);
         }
-
-        private void choosePen_Click(object sender, EventArgs e)
-        {
-            tmp = 0;
+        private void choosePen_Click(object sender, EventArgs e)
+        {
+            tmp = 0;
         }
-
-        private void pictureBox1_DoubleClick(object sender, EventArgs e)
-        {
-
-            if (tmp == 11)
-            {
-                brush.DrawLine(startX, startY, lastX, lastY);
-                //q = brush.GetBitmap();
-                pictureBox1.Image = q.bitmap;
-                isFirstPoligon = true;
-            }
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            if (tmp == 11)
+            {
+                brush.DrawLine(startX, startY, lastX, lastY);
+                pictureBox1.Image = q.bitmap;
+                isFirstPoligon = true;
+            }
         }
-
-        private void moreColor_Click(object sender, EventArgs e)
+        private void moreColor_Click(object sender, EventArgs e)
         {            colorDialog1.AllowFullOpen = true;
             if (colorDialog1.ShowDialog() == DialogResult.OK)
-
-            { color = colorDialog1.Color; }
-            // установка цвета формы
-            brush.SetColor(color);
+            { color = colorDialog1.Color; }
+            // установка цвета формы
+            brush.SetColor(color);
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
             tmp = 7;
-            Figure = new Poligon(brush);
-            
+            Figure = new Poligon(brush);            
         }
 
         private void textBox3_KeyDown_1(object sender, KeyEventArgs e)
@@ -407,17 +363,10 @@ namespace WindowsFormsApp7
             }
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void oval_Click(object sender, EventArgs e)
         {
             Figure = new Ellipse(brush);
-
             tmp = 8;
-
         }
 
         private void circle_Click(object sender, EventArgs e)
@@ -426,67 +375,21 @@ namespace WindowsFormsApp7
             Figure = new Сircle(brush);
         }
 
-        private void redColor_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox1_SizeChanged(object sender, EventArgs e)
         {
             if (pictureBox1.Image != null && isCollapsed!=true)
             {
-                q.bitmap = new Bitmap(pictureBox1.Image, pictureBox1.Width, pictureBox1.Height);
-                //q.CreateBitmapList();
+                q.bitmap = new Bitmap(pictureBox1.Image, pictureBox1.Width, pictureBox1.Height);                
                 pictureBox1.Image = q.bitmap;
-                brush.SetSize(pictureBox1.Width, pictureBox1.Height);
-                
+                brush.SetSize(pictureBox1.Width, pictureBox1.Height);                
             }
-                isCollapsed = false;
-        }
-
-        private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if(tmp==11)
-            {
-                brush.DrawLine(startX, startY, lastX, lastY);
-                //q.bitmap = brush.GetBitmap();
-                pictureBox1.Image = q.bitmap;
-                isFirstPoligon = true;
-            }
-        }
-
-        
-
-        private void pictureBox1_SizeModeChanged(object sender, EventArgs e)
-        {
-            PictureBox pictureBox1 = new PictureBox();
-            //pictureBox1.Size = new Size();
-            //q = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            //brush = new Brush(pictureBox1.Width, pictureBox1.Height);
-            //pictureBox1.Image = q;
-        }
-
-        private void pictureBox1_ClientSizeChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
-            {
-                if (tmp == 8)
-                {
-                    Figure = new Сircle(brush);
-                }
-            }
+            isCollapsed = false;
         }
 
         private void buttonReturn_Click(object sender, EventArgs e)
         {
             q.Redo();
-            pictureBox1.Image = q.bitmap;
-           
+            pictureBox1.Image = q.bitmap;           
         }
 
         private void chooseFill_Click(object sender, EventArgs e)
@@ -516,64 +419,37 @@ namespace WindowsFormsApp7
                 isFirst = false;
                 isFirstPoligon = false;
                 color = Color.Black;                
-                brush = new Brush(pictureBox1.Width, pictureBox1.Height);
-                //bitmap4 = q;
-                //bitmap2 = q;
-                
+                brush = new Brush(pictureBox1.Width, pictureBox1.Height);               
             }
         }
 
-        //private void pictureBox1_SizeChanged(object sender, EventArgs e)
-        //{
-        //    q = new Bitmap(pictureBox1.Image);
-        //    bitmap2 = new Bitmap(pictureBox1.Image);
-
-
-        //}
-
-        private void choosePipette_Click(object sender, EventArgs e)
-        {
-            tmp = 10;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            tmp = 11;
-            isFirstPoligon = true;
-        }
-
-        private void deleteAll_Click(object sender, EventArgs e)
+        private void choosePipette_Click(object sender, EventArgs e)
         {
-            //q.Clone();
+            tmp = 10;
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tmp = 11;
+            isFirstPoligon = true;
+        }
+        private void deleteAll_Click(object sender, EventArgs e)
+        {            
             q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = q.bitmap;
-            q.CreateBitmapList();
-            //q.Clone2();
+            q.CreateBitmapList();            
         }
 
         private void deleteTheLastOne_Click(object sender, EventArgs e)
         {
             q.Undo();            
-            pictureBox1.Image = q.bitmap;
-            
-            //q = bitmap3;
+            pictureBox1.Image = q.bitmap;            
         }
 
         private void chooseEraser_Click(object sender, EventArgs e)
         {
             tmp = 0;
             brush.SetColor(Color.White);
-        }
-
-        
-        private void pictureBox1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            if (Control.ModifierKeys == Keys.Shift)
-            {
-                //isShift = true;
-                Figure = new Сircle(brush);
-            }
-        }
+        }                
     }
 }
 

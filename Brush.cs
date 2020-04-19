@@ -14,12 +14,12 @@ namespace WindowsFormsApp7
     {
         bool isFirst;
         int width, heigth;
-        //Bitmap q;
+        int n = 1;
         SingleBitmap q = SingleBitmap.Create();
+        Color color = Color.Black;
 
         public Brush(int width, int heigth)
-        {
-            
+        {            
             this.width = width;
             this.heigth = heigth;
         }
@@ -27,29 +27,23 @@ namespace WindowsFormsApp7
         {
             this.width = width;
             this.heigth = heigth;
-        }
-        Color color = Color.Black;
-        int n = 1;
-        //public void SetBitmap(Bitmap q)
-        //{
-        //    this.q = q;
-        //}
+        }              
+        
         public void SetColor(Color color)
         {
             this.color = color;
         }
+
         public void SetIsFirst(bool isFirst)
         {
             this.isFirst = isFirst;
         }
-        //public Bitmap GetBitmap()
-        //{
-        //    return q;
-        //}
+        
         public void ChangePaint(int a)
         {
             n = a;
         }
+
         public void DrawLine(int lastX, int lastY, int x, int y)
         {
             if (lastX == x && lastY == y || isFirst == true)
@@ -58,11 +52,8 @@ namespace WindowsFormsApp7
                 lastX = x;
                 lastY = y;
             }
-
             int xd = (x - lastX);
-            int yd = (y - lastY);
-            //xd = Math.Abs(xd);
-            //yd = Math.Abs(yd);
+            int yd = (y - lastY);            
             double xy;
             if (lastX == x)
             {
@@ -102,8 +93,6 @@ namespace WindowsFormsApp7
                     lastX = x;
                 }
             }
-
-
             if (lastX < x && lastY > y)  // 1 четверть
             {
                 if (Math.Abs(xd) >= Math.Abs(yd))
@@ -193,8 +182,7 @@ namespace WindowsFormsApp7
                     {
                         lastY = (int)(Math.Round((i - firstX) * xy)) + firstY;
                         Pain(i, lastY);
-                    }
-                    
+                    }                    
                 }
                 if (Math.Abs(xd) < Math.Abs(yd))
                 {
