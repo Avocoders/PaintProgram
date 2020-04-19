@@ -218,7 +218,7 @@ namespace WindowsFormsApp7
             {
                 if (isFirstPoligon == true)
                 {
-                    q.bitmap = q.bitmap2;
+                    q.bitmap = q.tmp1;
                     //brush.SetBitmap(q);
                     startX = e.X;
                     startY = e.Y;
@@ -266,6 +266,7 @@ namespace WindowsFormsApp7
             isFirstPoligon = false;
             color = Color.Black;
             q.bitmap = new Bitmap (pictureBox1.Width, pictureBox1.Height);
+            q.CreateBitmapList();
             brush = new Brush(pictureBox1.Width, pictureBox1.Height);            
             pictureBox1.Image = q.bitmap;
             isCollapsed = false;
@@ -274,7 +275,7 @@ namespace WindowsFormsApp7
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             isDrow = false;
-            q.Clone2();
+            //q.Clone2();
         }        
 
         private void lineThickness_Scroll(object sender, EventArgs e)
@@ -453,6 +454,7 @@ namespace WindowsFormsApp7
             if (pictureBox1.Image != null && isCollapsed!=true)
             {
                 q.bitmap = new Bitmap(pictureBox1.Image, pictureBox1.Width, pictureBox1.Height);
+                q.CreateBitmapList();
                 pictureBox1.Image = q.bitmap;
                 brush.SetSize(pictureBox1.Width, pictureBox1.Height);
                 
@@ -500,7 +502,7 @@ namespace WindowsFormsApp7
 
         private void buttonReturn_Click(object sender, EventArgs e)
         {
-            q.Undo();
+            q.Redo();
             pictureBox1.Image = q.bitmap;
            
         }
@@ -562,12 +564,13 @@ namespace WindowsFormsApp7
             q.Clone();
             q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = q.bitmap;
-            q.Clone2();
+            //q.Clone2();
         }
 
         private void deleteTheLastOne_Click(object sender, EventArgs e)
         {
-            q.Redo();
+            q.Undo();
+            
             pictureBox1.Image = q.bitmap;
             
             //q = bitmap3;

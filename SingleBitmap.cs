@@ -14,7 +14,6 @@ namespace WindowsFormsApp7
 
         private SingleBitmap()
         {
-
         }
 
         public static SingleBitmap Create()
@@ -27,30 +26,58 @@ namespace WindowsFormsApp7
         }
 
         public Bitmap bitmap;
-        public Bitmap bitmap2;
-        public Bitmap tmp;
+        public List<Bitmap> bitmap2;
+        public Bitmap tmp1;
+        public Bitmap tmp2;
+        int n, end;
 
-        
+        public void CreateBitmapList()
+        {
+            bitmap2 = new List<Bitmap>();
+            //bitmap2.Add(bitmap);
+            n = 0;           
+        }       
+
         public void Clone()
         {
-            bitmap2 = new Bitmap(bitmap);
-
+            tmp1 = new Bitmap(bitmap);
+            tmp2 = new Bitmap(tmp1);
+            n++;
+            end = n;
+            bitmap2.Add(tmp2);
+            //bitmap = tmp2;
         }
 
-        public void Clone2()
+        public void DrawFigure()
         {
-            tmp = new Bitmap(bitmap);
+            tmp2 = new Bitmap(tmp1);
+            bitmap = tmp2;
+            bitmap2[n] = bitmap;
+        }
+
+        //public void Clone2()
+        //{
+        //    tmp2 = new Bitmap(bitmap);
+        //}
+
+        public void Undo()
+        {
+            bitmap2.Add(bitmap);
+            if (n > 0)
+            {
+                n--;
+                bitmap = bitmap2[n];
+            }
         }
 
         public void Redo()
         {
-
-            bitmap = bitmap2;
-        }
-
-        public void Undo()
-        {
-            bitmap = tmp;
+            
+            if (n < end && n >= 0)
+            {
+                n++;
+                bitmap = bitmap2[n];
+            }
         }
     }
 }
