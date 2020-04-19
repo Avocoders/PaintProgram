@@ -150,6 +150,7 @@ namespace WindowsFormsApp7
             {
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {
+                    //q.DrawFigure();
                     if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
                     {
                         if (tmp == 8)
@@ -204,7 +205,7 @@ namespace WindowsFormsApp7
                 //brush.SetBitmap(bitmap2);
             }
             if(tmp==0)
-            {
+            {                
                 brush.SetDot(e.X,e.Y);
                 //q = brush.GetBitmap();
                 pictureBox1.Image = q.bitmap;
@@ -571,8 +572,7 @@ namespace WindowsFormsApp7
 
         private void deleteTheLastOne_Click(object sender, EventArgs e)
         {
-            q.Undo();
-            
+            q.Undo();            
             pictureBox1.Image = q.bitmap;
             
             //q = bitmap3;
