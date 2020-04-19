@@ -14,7 +14,9 @@ namespace WindowsFormsApp7
     {
         bool isFirst;
         int width, heigth;
-        Bitmap q;
+        //Bitmap q;
+        SingleBitmap q = SingleBitmap.Create();
+
         public Brush(int width, int heigth)
         {
             
@@ -28,10 +30,10 @@ namespace WindowsFormsApp7
         }
         Color color = Color.Black;
         int n = 1;
-        public void SetBitmap(Bitmap q)
-        {
-            this.q = q;
-        }
+        //public void SetBitmap(Bitmap q)
+        //{
+        //    this.q = q;
+        //}
         public void SetColor(Color color)
         {
             this.color = color;
@@ -40,10 +42,10 @@ namespace WindowsFormsApp7
         {
             this.isFirst = isFirst;
         }
-        public Bitmap GetBitmap()
-        {
-            return q;
-        }
+        //public Bitmap GetBitmap()
+        //{
+        //    return q;
+        //}
         public void ChangePaint(int a)
         {
             n = a;
@@ -214,10 +216,10 @@ namespace WindowsFormsApp7
             {
                 if (x - del > 0 && x + del < width && y - del > 0 && y + del < heigth)
                 {
-                    q.SetPixel(x - del + i, y + del, color);
-                    q.SetPixel(x - del + i, y - del, color);
-                    q.SetPixel(x + del, y - del + i, color);
-                    q.SetPixel(x - del, y - del + i, color);
+                    q.bitmap.SetPixel(x - del + i, y + del, color);
+                    q.bitmap.SetPixel(x - del + i, y - del, color);
+                    q.bitmap.SetPixel(x + del, y - del + i, color);
+                    q.bitmap.SetPixel(x - del, y - del + i, color);
                 }
             }
         }
@@ -231,7 +233,7 @@ namespace WindowsFormsApp7
                 {
                     if (x - del > 0 && x + del < width && y - del > 0 && y + del < heigth)
                     {
-                        q.SetPixel(x - del + i, y - del + j, color);
+                        q.bitmap.SetPixel(x - del + i, y - del + j, color);
                     }
                 }
             }
