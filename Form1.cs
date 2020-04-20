@@ -180,10 +180,15 @@ namespace WindowsFormsApp7
         {           
             isDrow = true;
             isFirst = true;
+
+            if (tmp != 10)
+            {
+                q.Clone2();
+            }
             
             if (tmp != 11)
             {
-                q.Clone2();
+                //q.Clone2();
                 lastX = e.X;
                 lastY = e.Y;
                 startX = e.X;                startY = e.Y;
@@ -389,7 +394,7 @@ namespace WindowsFormsApp7
         private void buttonReturn_Click(object sender, EventArgs e)
         {
             q.Redo();
-            pictureBox1.Image = q.bitmap;           
+            pictureBox1.Image = q.tmp1;           
         }
 
         private void chooseFill_Click(object sender, EventArgs e)
@@ -442,7 +447,7 @@ namespace WindowsFormsApp7
         private void deleteTheLastOne_Click(object sender, EventArgs e)
         {
             q.Undo();            
-            pictureBox1.Image = q.bitmap;            
+            pictureBox1.Image = q.tmp1;            
         }
 
         private void chooseEraser_Click(object sender, EventArgs e)
