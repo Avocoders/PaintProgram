@@ -14,11 +14,12 @@ namespace WindowsFormsApp7
     {
         bool isFirst;
         int width, heigth;
-        Bitmap q;
-        BitmapST bitmap;
+        int n = 1;
+        SingleBitmap q = SingleBitmap.Create();
+        Color color = Color.Black;
+
         public Brush(int width, int heigth)
-        {
-            //q = bitmap.getInstance();
+        {            
             this.width = width;
             this.heigth = heigth;
         }
@@ -26,26 +27,23 @@ namespace WindowsFormsApp7
         {
             this.width = width;
             this.heigth = heigth;
-        }
-        Color color = Color.Black;
-        int n = 1;
+        }              
         
         public void SetColor(Color color)
         {
             this.color = color;
         }
+
         public void SetIsFirst(bool isFirst)
         {
             this.isFirst = isFirst;
         }
-        //public Bitmap GetBitmap()
-        //{
-        //    return q;
-        //}
+        
         public void ChangePaint(int a)
         {
             n = a;
         }
+
         public void DrawLine(int lastX, int lastY, int x, int y)
         {
             q = BitmapST.getInstance();
@@ -55,11 +53,8 @@ namespace WindowsFormsApp7
                 lastX = x;
                 lastY = y;
             }
-
             int xd = (x - lastX);
-            int yd = (y - lastY);
-            //xd = Math.Abs(xd);
-            //yd = Math.Abs(yd);
+            int yd = (y - lastY);            
             double xy;
             if (lastX == x)
             {
@@ -99,8 +94,6 @@ namespace WindowsFormsApp7
                     lastX = x;
                 }
             }
-
-
             if (lastX < x && lastY > y)  // 1 четверть
             {
                 if (Math.Abs(xd) >= Math.Abs(yd))
@@ -190,8 +183,7 @@ namespace WindowsFormsApp7
                     {
                         lastY = (int)(Math.Round((i - firstX) * xy)) + firstY;
                         Pain(i, lastY);
-                    }
-                    
+                    }                    
                 }
                 if (Math.Abs(xd) < Math.Abs(yd))
                 {
@@ -213,10 +205,10 @@ namespace WindowsFormsApp7
             {
                 if (x - del > 0 && x + del < width && y - del > 0 && y + del < heigth)
                 {
-                    q.SetPixel(x - del + i, y + del, color);
-                    q.SetPixel(x - del + i, y - del, color);
-                    q.SetPixel(x + del, y - del + i, color);
-                    q.SetPixel(x - del, y - del + i, color);
+                    q.bitmap.SetPixel(x - del + i, y + del, color);
+                    q.bitmap.SetPixel(x - del + i, y - del, color);
+                    q.bitmap.SetPixel(x + del, y - del + i, color);
+                    q.bitmap.SetPixel(x - del, y - del + i, color);
                 }
             }
         }
@@ -231,7 +223,7 @@ namespace WindowsFormsApp7
                 {
                     if (x - del > 0 && x + del < width && y - del > 0 && y + del < heigth)
                     {
-                        q.SetPixel(x - del + i, y - del + j, color);
+                        q.bitmap.SetPixel(x - del + i, y - del + j, color);
                     }
                 }
             }
