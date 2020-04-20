@@ -29,61 +29,69 @@ namespace WindowsFormsApp7
         public Bitmap bitmap;
         public Bitmap first;
         public List<Bitmap> bitmap2;
-        public Bitmap tmp1;        
-        int n, end;
+        public Bitmap tmp1;
+        int n, end;        
 
         public void CreateBitmapList()
         {
             first = new Bitmap(bitmap);
             bitmap2 = new List<Bitmap>();
-            bitmap2.Add(bitmap);
+            bitmap2.Insert(0, bitmap);
             n = 0;
             end = n;
         }
 
         public void Clone()
         {
-            tmp1 = new Bitmap(bitmap);            
+            tmp1 = new Bitmap(bitmap);
             n++;
             end = n;
-            bitmap2.Add(tmp1);            
+            bitmap2.Insert(n, tmp1);
         }
 
         public void DrawFigure()
         {
-            bitmap = new Bitmap(tmp1);            
+            bitmap = new Bitmap(tmp1);
         }
 
         public void Clone2()
         {
-            for(int i = end; i > n; i--)
+            if (n < end)
             {
-                bitmap2.RemoveAt(i);                
-            }           
-            tmp1 = new Bitmap(bitmap);                        
+                bitmap = new Bitmap(tmp1);
+                for (int i = end; i > n; i--)
+                {
+                    bitmap2.RemoveAt(i);
+                }               
+                //tmp1 = new Bitmap(bitmap);
+                //n++;
+                //end = n;
+                //bitmap2.Add(tmp1);
+            }
+            tmp1 = new Bitmap(bitmap);
         }
 
         public void Undo()
-        {            
+        {
             if (n > 1)
             {
                 n--;
-                bitmap = bitmap2[n];
+                tmp1 = bitmap2[n];
             }
-            else if(n == 1)
+            else if (n == 1)
             {
                 n--;
-                bitmap = first;
-            }             
+                tmp1 = first;
+            }
         }
 
         public void Redo()
-        {            
+        {
             if (n < end)
             {
                 n++;
-                bitmap = bitmap2[n];
+                tmp1 = bitmap2[n];
             }
         }
-    }
+    }    
 }
