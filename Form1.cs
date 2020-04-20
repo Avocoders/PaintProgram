@@ -430,8 +430,8 @@ namespace WindowsFormsApp7
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+        {           
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -622,6 +622,7 @@ namespace WindowsFormsApp7
                 Figure = new Сircle(brush);
             }
         }
+     
     }
 }
 
