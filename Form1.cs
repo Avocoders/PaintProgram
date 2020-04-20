@@ -242,7 +242,8 @@ namespace WindowsFormsApp7
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             isDrow = false;
-            q.Clone();
+            if (tmp != 11)
+            { q.Clone(); }
         }        
 
         private void lineThickness_Scroll(object sender, EventArgs e)
@@ -344,6 +345,7 @@ namespace WindowsFormsApp7
                 brush.DrawLine(startX, startY, lastX, lastY);
                 pictureBox1.Image = q.bitmap;
                 isFirstPoligon = true;
+                q.Clone();
             }
         }
         private void moreColor_Click(object sender, EventArgs e)
