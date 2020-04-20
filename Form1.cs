@@ -226,6 +226,12 @@ namespace WindowsFormsApp7
                     pictureBox1.Image = q.bitmap;
                 }
             }
+            if (tmp == 13)
+            {
+                startX = e.X;
+                startY = e.Y;
+                (e.X, e.Y);
+            }
         }
        
         private void Form1_Load(object sender, EventArgs e)
