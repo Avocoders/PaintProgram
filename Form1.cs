@@ -525,6 +525,7 @@ namespace WindowsFormsApp7
         {
             firstColor = true;
             this.button1.BringToFront();
+            color = button1.BackColor;
             brush.SetColor(button1.BackColor);
         }
 
@@ -532,6 +533,7 @@ namespace WindowsFormsApp7
         {
             firstColor = false;
             this.button4.BringToFront();
+            color = button4.BackColor;
             brush.SetColor(button4.BackColor);
         }
 
@@ -541,12 +543,14 @@ namespace WindowsFormsApp7
             {
                 firstColor = false;
                 this.button4.BringToFront();
+                color = button4.BackColor;
                 brush.SetColor(button4.BackColor);
             }
             else
             {
                 firstColor = true;
                 this.button1.BringToFront();
+                color = button1.BackColor;
                 brush.SetColor(button1.BackColor);
             }
         }
