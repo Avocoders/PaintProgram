@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace WindowsFormsApp7.Figure
 {
     public class Square : IFigur
     {
+        List<Point> square;
         Brush q;
         public Square(Brush bruch) 
         {
@@ -37,10 +39,16 @@ namespace WindowsFormsApp7.Figure
                 x2 = x1 - dx;
                 y2 = y1 - dx;
             }
-            q.DrawLine(x2, y1, x1, y1);
-            q.DrawLine(x2, y2, x2, y1);
-            q.DrawLine(x1, y2, x2, y2);
-            q.DrawLine(x1, y1, x1, y2);
+
+            square.Add(new Point(x1, y1));
+            square.Add(new Point(x2, y1));
+            square.Add(new Point(x2, y2));
+            square.Add(new Point(x1, y2));
+
+            //q.DrawLine(x2, y1, x1, y1);
+            //q.DrawLine(x2, y2, x2, y1);
+            //q.DrawLine(x1, y2, x2, y2);
+            //q.DrawLine(x1, y1, x1, y2);
         }
     }
 }

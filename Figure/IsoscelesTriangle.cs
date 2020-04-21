@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace WindowsFormsApp7.Figure
     public class IsoscelesTriangle : IFigur
     {
         Brush q;
+        List<Point> isoscelesTriangle;
 
         public IsoscelesTriangle(Brush bruch)
         {
@@ -33,9 +35,13 @@ namespace WindowsFormsApp7.Figure
             }
             if (y3 > 0)
             {
-                q.DrawLine(x2, y2, x1, y1);
-                q.DrawLine(x3, y3, x2, y2);
-                q.DrawLine(x1, y1, x3, y3);
+                isoscelesTriangle.Add(new Point(x1, y1));
+                isoscelesTriangle.Add(new Point(x2, y2));
+                isoscelesTriangle.Add(new Point(x3, y3));
+
+                //q.DrawLine(x2, y2, x1, y1);
+                //q.DrawLine(x3, y3, x2, y2);
+                //q.DrawLine(x1, y1, x3, y3);
             }
         }
     }
