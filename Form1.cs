@@ -21,6 +21,7 @@ namespace WindowsFormsApp7
         int n = 1;
         int xnow, ynow;
         Color color;
+        bool firstColor = true;        
         Brush brush;        
         bool isDrow, isFirst,isFirstPoligon,isCollapsed;
         bool expend = false;
@@ -44,12 +45,12 @@ namespace WindowsFormsApp7
             this.MouseDown += Form1_MouseDown;
             this.MouseMove += Form1_MouseMove;
             this.WindowState = FormWindowState.Maximized;
-            this.WindowState = FormWindowState.Normal;
+            this.WindowState = FormWindowState.Normal;            
             // расширенное окно для выбора цвета
             colorDialog1.FullOpen = true;
             // установка начального цвета для colorDialog
             colorDialog1.Color = color;
-        }
+        }        
 
         protected override CreateParams CreateParams
         {
@@ -273,47 +274,119 @@ namespace WindowsFormsApp7
         private void buttonBlue_CheckedChanged(object sender, EventArgs e)
         {
             color = Color.Blue;
-            brush.SetColor(color);
+            brush.SetColor(color);   
+            if (firstColor == true)
+            {
+                button1.BackColor = color;
+            }
+            else
+            {
+                button4.BackColor = color;
+            }
         }               
 
         private void buttonBlack_CheckedChanged(object sender, EventArgs e)
         {
             color = Color.Black; brush.SetColor(color);
+            if (firstColor == true)
+            {
+                button1.BackColor = color;
+            }
+            else
+            {
+                button4.BackColor = color;
+            }
         }
 
         private void buttonRed_CheckedChanged(object sender, EventArgs e)
         {
             color = Color.Red; brush.SetColor(color);
+            if (firstColor == true)
+            {
+                button1.BackColor = color;
+            }
+            else
+            {
+                button4.BackColor = color;
+            }
         }
 
         private void buttonOrange_CheckedChanged(object sender, EventArgs e)
         {
             color = Color.Orange; brush.SetColor(color);
+            if (firstColor == true)
+            {
+                button1.BackColor = color;
+            }
+            else
+            {
+                button4.BackColor = color;
+            }
         }
 
         private void buttonWhite_CheckedChanged(object sender, EventArgs e)
         {
             color = Color.White; brush.SetColor(color);
+            if (firstColor == true)
+            {
+                button1.BackColor = color;
+            }
+            else
+            {
+                button4.BackColor = color;
+            }
         }
 
         private void buttonGrey_CheckedChanged(object sender, EventArgs e)
         {
             color = Color.Gray; brush.SetColor(color);
+            if (firstColor == true)
+            {
+                button1.BackColor = color;
+            }
+            else
+            {
+                button4.BackColor = color;
+            }
         }
 
         private void buttonGreen_CheckedChanged(object sender, EventArgs e)
         {
             color = Color.Green; brush.SetColor(color);
+            if (firstColor == true)
+            {
+                button1.BackColor = color;
+            }
+            else
+            {
+                button4.BackColor = color;
+            }
         }
 
         private void buttonPurple_CheckedChanged(object sender, EventArgs e)
         {
             color = Color.Purple; brush.SetColor(color);
+            if (firstColor == true)
+            {
+                button1.BackColor = color;
+            }
+            else
+            {
+                button4.BackColor = color;
+            }
         }
 
         private void buttonYellow_CheckedChanged(object sender, EventArgs e)
         {
             color = Color.Yellow; brush.SetColor(color);
+            if (firstColor == true)
+            {
+                button1.BackColor = color;
+            }
+            else
+            {
+                button4.BackColor = color;
+            }
         }
 
         private void square_Click(object sender, EventArgs e)
@@ -364,6 +437,14 @@ namespace WindowsFormsApp7
             { color = colorDialog1.Color; }
             // установка цвета формы
             brush.SetColor(color);
+            if (firstColor == true)
+            {
+                button1.BackColor = color;
+            }
+            else
+            {
+                button4.BackColor = color;
+            }
         }
         private void button5_Click(object sender, EventArgs e)
         {
@@ -438,6 +519,18 @@ namespace WindowsFormsApp7
                 color = Color.Black;                
                 brush = new Brush(pictureBox1.Width, pictureBox1.Height);               
             }
+        }
+        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            firstColor = true;
+            this.button1.BringToFront();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            firstColor = false;
+            this.button4.BringToFront();
         }
 
         private void choosePipette_Click(object sender, EventArgs e)
