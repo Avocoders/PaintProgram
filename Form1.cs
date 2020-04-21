@@ -40,7 +40,7 @@ namespace WindowsFormsApp7
             InitializeComponent();
 
             lineThickness.Minimum = 1;
-            lineThickness.Maximum = 6;
+            lineThickness.Maximum = 10;
 
             this.MouseDown += Form1_MouseDown;
             this.MouseMove += Form1_MouseMove;
@@ -283,10 +283,14 @@ namespace WindowsFormsApp7
             {
                 case 1: n = 1; break;
                 case 2: n = 2; break;
-                case 3: n = 3; break;
-                case 4: n = 4; break;
-                case 5: n = 5; break;
-                case 6: n = 6; break;
+                case 3: n = 4; break;
+                case 4: n = 6; break;
+                case 5: n = 8; break;
+                case 6: n = 10; break;
+                case 7: n = 12; break;
+                case 8: n = 14; break;
+                case 9: n = 16; break;
+                case 10: n = 18; break;
             }
             brush.ChangePaint(n);
         }
