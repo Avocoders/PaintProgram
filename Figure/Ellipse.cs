@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace WindowsFormsApp7.Figure
     {
         Brush q;
         Point point;
-        List<Point> ellipse;
+        List <Point> ellipse;
         int n = 0;
         public Ellipse(Brush bruch)
         {

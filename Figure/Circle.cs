@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace WindowsFormsApp7.Figure
     public class Сircle : IFigur
     {
         Point point;
-        List<Point> circle;
+        List <Point> circle;
         Brush q;
         int n = 0;
         public Сircle(Brush bruch)
