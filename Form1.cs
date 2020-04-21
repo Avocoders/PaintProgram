@@ -182,7 +182,30 @@ namespace WindowsFormsApp7
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
-        {           
+        {
+            if (firstColor == true)
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    brush.SetColor(button1.BackColor);
+                }
+                else if (e.Button == MouseButtons.Right)
+                {
+                    brush.SetColor(button4.BackColor);
+                }
+            }
+            else
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    brush.SetColor(button4.BackColor);
+                }
+                else if (e.Button == MouseButtons.Right)
+                {
+                    brush.SetColor(button1.BackColor);
+                }
+            }
+            
             isDrow = true;
             isFirst = true;
 
@@ -274,7 +297,7 @@ namespace WindowsFormsApp7
         private void buttonBlue_CheckedChanged(object sender, EventArgs e)
         {
             color = Color.Blue;
-            brush.SetColor(color);   
+            //brush.SetColor(color);   
             if (firstColor == true)
             {
                 button1.BackColor = color;
@@ -287,7 +310,7 @@ namespace WindowsFormsApp7
 
         private void buttonBlack_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.Black; brush.SetColor(color);
+            color = Color.Black; //brush.SetColor(color);
             if (firstColor == true)
             {
                 button1.BackColor = color;
@@ -300,7 +323,7 @@ namespace WindowsFormsApp7
 
         private void buttonRed_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.Red; brush.SetColor(color);
+            color = Color.Red; //brush.SetColor(color);
             if (firstColor == true)
             {
                 button1.BackColor = color;
@@ -313,7 +336,7 @@ namespace WindowsFormsApp7
 
         private void buttonOrange_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.Orange; brush.SetColor(color);
+            color = Color.Orange; //brush.SetColor(color);
             if (firstColor == true)
             {
                 button1.BackColor = color;
@@ -326,7 +349,7 @@ namespace WindowsFormsApp7
 
         private void buttonWhite_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.White; brush.SetColor(color);
+            color = Color.White; //brush.SetColor(color);
             if (firstColor == true)
             {
                 button1.BackColor = color;
@@ -339,7 +362,7 @@ namespace WindowsFormsApp7
 
         private void buttonGrey_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.Gray; brush.SetColor(color);
+            color = Color.Gray; //brush.SetColor(color);
             if (firstColor == true)
             {
                 button1.BackColor = color;
@@ -352,7 +375,7 @@ namespace WindowsFormsApp7
 
         private void buttonGreen_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.Green; brush.SetColor(color);
+            color = Color.Green; //brush.SetColor(color);
             if (firstColor == true)
             {
                 button1.BackColor = color;
@@ -365,7 +388,7 @@ namespace WindowsFormsApp7
 
         private void buttonPurple_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.Purple; brush.SetColor(color);
+            color = Color.Purple; //brush.SetColor(color);
             if (firstColor == true)
             {
                 button1.BackColor = color;
@@ -378,7 +401,7 @@ namespace WindowsFormsApp7
 
         private void buttonYellow_CheckedChanged(object sender, EventArgs e)
         {
-            color = Color.Yellow; brush.SetColor(color);
+            color = Color.Yellow; //brush.SetColor(color);
             if (firstColor == true)
             {
                 button1.BackColor = color;
@@ -436,7 +459,7 @@ namespace WindowsFormsApp7
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             { color = colorDialog1.Color; }
             // установка цвета формы
-            brush.SetColor(color);
+            //brush.SetColor(color);
             if (firstColor == true)
             {
                 button1.BackColor = color;
@@ -525,8 +548,8 @@ namespace WindowsFormsApp7
         {
             firstColor = true;
             this.button1.BringToFront();
-            color = button1.BackColor;
-            brush.SetColor(button1.BackColor);
+            color = button1.BackColor;            
+            //brush.SetColor(button1.BackColor);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -534,7 +557,7 @@ namespace WindowsFormsApp7
             firstColor = false;
             this.button4.BringToFront();
             color = button4.BackColor;
-            brush.SetColor(button4.BackColor);
+            //brush.SetColor(button4.BackColor);
         }
 
         private void button9_Click(object sender, EventArgs e)
