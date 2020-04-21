@@ -9,10 +9,10 @@ namespace WindowsFormsApp7
 {
     public abstract class Drower
     {
-
+        
         public Brush brush;
         public IFigur figure;
-        public Drower(Brush brush, IFigur figur)
+        public Drower(Brush brush, IFigur figur) 
         {
             this.brush = brush;
             this.figure = figur;

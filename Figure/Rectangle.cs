@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp7.Figure
 {
+    
     public class Rectangl : IFigur
     {
         List <Point> rectangl;

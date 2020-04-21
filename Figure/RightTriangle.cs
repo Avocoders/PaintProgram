@@ -9,7 +9,7 @@ namespace WindowsFormsApp7.Figure
 {
     public class RightTriangle : IFigur
     {
-        List <Point> rightTriangle;
+        List<Point> rightTriangle;
         Brush q;
         public RightTriangle(Brush bruch)
         {
@@ -20,7 +20,7 @@ namespace WindowsFormsApp7.Figure
             rightTriangle.Add(new Point(x1, y1));
             rightTriangle.Add(new Point(x2, y2));
             rightTriangle.Add(new Point(x1, y2));
-
+            
             //q.DrawLine(x2, y2, x1, y1);
             //q.DrawLine(x1, y2, x2, y2);
             //q.DrawLine(x1, y1, x1, y2);

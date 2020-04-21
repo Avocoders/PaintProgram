@@ -137,6 +137,8 @@ namespace WindowsFormsApp7
             }
             else if (tmp !=10 && tmp != 11)            
             {
+               
+                //q = BitmapST.getInstance();
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {                    
                     if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)

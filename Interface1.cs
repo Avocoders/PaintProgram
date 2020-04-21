@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp7
 {
-    interface IFigur
+    public interface IFigur
     {
         void Drow(int x1, int y1, int x2, int y2, int nAngle);
     }
