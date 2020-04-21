@@ -228,9 +228,9 @@ namespace WindowsFormsApp7
             }
             if (tmp == 13)
             {
-                startX = e.X;
-                startY = e.Y;
-                (e.X, e.Y);
+                Fill cast = new Fill(color);
+                cast.Casting(e.X, e.Y);
+                pictureBox1.Image = q.bitmap;
             }
         }
        

@@ -46,7 +46,6 @@ namespace WindowsFormsApp7
 
         public void DrawLine(int lastX, int lastY, int x, int y)
         {
-            q = BitmapST.getInstance();
             if (lastX == x && lastY == y || isFirst == true)
             {
                 Pain(x, y);
@@ -215,7 +214,6 @@ namespace WindowsFormsApp7
 
         public void SetDot(int x, int y)
         {
-            q = BitmapST.getInstance();
             int del = n / 2;
             for (int i = 0; i < n; i++)
             {
