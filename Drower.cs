@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace WindowsFormsApp7
 {
     public abstract class Drower
-    {
-        
+    {        
         public Brush brush;
         public IFigur figure;
         public Drower(Brush brush, IFigur figur) 

@@ -10,7 +10,7 @@ namespace WindowsFormsApp7.Figure
     public class Сircle : IFigur
     {
         Point point;
-        List<Point> circle;
+        List <Point> circle;
         Brush q;
         int n=0;
         public Сircle(Brush bruch)

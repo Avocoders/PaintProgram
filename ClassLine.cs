@@ -18,6 +18,5 @@ namespace WindowsFormsApp7
         {
             brush.DrawLine(point1.X, point1.Y, point2.X, point2.Y);
         }
-
     }
 }
