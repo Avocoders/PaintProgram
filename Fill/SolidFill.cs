@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp7
+namespace WindowsFormsApp7.Fill
 {
-    public class Fill
+    public class SolidFill : IFill
     {
         int x, y;
         SingleBitmap q = SingleBitmap.Create();
         Color color = Color.Black;
         Color fillColor;
-        public Fill(Color fillColor)
+        public SolidFill(Color fillColor)
         {
             this.fillColor = fillColor;
         }
