@@ -525,12 +525,30 @@ namespace WindowsFormsApp7
         {
             firstColor = true;
             this.button1.BringToFront();
+            brush.SetColor(button1.BackColor);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             firstColor = false;
             this.button4.BringToFront();
+            brush.SetColor(button4.BackColor);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (firstColor == true)
+            {
+                firstColor = false;
+                this.button4.BringToFront();
+                brush.SetColor(button4.BackColor);
+            }
+            else
+            {
+                firstColor = true;
+                this.button1.BringToFront();
+                brush.SetColor(button1.BackColor);
+            }
         }
 
         private void choosePipette_Click(object sender, EventArgs e)
