@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using WindowsFormsApp7.Figure;
 using System.Drawing.Imaging;
+using WindowsFormsApp7.Fill;
 
 namespace WindowsFormsApp7
 {
@@ -28,6 +29,7 @@ namespace WindowsFormsApp7
         int startX = 0;
         int startY = 0;
         IFigur Figure;
+        IFill Fill;
         int tmp = 0;               
         SaveFileDialog save = new SaveFileDialog();
         OpenFileDialog open = new OpenFileDialog();
@@ -225,6 +227,12 @@ namespace WindowsFormsApp7
                     lastY = e.Y;
                     pictureBox1.Image = q.bitmap;
                 }
+            }
+            if (tmp == 13)
+            {
+                SolidFill cast = new SolidFill(color);
+                cast.Casting(e.X, e.Y);
+                pictureBox1.Image = q.bitmap;
             }
         }
        
