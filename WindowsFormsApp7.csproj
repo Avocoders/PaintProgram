@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Brush.cs" />
+    <Compile Include="ClassFigure.cs" />
     <Compile Include="ClassLine.cs" />
     <Compile Include="Drower.cs" />
     <Compile Include="Figure\Circle.cs" />
@@ -67,7 +68,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="IFill.cs" />
-    <Compile Include="Interface1.cs" />
+    <Compile Include="IFigure.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleBitmap.cs" />

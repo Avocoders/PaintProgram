@@ -16,7 +16,7 @@ namespace WindowsFormsApp7.Figure
             q = bruch;
         }
 
-        public void Drow(int x1, int y1, int x2, int y2, int nAngle)
+        public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             int dx = Math.Abs(x2 - x1);
             if (x2 > x1 && y2 > y1)
@@ -49,6 +49,7 @@ namespace WindowsFormsApp7.Figure
             //q.DrawLine(x2, y2, x2, y1);
             //q.DrawLine(x1, y2, x2, y2);
             //q.DrawLine(x1, y1, x1, y2);
+            return square;
         }
     }
 }

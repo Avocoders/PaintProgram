@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp7
 {
-    interface IFill
+    public interface IFill
     {
         void Casting(int x, int y);
     }

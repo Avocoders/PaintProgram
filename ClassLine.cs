@@ -10,9 +10,9 @@ namespace WindowsFormsApp7
 {
     public class ClassLine : Drower
     {
-        public ClassLine(Brush brush, IFigur figur): base(brush, null) 
+        public ClassLine(Brush brush, IFigur figur, IFill fill): base(brush, null, null) 
         {
-
+           
         }
         public override void Draw(Point point1, Point point2) 
         {
