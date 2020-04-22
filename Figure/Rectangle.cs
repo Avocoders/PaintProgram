@@ -23,7 +23,7 @@ namespace WindowsFormsApp7.Figure
             rectangl.Add(new Point(x2, y1));
             rectangl.Add(new Point(x2, y2));
             rectangl.Add(new Point(x1, y2));
-
+            rectangl.Add(new Point(x1, y1));
             //q.DrawLine(x2, y1 ,x1, y1);
             //q.DrawLine(x2, y2, x2, y1);
             //q.DrawLine(x1, y2, x2, y2);

@@ -149,44 +149,65 @@ namespace WindowsFormsApp7
                 {
                 brush.SetIsFirst(isFirst);
                 isFirst = false;
+
                 if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+                {
+                    if (Figure is Ellipse)
                     {
-                        if (Figure is Ellipse)
-                        {
-                            Figure = new Сircle(brush);
-                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                         }
-                        if(Figure is Rectangl)
-                        {
-                            Figure = new Square(brush);
+                        Figure = new Сircle(brush);
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
-                        if(Figure is IsoscelesTriangle)
-                        {
-                            Figure = new RightTriangle(brush);
+                    if (Figure is Rectangl)
+                    {
+                        Figure = new Square(brush);
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
-                    }
-                    if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
+                    if (Figure is IsoscelesTriangle)
                     {
-                        if (Figure is Ellipse)
-                        {
-                            Figure = new Ellipse(brush);
-                        }
-                        if (Figure is Rectangl)
-                        {
-                            Figure = new Rectangl(brush);
-                        }
-                        if (Figure is IsoscelesTriangle)
-                        {
-                            Figure = new IsoscelesTriangle(brush);
-                        }
+                        Figure = new RightTriangle(brush);
+                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
-                    last = e.Location;
-                    //if (!(drower is ClassLine))
-                    q.DrawFigure(); 
+                }
+                if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
+                {
+                    if (Figure is Ellipse)
+                    {
+                        Figure = new Ellipse(brush);
+                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                    }
+                    if (Figure is Rectangl)
+                    {
+                        Figure = new Rectangl(brush);
+                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                    }
+                    if (Figure is IsoscelesTriangle)
+                    {
+                        Figure = new IsoscelesTriangle(brush);
+                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                    }
+                    if (Figure is Square)
+                    {
+                        Figure = new Square(brush);
+                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                    }
+                    if( Figure is RightTriangle )
+                    {
+                        Figure = new RightTriangle(brush);
+                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                    }
+                    if (Figure is Poligon)
+                    {
+                        Figure = new Poligon(brush);
+                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                    }
+                }
+                last = e.Location;
+
+                if (!(drower is ClassLine))
+                { q.DrawFigure(); } 
                     drower.Draw(first, last,nAngle);
-                    if (drower is ClassLine)
+                
+                if (drower is ClassLine)
                     { first = last; }
                     
                     //Figure.Drow(startX, startY, e.X, e.Y, nAngle);
@@ -527,7 +548,7 @@ namespace WindowsFormsApp7
         }
         private void button5_Click(object sender, EventArgs e)
         {
-            tmp = 7;
+            abstractFabric = new FigureFabric();
             Figure = new Poligon(brush);            
         }
 
@@ -542,14 +563,14 @@ namespace WindowsFormsApp7
 
         private void oval_Click(object sender, EventArgs e)
         {
-            Figure = new Ellipse(brush);
             abstractFabric = new FigureFabric();
+            Figure = new Ellipse(brush);
         }
 
         private void circle_Click(object sender, EventArgs e)
         {
-            abstractFabric = new FigureFabric();
             Figure = new Сircle(brush);
+            abstractFabric = new FigureFabric();
         }
 
         private void pictureBox1_SizeChanged(object sender, EventArgs e)
@@ -656,7 +677,7 @@ namespace WindowsFormsApp7
 
         private void chooseEraser_Click(object sender, EventArgs e)
         {
-            tmp = 0;
+            abstractFabric =new LineFabric();
             //brush.SetColor(Color.White);
             Eraser = true;
         }                
