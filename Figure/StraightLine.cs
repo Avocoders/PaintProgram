@@ -10,7 +10,7 @@ namespace WindowsFormsApp7.Figure
     class StraightLine : IFigur
     {
         Brush q;
-        List <Point> straightLine;
+        List <Point> straightLine = new List<Point>();
         public StraightLine(Brush bruch)
         {
             q = bruch;

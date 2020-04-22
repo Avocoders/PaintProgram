@@ -49,6 +49,9 @@
     <Compile Include="Brush.cs" />
     <Compile Include="ClassFigure.cs" />
     <Compile Include="ClassLine.cs" />
+    <Compile Include="DrawerFabric\AbstractFabric.cs" />
+    <Compile Include="DrawerFabric\FigureFabric.cs" />
+    <Compile Include="DrawerFabric\LineFabric.cs" />
     <Compile Include="Drower.cs" />
     <Compile Include="Figure\Circle.cs" />
     <Compile Include="Figure\Ellipse.cs" />

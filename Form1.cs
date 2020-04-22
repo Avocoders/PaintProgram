@@ -11,12 +11,15 @@ using System.Drawing.Drawing2D;
 using WindowsFormsApp7.Figure;
 using System.Drawing.Imaging;
 using WindowsFormsApp7.Fill;
+using WindowsFormsApp7.DrawerFabric;
 
 namespace WindowsFormsApp7
 {
     public partial class Form1 : Form
     {
         Point moveStart;
+        AbstractFabric abstractFabric;
+        Drower drower;
         SingleBitmap q = SingleBitmap.Create();        
         int n = 1;
         int xnow, ynow;
@@ -36,6 +39,7 @@ namespace WindowsFormsApp7
         SaveFileDialog save = new SaveFileDialog();
         OpenFileDialog open = new OpenFileDialog();
         int nAngle=5;
+        Point first, last;
         public Form1()
         {
             InitializeComponent();
@@ -173,8 +177,10 @@ namespace WindowsFormsApp7
                             Figure = new IsoscelesTriangle(brush);
                         }
                     }
-                    q.DrawFigure();
-                    Figure.Drow(startX, startY, e.X, e.Y, nAngle);
+                    last = e.Location;
+                    drower.Draw(first, last,nAngle);
+                    //q.DrawFigure();
+                    //Figure.Drow(startX, startY, e.X, e.Y, nAngle);
                     pictureBox1.Image = q.bitmap;
                 }
             }
@@ -182,6 +188,8 @@ namespace WindowsFormsApp7
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
+            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+            first = e.Location;
             if (firstColor == true)
             {
                 if (e.Button == MouseButtons.Left)
@@ -450,7 +458,7 @@ namespace WindowsFormsApp7
 
         private void square_Click(object sender, EventArgs e)
         {
-            tmp = 1;
+            abstractFabric = new FigureFabric();
             Figure = new Square(brush);
         }
 

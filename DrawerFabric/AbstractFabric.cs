@@ -9,6 +9,6 @@ namespace WindowsFormsApp7.DrawerFabric
     public abstract class AbstractFabric
     {
         public Drower abstractDrower;
-        abstract public Drower CreateDrower(IFigur selectedFigur); // selectedColor, selectedSize 
+        abstract public Drower CreateDrower(IFigur selectedFigur, Brush brush, IFill fill); 
     }
 }

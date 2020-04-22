@@ -10,7 +10,7 @@ namespace WindowsFormsApp7.Figure
     
     public class Rectangl : IFigur
     {
-        List <Point> rectangl;
+        List<Point> rectangl = new List<Point>();
         Brush q;
         public Rectangl(Brush bruch)
         {

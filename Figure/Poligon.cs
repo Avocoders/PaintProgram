@@ -10,7 +10,7 @@ namespace WindowsFormsApp7.Figure
     public class Poligon : IFigur
     {
         Point point;
-        List <Point> poligon;
+        List <Point> poligon = new List<Point>();
         int n = 0;
         Brush q;
         public Poligon(Brush bruch)

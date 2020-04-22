@@ -11,7 +11,7 @@ namespace WindowsFormsApp7.Figure
     {
         Brush q;
         Point point;
-        List <Point> ellipse;
+        List <Point> ellipse = new List<Point>();
         int n = 0;
         public Ellipse(Brush bruch)
         {
