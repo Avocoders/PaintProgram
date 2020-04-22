@@ -14,7 +14,7 @@ namespace WindowsFormsApp7
         {
            
         }
-        public override void Draw(Point point1, Point point2) 
+        public override void Draw(Point point1, Point point2,int nAngle) 
         {
             brush.DrawLine(point1.X, point1.Y, point2.X, point2.Y);
         }
