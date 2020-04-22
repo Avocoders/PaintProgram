@@ -13,9 +13,17 @@ namespace WindowsFormsApp7
         {
         
         }
-        public override void Draw(Point point1, Point point2)
+        public override void Draw(Point first, Point last,int nAngle)
         {
-            throw new NotImplementedException();
+            List<Point> points = figure.Drow(first.X, first.Y, last.X, last.Y, nAngle);
+            for(int i = 0; i<points.Count;i++)
+            {
+                brush.DrawLine(points[i].X, points[i].Y, points[i + 1].X, points[i + 1].Y);
+            }
+            brush.DrawLine(points[0].X, points[0].Y, points[points.Count].X, points[points.Count].Y);
+            int x = (points[0].X + points[points.Count / 3].X + points[2 * points.Count / 3].X) / 3;//ищем куда лить
+            int y = (points[0].Y + points[points.Count / 3].Y + points[2 * points.Count / 3].Y) / 3;
+            fill.Casting(x, y);
         }
     }
 }
