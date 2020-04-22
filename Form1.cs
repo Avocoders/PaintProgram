@@ -157,12 +157,12 @@ namespace WindowsFormsApp7
                         Figure = new Сircle(brush);
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
-                    if (Figure is Rectangl)
+                    else if (Figure is Rectangl)
                     {
                         Figure = new Square(brush);
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
-                    if (Figure is IsoscelesTriangle)
+                    else if(Figure is IsoscelesTriangle)
                     {
                         Figure = new RightTriangle(brush);
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
@@ -175,29 +175,34 @@ namespace WindowsFormsApp7
                         Figure = new Ellipse(brush);
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
-                    if (Figure is Rectangl)
+                    else if(Figure is Rectangl)
                     {
                         Figure = new Rectangl(brush);
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
-                    if (Figure is IsoscelesTriangle)
+                    else if(Figure is IsoscelesTriangle)
                     {
                         Figure = new IsoscelesTriangle(brush);
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
-                    if (Figure is Square)
+                    else if(Figure is Square)
                     {
                         Figure = new Square(brush);
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
-                    if( Figure is RightTriangle )
+                    else if( Figure is RightTriangle )
                     {
                         Figure = new RightTriangle(brush);
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
-                    if (Figure is Poligon)
+                    else if(Figure is Poligon)
                     {
                         Figure = new Poligon(brush);
+                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                    }
+                    else if(Figure is StraightLine)
+                    {
+                        Figure = new StraightLine(brush);
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
                 }
