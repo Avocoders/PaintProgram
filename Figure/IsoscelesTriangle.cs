@@ -16,7 +16,7 @@ namespace WindowsFormsApp7.Figure
         {
             q = bruch;
         }
-        public void Drow(int x1, int y1, int x2, int y2, int nAngle)
+        public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             int y3 = 0;
             int x3 = 0;
@@ -43,6 +43,7 @@ namespace WindowsFormsApp7.Figure
                 //q.DrawLine(x3, y3, x2, y2);
                 //q.DrawLine(x1, y1, x3, y3);
             }
+            return isoscelesTriangle;
         }
     }
 }

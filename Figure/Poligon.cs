@@ -17,7 +17,7 @@ namespace WindowsFormsApp7.Figure
         {
             q = bruch;
         }
-        public void Drow(int x1, int y1, int x2, int y2, int nAngle)
+        public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             int n_ = nAngle;
             int r = Convert.ToInt32(Math.Sqrt(Math.Abs((x2 - x1) * (x2 - x1)) + Math.Abs((y2 - y1) * (y2 - y1))));
@@ -40,6 +40,7 @@ namespace WindowsFormsApp7.Figure
                 poligon.Add(point);
                 n++;
             }
+            return poligon;
         }
     }
 }

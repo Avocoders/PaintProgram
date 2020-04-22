@@ -11,10 +11,12 @@ namespace WindowsFormsApp7
     {        
         public Brush brush;
         public IFigur figure;
-        public Drower(Brush brush, IFigur figur) 
+        public IFill fill;
+        public Drower(Brush brush, IFigur figur, IFill fill) 
         {
             this.brush = brush;
             this.figure = figur;
+            this.fill = fill;
         }
         public abstract void Draw(Point point1, Point point2);
     }
