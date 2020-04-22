@@ -31,7 +31,8 @@ namespace WindowsFormsApp7
         int startY = 0;
         IFigur Figure;
         IFill Fill;
-        int tmp = 0;               
+        int tmp = 0;
+        bool Eraser = false;
         SaveFileDialog save = new SaveFileDialog();
         OpenFileDialog open = new OpenFileDialog();
         int nAngle=5;
@@ -184,8 +185,26 @@ namespace WindowsFormsApp7
             if (firstColor == true)
             {
                 if (e.Button == MouseButtons.Left)
-                {
-                    brush.SetColor(button1.BackColor);
+                {                    
+                    if (tmp == 10)
+                    {
+                        button1.BackColor = q.bitmap.GetPixel(e.X, e.Y);
+                        color = button1.BackColor;
+                        brush.SetColor(color);
+                    }
+                    else
+                    {
+                        if (Eraser == true)
+                        {
+                            brush.SetColor(Color.White);
+                            brush.SetDot(e.X, e.Y);
+                            pictureBox1.Image = q.bitmap;
+                        }
+                        else
+                        {
+                            brush.SetColor(button1.BackColor);
+                        }                        
+                    }                    
                 }
                 else if (e.Button == MouseButtons.Right)
                 {
@@ -196,7 +215,26 @@ namespace WindowsFormsApp7
             {
                 if (e.Button == MouseButtons.Left)
                 {
-                    brush.SetColor(button4.BackColor);
+                    
+                    if (tmp == 10)
+                    {
+                        button4.BackColor = q.bitmap.GetPixel(e.X, e.Y);
+                        color = button4.BackColor;
+                        brush.SetColor(color);
+                    }
+                    else
+                    {
+                        if (Eraser == true)
+                        {
+                            brush.SetColor(Color.White);
+                            brush.SetDot(e.X, e.Y);
+                            pictureBox1.Image = q.bitmap;
+                        }
+                        else
+                        {
+                            brush.SetColor(button4.BackColor);
+                        }                        
+                    }                    
                 }
                 else if (e.Button == MouseButtons.Right)
                 {
@@ -211,22 +249,20 @@ namespace WindowsFormsApp7
             {
                 q.Clone2();
             }
-            
+
+            if (tmp == 0)
+            {                
+                brush.SetDot(e.X, e.Y);
+                pictureBox1.Image = q.bitmap;
+            }
+
             if (tmp != 11)
             {               
                 lastX = e.X;
                 lastY = e.Y;
                 startX = e.X;                startY = e.Y;
             }
-            if(tmp == 0)
-            {                
-                brush.SetDot(e.X,e.Y);                
-                pictureBox1.Image = q.bitmap;
-            }
-            if (tmp == 10)
-            {
-                brush.SetColor(q.bitmap.GetPixel(e.X, e.Y));
-            }
+            
             if(tmp==11)
             {
                 if (isFirstPoligon == true)
@@ -443,6 +479,7 @@ namespace WindowsFormsApp7
         private void choosePen_Click(object sender, EventArgs e)
         {
             tmp = 0;
+            Eraser = false;
         }
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
@@ -601,7 +638,8 @@ namespace WindowsFormsApp7
         private void chooseEraser_Click(object sender, EventArgs e)
         {
             tmp = 0;
-            brush.SetColor(Color.White);
+            //brush.SetColor(Color.White);
+            Eraser = true;
         }                
     }
 }
