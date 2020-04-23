@@ -62,7 +62,7 @@ namespace WindowsFormsApp7
                 for (int i = end; i > n; i--)
                 {
                     bitmap2.RemoveAt(i);
-                }               
+                }
             }
             tmp1 = new Bitmap(bitmap);
         }

@@ -40,6 +40,7 @@ namespace WindowsFormsApp7
         OpenFileDialog open = new OpenFileDialog();
         int nAngle=5;
         Point first, last;
+       
         public Form1()
         {
             InitializeComponent();
@@ -298,8 +299,7 @@ namespace WindowsFormsApp7
                 brush.SetDot(e.X, e.Y);
                 pictureBox1.Image = q.bitmap;
             }        
-
-            
+                       
 
             if (tmp == 11)
             {
@@ -321,6 +321,7 @@ namespace WindowsFormsApp7
                     lastX = e.X;
                     lastY = e.Y;
                     pictureBox1.Image = q.bitmap;
+
                 }
             }
             if (tmp == 13)
@@ -343,6 +344,7 @@ namespace WindowsFormsApp7
             pictureBox1.Image = q.bitmap;
             isCollapsed = false;
             abstractFabric = new LineFabric();
+            textBox3.Visible = false;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -491,34 +493,40 @@ namespace WindowsFormsApp7
         {
             abstractFabric = new FigureFabric();
             Figure = new Square();
+            textBox3.Visible = false;
         }
 
         private void rectangle_Click(object sender, EventArgs e)
         {
             abstractFabric = new FigureFabric();
             Figure = new Rectangl();
+            textBox3.Visible = false;
         }
 
         private void RightTriangle_Click(object sender, EventArgs e)
         {
             abstractFabric = new FigureFabric();
             Figure = new RightTriangle();
+            textBox3.Visible = false;
         }
 
         private void IsoscelesTriangle_Click(object sender, EventArgs e)
         {
             abstractFabric = new FigureFabric();
             Figure = new IsoscelesTriangle();
+            textBox3.Visible = false;
         }
         private void straightLine_Click(object sender, EventArgs e)
         {
             abstractFabric = new FigureFabric();
             Figure = new StraightLine();
+            textBox3.Visible = false;
         }
         private void choosePen_Click(object sender, EventArgs e)
         {
             abstractFabric = new LineFabric();
             Eraser = false;
+            textBox3.Visible = false;
         }
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
@@ -527,7 +535,7 @@ namespace WindowsFormsApp7
                 brush.DrawLine(startX, startY, lastX, lastY);
                 pictureBox1.Image = q.bitmap;
                 isFirstPoligon = true;
-                q.Clone();
+                q.Clone2();
             }
         }
         private void moreColor_Click(object sender, EventArgs e)
@@ -548,7 +556,8 @@ namespace WindowsFormsApp7
         private void button5_Click(object sender, EventArgs e)
         {
             abstractFabric = new FigureFabric();
-            Figure = new Poligon();            
+            Figure = new Poligon();
+            textBox3.Visible = true;
         }
 
         private void textBox3_KeyDown_1(object sender, KeyEventArgs e)
@@ -557,25 +566,30 @@ namespace WindowsFormsApp7
             {
                 nAngle = Convert.ToInt32(textBox3.Text);
                 textBox3.Text = "";
+                textBox3.Visible = false;
             }
+            
         }
 
         private void oval_Click(object sender, EventArgs e)
         {
             abstractFabric = new FigureFabric();
             Figure = new Ellipse();
+            textBox3.Visible = false;
         }
 
         private void circle_Click(object sender, EventArgs e)
         {
             Figure = new Сircle();
             abstractFabric = new FigureFabric();
+            textBox3.Visible = false;
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
             Figure = new Star();
             abstractFabric = new FigureFabric();
+            textBox3.Visible = true;
         }
 
         private void pictureBox1_SizeChanged(object sender, EventArgs e)
@@ -640,8 +654,6 @@ namespace WindowsFormsApp7
             color = button4.BackColor;            
         }
 
-        
-
         private void button9_Click(object sender, EventArgs e)
         {
             pictureBox2.BackColor = button1.BackColor;
@@ -667,6 +679,7 @@ namespace WindowsFormsApp7
         {
             tmp = 11;
             isFirstPoligon = true;
+            textBox3.Visible = false;
         }
         private void deleteAll_Click(object sender, EventArgs e)
         {            
@@ -686,6 +699,7 @@ namespace WindowsFormsApp7
             abstractFabric =new LineFabric();
             //brush.SetColor(Color.White);
             Eraser = true;
+            textBox3.Visible = false;
         }                
     }
 }
