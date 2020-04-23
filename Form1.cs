@@ -230,7 +230,10 @@ namespace WindowsFormsApp7
         {
             drower = abstractFabric.CreateDrower(Figure, brush, Fill);
             first = e.Location;
-            
+            isDrow = true;
+            isFirst = true;
+            q.Clone2();
+
             if (firstColor == true)
             {
                 if (e.Button == MouseButtons.Left)
@@ -290,27 +293,13 @@ namespace WindowsFormsApp7
                     brush.SetColor(button1.BackColor);
                 }
             }
-            
-            isDrow = true;
-            isFirst = true;
-
-            //if (tmp != 10)
-            //{
-                q.Clone2();
-            //}
-
-            //if (tmp == 0)
-            //{                
-            //    brush.SetDot(e.X, e.Y);
-            //    pictureBox1.Image = q.bitmap;
-            //}
-
-            if (tmp != 11)
+            if(abstractFabric is LineFabric)
             {
-                lastX = e.X;
-                lastY = e.Y;
-                startX = e.X;                startY = e.Y;
-            }
+                brush.SetDot(e.X, e.Y);
+                pictureBox1.Image = q.bitmap;
+            }        
+
+            
 
             if (tmp == 11)
             {
