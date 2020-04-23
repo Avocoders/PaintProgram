@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp7.DrawerFabric
 {
-    public class FigureFabric : AbstractFabric
+    class UncommonPoligon : AbstractFabric
     {
-        public override Drower CreateDrower(IFigur selectedFigur,Brush brush,IFill fill)
+        public override Drower CreateDrower(IFigur selectedFigur, Brush brush, IFill fill)
         {
-            //Brush brush = new Brush(); // selectedColor, selectedSize
             abstractDrower = new ClassFigure(brush, selectedFigur, fill); // IFill fill
             return abstractDrower;
         }

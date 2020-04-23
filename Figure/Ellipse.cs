@@ -11,7 +11,7 @@ namespace WindowsFormsApp7.Figure
     {
         Brush q;
         Point point;
-        List <Point> ellipse;
+        List <Point> ellipse = new List<Point>();
         int n = 0;
         public Ellipse(Brush bruch)
         {
@@ -77,7 +77,7 @@ namespace WindowsFormsApp7.Figure
             //int y = cy + Convert.ToInt32(b * Math.Sin(0 * Math.PI / 180));
 
 
-            for (int i = 0; i <= 360; i++)
+            for (int i = 0; i < 360; i++)
             {                
                 int ex = cx + Convert.ToInt32(a * Math.Cos(i * Math.PI / 180));
                 int ey = cy + Convert.ToInt32(b * Math.Sin(i * Math.PI / 180));

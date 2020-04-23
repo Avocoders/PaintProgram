@@ -10,7 +10,7 @@ namespace WindowsFormsApp7.Figure
     public class IsoscelesTriangle : IFigur
     {
         Brush q;
-        List <Point> isoscelesTriangle;
+        List <Point> isoscelesTriangle = new List<Point>();
 
         public IsoscelesTriangle(Brush bruch)
         {

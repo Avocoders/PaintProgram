@@ -9,7 +9,7 @@ namespace WindowsFormsApp7.Figure
 {
     public class RightTriangle : IFigur
     {
-        List <Point> rightTriangle;
+        List <Point> rightTriangle = new List<Point>();
         Brush q;
         public RightTriangle(Brush bruch)
         {

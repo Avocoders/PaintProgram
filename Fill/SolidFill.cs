@@ -20,31 +20,34 @@ namespace WindowsFormsApp7.Fill
         public void Casting(int x, int y)
         {
             Color startColor = q.bitmap.GetPixel(x,y);
-            int leftX = x;
-            int rightX = x;
-            while(q.bitmap.GetPixel(leftX-1, y)== startColor && leftX>1)
+            if (fillColor != q.bitmap.GetPixel(x, y))
             {
-                leftX--;
-            }
-            while (q.bitmap.GetPixel(rightX + 1, y) == startColor && rightX < q.bitmap.Width-2)
-            {
-                rightX++;
-            }
-
-            for (int i = leftX; i<=rightX; i++)
-            {
-                q.bitmap.SetPixel(i, y,fillColor);
-            }
-
-            for (int i = leftX; i <= rightX; i++)
-            {
-                if (q.bitmap.GetPixel(i, y - 1) == startColor && y>1)
+                int leftX = x;
+                int rightX = x;
+                while (q.bitmap.GetPixel(leftX - 1, y) == startColor && leftX > 1)
                 {
-                    Casting(i, y - 1); 
+                    leftX--;
                 }
-                if (q.bitmap.GetPixel(i, y + 1) == startColor && y < q.bitmap.Height-2)
+                while (q.bitmap.GetPixel(rightX + 1, y) == startColor && rightX < q.bitmap.Width - 2)
                 {
-                    Casting(i, y + 1);
+                    rightX++;
+                }
+
+                for (int i = leftX; i <= rightX; i++)
+                {
+                    q.bitmap.SetPixel(i, y, fillColor);
+                }
+
+                for (int i = leftX; i <= rightX; i++)
+                {
+                    if (q.bitmap.GetPixel(i, y - 1) == startColor && y > 1)
+                    {
+                        Casting(i, y - 1);
+                    }
+                    if (q.bitmap.GetPixel(i, y + 1) == startColor && y < q.bitmap.Height - 2)
+                    {
+                        Casting(i, y + 1);
+                    }
                 }
             }
 

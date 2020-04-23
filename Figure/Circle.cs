@@ -10,7 +10,7 @@ namespace WindowsFormsApp7.Figure
     public class Сircle : IFigur
     {
         Point point;
-        List <Point> circle;
+        List <Point> circle = new List<Point>();
         Brush q;
         int n=0;
         public Сircle(Brush bruch)
@@ -24,7 +24,7 @@ namespace WindowsFormsApp7.Figure
             //int y = y1 + Convert.ToInt32(r * Math.Sin(0 * Math.PI / 180)); ;
             circle = new List<Point>();
 
-            for (int i = 0; i <= 360; i++)
+            for (int i = 0; i < 360; i++)
             {
                 int xNext = x1 + Convert.ToInt32(r * Math.Cos(i * Math.PI / 180));
                 int yNext = y1 + Convert.ToInt32(r * Math.Sin(i * Math.PI / 180));
