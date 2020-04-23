@@ -375,8 +375,8 @@ namespace WindowsFormsApp7
                 case 6: n = 10; break;
                 case 7: n = 12; break;
                 case 8: n = 14; break;
-                case 9: n = 16; break;
-                case 10: n = 18; break;
+                case 9: n = 17; break;
+                case 10: n = 20; break;
             }
             brush.ChangePaint(n);
         }
@@ -655,19 +655,18 @@ namespace WindowsFormsApp7
 
         private void button9_Click(object sender, EventArgs e)
         {
+            pictureBox2.BackColor = button1.BackColor;
+            button1.BackColor = button4.BackColor;
+            button4.BackColor = pictureBox2.BackColor;
             if (firstColor == true)
-            {
-                firstColor = false;
-                this.button4.BringToFront();
-                color = button4.BackColor;
-                brush.SetColor(button4.BackColor);
+            {               
+                color = button1.BackColor;
+                brush.SetColor(button1.BackColor);
             }
             else
             {
-                firstColor = true;
-                this.button1.BringToFront();
-                color = button1.BackColor;
-                brush.SetColor(button1.BackColor);
+                color = button4.BackColor;
+                brush.SetColor(button4.BackColor);
             }
         }
 

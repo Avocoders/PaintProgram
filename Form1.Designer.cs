@@ -47,6 +47,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.star = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.straightLine = new System.Windows.Forms.Button();
@@ -69,11 +70,12 @@
             this.buttonReturn = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonOpen = new System.Windows.Forms.Button();
-            this.star = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -84,7 +86,7 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pictureBox1.Location = new System.Drawing.Point(-27, 229);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1105, 501);
+            this.pictureBox1.Size = new System.Drawing.Size(1132, 501);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -348,6 +350,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1105, 126);
             this.panel2.TabIndex = 28;
+            // 
+            // star
+            // 
+            this.star.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.star.FlatAppearance.BorderSize = 0;
+            this.star.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.star.Image = ((System.Drawing.Image)(resources.GetObject("star.Image")));
+            this.star.Location = new System.Drawing.Point(482, 9);
+            this.star.Name = "star";
+            this.star.Size = new System.Drawing.Size(48, 49);
+            this.star.TabIndex = 30;
+            this.star.UseVisualStyleBackColor = false;
+            this.star.Click += new System.EventHandler(this.button11_Click);
             // 
             // button9
             // 
@@ -634,16 +649,14 @@
             this.buttonOpen.UseVisualStyleBackColor = true;
             this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
             // 
-            // star
+            // pictureBox2
             // 
-            this.star.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
-            this.star.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.star.Location = new System.Drawing.Point(473, 13);
-            this.star.Name = "star";
-            this.star.Size = new System.Drawing.Size(48, 48);
-            this.star.TabIndex = 30;
-            this.star.UseVisualStyleBackColor = false;
-            this.star.Click += new System.EventHandler(this.button11_Click);
+            this.pictureBox2.Location = new System.Drawing.Point(1058, 737);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 25);
+            this.pictureBox2.TabIndex = 34;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
             // 
             // Form1
             // 
@@ -663,6 +676,7 @@
             this.Controls.Add(this.buttonRollUp);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -673,6 +687,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -720,6 +735,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button star;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
