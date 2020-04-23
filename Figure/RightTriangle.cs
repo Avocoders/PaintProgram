@@ -10,11 +10,6 @@ namespace WindowsFormsApp7.Figure
     public class RightTriangle : IFigur
     {
         List <Point> rightTriangle = new List<Point>();
-        Brush q;
-        public RightTriangle(Brush bruch)
-        {
-            q = bruch;
-        }
         public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             rightTriangle.Add(new Point(x1, y1));
