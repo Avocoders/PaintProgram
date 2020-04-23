@@ -205,6 +205,11 @@ namespace WindowsFormsApp7
                         Figure = new StraightLine(brush);
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
+                    else if (Figure is Star)
+                    {
+                        Figure = new Star(brush);
+                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                    }
                 }
                 last = e.Location;
 
@@ -578,6 +583,12 @@ namespace WindowsFormsApp7
             abstractFabric = new FigureFabric();
         }
 
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Figure = new Star(brush);
+            abstractFabric = new FigureFabric();
+        }
+
         private void pictureBox1_SizeChanged(object sender, EventArgs e)
         {
             if (pictureBox1.Image != null && isCollapsed!=true)
@@ -639,6 +650,8 @@ namespace WindowsFormsApp7
             this.button4.BringToFront();
             color = button4.BackColor;            
         }
+
+        
 
         private void button9_Click(object sender, EventArgs e)
         {

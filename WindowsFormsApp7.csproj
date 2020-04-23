@@ -55,6 +55,7 @@
     <Compile Include="DrawerFabric\UncommonPoligon.cs" />
     <Compile Include="Drower.cs" />
     <Compile Include="Figure\Circle.cs" />
+    <Compile Include="Figure\Star.cs" />
     <Compile Include="Figure\Ellipse.cs" />
     <Compile Include="Figure\IsoscelesTriangle.cs" />
     <Compile Include="Figure\Poligon.cs" />
