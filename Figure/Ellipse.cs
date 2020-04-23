@@ -9,14 +9,10 @@ namespace WindowsFormsApp7.Figure
 {
     class Ellipse : IFigur
     {
-        Brush q;
+
         Point point;
         List <Point> ellipse = new List<Point>();
-        int n = 0;
-        public Ellipse(Brush bruch)
-        {
-            q = bruch;
-        }
+        int n = 0;        
 
         public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {

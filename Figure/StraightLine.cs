@@ -9,18 +9,14 @@ namespace WindowsFormsApp7.Figure
 {
     class StraightLine : IFigur
     {
-        Brush q;
         List <Point> straightLine = new List<Point>();
-        public StraightLine(Brush bruch)
-        {
-            q = bruch;
-        }
 
         public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             //q.DrawLine(x1, y1, x2, y2);
             straightLine.Add(new Point(x1, y1));
             straightLine.Add(new Point(x2, y2));
+
             return straightLine;
         }
     }

@@ -154,17 +154,17 @@ namespace WindowsFormsApp7
                 {
                     if (Figure is Ellipse)
                     {
-                        Figure = new Сircle(brush);
+                        Figure = new Сircle();
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
                     else if (Figure is Rectangl)
                     {
-                        Figure = new Square(brush);
+                        Figure = new Square();
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
                     else if(Figure is IsoscelesTriangle)
                     {
-                        Figure = new RightTriangle(brush);
+                        Figure = new RightTriangle();
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
                 }
@@ -172,42 +172,42 @@ namespace WindowsFormsApp7
                 {
                     if (Figure is Ellipse)
                     {
-                        Figure = new Ellipse(brush);
+                        Figure = new Ellipse();
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
                     else if(Figure is Rectangl)
                     {
-                        Figure = new Rectangl(brush);
+                        Figure = new Rectangl();
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
                     else if(Figure is IsoscelesTriangle)
                     {
-                        Figure = new IsoscelesTriangle(brush);
+                        Figure = new IsoscelesTriangle();
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
                     else if(Figure is Square)
                     {
-                        Figure = new Square(brush);
+                        Figure = new Square();
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
                     else if( Figure is RightTriangle )
                     {
-                        Figure = new RightTriangle(brush);
+                        Figure = new RightTriangle();
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
                     else if(Figure is Poligon)
                     {
-                        Figure = new Poligon(brush);
+                        Figure = new Poligon();
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
                     else if(Figure is StraightLine)
                     {
-                        Figure = new StraightLine(brush);
+                        Figure = new StraightLine();
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
                     else if (Figure is Star)
                     {
-                        Figure = new Star(brush);
+                        Figure = new Star();
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }
                 }
@@ -305,35 +305,35 @@ namespace WindowsFormsApp7
             //    pictureBox1.Image = q.bitmap;
             //}
 
-            //if (tmp != 11)
-            //{               
-            //    lastX = e.X;
-            //    lastY = e.Y;
-            //    startX = e.X;            //    startY = e.Y;
-            //}
-            
-            //if(tmp==11)
-            //{
-            //    if (isFirstPoligon == true)
-            //    {                    
-            //        startX = e.X;
-            //        startY = e.Y;
-            //        lastX = startX;
-            //        lastY = startY;
-            //        brush.SetDot(startX, startY);
-            //        isFirstPoligon = false;
+            if (tmp != 11)
+            {
+                lastX = e.X;
+                lastY = e.Y;
+                startX = e.X;                startY = e.Y;
+            }
+
+            if (tmp == 11)
+            {
+                if (isFirstPoligon == true)
+                {
+                    startX = e.X;
+                    startY = e.Y;
+                    lastX = startX;
+                    lastY = startY;
+                    brush.SetDot(startX, startY);
+                    isFirstPoligon = false;
                     pictureBox1.Image = q.bitmap;
-            //    }                
-            //    else 
-            //    {
-            //        xnow = e.X;
-            //        ynow = e.Y;
-            //        brush.DrawLine(lastX, lastY, xnow, ynow);                    
-            //        lastX = e.X;
-            //        lastY = e.Y;
-            //        pictureBox1.Image = q.bitmap;
-            //    }
-            //}
+                }
+                else
+                {
+                    xnow = e.X;
+                    ynow = e.Y;
+                    brush.DrawLine(lastX, lastY, xnow, ynow);
+                    lastX = e.X;
+                    lastY = e.Y;
+                    pictureBox1.Image = q.bitmap;
+                }
+            }
             if (tmp == 13)
             {
                 SolidFill cast = new SolidFill(color);
@@ -501,30 +501,30 @@ namespace WindowsFormsApp7
         private void square_Click(object sender, EventArgs e)
         {
             abstractFabric = new FigureFabric();
-            Figure = new Square(brush);
+            Figure = new Square();
         }
 
         private void rectangle_Click(object sender, EventArgs e)
         {
             abstractFabric = new FigureFabric();
-            Figure = new Rectangl(brush);
+            Figure = new Rectangl();
         }
 
         private void RightTriangle_Click(object sender, EventArgs e)
         {
             abstractFabric = new FigureFabric();
-            Figure = new RightTriangle(brush);
+            Figure = new RightTriangle();
         }
 
         private void IsoscelesTriangle_Click(object sender, EventArgs e)
         {
             abstractFabric = new FigureFabric();
-            Figure = new IsoscelesTriangle(brush);
+            Figure = new IsoscelesTriangle();
         }
         private void straightLine_Click(object sender, EventArgs e)
         {
             abstractFabric = new FigureFabric();
-            Figure = new StraightLine(brush);
+            Figure = new StraightLine();
         }
         private void choosePen_Click(object sender, EventArgs e)
         {
@@ -559,7 +559,7 @@ namespace WindowsFormsApp7
         private void button5_Click(object sender, EventArgs e)
         {
             abstractFabric = new FigureFabric();
-            Figure = new Poligon(brush);            
+            Figure = new Poligon();            
         }
 
         private void textBox3_KeyDown_1(object sender, KeyEventArgs e)
@@ -574,18 +574,18 @@ namespace WindowsFormsApp7
         private void oval_Click(object sender, EventArgs e)
         {
             abstractFabric = new FigureFabric();
-            Figure = new Ellipse(brush);
+            Figure = new Ellipse();
         }
 
         private void circle_Click(object sender, EventArgs e)
         {
-            Figure = new Сircle(brush);
+            Figure = new Сircle();
             abstractFabric = new FigureFabric();
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            Figure = new Star(brush);
+            Figure = new Star();
             abstractFabric = new FigureFabric();
         }
 

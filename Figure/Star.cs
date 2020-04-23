@@ -11,11 +11,6 @@ namespace WindowsFormsApp7.Figure
     {
         List<Point> star = new List<Point>();
         int n ;
-        Brush q;
-        public Star(Brush bruch)
-        {
-            q = bruch;
-        }
         public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             int n_ = nAngle;
