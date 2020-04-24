@@ -12,5 +12,10 @@ namespace WindowsFormsApp7.Fill
         {
             throw new NotImplementedException();
         }
+
+        public void SetColor(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
