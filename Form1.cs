@@ -128,108 +128,99 @@ namespace WindowsFormsApp7
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            //if (tmp == 0)
-            //{
-            //if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
-            //{
-                     
-            //        brush.DrawLine(lastX, lastY, e.X, e.Y);                    
-            //        pictureBox1.Image = q.bitmap;
-                    
-            //        lastX = e.X;
-            //        lastY = e.Y;
-            // }
+            
             if (e.X < 0 || e.X > pictureBox1.Width || e.Y < 0 || e.Y > pictureBox1.Height)
             {
                 isFirst = true;
             }
 
-            //else if (tmp !=10 && tmp != 11)            
-            //{               
             if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
-                {
+            {
                 brush.SetIsFirst(isFirst);
                 isFirst = false;
-
-                if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+                if (!(abstractFabric is UncommonPoligon))
                 {
-                    if (Figure is Ellipse)
+                    if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
                     {
-                        Figure = new Сircle();
-                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                        if (Figure is Ellipse)
+                        {
+                            Figure = new Сircle();
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                        }
+                        else if (Figure is Rectangl)
+                        {
+                            Figure = new Square();
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                        }
+                        else if (Figure is IsoscelesTriangle)
+                        {
+                            Figure = new RightTriangle();
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                        }
                     }
-                    else if (Figure is Rectangl)
+                    if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
                     {
-                        Figure = new Square();
-                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                        if (Figure is Ellipse)
+                        {
+                            Figure = new Ellipse();
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                        }
+                        else if (Figure is Rectangl)
+                        {
+                            Figure = new Rectangl();
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                        }
+                        else if (Figure is IsoscelesTriangle)
+                        {
+                            Figure = new IsoscelesTriangle();
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                        }
+                        else if (Figure is Square)
+                        {
+                            Figure = new Square();
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                        }
+                        else if (Figure is RightTriangle)
+                        {
+                            Figure = new RightTriangle();
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                        }
+                        else if (Figure is Poligon)
+                        {
+                            Figure = new Poligon();
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                        }
+                        else if (Figure is StraightLine)
+                        {
+                            Figure = new StraightLine();
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                        }
+                        else if (Figure is Star)
+                        {
+                            Figure = new Star();
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                        }
                     }
-                    else if(Figure is IsoscelesTriangle)
-                    {
-                        Figure = new RightTriangle();
-                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                    }
-                }
-                if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
-                {
-                    if (Figure is Ellipse)
-                    {
-                        Figure = new Ellipse();
-                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                    }
-                    else if(Figure is Rectangl)
-                    {
-                        Figure = new Rectangl();
-                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                    }
-                    else if(Figure is IsoscelesTriangle)
-                    {
-                        Figure = new IsoscelesTriangle();
-                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                    }
-                    else if(Figure is Square)
-                    {
-                        Figure = new Square();
-                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                    }
-                    else if( Figure is RightTriangle )
-                    {
-                        Figure = new RightTriangle();
-                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                    }
-                    else if(Figure is Poligon)
-                    {
-                        Figure = new Poligon();
-                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                    }
-                    else if(Figure is StraightLine)
-                    {
-                        Figure = new StraightLine();
-                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                    }
-                    else if (Figure is Star)
-                    {
-                        Figure = new Star();
-                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                    }
-                }
-                last = e.Location;
+                    last = e.Location;
 
-                if (!(drower is ClassLine))
-                { q.DrawFigure(); } 
-                    drower.Draw(first, last,nAngle);
-                
-                if (drower is ClassLine)
+                    if (!(drower is ClassLine))
+                    { q.DrawFigure(); }
+                    drower.Draw(first, last, nAngle);
+
+                    if (drower is ClassLine)
                     { first = last; }
-                    
+
                     //Figure.Drow(startX, startY, e.X, e.Y, nAngle);
                     pictureBox1.Image = q.bitmap;
                 }
+            }
            // }
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+            if (!(abstractFabric is UncommonPoligon))
+            { drower = abstractFabric.CreateDrower(Figure, brush, Fill); }
             first = e.Location;
             isDrow = true;
             isFirst = true;
@@ -299,31 +290,47 @@ namespace WindowsFormsApp7
                 brush.SetDot(e.X, e.Y);
                 pictureBox1.Image = q.bitmap;
             }        
-                       
-
-            if (tmp == 11)
+            if(abstractFabric is UncommonPoligon)
             {
                 if (isFirstPoligon == true)
                 {
-                    startX = e.X;
-                    startY = e.Y;
-                    lastX = startX;
-                    lastY = startY;
-                    brush.SetDot(startX, startY);
                     isFirstPoligon = false;
-                    pictureBox1.Image = q.bitmap;
+                    first = e.Location;
+                   last = e.Location;
+                    drower.Draw(e.Location, e.Location, nAngle);
                 }
                 else
                 {
-                    xnow = e.X;
-                    ynow = e.Y;
-                    brush.DrawLine(lastX, lastY, xnow, ynow);
-                    lastX = e.X;
-                    lastY = e.Y;
-                    pictureBox1.Image = q.bitmap;
-
+                    drower.Draw(e.Location, first, nAngle);
+                    
+                    //last = e.Location;
                 }
+                pictureBox1.Image = q.bitmap;
             }
+
+            //if (tmp == 11)
+            //{
+            //    if (isFirstPoligon == true)
+            //    {
+            //        startX = e.X;
+            //        startY = e.Y;
+            //        lastX = startX;
+            //        lastY = startY;
+            //        brush.SetDot(startX, startY);
+            //        isFirstPoligon = false;
+            //        pictureBox1.Image = q.bitmap;
+            //    }
+            //    else
+            //    {
+            //        xnow = e.X;
+            //        ynow = e.Y;
+            //        brush.DrawLine(lastX, lastY, xnow, ynow);
+            //        lastX = e.X;
+            //        lastY = e.Y;
+            //        pictureBox1.Image = q.bitmap;
+
+            //    }
+            //}
             if (tmp == 13)
             {
                 if (color != q.bitmap.GetPixel(e.X, e.Y))
@@ -534,13 +541,9 @@ namespace WindowsFormsApp7
         }
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
-            if (tmp == 11)
-            {
-                brush.DrawLine(startX, startY, lastX, lastY);
-                pictureBox1.Image = q.bitmap;
-                isFirstPoligon = true;
-                q.Clone2();
-            }
+            drower.Draw(first, last, nAngle);
+            pictureBox1.Image = q.bitmap;
+            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
         }
         private void moreColor_Click(object sender, EventArgs e)
         {            colorDialog1.AllowFullOpen = true;
@@ -686,9 +689,11 @@ namespace WindowsFormsApp7
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            tmp = 11;
-            isFirstPoligon = true;
+            Figure = null;
+            abstractFabric = new UncommonPoligon();
             textBox3.Visible = false;
+            isFirstPoligon = true;
+            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
         }
         private void deleteAll_Click(object sender, EventArgs e)
         {            
