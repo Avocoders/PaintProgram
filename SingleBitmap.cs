@@ -34,6 +34,7 @@ namespace WindowsFormsApp7
 
         public void CreateBitmapList()
         {
+
             first = new Bitmap(bitmap);
             bitmap2 = new List<Bitmap>();
             bitmap2.Insert(0, bitmap);
@@ -47,6 +48,7 @@ namespace WindowsFormsApp7
             n++;
             end = n;
             bitmap2.Insert(n, tmp1);
+            
         }
 
         public void DrawFigure()

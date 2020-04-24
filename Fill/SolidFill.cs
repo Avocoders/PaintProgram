@@ -25,7 +25,7 @@ namespace WindowsFormsApp7.Fill
         public void Casting(int x, int y)
         {
            
-            if (fillColor != startColor)
+            if (fillColor.ToArgb() != startColor.ToArgb())
             {
                 int leftX = x;
                 int rightX = x;
