@@ -326,9 +326,13 @@ namespace WindowsFormsApp7
             }
             if (tmp == 13)
             {
+                if (color != q.bitmap.GetPixel(e.X, e.Y))
+                {
                 SolidFill cast = new SolidFill(color);
-                cast.Casting(e.X, e.Y);
-                pictureBox1.Image = q.bitmap;
+                    cast.SetColor(e.X, e.Y);
+                    cast.Casting(e.X, e.Y);
+                    pictureBox1.Image = q.bitmap;
+                }
             }
         }
        
@@ -652,6 +656,11 @@ namespace WindowsFormsApp7
             firstColor = false;
             this.button4.BringToFront();
             color = button4.BackColor;            
+        }
+
+        private void заливкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fill = new SolidFill(button4.BackColor);
         }
 
         private void button9_Click(object sender, EventArgs e)

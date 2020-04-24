@@ -13,14 +13,19 @@ namespace WindowsFormsApp7.Fill
         SingleBitmap q = SingleBitmap.Create();
         Color color = Color.Black;
         Color fillColor;
+        Color startColor;
         public SolidFill(Color fillColor)
         {
             this.fillColor = fillColor;
         }
+        public void SetColor(int x,int y)
+        {
+            startColor = q.bitmap.GetPixel(x, y);
+        }
         public void Casting(int x, int y)
         {
-            Color startColor = q.bitmap.GetPixel(x,y);
-            if (fillColor != q.bitmap.GetPixel(x, y))
+           
+            if (fillColor != startColor)
             {
                 int leftX = x;
                 int rightX = x;
