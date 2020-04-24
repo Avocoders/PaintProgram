@@ -51,8 +51,7 @@ namespace WindowsFormsApp7
             tmp1 = new Bitmap(bitmap);
             n++;
             end = n;
-            bitmap2.Insert(n, tmp1);
-           
+            bitmap2.Insert(n, tmp1);           
         }
 
         public void DrawFigure()

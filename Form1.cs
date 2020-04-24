@@ -202,6 +202,7 @@ namespace WindowsFormsApp7
                             drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                         }
                     }
+
                     last = e.Location;
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     drower.Draw(first, last, nAngle);
@@ -689,9 +690,19 @@ namespace WindowsFormsApp7
         }
 
         private void заливкаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        {            
             Fill = new TwoColorFill(button4.BackColor);
 
+        }
+
+        private void безЗаливкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fill = new WithoutFill();
+        }
+
+        private void заливкаОднотоннаяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fill = new TwoColorFill(button1.BackColor);
         }
 
         private void button9_Click(object sender, EventArgs e)

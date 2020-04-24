@@ -8,14 +8,17 @@ namespace WindowsFormsApp7.Fill
 {
     public class WithoutFill : IFill
     {
+        public WithoutFill()
+        {            
+        }
         public void Casting(int x, int y)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void SetColor(int x, int y)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
