@@ -36,6 +36,7 @@ namespace WindowsFormsApp7
         IFill Fill;
         int tmp = 0;
         bool Eraser = false;
+        bool Pipetka = false;
         SaveFileDialog save = new SaveFileDialog();
         OpenFileDialog open = new OpenFileDialog();
         int nAngle=5;
@@ -233,26 +234,23 @@ namespace WindowsFormsApp7
             if (firstColor == true)
             {
                 if (e.Button == MouseButtons.Left)
-                {                    
-                    if (tmp == 10)
+                {
+                    if (Pipetka == true)
                     {
                         button1.BackColor = q.bitmap.GetPixel(e.X, e.Y);
                         color = button1.BackColor;
                         brush.SetColor(color);
                     }
+                    else if (Eraser == true)
+                    {
+                        brush.SetColor(Color.White);
+                        brush.SetDot(e.X, e.Y);
+                        pictureBox1.Image = q.bitmap;
+                    }
                     else
                     {
-                        if (Eraser == true)
-                        {
-                            brush.SetColor(Color.White);
-                            brush.SetDot(e.X, e.Y);
-                            pictureBox1.Image = q.bitmap;
-                        }
-                        else
-                        {
-                            brush.SetColor(button1.BackColor);
-                        }                        
-                    }                    
+                        brush.SetColor(button1.BackColor);
+                    }                                    
                 }
                 else if (e.Button == MouseButtons.Right)
                 {
@@ -263,26 +261,22 @@ namespace WindowsFormsApp7
             {
                 if (e.Button == MouseButtons.Left)
                 {
-                    
-                    if (tmp == 10)
+                    if (Pipetka == true)
                     {
                         button4.BackColor = q.bitmap.GetPixel(e.X, e.Y);
                         color = button4.BackColor;
                         brush.SetColor(color);
                     }
+                    else if (Eraser == true)
+                    {
+                        brush.SetColor(Color.White);
+                        brush.SetDot(e.X, e.Y);
+                        pictureBox1.Image = q.bitmap;
+                    }
                     else
                     {
-                        if (Eraser == true)
-                        {
-                            brush.SetColor(Color.White);
-                            brush.SetDot(e.X, e.Y);
-                            pictureBox1.Image = q.bitmap;
-                        }
-                        else
-                        {
-                            brush.SetColor(button4.BackColor);
-                        }                        
-                    }                    
+                        brush.SetColor(button4.BackColor);
+                    }               
                 }
                 else if (e.Button == MouseButtons.Right)
                 {
@@ -514,6 +508,7 @@ namespace WindowsFormsApp7
             Figure = new Square();
             textBox3.Visible = false;
             Eraser = false;
+            Pipetka = false;
         }
 
         private void rectangle_Click(object sender, EventArgs e)
@@ -522,6 +517,7 @@ namespace WindowsFormsApp7
             Figure = new Rectangl();
             textBox3.Visible = false;
             Eraser = false;
+            Pipetka = false;
         }
 
         private void RightTriangle_Click(object sender, EventArgs e)
@@ -530,6 +526,7 @@ namespace WindowsFormsApp7
             Figure = new RightTriangle();
             textBox3.Visible = false;
             Eraser = false;
+            Pipetka = false;
         }
 
         private void IsoscelesTriangle_Click(object sender, EventArgs e)
@@ -538,6 +535,7 @@ namespace WindowsFormsApp7
             Figure = new IsoscelesTriangle();
             textBox3.Visible = false;
             Eraser = false;
+            Pipetka = false;
         }
         private void straightLine_Click(object sender, EventArgs e)
         {
@@ -545,12 +543,14 @@ namespace WindowsFormsApp7
             Figure = new StraightLine();
             textBox3.Visible = false;
             Eraser = false;
+            Pipetka = false;
         }
         private void choosePen_Click(object sender, EventArgs e)
         {
             abstractFabric = new LineFabric();
             Eraser = false;
             textBox3.Visible = false;
+            Pipetka = false;
         }
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
@@ -581,6 +581,7 @@ namespace WindowsFormsApp7
             Figure = new Poligon();
             textBox3.Visible = true;
             Eraser = false;
+            Pipetka = false;
         }
 
         private void textBox3_KeyDown_1(object sender, KeyEventArgs e)
@@ -600,6 +601,7 @@ namespace WindowsFormsApp7
             Figure = new Ellipse();
             textBox3.Visible = false;
             Eraser = false;
+            Pipetka = false;
         }
 
         private void circle_Click(object sender, EventArgs e)
@@ -608,6 +610,7 @@ namespace WindowsFormsApp7
             abstractFabric = new FigureFabric();
             textBox3.Visible = false;
             Eraser = false;
+            Pipetka = false;
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -616,6 +619,7 @@ namespace WindowsFormsApp7
             abstractFabric = new FigureFabric();
             textBox3.Visible = true;
             Eraser = false;
+            Pipetka = false;
         }
 
         private void pictureBox1_SizeChanged(object sender, EventArgs e)
@@ -639,6 +643,9 @@ namespace WindowsFormsApp7
         private void chooseFill_Click(object sender, EventArgs e)
         {
             tmp = 13;
+            Eraser = false;
+            Pipetka = false;
+            textBox3.Visible = false;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -684,6 +691,7 @@ namespace WindowsFormsApp7
         private void заливкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Fill = new TwoColorFill(button4.BackColor);
+
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -704,8 +712,9 @@ namespace WindowsFormsApp7
         }
 
         private void choosePipette_Click(object sender, EventArgs e)
-        {
-            tmp = 10;
+        {            
+            Pipetka = true;
+            Eraser = false;            
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -713,6 +722,7 @@ namespace WindowsFormsApp7
             abstractFabric = new UncommonPoligon();
             textBox3.Visible = false;
             Eraser = false;
+            Pipetka = false;
             isFirstPoligon = true;
             drower = abstractFabric.CreateDrower(Figure, brush, Fill);
         }
@@ -722,6 +732,7 @@ namespace WindowsFormsApp7
             pictureBox1.Image = q.bitmap;
             q.CreateBitmapList();
             Eraser = false;
+            Pipetka = false;
             textBox3.Visible = false;
         }
 
@@ -737,6 +748,7 @@ namespace WindowsFormsApp7
             //brush.SetColor(Color.White);
             Eraser = true;
             textBox3.Visible = false;
+            Pipetka = false;
         }                
     }
 }
