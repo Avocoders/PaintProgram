@@ -202,10 +202,12 @@ namespace WindowsFormsApp7
                         }
                     }
                     last = e.Location;
-
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    drower.Draw(first, last, nAngle);
                     if (!(drower is ClassLine))
                     { q.DrawFigure(); }
-                    drower.Draw(first, last, nAngle);
+                    else if(drower is ClassLine)
+                    { q.DrawLine(); }
 
                     if (drower is ClassLine)
                     { first = last; }
@@ -353,12 +355,15 @@ namespace WindowsFormsApp7
             isFirstPoligon = false;
             color = Color.Black;
             q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             q.CreateBitmapList();
             brush = new Brush(pictureBox1.Width, pictureBox1.Height);            
             pictureBox1.Image = q.bitmap;
             isCollapsed = false;
             abstractFabric = new LineFabric();
             textBox3.Visible = false;
+            q.heigth = pictureBox1.Height;
+            q.width = pictureBox1.Width;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -608,7 +613,8 @@ namespace WindowsFormsApp7
         {
             if (pictureBox1.Image != null && isCollapsed!=true)
             {
-                q.bitmap = new Bitmap(pictureBox1.Image, pictureBox1.Width, pictureBox1.Height);                
+                q.ChangeSize(pictureBox1.Width, pictureBox1.Height);
+                q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                 pictureBox1.Image = q.bitmap;
                 brush.SetSize(pictureBox1.Width, pictureBox1.Height);                
             }
@@ -668,7 +674,7 @@ namespace WindowsFormsApp7
 
         private void заливкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Fill = new SolidFill(button4.BackColor);
+            Fill = new TwoColorFill(button4.BackColor);
         }
 
         private void button9_Click(object sender, EventArgs e)
