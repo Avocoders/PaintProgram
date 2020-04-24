@@ -513,6 +513,7 @@ namespace WindowsFormsApp7
             abstractFabric = new FigureFabric();
             Figure = new Square();
             textBox3.Visible = false;
+            Eraser = false;
         }
 
         private void rectangle_Click(object sender, EventArgs e)
@@ -520,6 +521,7 @@ namespace WindowsFormsApp7
             abstractFabric = new FigureFabric();
             Figure = new Rectangl();
             textBox3.Visible = false;
+            Eraser = false;
         }
 
         private void RightTriangle_Click(object sender, EventArgs e)
@@ -527,6 +529,7 @@ namespace WindowsFormsApp7
             abstractFabric = new FigureFabric();
             Figure = new RightTriangle();
             textBox3.Visible = false;
+            Eraser = false;
         }
 
         private void IsoscelesTriangle_Click(object sender, EventArgs e)
@@ -534,12 +537,14 @@ namespace WindowsFormsApp7
             abstractFabric = new FigureFabric();
             Figure = new IsoscelesTriangle();
             textBox3.Visible = false;
+            Eraser = false;
         }
         private void straightLine_Click(object sender, EventArgs e)
         {
             abstractFabric = new FigureFabric();
             Figure = new StraightLine();
             textBox3.Visible = false;
+            Eraser = false;
         }
         private void choosePen_Click(object sender, EventArgs e)
         {
@@ -575,6 +580,7 @@ namespace WindowsFormsApp7
             abstractFabric = new FigureFabric();
             Figure = new Poligon();
             textBox3.Visible = true;
+            Eraser = false;
         }
 
         private void textBox3_KeyDown_1(object sender, KeyEventArgs e)
@@ -593,6 +599,7 @@ namespace WindowsFormsApp7
             abstractFabric = new FigureFabric();
             Figure = new Ellipse();
             textBox3.Visible = false;
+            Eraser = false;
         }
 
         private void circle_Click(object sender, EventArgs e)
@@ -600,6 +607,7 @@ namespace WindowsFormsApp7
             Figure = new Сircle();
             abstractFabric = new FigureFabric();
             textBox3.Visible = false;
+            Eraser = false;
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -607,6 +615,7 @@ namespace WindowsFormsApp7
             Figure = new Star();
             abstractFabric = new FigureFabric();
             textBox3.Visible = true;
+            Eraser = false;
         }
 
         private void pictureBox1_SizeChanged(object sender, EventArgs e)
@@ -703,6 +712,7 @@ namespace WindowsFormsApp7
             Figure = null;
             abstractFabric = new UncommonPoligon();
             textBox3.Visible = false;
+            Eraser = false;
             isFirstPoligon = true;
             drower = abstractFabric.CreateDrower(Figure, brush, Fill);
         }
@@ -710,7 +720,9 @@ namespace WindowsFormsApp7
         {            
             q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = q.bitmap;
-            q.CreateBitmapList();            
+            q.CreateBitmapList();
+            Eraser = false;
+            textBox3.Visible = false;
         }
 
         private void deleteTheLastOne_Click(object sender, EventArgs e)
