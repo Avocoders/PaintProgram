@@ -220,11 +220,13 @@ namespace WindowsFormsApp7
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             if (!(abstractFabric is UncommonPoligon))
-            { drower = abstractFabric.CreateDrower(Figure, brush, Fill); }
+            {
+                drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+            q.Clone2();
+            }
             first = e.Location;
             isDrow = true;
             isFirst = true;
-            q.Clone2();
 
             if (firstColor == true)
             {
@@ -294,6 +296,7 @@ namespace WindowsFormsApp7
             {
                 if (isFirstPoligon == true)
                 {
+                   
                     isFirstPoligon = false;
                     first = e.Location;
                    last = e.Location;
@@ -361,7 +364,7 @@ namespace WindowsFormsApp7
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             isDrow = false;
-            if (tmp != 11)
+            if (tmp != 11&& !(abstractFabric is UncommonPoligon))
             { q.Clone(); }
         }        
 
@@ -544,6 +547,8 @@ namespace WindowsFormsApp7
             drower.Draw(first, last, nAngle);
             pictureBox1.Image = q.bitmap;
             drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+            isFirstPoligon = true;
+            q.Clone();
         }
         private void moreColor_Click(object sender, EventArgs e)
         {            colorDialog1.AllowFullOpen = true;
