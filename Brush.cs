@@ -203,6 +203,7 @@ namespace WindowsFormsApp7
             {
                 if (x - del > 0 && x + del < width && y - del > 0 && y + del < heigth)
                 {
+                    
                     q.bitFigure.SetPixel(x - del + i, y + del, color);
                     q.bitFigure.SetPixel(x - del + i, y - del, color);
                     q.bitFigure.SetPixel(x + del, y - del + i, color);
