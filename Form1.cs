@@ -265,20 +265,7 @@ namespace WindowsFormsApp7
                 }
                 else if (e.Button == MouseButtons.Right)
                 {
-                    if (fill == true)
-                    {
-                        if (button4.BackColor != q.bitmap.GetPixel(e.X, e.Y))
-                        {
-                            Fill = new SolidFill(button4.BackColor);
-                            Fill.SetColor(e.X, e.Y);
-                            Fill.Casting(e.X, e.Y);
-                            pictureBox1.Image = q.bitmap;
-                        }
-                    }
-                    else
-                    {
-                        brush.SetColor(button4.BackColor);
-                    }                    
+                    brush.SetColor(button4.BackColor);                    
                 }
             }
             else
@@ -314,20 +301,7 @@ namespace WindowsFormsApp7
                 }
                 else if (e.Button == MouseButtons.Right)
                 {
-                    if (fill == true)
-                    {
-                        if (button1.BackColor != q.bitmap.GetPixel(e.X, e.Y))
-                        {
-                            Fill = new SolidFill(button1.BackColor);
-                            Fill.SetColor(e.X, e.Y);
-                            Fill.Casting(e.X, e.Y);
-                            pictureBox1.Image = q.bitmap;
-                        }
-                    }
-                    else
-                    {
-                        brush.SetColor(button1.BackColor);
-                    }                    
+                    brush.SetColor(button1.BackColor);                                  
                 }
             }
             if(abstractFabric is LineFabric)
