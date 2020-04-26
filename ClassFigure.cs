@@ -24,7 +24,10 @@ namespace WindowsFormsApp7
             int x = (points[0].X + points[points.Count / 3].X + points[2 * points.Count / 3].X) / 3;//ищем куда лить
             int y = (points[0].Y + points[points.Count / 3].Y + points[2 * points.Count / 3].Y) / 3;
             if (fill != null)
-            { fill.Casting(x, y); }
+            {
+                fill.SetColor(x, y);
+                fill.Casting(x, y);
+            }
         }
     }
 }

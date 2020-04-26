@@ -9,5 +9,6 @@ namespace WindowsFormsApp7
     public interface IFill
     {
         void Casting(int x, int y);
+       void SetColor(int x, int y);
     }
 }

@@ -47,18 +47,24 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.заливкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.безЗаливкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.заливкаОднотоннаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.straightLine = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.star = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.straightLine = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.blackColor = new System.Windows.Forms.Button();
             this.redColor = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.blueColor = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.moreColor = new System.Windows.Forms.Button();
@@ -71,18 +77,13 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.заливкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.безЗаливкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -350,6 +351,138 @@
             this.panel2.Size = new System.Drawing.Size(1105, 126);
             this.panel2.TabIndex = 28;
             // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(124)))));
+            this.textBox3.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.textBox3.Location = new System.Drawing.Point(406, 37);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(117, 38);
+            this.textBox3.TabIndex = 32;
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown_1);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDropDownButton1});
+            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
+            this.toolStrip1.Location = new System.Drawing.Point(412, 6);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(118, 34);
+            this.toolStrip1.TabIndex = 35;
+            this.toolStrip1.Text = "Заливка";
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.заливкаToolStripMenuItem,
+            this.безЗаливкиToolStripMenuItem,
+            this.заливкаОднотоннаяToolStripMenuItem});
+            this.toolStripDropDownButton1.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.toolStripDropDownButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(117, 31);
+            this.toolStripDropDownButton1.Text = "Заливка";
+            this.toolStripDropDownButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            // 
+            // заливкаToolStripMenuItem
+            // 
+            this.заливкаToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.заливкаToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("заливкаToolStripMenuItem.Image")));
+            this.заливкаToolStripMenuItem.Name = "заливкаToolStripMenuItem";
+            this.заливкаToolStripMenuItem.Size = new System.Drawing.Size(293, 32);
+            this.заливкаToolStripMenuItem.Text = "Заливка разноцветная";
+            this.заливкаToolStripMenuItem.Click += new System.EventHandler(this.заливкаToolStripMenuItem_Click);
+            // 
+            // безЗаливкиToolStripMenuItem
+            // 
+            this.безЗаливкиToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.безЗаливкиToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("безЗаливкиToolStripMenuItem.Image")));
+            this.безЗаливкиToolStripMenuItem.Name = "безЗаливкиToolStripMenuItem";
+            this.безЗаливкиToolStripMenuItem.Size = new System.Drawing.Size(293, 32);
+            this.безЗаливкиToolStripMenuItem.Text = "Без заливки";
+            this.безЗаливкиToolStripMenuItem.Click += new System.EventHandler(this.безЗаливкиToolStripMenuItem_Click);
+            // 
+            // заливкаОднотоннаяToolStripMenuItem
+            // 
+            this.заливкаОднотоннаяToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.заливкаОднотоннаяToolStripMenuItem.Name = "заливкаОднотоннаяToolStripMenuItem";
+            this.заливкаОднотоннаяToolStripMenuItem.Size = new System.Drawing.Size(293, 32);
+            this.заливкаОднотоннаяToolStripMenuItem.Text = "Заливка однотонная";
+            this.заливкаОднотоннаяToolStripMenuItem.Click += new System.EventHandler(this.заливкаОднотоннаяToolStripMenuItem_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flowLayoutPanel1.Controls.Add(this.square);
+            this.flowLayoutPanel1.Controls.Add(this.rectangle);
+            this.flowLayoutPanel1.Controls.Add(this.circle);
+            this.flowLayoutPanel1.Controls.Add(this.oval);
+            this.flowLayoutPanel1.Controls.Add(this.RightTriangle);
+            this.flowLayoutPanel1.Controls.Add(this.IsoscelesTriangle);
+            this.flowLayoutPanel1.Controls.Add(this.straightLine);
+            this.flowLayoutPanel1.Controls.Add(this.button2);
+            this.flowLayoutPanel1.Controls.Add(this.button5);
+            this.flowLayoutPanel1.Controls.Add(this.star);
+            this.flowLayoutPanel1.Font = new System.Drawing.Font("Monotype Corsiva", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.flowLayoutPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(144, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(256, 126);
+            this.flowLayoutPanel1.TabIndex = 35;
+            // 
+            // straightLine
+            // 
+            this.straightLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.straightLine.FlatAppearance.BorderSize = 0;
+            this.straightLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.straightLine.Image = ((System.Drawing.Image)(resources.GetObject("straightLine.Image")));
+            this.straightLine.Location = new System.Drawing.Point(103, 61);
+            this.straightLine.Name = "straightLine";
+            this.straightLine.Size = new System.Drawing.Size(48, 48);
+            this.straightLine.TabIndex = 30;
+            this.straightLine.Text = " ";
+            this.straightLine.UseVisualStyleBackColor = false;
+            this.straightLine.Click += new System.EventHandler(this.straightLine_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(157, 61);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(51, 50);
+            this.button2.TabIndex = 29;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.Location = new System.Drawing.Point(3, 121);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(48, 45);
+            this.button5.TabIndex = 31;
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // star
             // 
             this.star.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
@@ -392,33 +525,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // straightLine
-            // 
-            this.straightLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
-            this.straightLine.FlatAppearance.BorderSize = 0;
-            this.straightLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.straightLine.Image = ((System.Drawing.Image)(resources.GetObject("straightLine.Image")));
-            this.straightLine.Location = new System.Drawing.Point(103, 61);
-            this.straightLine.Name = "straightLine";
-            this.straightLine.Size = new System.Drawing.Size(48, 48);
-            this.straightLine.TabIndex = 30;
-            this.straightLine.Text = " ";
-            this.straightLine.UseVisualStyleBackColor = false;
-            this.straightLine.Click += new System.EventHandler(this.straightLine_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(124)))));
-            this.textBox3.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox3.Location = new System.Drawing.Point(406, 37);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(117, 38);
-            this.textBox3.TabIndex = 32;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown_1);
-            // 
             // button6
             // 
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -432,19 +538,6 @@
             this.button6.TabIndex = 34;
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.buttonOrange_CheckedChanged);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(3, 121);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(48, 45);
-            this.button5.TabIndex = 31;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button7
             // 
@@ -501,19 +594,6 @@
             this.button8.TabIndex = 36;
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.buttonGreen_CheckedChanged);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(157, 61);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(51, 50);
-            this.button2.TabIndex = 29;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // blueColor
             // 
@@ -585,6 +665,7 @@
             this.button4.TabIndex = 35;
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.BackColorChanged += new System.EventHandler(this.button4_BackColorChanged);
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // buttonDeleteAll
@@ -659,74 +740,6 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanel1.Controls.Add(this.square);
-            this.flowLayoutPanel1.Controls.Add(this.rectangle);
-            this.flowLayoutPanel1.Controls.Add(this.circle);
-            this.flowLayoutPanel1.Controls.Add(this.oval);
-            this.flowLayoutPanel1.Controls.Add(this.RightTriangle);
-            this.flowLayoutPanel1.Controls.Add(this.IsoscelesTriangle);
-            this.flowLayoutPanel1.Controls.Add(this.straightLine);
-            this.flowLayoutPanel1.Controls.Add(this.button2);
-            this.flowLayoutPanel1.Controls.Add(this.button5);
-            this.flowLayoutPanel1.Controls.Add(this.star);
-            this.flowLayoutPanel1.Font = new System.Drawing.Font("Monotype Corsiva", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.flowLayoutPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(144, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(256, 126);
-            this.flowLayoutPanel1.TabIndex = 35;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1});
-            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
-            this.toolStrip1.Location = new System.Drawing.Point(412, 6);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(118, 34);
-            this.toolStrip1.TabIndex = 35;
-            this.toolStrip1.Text = "Заливка";
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.заливкаToolStripMenuItem,
-            this.безЗаливкиToolStripMenuItem});
-            this.toolStripDropDownButton1.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.toolStripDropDownButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(117, 31);
-            this.toolStripDropDownButton1.Text = "Заливка";
-            this.toolStripDropDownButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            // 
-            // заливкаToolStripMenuItem
-            // 
-            this.заливкаToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.заливкаToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("заливкаToolStripMenuItem.Image")));
-            this.заливкаToolStripMenuItem.Name = "заливкаToolStripMenuItem";
-            this.заливкаToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.заливкаToolStripMenuItem.Text = "Заливка";
-            // 
-            // безЗаливкиToolStripMenuItem
-            // 
-            this.безЗаливкиToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.безЗаливкиToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("безЗаливкиToolStripMenuItem.Image")));
-            this.безЗаливкиToolStripMenuItem.Name = "безЗаливкиToolStripMenuItem";
-            this.безЗаливкиToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.безЗаливкиToolStripMenuItem.Text = "Без заливки";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -756,10 +769,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -813,6 +826,7 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem заливкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem безЗаливкиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem заливкаОднотоннаяToolStripMenuItem;
     }
 }
 

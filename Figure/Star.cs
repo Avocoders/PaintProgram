@@ -9,10 +9,11 @@ namespace WindowsFormsApp7.Figure
 {
     class Star:IFigur
     {
-        List<Point> star = new List<Point>();
+        List<Point> star ;
         int n ;
         public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
+            star = new List<Point>();
             int n_ = nAngle;
             int r = Convert.ToInt32(Math.Sqrt(Math.Abs((x2 - x1) * (x2 - x1)) + Math.Abs((y2 - y1) * (y2 - y1))));
             //int x = x1 + Convert.ToInt32(r * Math.Cos(0 * Math.PI / 180));

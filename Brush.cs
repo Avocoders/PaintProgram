@@ -203,10 +203,11 @@ namespace WindowsFormsApp7
             {
                 if (x - del > 0 && x + del < width && y - del > 0 && y + del < heigth)
                 {
-                    q.bitmap.SetPixel(x - del + i, y + del, color);
-                    q.bitmap.SetPixel(x - del + i, y - del, color);
-                    q.bitmap.SetPixel(x + del, y - del + i, color);
-                    q.bitmap.SetPixel(x - del, y - del + i, color);
+                    
+                    q.bitFigure.SetPixel(x - del + i, y + del, color);
+                    q.bitFigure.SetPixel(x - del + i, y - del, color);
+                    q.bitFigure.SetPixel(x + del, y - del + i, color);
+                    q.bitFigure.SetPixel(x - del, y - del + i, color);
                 }
             }
         }
@@ -220,7 +221,7 @@ namespace WindowsFormsApp7
                 {
                     if (x - del > 0 && x + del < width && y - del > 0 && y + del < heigth)
                     {
-                        q.bitmap.SetPixel(x - del + i, y - del + j, color);
+                        q.bitFigure.SetPixel(x - del + i, y - del + j, color);
                     }
                 }
             }

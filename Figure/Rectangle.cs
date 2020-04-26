@@ -10,10 +10,11 @@ namespace WindowsFormsApp7.Figure
     
     public class Rectangl : IFigur
     {
-        List<Point> rectangl = new List<Point>();
+        List<Point> rectangl ;
 
         public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
+            rectangl = new List<Point>();
             rectangl.Add(new Point(x1, y1));
             rectangl.Add(new Point(x2, y1));
             rectangl.Add(new Point(x2, y2));
