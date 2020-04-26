@@ -29,6 +29,7 @@ namespace WindowsFormsApp7
         bool isDrow, isFirst,isFirstPoligon,isCollapsed;
         bool expend = false;
         bool noexpend = true;
+        bool isFigureChanged = false;
         int lastX, lastY;
         int startX = 0;
         int startY = 0;
@@ -146,15 +147,34 @@ namespace WindowsFormsApp7
                     {
                         if (Figure is Ellipse)
                         {
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                             Figure = new Сircle();
+                            isFigureChanged = true;
+                        }
+                        else if (Figure is Сircle )
+                        {
+                            Figure = new Сircle();
+                            
                         }
                         else if (Figure is Rectangl)
                         {
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                             Figure = new Square();
+                            isFigureChanged = true;
+                        }
+                        else if (Figure is Square)
+                        {
+                            Figure = new Square();
+                        }
+                        else if (Figure is RightTriangle)
+                        {
+                            Figure = new RightTriangle();
                         }
                         else if (Figure is IsoscelesTriangle)
                         {
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                             Figure = new RightTriangle();
+                            isFigureChanged = true;
                         }
                         
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
@@ -165,6 +185,16 @@ namespace WindowsFormsApp7
                         {
                             Figure = new Ellipse();
                         }
+                        else if (Figure is Сircle && isFigureChanged == true)
+                        {
+                            Figure = new Ellipse();
+                            isFigureChanged = false;
+                        }
+                        else if (Figure is Square && isFigureChanged == true)
+                        {
+                            Figure = new Rectangl();
+                            isFigureChanged = false;
+                        }
                         else if (Figure is Rectangl)
                         {
                             Figure = new Rectangl();
@@ -172,6 +202,11 @@ namespace WindowsFormsApp7
                         else if (Figure is IsoscelesTriangle)
                         {
                             Figure = new IsoscelesTriangle();
+                        }
+                        else if (Figure is RightTriangle && isFigureChanged == true)
+                        {
+                            Figure = new IsoscelesTriangle();
+                            isFigureChanged = false;
                         }
                         else if (Figure is Square)
                         {
@@ -399,7 +434,8 @@ namespace WindowsFormsApp7
             if (!(abstractFabric is UncommonPoligon))
             { 
                 q.Clone(); 
-            }            
+            }
+            q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
         }        
 
         private void lineThickness_Scroll(object sender, EventArgs e)

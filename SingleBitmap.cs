@@ -59,23 +59,18 @@ namespace WindowsFormsApp7
             bitmap = new Bitmap(tmp1);
             
             Graphics graph = Graphics.FromImage(bitmap);
-            graph.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
-          
             graph.DrawImage(bitFigure, 0, 0);
           
         }
        public void DrawLine()
         {
             Graphics graph = Graphics.FromImage(bitmap);
-            graph.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
-
             graph.DrawImage(bitFigure, 0, 0);
         }
         public void ChangeSize(int w, int h)
         {
             Bitmap ResultBitmap = new Bitmap(w, h);
             Graphics graph = Graphics.FromImage(ResultBitmap);
-            graph.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
             graph.DrawImage(bitmap, 0, 0);
             bitmap = new Bitmap(w, h);
             bitmap = ResultBitmap;
