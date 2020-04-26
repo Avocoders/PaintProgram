@@ -218,8 +218,8 @@ namespace WindowsFormsApp7
             if (!(abstractFabric is UncommonPoligon))
             {
                 drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-            q.Clone2();
-            }
+                q.Clone2();
+            }           
             first = e.Location;
             isDrow = true;
             isFirst = true;
@@ -228,8 +228,9 @@ namespace WindowsFormsApp7
             {
                 if (e.Button == MouseButtons.Left)
                 {
+                    color = button1.BackColor;
                     if (fill == true)
-                    {
+                    {                        
                         if (button1.BackColor != q.bitmap.GetPixel(e.X, e.Y))
                         {
                             Fill = new SolidFill(button1.BackColor);
@@ -252,18 +253,31 @@ namespace WindowsFormsApp7
                     }
                     else
                     {
-                        brush.SetColor(button1.BackColor);
+                        brush.SetColor(color);
+                        if (abstractFabric is LineFabric)
+                        {
+                            brush.SetDot(e.X, e.Y);
+                            q.DrawLine();
+                            pictureBox1.Image = q.bitmap;
+                        }
                     }                                    
                 }
                 else if (e.Button == MouseButtons.Right)
                 {
-                    brush.SetColor(button4.BackColor);                    
+                    brush.SetColor(button4.BackColor);
+                    if (abstractFabric is LineFabric)
+                    {
+                        brush.SetDot(e.X, e.Y);
+                        q.DrawLine();
+                        pictureBox1.Image = q.bitmap;
+                    }
                 }
             }
             else
             {
                 if (e.Button == MouseButtons.Left)
                 {
+                    color = button4.BackColor;
                     if (fill == true)
                     {
                         if (button4.BackColor != q.bitmap.GetPixel(e.X, e.Y))
@@ -289,19 +303,31 @@ namespace WindowsFormsApp7
                     else
                     {
                         brush.SetColor(button4.BackColor);
+                        if (abstractFabric is LineFabric)
+                        {
+                            brush.SetDot(e.X, e.Y);
+                            q.DrawLine();
+                            pictureBox1.Image = q.bitmap;
+                        }
                     }               
                 }
                 else if (e.Button == MouseButtons.Right)
                 {
-                    brush.SetColor(button1.BackColor);                                  
+                    brush.SetColor(button1.BackColor);
+                    if (abstractFabric is LineFabric)
+                    {
+                        brush.SetDot(e.X, e.Y);
+                        q.DrawLine();
+                        pictureBox1.Image = q.bitmap;
+                    }
                 }
             }
-            if(abstractFabric is LineFabric)
-            {
-                brush.SetDot(e.X, e.Y);
-                q.DrawLine();
-                pictureBox1.Image = q.bitmap;
-            }        
+            //if(abstractFabric is LineFabric)
+            //{
+            //    brush.SetDot(e.X, e.Y);
+            //    q.DrawLine();
+            //    pictureBox1.Image = q.bitmap;
+            //}        
             if(abstractFabric is UncommonPoligon)
             {
                 if (isFirstPoligon == true)
@@ -312,11 +338,12 @@ namespace WindowsFormsApp7
                    last = e.Location;
                     drower.Draw(e.Location, e.Location, nAngle);
                     q.DrawLine();
+                    q.Clone2();
                 }
                 else
                 {
                     drower.Draw(e.Location, first, nAngle);
-                    q.DrawLine();
+                    q.DrawLine();                    
                     //last = e.Location;
                 }
                 pictureBox1.Image = q.bitmap;
@@ -370,7 +397,9 @@ namespace WindowsFormsApp7
         {
             isDrow = false;
             if (!(abstractFabric is UncommonPoligon))
-            { q.Clone(); }
+            { 
+                q.Clone(); 
+            }            
         }        
 
         private void lineThickness_Scroll(object sender, EventArgs e)
@@ -571,6 +600,7 @@ namespace WindowsFormsApp7
             pictureBox1.Image = q.bitmap;
             drower = abstractFabric.CreateDrower(Figure, brush, Fill);
             isFirstPoligon = true;
+            //q.Clone2();
             q.Clone();
         }
         private void moreColor_Click(object sender, EventArgs e)
