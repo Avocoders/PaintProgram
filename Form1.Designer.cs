@@ -52,6 +52,7 @@
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.заливкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.безЗаливкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.заливкаОднотоннаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.straightLine = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -76,7 +77,6 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.заливкаОднотоннаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -375,7 +375,7 @@
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
             this.toolStrip1.Location = new System.Drawing.Point(412, 6);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(118, 53);
+            this.toolStrip1.Size = new System.Drawing.Size(118, 34);
             this.toolStrip1.TabIndex = 35;
             this.toolStrip1.Text = "Заливка";
             // 
@@ -412,6 +412,14 @@
             this.безЗаливкиToolStripMenuItem.Size = new System.Drawing.Size(293, 32);
             this.безЗаливкиToolStripMenuItem.Text = "Без заливки";
             this.безЗаливкиToolStripMenuItem.Click += new System.EventHandler(this.безЗаливкиToolStripMenuItem_Click);
+            // 
+            // заливкаОднотоннаяToolStripMenuItem
+            // 
+            this.заливкаОднотоннаяToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.заливкаОднотоннаяToolStripMenuItem.Name = "заливкаОднотоннаяToolStripMenuItem";
+            this.заливкаОднотоннаяToolStripMenuItem.Size = new System.Drawing.Size(293, 32);
+            this.заливкаОднотоннаяToolStripMenuItem.Text = "Заливка однотонная";
+            this.заливкаОднотоннаяToolStripMenuItem.Click += new System.EventHandler(this.заливкаОднотоннаяToolStripMenuItem_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -657,6 +665,7 @@
             this.button4.TabIndex = 35;
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.BackColorChanged += new System.EventHandler(this.button4_BackColorChanged);
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // buttonDeleteAll
@@ -730,14 +739,6 @@
             this.pictureBox2.TabIndex = 34;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
-            // 
-            // заливкаОднотоннаяToolStripMenuItem
-            // 
-            this.заливкаОднотоннаяToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.заливкаОднотоннаяToolStripMenuItem.Name = "заливкаОднотоннаяToolStripMenuItem";
-            this.заливкаОднотоннаяToolStripMenuItem.Size = new System.Drawing.Size(293, 32);
-            this.заливкаОднотоннаяToolStripMenuItem.Text = "Заливка однотонная";
-            this.заливкаОднотоннаяToolStripMenuItem.Click += new System.EventHandler(this.заливкаОднотоннаяToolStripMenuItem_Click);
             // 
             // Form1
             // 

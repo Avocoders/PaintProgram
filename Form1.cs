@@ -791,6 +791,19 @@ namespace WindowsFormsApp7
             Fill = new TwoColorFill(button1.BackColor);
         }
 
+        private void button4_BackColorChanged(object sender, EventArgs e)
+        {
+            if (Fill is TwoColorFill)
+            {
+                Fill = new TwoColorFill(button4.BackColor);
+            }
+            else if (Fill is SolidFill)
+            {
+                Fill = new SolidFill(button4.BackColor);
+            }
+
+        }
+
         private void button9_Click(object sender, EventArgs e)
         {
             pictureBox2.BackColor = button1.BackColor;
