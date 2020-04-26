@@ -151,24 +151,11 @@ namespace WindowsFormsApp7
                             Figure = new Сircle();
                             isFigureChanged = true;
                         }
-                        else if (Figure is Сircle )
-                        {
-                            Figure = new Сircle();
-                            
-                        }
                         else if (Figure is Rectangl)
                         {
                             drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                             Figure = new Square();
                             isFigureChanged = true;
-                        }
-                        else if (Figure is Square)
-                        {
-                            Figure = new Square();
-                        }
-                        else if (Figure is RightTriangle)
-                        {
-                            Figure = new RightTriangle();
                         }
                         else if (Figure is IsoscelesTriangle)
                         {
@@ -181,11 +168,7 @@ namespace WindowsFormsApp7
                     }
                     else if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
                     {
-                        if (Figure is Ellipse)
-                        {
-                            Figure = new Ellipse();
-                        }
-                        else if (Figure is Сircle && isFigureChanged == true)
+                         if (Figure is Сircle && isFigureChanged == true)
                         {
                             Figure = new Ellipse();
                             isFigureChanged = false;
@@ -195,38 +178,10 @@ namespace WindowsFormsApp7
                             Figure = new Rectangl();
                             isFigureChanged = false;
                         }
-                        else if (Figure is Rectangl)
-                        {
-                            Figure = new Rectangl();
-                        }
-                        else if (Figure is IsoscelesTriangle)
-                        {
-                            Figure = new IsoscelesTriangle();
-                        }
                         else if (Figure is RightTriangle && isFigureChanged == true)
                         {
                             Figure = new IsoscelesTriangle();
                             isFigureChanged = false;
-                        }
-                        else if (Figure is Square)
-                        {
-                            Figure = new Square();
-                        }
-                        else if (Figure is RightTriangle)
-                        {
-                            Figure = new RightTriangle();
-                        }
-                        else if (Figure is Poligon)
-                        {
-                            Figure = new Poligon();
-                        }
-                        else if (Figure is StraightLine)
-                        {
-                            Figure = new StraightLine();
-                        }
-                        else if (Figure is Star)
-                        {
-                            Figure = new Star();
                         }
                         drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                     }

@@ -13,6 +13,7 @@ namespace WindowsFormsApp7.Figure
 
         public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
+            isoscelesTriangle = new List<Point>();
             int y3 = 0;
             int x3 = 0;
             int dx = Math.Abs(x2 - x1);

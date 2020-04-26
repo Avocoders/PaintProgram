@@ -10,11 +10,12 @@ namespace WindowsFormsApp7.Figure
     public class Сircle : IFigur
     {
         Point point;
-        List <Point> circle = new List<Point>();
+        List <Point> circle ;
         int n=0;
         
         public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
+            circle = new List<Point>();
             int r = Convert.ToInt32(Math.Sqrt(Math.Abs((x2 - x1)* (x2 - x1)) + Math.Abs((y2 - y1)* (y2 - y1))));
             //int x = x1 + Convert.ToInt32(r * Math.Cos(0 * Math.PI / 180));
             //int y = y1 + Convert.ToInt32(r * Math.Sin(0 * Math.PI / 180)); ;

@@ -9,7 +9,7 @@ namespace WindowsFormsApp7.Figure
 {
     public class Square : IFigur
     {
-        List <Point> square = new List<Point>();
+        List <Point> square ;
         //Brush q;
         //public Square(Brush bruch)
         //{
@@ -18,6 +18,7 @@ namespace WindowsFormsApp7.Figure
 
         public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
+            square = new List<Point>();
             int dx = Math.Abs(x2 - x1);
             if (x2 > x1 && y2 > y1)
             {
