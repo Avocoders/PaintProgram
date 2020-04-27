@@ -78,6 +78,8 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.top = new System.Windows.Forms.Button();
+            this.margin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -92,7 +94,7 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
             this.pictureBox1.Location = new System.Drawing.Point(-27, 229);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1132, 501);
@@ -327,6 +329,8 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+            this.panel2.Controls.Add(this.margin);
+            this.panel2.Controls.Add(this.top);
             this.panel2.Controls.Add(this.hand);
             this.panel2.Controls.Add(this.textBox3);
             this.panel2.Controls.Add(this.toolStrip1);
@@ -358,6 +362,7 @@
             this.hand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
             this.hand.FlatAppearance.BorderSize = 0;
             this.hand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hand.Image = ((System.Drawing.Image)(resources.GetObject("hand.Image")));
             this.hand.Location = new System.Drawing.Point(547, 3);
             this.hand.Name = "hand";
             this.hand.Size = new System.Drawing.Size(39, 38);
@@ -753,6 +758,30 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
             // 
+            // top
+            // 
+            this.top.FlatAppearance.BorderSize = 0;
+            this.top.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.top.Image = ((System.Drawing.Image)(resources.GetObject("top.Image")));
+            this.top.Location = new System.Drawing.Point(592, 6);
+            this.top.Name = "top";
+            this.top.Size = new System.Drawing.Size(36, 35);
+            this.top.TabIndex = 42;
+            this.top.UseVisualStyleBackColor = true;
+            // 
+            // margin
+            // 
+            this.margin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.margin.FlatAppearance.BorderSize = 0;
+            this.margin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.margin.Image = ((System.Drawing.Image)(resources.GetObject("margin.Image")));
+            this.margin.Location = new System.Drawing.Point(634, 8);
+            this.margin.Name = "margin";
+            this.margin.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.margin.Size = new System.Drawing.Size(39, 32);
+            this.margin.TabIndex = 43;
+            this.margin.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -841,6 +870,8 @@
         private System.Windows.Forms.ToolStripMenuItem безЗаливкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem заливкаОднотоннаяToolStripMenuItem;
         private System.Windows.Forms.Button hand;
+        private System.Windows.Forms.Button margin;
+        private System.Windows.Forms.Button top;
     }
 }
 
