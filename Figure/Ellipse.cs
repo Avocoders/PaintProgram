@@ -12,7 +12,12 @@ namespace WindowsFormsApp7.Figure
 
         Point point;
         List <Point> ellipse ;
-        int n = 0;        
+        int n = 0;
+
+        public void ChangeFigurePosition(Point n)
+        {
+            throw new NotImplementedException();
+        }
 
         public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {

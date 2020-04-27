@@ -344,10 +344,10 @@ namespace WindowsFormsApp7
             }
             else
             {
-                foreach (Point point in q.listOfFigure) 
-                {
-                    FindPoint(point, e);
-                }
+                //foreach (Point point in q.listOfFigure) 
+                //{
+                //    FindPoint(point, e);
+                //}
             }
             
         }
