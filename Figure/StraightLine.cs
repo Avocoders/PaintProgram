@@ -11,12 +11,12 @@ namespace WindowsFormsApp7.Figure
     {
         List <Point> straightLine ;
 
-        public void ChangeFigurePosition(Point n)
+        public override void ChangeFigurePosition(Point n)
         {
             throw new NotImplementedException();
         }
 
-        public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
+        public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             straightLine = new List<Point>();
             //q.DrawLine(x1, y1, x2, y2);

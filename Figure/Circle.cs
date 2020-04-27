@@ -13,12 +13,12 @@ namespace WindowsFormsApp7.Figure
         List <Point> circle ;
         int n=0;
 
-        public void ChangeFigurePosition(Point n)
+        public override void ChangeFigurePosition(Point n)
         {
             throw new NotImplementedException();
         }
 
-        public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
+        public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             circle = new List<Point>();
             int r = Convert.ToInt32(Math.Sqrt(Math.Abs((x2 - x1)* (x2 - x1)) + Math.Abs((y2 - y1)* (y2 - y1))));

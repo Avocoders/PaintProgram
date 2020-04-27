@@ -11,12 +11,12 @@ namespace WindowsFormsApp7.Figure
     {
         List <Point> isoscelesTriangle = new List<Point>();
 
-        public void ChangeFigurePosition(Point n)
+        public override void ChangeFigurePosition(Point n)
         {
             throw new NotImplementedException();
         }
 
-        public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
+        public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             isoscelesTriangle = new List<Point>();
             int y3 = 0;
