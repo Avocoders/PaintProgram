@@ -9,24 +9,27 @@ namespace WindowsFormsApp7.Figure
 {
     public class RightTriangle : IFigur
     {
-        List <Point> rightTriangle ;
-
-        public override void ChangeFigurePosition(Point n)
-        {
-            throw new NotImplementedException();
-        }
+        List <Point> points;
 
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
-            rightTriangle = new List<Point>();
-            rightTriangle.Add(new Point(x1, y1));
-            rightTriangle.Add(new Point(x2, y2));
-            rightTriangle.Add(new Point(x1, y2));
+            points = new List<Point>();
+            points.Add(new Point(x1, y1));
+            points.Add(new Point(x2, y2));
+            points.Add(new Point(x1, y2));
 
             //q.DrawLine(x2, y2, x1, y1);
             //q.DrawLine(x1, y2, x2, y2);
             //q.DrawLine(x1, y1, x1, y2);
-            return rightTriangle;
+            return points;
+        }
+
+        public override void ChangeFigurePosition(int dX, int dY)
+        {
+            for (int i = 0; i < points.Count; i++)
+            {
+                points[i] = new Point(points[i].X + dX, points[i].Y + dY);
+            }
         }
     }
 }
