@@ -10,6 +10,12 @@ namespace WindowsFormsApp7.Figure
     public class RightTriangle : IFigur
     {
         List <Point> rightTriangle ;
+
+        public void ChangeFigurePosition(Point n)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             rightTriangle = new List<Point>();

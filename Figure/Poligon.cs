@@ -11,10 +11,17 @@ namespace WindowsFormsApp7.Figure
     {
         Point point;
         List <Point> poligon ;
+        List<Point> points;
         int n = 0;
+
+        public void ChangeFigurePosition(Point n)
+        {
+            throw new NotImplementedException();
+        }
 
         public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
+            points = new List<Point>();
             poligon = new List<Point>();
             int n_ = nAngle;
             int r = Convert.ToInt32(Math.Sqrt(Math.Abs((x2 - x1) * (x2 - x1)) + Math.Abs((y2 - y1) * (y2 - y1))));
@@ -33,10 +40,11 @@ namespace WindowsFormsApp7.Figure
                 //y = yNext;
 
                 point = new Point(xNext, yNext);
-                poligon.Add(point);
+                points.Add(point);
                 n++;
             }
-            return poligon;
+            //points.AddRange(poligon);
+            return points;
         }
     }
 }
