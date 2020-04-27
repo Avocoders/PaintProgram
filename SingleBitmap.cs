@@ -31,18 +31,24 @@ namespace WindowsFormsApp7
         public Bitmap first;
         public Bitmap bitFigure;
         public List<Bitmap> bitmap2;
+        public List<Bitmap> listOfBitmap;
+        public List<Drower> listOfFigure;
+        public List<Point> pointsList = new List<Point>();
         public Bitmap tmp1;
         public int width,heigth;
         int n, end;
-
+       
         public void CreateBitmapList()
         {
 
             first = new Bitmap(bitmap);
             bitmap2 = new List<Bitmap>();
+            listOfBitmap = new List<Bitmap>();
+            listOfFigure = new List<Drower>();
             bitmap2.Insert(0, bitmap);
             n = 0;
             end = n;
+            listOfBitmap.Insert(n, bitFigure);
             //bitFigure = new Bitmap(width, heigth);
         }
 
@@ -60,12 +66,16 @@ namespace WindowsFormsApp7
             
             Graphics graph = Graphics.FromImage(bitmap);
             graph.DrawImage(bitFigure, 0, 0);
-          
+            
         }
        public void DrawLine()
         {
             Graphics graph = Graphics.FromImage(bitmap);
             graph.DrawImage(bitFigure, 0, 0);
+        }
+        public void SaveBitmap()
+        { 
+            listOfBitmap.Insert(n,bitFigure);
         }
         public void ChangeSize(int w, int h)
         {

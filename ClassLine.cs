@@ -12,11 +12,15 @@ namespace WindowsFormsApp7
     {
         public ClassLine(Brush brush, IFigur figur, IFill fill): base(brush, null, null) 
         {
+            points = new List<Point>();
            
         }
+        
         public override void Draw(Point point1, Point point2,int nAngle) 
         {
             brush.DrawLine(point1.X, point1.Y, point2.X, point2.Y);
+            points.Add(point1);
+            points.Add(point2);
         }
     }
 }

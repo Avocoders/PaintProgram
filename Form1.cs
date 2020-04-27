@@ -22,6 +22,7 @@ namespace WindowsFormsApp7
         Drower drower;
         SingleBitmap q = SingleBitmap.Create();        
         int n = 1;
+        bool isHanded = false;
         int xnow, ynow;
         Color color;
         bool firstColor = true;        
@@ -205,92 +206,56 @@ namespace WindowsFormsApp7
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (!(abstractFabric is UncommonPoligon))
+            if (isHanded != true)
             {
-                drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                q.Clone2();
-            }           
-            first = e.Location;
-            isDrow = true;
-            isFirst = true;
+                if (!(abstractFabric is UncommonPoligon))
+                {
+                    drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                    q.Clone2();
+                }
+                first = e.Location;
+                isDrow = true;
+                isFirst = true;
 
-            if (firstColor == true)
-            {
-                if (e.Button == MouseButtons.Left)
+                if (firstColor == true)
                 {
-                    color = button1.BackColor;
-                    if (fill == true)
-                    {                        
-                        if (button1.BackColor != q.bitmap.GetPixel(e.X, e.Y))
-                        {
-                            Fill = new SolidFill(button1.BackColor);
-                            Fill.SetColor(e.X, e.Y);
-                            Fill.Casting(e.X, e.Y);
-                            pictureBox1.Image = q.bitmap;
-                        }
-                    }
-                    else if (Pipetka == true)
+                    if (e.Button == MouseButtons.Left)
                     {
-                        button1.BackColor = q.bitmap.GetPixel(e.X, e.Y);
                         color = button1.BackColor;
-                        brush.SetColor(color);
-                    }
-                    else if (Eraser == true)
-                    {
-                        brush.SetColor(Color.White);
-                        brush.SetDot(e.X, e.Y);
-                        pictureBox1.Image = q.bitmap;
-                    }
-                    else
-                    {
-                        brush.SetColor(color);
-                        if (abstractFabric is LineFabric)
+                        if (fill == true)
                         {
+                            if (button1.BackColor != q.bitmap.GetPixel(e.X, e.Y))
+                            {
+                                Fill = new SolidFill(button1.BackColor);
+                                Fill.SetColor(e.X, e.Y);
+                                Fill.Casting(e.X, e.Y);
+                                pictureBox1.Image = q.bitmap;
+                            }
+                        }
+                        else if (Pipetka == true)
+                        {
+                            button1.BackColor = q.bitmap.GetPixel(e.X, e.Y);
+                            color = button1.BackColor;
+                            brush.SetColor(color);
+                        }
+                        else if (Eraser == true)
+                        {
+                            brush.SetColor(Color.White);
                             brush.SetDot(e.X, e.Y);
-                            q.DrawLine();
                             pictureBox1.Image = q.bitmap;
                         }
-                    }                                    
-                }
-                else if (e.Button == MouseButtons.Right)
-                {
-                    brush.SetColor(button4.BackColor);
-                    if (abstractFabric is LineFabric)
-                    {
-                        brush.SetDot(e.X, e.Y);
-                        q.DrawLine();
-                        pictureBox1.Image = q.bitmap;
-                    }
-                }
-            }
-            else
-            {
-                if (e.Button == MouseButtons.Left)
-                {
-                    color = button4.BackColor;
-                    if (fill == true)
-                    {
-                        if (button4.BackColor != q.bitmap.GetPixel(e.X, e.Y))
+                        else
                         {
-                            Fill = new SolidFill(button4.BackColor);
-                            Fill.SetColor(e.X, e.Y);
-                            Fill.Casting(e.X, e.Y);
-                            pictureBox1.Image = q.bitmap;
+                            brush.SetColor(color);
+                            if (abstractFabric is LineFabric)
+                            {
+                                brush.SetDot(e.X, e.Y);
+                                q.DrawLine();
+                                pictureBox1.Image = q.bitmap;
+                            }
                         }
                     }
-                    else if (Pipetka == true)
-                    {
-                        button4.BackColor = q.bitmap.GetPixel(e.X, e.Y);
-                        color = button4.BackColor;
-                        brush.SetColor(color);
-                    }
-                    else if (Eraser == true)
-                    {
-                        brush.SetColor(Color.White);
-                        brush.SetDot(e.X, e.Y);
-                        pictureBox1.Image = q.bitmap;
-                    }
-                    else
+                    else if (e.Button == MouseButtons.Right)
                     {
                         brush.SetColor(button4.BackColor);
                         if (abstractFabric is LineFabric)
@@ -299,72 +264,98 @@ namespace WindowsFormsApp7
                             q.DrawLine();
                             pictureBox1.Image = q.bitmap;
                         }
-                    }               
-                }
-                else if (e.Button == MouseButtons.Right)
-                {
-                    brush.SetColor(button1.BackColor);
-                    if (abstractFabric is LineFabric)
-                    {
-                        brush.SetDot(e.X, e.Y);
-                        q.DrawLine();
-                        pictureBox1.Image = q.bitmap;
                     }
-                }
-            }
-            //if(abstractFabric is LineFabric)
-            //{
-            //    brush.SetDot(e.X, e.Y);
-            //    q.DrawLine();
-            //    pictureBox1.Image = q.bitmap;
-            //}        
-            if(abstractFabric is UncommonPoligon)
-            {
-                if (isFirstPoligon == true)
-                {
-                   
-                    isFirstPoligon = false;
-                    first = e.Location;
-                   last = e.Location;
-                    drower.Draw(e.Location, e.Location, nAngle);
-                    q.DrawLine();
-                    q.Clone2();
                 }
                 else
                 {
-                    drower.Draw(e.Location, first, nAngle);
-                    q.DrawLine();                    
-                    //last = e.Location;
+                    if (e.Button == MouseButtons.Left)
+                    {
+                        color = button4.BackColor;
+                        if (fill == true)
+                        {
+                            if (button4.BackColor != q.bitmap.GetPixel(e.X, e.Y))
+                            {
+                                Fill = new SolidFill(button4.BackColor);
+                                Fill.SetColor(e.X, e.Y);
+                                Fill.Casting(e.X, e.Y);
+                                pictureBox1.Image = q.bitmap;
+                            }
+                        }
+                        else if (Pipetka == true)
+                        {
+                            button4.BackColor = q.bitmap.GetPixel(e.X, e.Y);
+                            color = button4.BackColor;
+                            brush.SetColor(color);
+                        }
+                        else if (Eraser == true)
+                        {
+                            brush.SetColor(Color.White);
+                            brush.SetDot(e.X, e.Y);
+                            pictureBox1.Image = q.bitmap;
+                        }
+                        else
+                        {
+                            brush.SetColor(button4.BackColor);
+                            if (abstractFabric is LineFabric)
+                            {
+                                brush.SetDot(e.X, e.Y);
+                                q.DrawLine();
+                                pictureBox1.Image = q.bitmap;
+                            }
+                        }
+                    }
+                    else if (e.Button == MouseButtons.Right)
+                    {
+                        brush.SetColor(button1.BackColor);
+                        if (abstractFabric is LineFabric)
+                        {
+                            brush.SetDot(e.X, e.Y);
+                            q.DrawLine();
+                            pictureBox1.Image = q.bitmap;
+                        }
+                    }
                 }
-                pictureBox1.Image = q.bitmap;
+                //if(abstractFabric is LineFabric)
+                //{
+                //    brush.SetDot(e.X, e.Y);
+                //    q.DrawLine();
+                //    pictureBox1.Image = q.bitmap;
+                //}        
+                if (abstractFabric is UncommonPoligon)
+                {
+                    if (isFirstPoligon == true)
+                    {
+
+                        isFirstPoligon = false;
+                        first = e.Location;
+                        last = e.Location;
+                        drower.Draw(e.Location, e.Location, nAngle);
+                        q.DrawLine();
+                        q.Clone2();
+                    }
+                    else
+                    {
+                        drower.Draw(e.Location, first, nAngle);
+                        q.DrawLine();
+                        //last = e.Location;
+                    }
+                    pictureBox1.Image = q.bitmap;
+                }
             }
-
-            //if (tmp == 11)
-            //{
-            //    if (isFirstPoligon == true)
-            //    {
-            //        startX = e.X;
-            //        startY = e.Y;
-            //        lastX = startX;
-            //        lastY = startY;
-            //        brush.SetDot(startX, startY);
-            //        isFirstPoligon = false;
-            //        pictureBox1.Image = q.bitmap;
-            //    }
-            //    else
-            //    {
-            //        xnow = e.X;
-            //        ynow = e.Y;
-            //        brush.DrawLine(lastX, lastY, xnow, ynow);
-            //        lastX = e.X;
-            //        lastY = e.Y;
-            //        pictureBox1.Image = q.bitmap;
-
-            //    }
-            //}
+            else
+            {
+                foreach (Point point in q.listOfFigure) 
+                {
+                    FindPoint(point, e);
+                }
+            }
             
         }
-       
+       public void FindPoint(Point point, MouseEventArgs e)
+        {
+            if (point.X == e.X&&point.Y==e.Y)
+            { }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {            
             isDrow = false;
@@ -388,7 +379,10 @@ namespace WindowsFormsApp7
             isDrow = false;
             if (!(abstractFabric is UncommonPoligon))
             { 
-                q.Clone(); 
+                q.Clone();
+                q.SaveBitmap();
+                q.pointsList.AddRange(drower.points);
+             
             }
             q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
         }        
@@ -757,6 +751,11 @@ namespace WindowsFormsApp7
                 Fill = new SolidFill(button4.BackColor);
             }
 
+        }
+
+        private void hand_Click(object sender, EventArgs e)
+        {
+            isHanded = true;
         }
 
         private void button9_Click(object sender, EventArgs e)

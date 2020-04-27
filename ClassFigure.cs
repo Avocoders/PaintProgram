@@ -9,13 +9,14 @@ namespace WindowsFormsApp7
 {
     public class ClassFigure : Drower
     {
+        
         public ClassFigure(Brush brush, IFigur figur, IFill fill) : base(brush, figur, fill) 
         {
         
         }
         public override void Draw(Point first, Point last,int nAngle)
         {
-            List<Point> points = figure.Drow(first.X, first.Y, last.X, last.Y, nAngle);
+            points = figure.Drow(first.X, first.Y, last.X, last.Y, nAngle);
             for(int i = 0; i<points.Count-1;i++)
             {
                 brush.DrawLine(points[i].X, points[i].Y, points[i + 1].X, points[i + 1].Y);

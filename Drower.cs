@@ -12,6 +12,7 @@ namespace WindowsFormsApp7
         public Brush brush;
         public IFigur figure;
         public IFill fill;
+        public List<Point> points;
         public Drower(Brush brush, IFigur figur, IFill fill) 
         {
             this.brush = brush;
