@@ -14,12 +14,12 @@ namespace WindowsFormsApp7.Figure
         List <Point> ellipse ;
         int n = 0;
 
-        public void ChangeFigurePosition(Point n)
+        public override void ChangeFigurePosition(Point n)
         {
             throw new NotImplementedException();
         }
 
-        public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
+        public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             ellipse = new List<Point>();
             int bx1=0, by1=0, bx2 = 0, by2 = 0, ax1 = 0, ay1 = 0, ax2 = 0, ay2 = 0;

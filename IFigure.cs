@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp7
 {
-    public interface IFigur
+    public abstract class IFigur
     {
-     List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle);
-    void ChangeFigurePosition(Point n);
+        public List<Point> points;
+        public abstract List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle) ;
+        public abstract void ChangeFigurePosition(Point n);
     }
 }

@@ -11,7 +11,7 @@ namespace WindowsFormsApp7.Figure
     {
         List <Point> square ;
 
-        public void ChangeFigurePosition(Point n)
+        public override void ChangeFigurePosition(Point n)
         {
             throw new NotImplementedException();
         }
@@ -22,7 +22,7 @@ namespace WindowsFormsApp7.Figure
         //    q = bruch;
         //}
         List<Point> points;
-        public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
+        public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             points = new List<Point>();
             square = new List<Point>();

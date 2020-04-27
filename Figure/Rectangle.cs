@@ -12,12 +12,12 @@ namespace WindowsFormsApp7.Figure
     {
         List<Point> rectangl ;
 
-        public void ChangeFigurePosition(Point n)
+        public override void ChangeFigurePosition(Point n)
         {
             throw new NotImplementedException();
         }
 
-        public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
+        public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             rectangl = new List<Point>();
             rectangl.Add(new Point(x1, y1));
