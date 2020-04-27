@@ -95,9 +95,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(-27, 229);
+            this.pictureBox1.Location = new System.Drawing.Point(-27, 249);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1132, 501);
+            this.pictureBox1.Size = new System.Drawing.Size(1132, 481);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -245,7 +245,7 @@
             this.lineThickness.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lineThickness.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
             this.lineThickness.LargeChange = 1;
-            this.lineThickness.Location = new System.Drawing.Point(412, 78);
+            this.lineThickness.Location = new System.Drawing.Point(412, 92);
             this.lineThickness.Minimum = 1;
             this.lineThickness.Name = "lineThickness";
             this.lineThickness.Size = new System.Drawing.Size(345, 45);
@@ -355,7 +355,7 @@
             this.panel2.Controls.Add(this.button4);
             this.panel2.Location = new System.Drawing.Point(0, 105);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1105, 126);
+            this.panel2.Size = new System.Drawing.Size(1105, 145);
             this.panel2.TabIndex = 28;
             // 
             // margin
@@ -364,7 +364,7 @@
             this.margin.FlatAppearance.BorderSize = 0;
             this.margin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.margin.Image = ((System.Drawing.Image)(resources.GetObject("margin.Image")));
-            this.margin.Location = new System.Drawing.Point(634, 8);
+            this.margin.Location = new System.Drawing.Point(637, 16);
             this.margin.Name = "margin";
             this.margin.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.margin.Size = new System.Drawing.Size(39, 32);
@@ -376,7 +376,7 @@
             this.top.FlatAppearance.BorderSize = 0;
             this.top.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.top.Image = ((System.Drawing.Image)(resources.GetObject("top.Image")));
-            this.top.Location = new System.Drawing.Point(592, 6);
+            this.top.Location = new System.Drawing.Point(592, 14);
             this.top.Name = "top";
             this.top.Size = new System.Drawing.Size(36, 35);
             this.top.TabIndex = 42;
@@ -388,7 +388,7 @@
             this.hand.FlatAppearance.BorderSize = 0;
             this.hand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.hand.Image = ((System.Drawing.Image)(resources.GetObject("hand.Image")));
-            this.hand.Location = new System.Drawing.Point(547, 3);
+            this.hand.Location = new System.Drawing.Point(547, 11);
             this.hand.Name = "hand";
             this.hand.Size = new System.Drawing.Size(39, 38);
             this.hand.TabIndex = 41;
@@ -400,10 +400,10 @@
             this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(124)))));
             this.textBox3.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox3.Location = new System.Drawing.Point(406, 37);
+            this.textBox3.Location = new System.Drawing.Point(413, 47);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(117, 38);
+            this.textBox3.Size = new System.Drawing.Size(117, 41);
             this.textBox3.TabIndex = 32;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown_1);
@@ -417,7 +417,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1});
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
-            this.toolStrip1.Location = new System.Drawing.Point(412, 6);
+            this.toolStrip1.Location = new System.Drawing.Point(412, 15);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(118, 34);
             this.toolStrip1.TabIndex = 35;
@@ -482,9 +482,9 @@
             this.flowLayoutPanel1.Controls.Add(this.star);
             this.flowLayoutPanel1.Font = new System.Drawing.Font("Monotype Corsiva", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.flowLayoutPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(144, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(144, 10);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(256, 126);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(256, 127);
             this.flowLayoutPanel1.TabIndex = 35;
             // 
             // straightLine
@@ -675,9 +675,9 @@
             this.moreColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.moreColor.Image = ((System.Drawing.Image)(resources.GetObject("moreColor.Image")));
             this.moreColor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.moreColor.Location = new System.Drawing.Point(957, 9);
+            this.moreColor.Location = new System.Drawing.Point(957, 7);
             this.moreColor.Name = "moreColor";
-            this.moreColor.Size = new System.Drawing.Size(148, 117);
+            this.moreColor.Size = new System.Drawing.Size(147, 117);
             this.moreColor.TabIndex = 0;
             this.moreColor.UseVisualStyleBackColor = false;
             this.moreColor.Click += new System.EventHandler(this.moreColor_Click);
