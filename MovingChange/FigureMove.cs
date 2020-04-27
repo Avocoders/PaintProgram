@@ -10,20 +10,30 @@ namespace WindowsFormsApp7.MovingChange
     public class FigureMove : IMovingChange
     {
         SingleBitmap move = SingleBitmap.Create();
-
+        Point keepP;
+        IFigur figur;
         public void ChangeFigure(Point p)
         {
-            throw new NotImplementedException();
+            int dx, dy;
+            dx = p.X - keepP.X;
+            dy = p.Y - keepP.Y;
+            figur.ChangeFigurePosition(dx,dy);
         }
 
-        public void FindPoint(Point p)
+        public IFigur FindPoint(Point p)
         {
-            foreach (Figure f in figures)
+            foreach (IFigur f in move.listOfFigure)
             {
-                if (f.points.Contains(p))
-                    return f;
+                foreach (Point t in f.points)
+                {
+                    if (Math.Abs(t.X - p.X) <= 10 && Math.Abs(t.Y - p.Y) <= 10)
+                    {
+                        keepP = p;
+                        figur = f;
+                        return f;
+                    }
+                }
             }
-
             return null;
         }
     }

@@ -12,6 +12,7 @@ using WindowsFormsApp7.Figure;
 using System.Drawing.Imaging;
 using WindowsFormsApp7.Fill;
 using WindowsFormsApp7.DrawerFabric;
+using WindowsFormsApp7.MovingChange;
 
 namespace WindowsFormsApp7
 {
@@ -43,6 +44,7 @@ namespace WindowsFormsApp7
         OpenFileDialog open = new OpenFileDialog();
         int nAngle=5;
         Point first, last;
+        IMovingChange moving;
        
         public Form1()
         {
@@ -131,77 +133,85 @@ namespace WindowsFormsApp7
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            
-            if (e.X < 0 || e.X > pictureBox1.Width || e.Y < 0 || e.Y > pictureBox1.Height)
+            if (isHanded!=true)
             {
-                isFirst = true;
-            }
-
-            if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
-            {
-                brush.SetIsFirst(isFirst);
-                isFirst = false;
-                if (!(abstractFabric is UncommonPoligon))
+                if (e.X < 0 || e.X > pictureBox1.Width || e.Y < 0 || e.Y > pictureBox1.Height)
                 {
-                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                    if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+                    isFirst = true;
+                }
+
+                if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
+                {
+                    brush.SetIsFirst(isFirst);
+                    isFirst = false;
+                    if (!(abstractFabric is UncommonPoligon))
                     {
-                        if (Figure is Ellipse)
+                        q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                        if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
                         {
-                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                            Figure = new Сircle();
-                            isFigureChanged = true;
-                        }
-                        else if (Figure is Rectangl)
-                        {
-                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                            Figure = new Square();
-                            isFigureChanged = true;
-                        }
-                        else if (Figure is IsoscelesTriangle)
-                        {
-                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                            Figure = new RightTriangle();
-                            isFigureChanged = true;
-                        }
+                            if (Figure is Ellipse)
+                            {
+                                drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                                Figure = new Сircle();
+                                isFigureChanged = true;
+                            }
+                            else if (Figure is Rectangl)
+                            {
+                                drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                                Figure = new Square();
+                                isFigureChanged = true;
+                            }
+                            else if (Figure is IsoscelesTriangle)
+                            {
+                                drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                                Figure = new RightTriangle();
+                                isFigureChanged = true;
+                            }
                         
-                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                    }
-                    else if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
-                    {
-                         if (Figure is Сircle && isFigureChanged == true)
-                        {
-                            Figure = new Ellipse();
-                            isFigureChanged = false;
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                         }
-                        else if (Figure is Square && isFigureChanged == true)
+                        else if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
                         {
-                            Figure = new Rectangl();
-                            isFigureChanged = false;
+                             if (Figure is Сircle && isFigureChanged == true)
+                            {
+                                Figure = new Ellipse();
+                                isFigureChanged = false;
+                            }
+                            else if (Figure is Square && isFigureChanged == true)
+                            {
+                                Figure = new Rectangl();
+                                isFigureChanged = false;
+                            }
+                            else if (Figure is RightTriangle && isFigureChanged == true)
+                            {
+                                Figure = new IsoscelesTriangle();
+                                isFigureChanged = false;
+                            }
+                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                         }
-                        else if (Figure is RightTriangle && isFigureChanged == true)
-                        {
-                            Figure = new IsoscelesTriangle();
-                            isFigureChanged = false;
-                        }
-                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                    }
 
-                    last = e.Location;
-                    drower.Draw(first, last, nAngle);
-                    if (!(drower is ClassLine))
-                    { q.DrawFigure(); }
-                    else if(drower is ClassLine)
-                    { q.DrawLine(); }
+                        last = e.Location;
+                        drower.Draw(first, last, nAngle);
+                        if (!(drower is ClassLine))
+                        { q.DrawFigure(); }
+                        else if(drower is ClassLine)
+                        { q.DrawLine(); }
 
-                    if (drower is ClassLine)
-                    { first = last; }
+                        if (drower is ClassLine)
+                        { first = last; }
 
                     
-                    pictureBox1.Image = q.bitmap;
+                        pictureBox1.Image = q.bitmap;
+                    }
                 }
             }
-           
+            else
+            {
+                q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                moving.ChangeFigure(e.Location);
+                q.DrowAllFigure();
+                pictureBox1.Image = q.bitmap;
+            }
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -344,10 +354,7 @@ namespace WindowsFormsApp7
             }
             else
             {
-                //foreach (Point point in q.listOfFigure) 
-                //{
-                //    FindPoint(point, e);
-                //}
+                moving.FindPoint(e.Location);
             }
             
         }
@@ -385,6 +392,8 @@ namespace WindowsFormsApp7
              
             }
             q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+
+            q.listOfFigure.Add(Figure);
         }        
 
         private void lineThickness_Scroll(object sender, EventArgs e)
@@ -756,6 +765,7 @@ namespace WindowsFormsApp7
         private void hand_Click(object sender, EventArgs e)
         {
             isHanded = true;
+            moving = new FigureMove();
         }
 
         private void button9_Click(object sender, EventArgs e)

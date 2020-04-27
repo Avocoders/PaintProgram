@@ -9,7 +9,7 @@ namespace WindowsFormsApp7
 {
     public interface IMovingChange
     {
-        void FindPoint(Point p);
+        IFigur FindPoint(Point p);
         void ChangeFigure(Point p);
     }
 }
