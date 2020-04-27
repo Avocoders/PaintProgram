@@ -768,6 +768,11 @@ namespace WindowsFormsApp7
             moving = new FigureMove();
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void button9_Click(object sender, EventArgs e)
         {
             pictureBox2.BackColor = button1.BackColor;
