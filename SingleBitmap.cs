@@ -68,6 +68,8 @@ namespace WindowsFormsApp7
                     tmp = p;
                 }
                 brush.DrawLine(tmp.X, tmp.Y, f.points[0].X, f.points[0].Y);
+                Graphics graph = Graphics.FromImage(bitmap);
+                graph.DrawImage(bitFigure, 0, 0);
             }
         }
 

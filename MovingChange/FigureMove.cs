@@ -18,6 +18,7 @@ namespace WindowsFormsApp7.MovingChange
             dx = p.X - keepP.X;
             dy = p.Y - keepP.Y;
             figur.ChangeFigurePosition(dx,dy);
+            keepP = p;
         }
 
         public IFigur FindPoint(Point p)

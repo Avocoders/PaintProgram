@@ -9,7 +9,7 @@ namespace WindowsFormsApp7.Figure
 {
     public class Square : IFigur
     {
-        List <Point> points;
+        //List <Point> points;
 
         //Brush q;
         //public Square(Brush bruch)

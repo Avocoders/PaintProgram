@@ -133,14 +133,15 @@ namespace WindowsFormsApp7
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isHanded!=true)
-            {
+            
                 if (e.X < 0 || e.X > pictureBox1.Width || e.Y < 0 || e.Y > pictureBox1.Height)
                 {
                     isFirst = true;
                 }
 
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
+                {
+                if (isHanded != true)
                 {
                     brush.SetIsFirst(isFirst);
                     isFirst = false;
@@ -167,12 +168,12 @@ namespace WindowsFormsApp7
                                 Figure = new RightTriangle();
                                 isFigureChanged = true;
                             }
-                        
+
                             drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                         }
                         else if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
                         {
-                             if (Figure is Сircle && isFigureChanged == true)
+                            if (Figure is Сircle && isFigureChanged == true)
                             {
                                 Figure = new Ellipse();
                                 isFigureChanged = false;
@@ -194,24 +195,27 @@ namespace WindowsFormsApp7
                         drower.Draw(first, last, nAngle);
                         if (!(drower is ClassLine))
                         { q.DrawFigure(); }
-                        else if(drower is ClassLine)
+                        else if (drower is ClassLine)
                         { q.DrawLine(); }
 
                         if (drower is ClassLine)
                         { first = last; }
 
-                    
+
                         pictureBox1.Image = q.bitmap;
                     }
                 }
+                else
+                {
+                    q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    moving.ChangeFigure(e.Location);
+                    q.DrowAllFigure();
+                    pictureBox1.Image = q.bitmap;
+                }
+                
             }
-            else
-            {
-                q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                moving.ChangeFigure(e.Location);
-                q.DrowAllFigure();
-                pictureBox1.Image = q.bitmap;
-            }
+            
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -354,7 +358,9 @@ namespace WindowsFormsApp7
             }
             else
             {
+                isDrow = true;
                 moving.FindPoint(e.Location);
+                q.GetBrush(brush);
             }
             
         }

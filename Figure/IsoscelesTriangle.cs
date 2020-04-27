@@ -9,7 +9,7 @@ namespace WindowsFormsApp7.Figure
 {
     public class IsoscelesTriangle : IFigur
     {
-        List <Point> points;
+        //List <Point> points;
 
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {

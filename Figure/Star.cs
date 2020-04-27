@@ -9,7 +9,7 @@ namespace WindowsFormsApp7.Figure
 {
     class Star:IFigur
     {
-        List<Point> points;
+        //List<Point> points;
         int n ;
 
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)

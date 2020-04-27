@@ -11,7 +11,7 @@ namespace WindowsFormsApp7.Figure
     {
 
         Point point;
-        List <Point> points;
+       // List <Point> points;
         int n = 0;
 
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
