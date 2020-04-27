@@ -32,9 +32,10 @@ namespace WindowsFormsApp7
         public Bitmap bitFigure;
         public List<Bitmap> bitmap2;
         public List<Bitmap> listOfBitmap;
-        public List<Drower> listOfFigure;
+        public List<IFigur> listOfFigure;
         public List<Point> pointsList = new List<Point>();
         public Bitmap tmp1;
+        Brush brush;
         public int width,heigth;
         int n, end;
        
@@ -44,12 +45,30 @@ namespace WindowsFormsApp7
             first = new Bitmap(bitmap);
             bitmap2 = new List<Bitmap>();
             listOfBitmap = new List<Bitmap>();
-            listOfFigure = new List<Drower>();
+            listOfFigure = new List<IFigur>();
             bitmap2.Insert(0, bitmap);
             n = 0;
             end = n;
             listOfBitmap.Insert(n, bitFigure);
             //bitFigure = new Bitmap(width, heigth);
+        }
+        public void GetBrush(Brush brush)
+        {
+            this.brush = brush;
+        }
+
+        public void DrowAllFigure()
+        {
+            foreach(IFigur f in listOfFigure)
+            {
+                Point tmp = f.points[0];
+                foreach (Point p in f.points)
+                {
+                    brush.DrawLine(tmp.X,tmp.Y, p.X,p.Y );
+                    tmp = p;
+                }
+                brush.DrawLine(tmp.X, tmp.Y, f.points[0].X, f.points[0].Y);
+            }
         }
 
         public void Clone()
