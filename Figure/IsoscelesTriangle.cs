@@ -9,16 +9,11 @@ namespace WindowsFormsApp7.Figure
 {
     public class IsoscelesTriangle : IFigur
     {
-        List <Point> isoscelesTriangle = new List<Point>();
-
-        public override void ChangeFigurePosition(Point n)
-        {
-            throw new NotImplementedException();
-        }
+        List <Point> points;
 
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
-            isoscelesTriangle = new List<Point>();
+            points = new List<Point>();
             int y3 = 0;
             int x3 = 0;
             int dx = Math.Abs(x2 - x1);
@@ -36,15 +31,23 @@ namespace WindowsFormsApp7.Figure
             }
             if (y3 > 0)
             {
-                isoscelesTriangle.Add(new Point(x1, y1));
-                isoscelesTriangle.Add(new Point(x2, y2));
-                isoscelesTriangle.Add(new Point(x3, y3));
+                points.Add(new Point(x1, y1));
+                points.Add(new Point(x2, y2));
+                points.Add(new Point(x3, y3));
 
                 //q.DrawLine(x2, y2, x1, y1);
                 //q.DrawLine(x3, y3, x2, y2);
                 //q.DrawLine(x1, y1, x3, y3);
             }
-            return isoscelesTriangle;
+            return points;
+        }
+
+        public override void ChangeFigurePosition(int dX, int dY)
+        {
+            for (int i = 0; i < points.Count; i++)
+            {
+                points[i] = new Point(points[i].X + dX, points[i].Y + dY);
+            }
         }
     }
 }

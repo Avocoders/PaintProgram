@@ -11,17 +11,12 @@ namespace WindowsFormsApp7.Figure
     {
 
         Point point;
-        List <Point> ellipse ;
+        List <Point> points;
         int n = 0;
-
-        public override void ChangeFigurePosition(Point n)
-        {
-            throw new NotImplementedException();
-        }
 
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
-            ellipse = new List<Point>();
+            points = new List<Point>();
             int bx1=0, by1=0, bx2 = 0, by2 = 0, ax1 = 0, ay1 = 0, ax2 = 0, ay2 = 0;
             int a, b;
             int dx = Math.Abs(x2 - x1);
@@ -88,10 +83,17 @@ namespace WindowsFormsApp7.Figure
                 //x = ex;
                 //y = ey;
                 point = new Point(ex, ey);
-                ellipse.Add(point);
+                points.Add(point);
                 n++;
             }
-            return ellipse;
+            return points;
+        }
+        public override void ChangeFigurePosition(int dX, int dY)
+        {
+            for (int i = 0; i < points.Count; i++)
+            {
+                points[i] = new Point(points[i].X + dX, points[i].Y + dY);
+            }
         }
     }
 }
