@@ -74,6 +74,9 @@
     </Compile>
     <Compile Include="IFill.cs" />
     <Compile Include="IFigure.cs" />
+    <Compile Include="IMovingChange.cs" />
+    <Compile Include="MovingChange\FigureMove.cs" />
+    <Compile Include="MovingChange\PointMove.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleBitmap.cs" />
