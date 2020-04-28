@@ -21,7 +21,7 @@ namespace WindowsFormsApp7.MovingChange
             {
                 if (f.points.Contains(p))
                 {
-                    IFigur q = f.figure;
+                    Drower q = f;
                     return f;
                 }
             }

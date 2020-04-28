@@ -8,20 +8,12 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp7.MovingChange
 {
-    public class FigureMove : IMovingChange
+    class ChangeSizeFigure : IMovingChange
     {
         SingleBitmap move = SingleBitmap.Create();
-        Point keepP;
-        Drower figur;
-        Drower drower;
-        
         public void ChangeFigure(Point p)
         {
-            int dx, dy;
-            dx = p.X - keepP.X;
-            dy = p.Y - keepP.Y;
-            figur.figure.ChangeFigurePosition(dx,dy);
-            keepP = p;
+            throw new NotImplementedException();
         }
 
         public int FindMainPoint(Point p)
@@ -31,24 +23,22 @@ namespace WindowsFormsApp7.MovingChange
 
         public Drower FindPoint(Point p)
         {
-            foreach (Drower f in move.listOfFigure)
+            foreach(Drower f in move.listOfFigure)
             {
-                foreach (Point t in f.points)
+                if (f.points.Contains(p))
                 {
-                    if (Math.Abs(t.X - p.X) <= 10 && Math.Abs(t.Y - p.Y) <= 10)
-                    {
-                        keepP = p;
-                        figur = f;
-                        return f;
-                    }
+                    IFigur q = f.figure;
+                    return f;
                 }
             }
+
             return null;
         }
 
         public void PointChangeMode(PictureBox pictureBox)
         {
-            throw new NotImplementedException();
+           // foreach(Point p in )
+
         }
     }
 }

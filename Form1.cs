@@ -210,7 +210,7 @@ namespace WindowsFormsApp7
                 }
                 else if (isHanded == true)
                 {
-                    q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                   // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     moving.ChangeFigure(e.Location);
 
@@ -220,7 +220,7 @@ namespace WindowsFormsApp7
                 }
                 else if (isTop == true)
                 {
-                    q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                   // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     currentFigur.points[tmpIndex] = e.Location;
                     q.DrawFigure();
@@ -587,6 +587,8 @@ namespace WindowsFormsApp7
             Eraser = false;
             Pipetka = false;
             fill = false;
+            isTop = false;
+            isHanded = false;
         }
 
         private void rectangle_Click(object sender, EventArgs e)
@@ -597,6 +599,8 @@ namespace WindowsFormsApp7
             Eraser = false;
             Pipetka = false;
             fill = false;
+            isTop = false;
+            isHanded = false;
         }
 
         private void RightTriangle_Click(object sender, EventArgs e)
@@ -607,6 +611,8 @@ namespace WindowsFormsApp7
             Eraser = false;
             Pipetka = false;
             fill = false;
+            isTop = false;
+            isHanded = false;
         }
 
         private void IsoscelesTriangle_Click(object sender, EventArgs e)
@@ -617,6 +623,8 @@ namespace WindowsFormsApp7
             Eraser = false;
             Pipetka = false;
             fill = false;
+            isTop = false;
+            isHanded = false;
         }
         private void straightLine_Click(object sender, EventArgs e)
         {
@@ -626,6 +634,8 @@ namespace WindowsFormsApp7
             Eraser = false;
             Pipetka = false;
             fill = false;
+            isTop = false;
+            isHanded = false;
         }
         private void choosePen_Click(object sender, EventArgs e)
         {
@@ -634,6 +644,8 @@ namespace WindowsFormsApp7
             textBox3.Visible = false;
             Pipetka = false;
             fill = false;
+            isTop = false;
+            isHanded = false;
         }
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
@@ -668,6 +680,8 @@ namespace WindowsFormsApp7
             Eraser = false;
             Pipetka = false;
             fill = false;
+            isTop = false;
+            isHanded = false;
         }
 
         private void textBox3_KeyDown_1(object sender, KeyEventArgs e)
@@ -689,6 +703,8 @@ namespace WindowsFormsApp7
             Eraser = false;
             Pipetka = false;
             fill = false;
+            isTop = false;
+            isHanded = false;
         }
 
         private void circle_Click(object sender, EventArgs e)
@@ -699,6 +715,8 @@ namespace WindowsFormsApp7
             Eraser = false;
             Pipetka = false;
             fill = false;
+            isTop = false;
+            isHanded = false;
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -709,6 +727,8 @@ namespace WindowsFormsApp7
             Eraser = false;
             Pipetka = false;
             fill = false;
+            isTop = false;
+            isHanded = false;
         }
 
         private void pictureBox1_SizeChanged(object sender, EventArgs e)
@@ -735,6 +755,8 @@ namespace WindowsFormsApp7
             Pipetka = false;
             textBox3.Visible = false;
             fill = true;
+            isTop = false;
+            isHanded = false;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -848,6 +870,8 @@ namespace WindowsFormsApp7
             Pipetka = true;
             Eraser = false;
             fill = false;
+            isTop = false;
+            isHanded = false;
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -885,6 +909,8 @@ namespace WindowsFormsApp7
             textBox3.Visible = false;
             Pipetka = false;
             fill = false;
+            isTop = false;
+            isHanded = false;
         }                
     }
 }

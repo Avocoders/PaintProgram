@@ -75,6 +75,7 @@
     <Compile Include="IFill.cs" />
     <Compile Include="IFigure.cs" />
     <Compile Include="IMovingChange.cs" />
+    <Compile Include="MovingChange\ChangeSizeFigure.cs" />
     <Compile Include="MovingChange\FigureMove.cs" />
     <Compile Include="MovingChange\PointMove.cs" />
     <Compile Include="Program.cs" />
