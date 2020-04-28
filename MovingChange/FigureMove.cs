@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsFormsApp7.DrawerFabric;
 
 namespace WindowsFormsApp7.MovingChange
 {
@@ -12,6 +13,8 @@ namespace WindowsFormsApp7.MovingChange
         SingleBitmap move = SingleBitmap.Create();
         Point keepP;
         IFigur figur;
+        Drower drower;
+        
         public void ChangeFigure(Point p)
         {
             int dx, dy;

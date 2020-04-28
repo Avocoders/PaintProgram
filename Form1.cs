@@ -24,7 +24,7 @@ namespace WindowsFormsApp7
         SingleBitmap q = SingleBitmap.Create();        
         int n = 1;
         bool isHanded = false;
-        int xnow, ynow;
+        //int xnow, ynow;
         Color color;
         bool firstColor = true;        
         Brush brush;        
@@ -32,9 +32,9 @@ namespace WindowsFormsApp7
         bool expend = false;
         bool noexpend = true;
         bool isFigureChanged = false;
-        int lastX, lastY;
-        int startX = 0;
-        int startY = 0;
+        //int lastX, lastY;
+        //int startX = 0;
+        //int startY = 0;
         IFigur Figure;
         IFill Fill;        
         bool fill = false;
