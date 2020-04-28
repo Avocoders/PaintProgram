@@ -24,7 +24,8 @@ namespace WindowsFormsApp7
         SingleBitmap q = SingleBitmap.Create();        
         int n = 1;
         bool isHanded = false;
-        //int xnow, ynow;
+        bool isTop = false;
+        int xnow, ynow;
         Color color;
         bool firstColor = true;        
         Brush brush;        
@@ -36,6 +37,7 @@ namespace WindowsFormsApp7
         //int startX = 0;
         //int startY = 0;
         IFigur Figure;
+        IFigur currentFigur;
         IFill Fill;        
         bool fill = false;
         bool Eraser = false;
@@ -45,6 +47,7 @@ namespace WindowsFormsApp7
         int nAngle=5;
         Point first, last;
         IMovingChange moving;
+        int tmpIndex;
        
         public Form1()
         {
@@ -141,7 +144,7 @@ namespace WindowsFormsApp7
 
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {
-                if (isHanded != true)
+                if (isHanded != true && isTop != true)
                 {
                     brush.SetIsFirst(isFirst);
                     isFirst = false;
@@ -205,7 +208,7 @@ namespace WindowsFormsApp7
                         pictureBox1.Image = q.bitmap;
                     }
                 }
-                else
+                else if (isHanded == true)
                 {
                     q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -213,14 +216,21 @@ namespace WindowsFormsApp7
                     q.DrowAllFigure();
                     pictureBox1.Image = q.bitmap;
                 }
-                
+                else if (isTop == true)
+                {
+                    q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    currentFigur.points[tmpIndex] = e.Location;                    
+                    q.DrowAllFigure();
+                    pictureBox1.Image = q.bitmap;
+                }                
             }
             
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (isHanded != true)
+            if (isHanded != true && isTop != true)
             {
                 if (!(abstractFabric is UncommonPoligon))
                 {
@@ -329,12 +339,7 @@ namespace WindowsFormsApp7
                         }
                     }
                 }
-                //if(abstractFabric is LineFabric)
-                //{
-                //    brush.SetDot(e.X, e.Y);
-                //    q.DrawLine();
-                //    pictureBox1.Image = q.bitmap;
-                //}        
+                
                 if (abstractFabric is UncommonPoligon)
                 {
                     if (isFirstPoligon == true)
@@ -351,16 +356,38 @@ namespace WindowsFormsApp7
                     {
                         drower.Draw(e.Location, first, nAngle);
                         q.DrawLine();
-                        //last = e.Location;
+                        
                     }
                     pictureBox1.Image = q.bitmap;
                 }
             }
-            else
+            else if (isHanded == true && isTop != true)
             {
                 isDrow = true;
                 moving.FindPoint(e.Location);
                 q.GetBrush(brush);
+            }
+            else if (isTop == true && isHanded != true)
+            {
+                isDrow = true;
+                for (int i = -10; i <= 10; i++)
+                {
+                    for (int j = -10; j <= 10; j++)
+                    {
+                        Point p = new Point(e.X + i, e.Y + j);
+                        currentFigur = moving.FindPoint(p);
+                        if (currentFigur != null)
+                        {
+                            tmpIndex = moving.FindMainPoint(p);
+                            break;
+                        }
+                    }
+                    if (currentFigur != null)
+                    {
+                        break;
+                    }
+                }                
+                q.GetBrush(brush);                
             }
             
         }
@@ -771,7 +798,17 @@ namespace WindowsFormsApp7
         private void hand_Click(object sender, EventArgs e)
         {
             isHanded = true;
+            isTop = false;
             moving = new FigureMove();
+        }
+
+        private void top_Click(object sender, EventArgs e)
+        {
+            isTop = true;
+            isHanded = false;
+            moving = new PointMove();
+            //moving.PointChangeMode(pictureBox1);
+            //pictureBox1.Image = q.bitmap;
         }
 
         private void button9_Click(object sender, EventArgs e)

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormsApp7
 {
@@ -11,5 +12,7 @@ namespace WindowsFormsApp7
     {
         IFigur FindPoint(Point p);
         void ChangeFigure(Point p);
+        int FindMainPoint(Point p);
+        void PointChangeMode(PictureBox pictureBox);
     }
 }

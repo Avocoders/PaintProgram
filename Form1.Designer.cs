@@ -47,6 +47,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.margin = new System.Windows.Forms.Button();
+            this.top = new System.Windows.Forms.Button();
             this.hand = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -78,8 +80,6 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.top = new System.Windows.Forms.Button();
-            this.margin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -356,6 +356,31 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1105, 126);
             this.panel2.TabIndex = 28;
+            // 
+            // margin
+            // 
+            this.margin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
+            this.margin.FlatAppearance.BorderSize = 0;
+            this.margin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.margin.Image = ((System.Drawing.Image)(resources.GetObject("margin.Image")));
+            this.margin.Location = new System.Drawing.Point(634, 8);
+            this.margin.Name = "margin";
+            this.margin.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.margin.Size = new System.Drawing.Size(39, 32);
+            this.margin.TabIndex = 43;
+            this.margin.UseVisualStyleBackColor = false;
+            // 
+            // top
+            // 
+            this.top.FlatAppearance.BorderSize = 0;
+            this.top.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.top.Image = ((System.Drawing.Image)(resources.GetObject("top.Image")));
+            this.top.Location = new System.Drawing.Point(592, 6);
+            this.top.Name = "top";
+            this.top.Size = new System.Drawing.Size(36, 35);
+            this.top.TabIndex = 42;
+            this.top.UseVisualStyleBackColor = true;
+            this.top.Click += new System.EventHandler(this.top_Click);
             // 
             // hand
             // 
@@ -757,30 +782,6 @@
             this.pictureBox2.TabIndex = 34;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
-            // 
-            // top
-            // 
-            this.top.FlatAppearance.BorderSize = 0;
-            this.top.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.top.Image = ((System.Drawing.Image)(resources.GetObject("top.Image")));
-            this.top.Location = new System.Drawing.Point(592, 6);
-            this.top.Name = "top";
-            this.top.Size = new System.Drawing.Size(36, 35);
-            this.top.TabIndex = 42;
-            this.top.UseVisualStyleBackColor = true;
-            // 
-            // margin
-            // 
-            this.margin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
-            this.margin.FlatAppearance.BorderSize = 0;
-            this.margin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.margin.Image = ((System.Drawing.Image)(resources.GetObject("margin.Image")));
-            this.margin.Location = new System.Drawing.Point(634, 8);
-            this.margin.Name = "margin";
-            this.margin.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.margin.Size = new System.Drawing.Size(39, 32);
-            this.margin.TabIndex = 43;
-            this.margin.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
