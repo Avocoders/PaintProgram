@@ -8,17 +8,6 @@ namespace NUnitTestPaint
 {
     public class Tests
     {
-        public List<Point> IntArrayToPointList(int[] array)
-        {
-            List<Point> points = new List<Point>();
-
-            for (int i = 0; i < array.Length; i += 2)
-            {
-                points.Add(new Point(array[i], array[i + 1]));
-            }
-            return points;
-        }
-
 
         [TestCase(10, 10, 10, 0, new int[] { 20, 10, 13, 20, 2, 16, 2, 4, 13, 0 })]
         [TestCase(40, 40, 26, 15, new int[] { 69, 40, 49, 68, 17, 57, 17, 23, 49, 12 })]
@@ -32,10 +21,6 @@ namespace NUnitTestPaint
             bool Expected = true;
             Assert.AreEqual(Expected, ActualPoint);
         }
-
-
-
-
 
         [TestCase(2, 2, 4, 4, new int[] { 2, 2, 4, 2, 4, 4, 2, 4 })]
         [TestCase(0, 0, 4, 4, new int[] { 0, 0, 4, 0, 4, 4, 0, 4 })]
@@ -100,6 +85,18 @@ namespace NUnitTestPaint
         {
             Poligon Actual = new Poligon();
             bool ActualPoint = Actual.CheckForMatches(x1, y1, x2, y2,n, ExPoints);
+            bool Expected = true;
+            Assert.AreEqual(Expected, ActualPoint);
+        }
+
+        [TestCase(10, 10, 10, 0, 5, new int[] { 20, 10, 13, 20, 2, 16, 2, 4, 13, 0 })]
+        [TestCase(40, 40, 26, 15, 5, new int[] { 69, 40, 49, 68, 17, 57, 17, 23, 49, 12 })]
+        [TestCase(10, 10, 15, 15, 6, new int[] { 17, 10, 14, 16, 7, 16, 3, 10, 6, 4, 14, 4 })]
+        [TestCase(50, 50, 50, 0, 6, new int[] { 100, 50, 75, 93, 25, 93, 0, 50, 25, 7, 75, 7 })]
+        public void TestStar(int x1, int y1, int x2, int y2, int n, int[] ExPoints)
+        {
+            Star Actual = new Star();
+            bool ActualPoint = Actual.CheckForMatches(x1, y1, x2, y2, n, ExPoints);
             bool Expected = true;
             Assert.AreEqual(Expected, ActualPoint);
         }

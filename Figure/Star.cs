@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp7.Figure
 {
-    class Star:IFigur
+    public class Star:IFigur
     {
 
-        int n ;
+        int n=0 ;
 
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
@@ -46,7 +46,7 @@ namespace WindowsFormsApp7.Figure
         {
             bool point = true;
             Star New = new Star();
-            List<Point> NewPointCircle = New.Drow(x1, y1, x2, y2, 0);
+            List<Point> NewPointCircle = New.Drow(x1, y1, x2, y2, c);
             for (int i = 0; i < ExPoints.Length; i += 2)
             {
                 Point a = new Point(ExPoints[i], ExPoints[i + 1]);
