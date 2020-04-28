@@ -32,7 +32,7 @@ namespace WindowsFormsApp7
         public Bitmap bitFigure;
         public List<Bitmap> bitmap2;
         public List<Bitmap> listOfBitmap;
-        public List<IFigur> listOfFigure;
+        public List<Drower> listOfFigure;
         public List<Point> pointsList = new List<Point>();
         public Bitmap tmp1;
         Brush brush;
@@ -45,7 +45,7 @@ namespace WindowsFormsApp7
             first = new Bitmap(bitmap);
             bitmap2 = new List<Bitmap>();
             listOfBitmap = new List<Bitmap>();
-            listOfFigure = new List<IFigur>();
+            listOfFigure = new List<Drower>();
             bitmap2.Insert(0, bitmap);
             n = 0;
             end = n;
@@ -59,19 +59,46 @@ namespace WindowsFormsApp7
 
         public void DrowAllFigure()
         {
-            foreach(IFigur f in listOfFigure)
+            foreach(Drower f in listOfFigure)
             {
                 Point tmp = f.points[0];
                 foreach (Point p in f.points)
                 {
-                    brush.DrawLine(tmp.X,tmp.Y, p.X,p.Y );
-                    tmp = p;
+                    f.Draw();
+                    //brush.DrawLine(tmp.X,tmp.Y, p.X,p.Y );
+                   tmp = p;
                 }
                 brush.DrawLine(tmp.X, tmp.Y, f.points[0].X, f.points[0].Y);
                 Graphics graph = Graphics.FromImage(bitmap);
                 graph.DrawImage(bitFigure, 0, 0);
             }
         }
+        public void DrowNotAllFigure(Drower drower)
+        {
+            foreach (Drower f in listOfFigure)
+            {
+                if(f!=drower)
+                {
+                    Point tmp = f.points[0];
+                    foreach (Point p in f.points)
+                    {
+                        f.Draw();
+                        //brush.DrawLine(tmp.X,tmp.Y, p.X,p.Y );
+                        tmp = p;
+                    }
+                    brush.DrawLine(tmp.X, tmp.Y, f.points[0].X, f.points[0].Y);
+                    Graphics graph = Graphics.FromImage(bitmap);
+                    graph.DrawImage(bitFigure, 0, 0);
+                }
+            }
+        }
+        public void DrowOnlyOneFigure(Drower drower)
+        {
+            drower.Draw();
+            Graphics graph = Graphics.FromImage(bitmap);
+            graph.DrawImage(bitFigure, 0, 0);
+        }
+
 
         public void Clone()
         {

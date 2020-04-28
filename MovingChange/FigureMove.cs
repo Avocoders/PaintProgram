@@ -29,16 +29,16 @@ namespace WindowsFormsApp7.MovingChange
             throw new NotImplementedException();
         }
 
-        public IFigur FindPoint(Point p)
+        public Drower FindPoint(Point p)
         {
-            foreach (IFigur f in move.listOfFigure)
+            foreach (Drower f in move.listOfFigure)
             {
                 foreach (Point t in f.points)
                 {
                     if (Math.Abs(t.X - p.X) <= 10 && Math.Abs(t.Y - p.Y) <= 10)
                     {
                         keepP = p;
-                        figur = f;
+                        figur = f.figure;
                         return f;
                     }
                 }

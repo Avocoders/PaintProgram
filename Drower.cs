@@ -20,6 +20,8 @@ namespace WindowsFormsApp7
             this.figure = figur;
             this.fill = fill;
         }
+        
         public abstract void Draw(Point point1, Point point2,int nAngle);
+        public abstract void Draw();
     }
 }

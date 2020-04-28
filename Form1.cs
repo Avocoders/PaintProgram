@@ -37,7 +37,7 @@ namespace WindowsFormsApp7
         //int startX = 0;
         //int startY = 0;
         IFigur Figure;
-        IFigur currentFigur;
+        Drower currentFigur;
         IFill Fill;        
         bool fill = false;
         bool Eraser = false;
@@ -213,15 +213,18 @@ namespace WindowsFormsApp7
                     q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     moving.ChangeFigure(e.Location);
-                    q.DrowAllFigure();
+
+                    q.DrawFigure();
+                    q.DrowOnlyOneFigure(currentFigur);
                     pictureBox1.Image = q.bitmap;
                 }
                 else if (isTop == true)
                 {
                     q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                    currentFigur.points[tmpIndex] = e.Location;                    
-                    q.DrowAllFigure();
+                    currentFigur.points[tmpIndex] = e.Location;
+                    q.DrawFigure();
+                    q.DrowOnlyOneFigure(currentFigur);
                     pictureBox1.Image = q.bitmap;
                 }                
             }
@@ -364,8 +367,14 @@ namespace WindowsFormsApp7
             else if (isHanded == true && isTop != true)
             {
                 isDrow = true;
-                moving.FindPoint(e.Location);
+               currentFigur = moving.FindPoint(e.Location);
                 q.GetBrush(brush);
+                q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                q.DrowNotAllFigure(currentFigur);
+                pictureBox1.Image = q.bitmap;
+                q.Clone();
+                q.DrowOnlyOneFigure(currentFigur);
+
             }
             else if (isTop == true && isHanded != true)
             {
@@ -386,8 +395,13 @@ namespace WindowsFormsApp7
                     {
                         break;
                     }
-                }                
-                q.GetBrush(brush);                
+                }
+                q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                q.DrowNotAllFigure(currentFigur);
+                pictureBox1.Image = q.bitmap;
+                q.Clone();
+                q.DrowOnlyOneFigure(currentFigur);
+                
             }
             
         }
@@ -420,13 +434,14 @@ namespace WindowsFormsApp7
             if (!(abstractFabric is UncommonPoligon))
             { 
                 q.Clone();
+                if(isHanded!=true&&isTop!=true)
                 q.SaveBitmap();
-                q.pointsList.AddRange(drower.points);
+                
              
             }
             q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
 
-            q.listOfFigure.Add(Figure);
+            q.listOfFigure.Add(drower);
         }        
 
         private void lineThickness_Scroll(object sender, EventArgs e)

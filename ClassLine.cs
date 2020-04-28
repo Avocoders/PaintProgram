@@ -22,5 +22,13 @@ namespace WindowsFormsApp7
             points.Add(point1);
             points.Add(point2);
         }
+
+        public override void Draw()
+        {
+            for(int i = 0; i<points.Count-1;i++)
+            {
+                brush.DrawLine(points[i].X, points[i].Y, points[i + 1].X, points[i + 1].Y);
+            }
+        }
     }
 }
