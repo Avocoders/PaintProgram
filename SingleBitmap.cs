@@ -37,7 +37,7 @@ namespace WindowsFormsApp7
         public Bitmap tmp1;
         Brush brush;
         public int width,heigth;
-        int n, end;
+        int n, end;       
        
         public void CreateBitmapList()
         {
@@ -106,7 +106,7 @@ namespace WindowsFormsApp7
             bitmap = new Bitmap(w, h);
             bitmap = ResultBitmap;
 
-        }
+        }       
 
         public void Clone2()
         {

@@ -17,6 +17,10 @@ namespace WindowsFormsApp7
         SingleBitmap q = SingleBitmap.Create();
         Color color = Color.Black;
 
+        public Brush()
+        {
+        }
+
         public Brush(int width, int heigth)
         {            
             this.width = width;

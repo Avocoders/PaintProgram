@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormsApp7.MovingChange
 {
@@ -21,6 +22,11 @@ namespace WindowsFormsApp7.MovingChange
             keepP = p;
         }
 
+        public int FindMainPoint(Point p)
+        {
+            throw new NotImplementedException();
+        }
+
         public IFigur FindPoint(Point p)
         {
             foreach (IFigur f in move.listOfFigure)
@@ -36,6 +42,11 @@ namespace WindowsFormsApp7.MovingChange
                 }
             }
             return null;
+        }
+
+        public void PointChangeMode(PictureBox pictureBox)
+        {
+            throw new NotImplementedException();
         }
     }
 }
