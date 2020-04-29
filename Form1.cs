@@ -14,6 +14,7 @@ using WindowsFormsApp7.Fill;
 using WindowsFormsApp7.DrawerFabric;
 using WindowsFormsApp7.MovingChange;
 
+
 namespace WindowsFormsApp7
 {
     public partial class Form1 : Form
@@ -33,11 +34,13 @@ namespace WindowsFormsApp7
         bool expend = false;
         bool noexpend = true;
         bool isFigureChanged = false;
+        Drower fdrower;
+        CreatedFigure cf;
         //int lastX, lastY;
         //int startX = 0;
         //int startY = 0;
         IFigur Figure;
-        Drower currentFigur;
+        CreatedFigure currentFigur;
         IFill Fill;        
         bool fill = false;
         bool Eraser = false;
@@ -47,6 +50,7 @@ namespace WindowsFormsApp7
         int nAngle=5;
         Point first, last;
         IMovingChange moving;
+        int fx, fy;
         int tmpIndex;
        
         public Form1()
@@ -172,7 +176,7 @@ namespace WindowsFormsApp7
                                 isFigureChanged = true;
                             }
 
-                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                           // drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                         }
                         else if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
                         {
@@ -191,11 +195,11 @@ namespace WindowsFormsApp7
                                 Figure = new IsoscelesTriangle();
                                 isFigureChanged = false;
                             }
-                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                            //drower = abstractFabric.CreateDrower(Figure, brush, Fill);
                         }
 
                         last = e.Location;
-                        drower.Draw(first, last, nAngle);
+                        drower.Draw(first, last, nAngle,cf);
                         if (!(drower is ClassLine))
                         { q.DrawFigure(); }
                         else if (drower is ClassLine)
@@ -203,7 +207,7 @@ namespace WindowsFormsApp7
 
                         if (drower is ClassLine)
                         { first = last; }
-
+                       // cf.poin = drower.points;
 
                         pictureBox1.Image = q.bitmap;
                     }
@@ -212,17 +216,21 @@ namespace WindowsFormsApp7
                 {
                    // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    //moving.ChangeFigure(e.Location);
+                   // currentFigur.figur.ChangeFigurePosition(e.X-fx,e.Y-fy);
                     moving.ChangeFigure(e.Location);
-
                     q.DrawFigure();
                     q.DrowOnlyOneFigure(currentFigur);
+                    //cf.poin = drower.points;
                     pictureBox1.Image = q.bitmap;
+                    fx = e.X;
+                    fy = e.Y;
                 }
                 else if (isTop == true)
                 {
                    // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                    currentFigur.points[tmpIndex] = e.Location;
+                    currentFigur.poin[tmpIndex] = e.Location;
                     q.DrawFigure();
                     q.DrowOnlyOneFigure(currentFigur);
                     pictureBox1.Image = q.bitmap;
@@ -237,7 +245,12 @@ namespace WindowsFormsApp7
             {
                 if (!(abstractFabric is UncommonPoligon))
                 {
-                    drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                    cf = new CreatedFigure(brush, Figure, Fill);
+                    drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
+                    //drower.Draw(e.Location, e.Location, nAngle);
+                    q.listOfFigure.Add(cf);
+                    //drower = q.listOfFigure[q.listOfFigure.Count-1];
+
                     q.Clone2();
                 }
                 first = e.Location;
@@ -351,13 +364,13 @@ namespace WindowsFormsApp7
                         isFirstPoligon = false;
                         first = e.Location;
                         last = e.Location;
-                        drower.Draw(e.Location, e.Location, nAngle);
+                        drower.Draw(e.Location, e.Location, nAngle,cf);
                         q.DrawLine();
                         q.Clone2();
                     }
                     else
                     {
-                        drower.Draw(e.Location, first, nAngle);
+                        drower.Draw(e.Location, first, nAngle,cf);
                         q.DrawLine();
                         
                     }
@@ -367,13 +380,24 @@ namespace WindowsFormsApp7
             else if (isHanded == true && isTop != true)
             {
                 isDrow = true;
-               currentFigur = moving.FindPoint(e.Location);
-                q.GetBrush(brush);
+                //currentFigur = moving.FindPoint(e.Location);
+                
+                currentFigur = moving.FindPoint(e.Location);
+                //if (currentFigur != null)
+                //{
+                //    tmpIndex = moving.FindMainPoint(p);
+                //    break;
+                //}
+                //currentFigur.points[0] = new Point(1, 1);    
+               
                 q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                q.GetBrush(brush,drower);
                 q.DrowNotAllFigure(currentFigur);
-                pictureBox1.Image = q.bitmap;
                 q.Clone();
+                pictureBox1.Image = q.bitmap;
                 q.DrowOnlyOneFigure(currentFigur);
+                fx = e.X;
+                fy = e.Y;
 
             }
             else if (isTop == true && isHanded != true)
@@ -397,6 +421,7 @@ namespace WindowsFormsApp7
                     }
                 }
                 q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                q.GetBrush(brush,drower);
                 q.DrowNotAllFigure(currentFigur);
                 pictureBox1.Image = q.bitmap;
                 q.Clone();
@@ -405,11 +430,7 @@ namespace WindowsFormsApp7
             }
             
         }
-       public void FindPoint(Point point, MouseEventArgs e)
-        {
-            if (point.X == e.X&&point.Y==e.Y)
-            { }
-        }
+       
         private void Form1_Load(object sender, EventArgs e)
         {            
             isDrow = false;
@@ -437,11 +458,11 @@ namespace WindowsFormsApp7
                 if(isHanded!=true&&isTop!=true)
                 q.SaveBitmap();
                 
-             
+            
             }
-            q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            //q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
 
-            q.listOfFigure.Add(drower);
+            //q.listOfFigure.Add(drower);
         }        
 
         private void lineThickness_Scroll(object sender, EventArgs e)
@@ -649,7 +670,7 @@ namespace WindowsFormsApp7
         }
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
-            drower.Draw(first, last, nAngle);
+            drower.Draw(first, last, nAngle,cf);
             q.DrawLine();
             pictureBox1.Image = q.bitmap;
             drower = abstractFabric.CreateDrower(Figure, brush, Fill);
@@ -863,6 +884,11 @@ namespace WindowsFormsApp7
                 color = button4.BackColor;
                 brush.SetColor(button4.BackColor);
             }
+        }
+
+        private void button11_Click_1(object sender, EventArgs e)
+        {
+            q.DrowAllFigure();
         }
 
         private void choosePipette_Click(object sender, EventArgs e)

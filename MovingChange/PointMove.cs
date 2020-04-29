@@ -14,14 +14,14 @@ namespace WindowsFormsApp7.MovingChange
         public void ChangeFigure(Point p)
         {                              
         }
-
-        public Drower FindPoint(Point p)
+       CreatedFigure q;
+        public CreatedFigure FindPoint(Point p)
         {
-            foreach (Drower f in move.listOfFigure)
+            foreach (CreatedFigure f in move.listOfFigure)
             {
-                if (f.points.Contains(p))
+                if (f.poin.Contains(p))
                 {
-                    Drower q = f;
+                     q = f;
                     return f;
                 }
             }
@@ -31,13 +31,12 @@ namespace WindowsFormsApp7.MovingChange
 
         public int FindMainPoint(Point p)
         {
-            foreach (Drower f in move.listOfFigure)
-            {
-                if (f.points.Contains(p))
+            
+                if (q.poin.Contains(p))
                 {
-                    return f.points.IndexOf(p);
+                    return q.poin.IndexOf(p);
                 }
-            }
+            
             return -1;
         }
 
@@ -46,12 +45,12 @@ namespace WindowsFormsApp7.MovingChange
             
             Brush brush = new Brush();
             brush.SetColor(Color.Red);
-            move.GetBrush(brush);
+           // move.GetBrush(brush,drower);
             move.DrowAllFigure();            
 
-            foreach (Drower f in move.listOfFigure)
+            foreach (CreatedFigure f in move.listOfFigure)
             {
-                foreach (Point t in f.points)
+                foreach (Point t in f.poin)
                 {
                     for (int i = -3; i <= 3; i++)
                     {

@@ -32,8 +32,9 @@ namespace WindowsFormsApp7
         public Bitmap bitFigure;
         public List<Bitmap> bitmap2;
         public List<Bitmap> listOfBitmap;
-        public List<Drower> listOfFigure;
+        public List<CreatedFigure> listOfFigure;
         public List<Point> pointsList = new List<Point>();
+        Drower drawer;
         public Bitmap tmp1;
         Brush brush;
         public int width,heigth;
@@ -45,56 +46,58 @@ namespace WindowsFormsApp7
             first = new Bitmap(bitmap);
             bitmap2 = new List<Bitmap>();
             listOfBitmap = new List<Bitmap>();
-            listOfFigure = new List<Drower>();
+            listOfFigure = new List<CreatedFigure>();
             bitmap2.Insert(0, bitmap);
             n = 0;
             end = n;
             listOfBitmap.Insert(n, bitFigure);
             //bitFigure = new Bitmap(width, heigth);
         }
-        public void GetBrush(Brush brush)
+        public void GetBrush(Brush brush,Drower drower)
         {
             this.brush = brush;
+            this.drawer = drower;
         }
 
         public void DrowAllFigure()
         {
-            foreach(Drower f in listOfFigure)
+            foreach(CreatedFigure f in listOfFigure)
             {
-                Point tmp = f.points[0];
-                foreach (Point p in f.points)
+                Point tmp = f.poin[0];
+                foreach (Point p in f.poin)
                 {
-                    f.Draw();
+                    
+                    drawer.Draw(f);
                     //brush.DrawLine(tmp.X,tmp.Y, p.X,p.Y );
                    tmp = p;
                 }
-                brush.DrawLine(tmp.X, tmp.Y, f.points[0].X, f.points[0].Y);
+                brush.DrawLine(tmp.X, tmp.Y, f.poin[0].X, f.poin[0].Y);
                 Graphics graph = Graphics.FromImage(bitmap);
                 graph.DrawImage(bitFigure, 0, 0);
             }
         }
-        public void DrowNotAllFigure(Drower drower)
+        public void DrowNotAllFigure(CreatedFigure cf2)
         {
-            foreach (Drower f in listOfFigure)
+            foreach (CreatedFigure f in listOfFigure)
             {
-                if(f!=drower)
-                {
-                    Point tmp = f.points[0];
-                    foreach (Point p in f.points)
+                if(f!=cf2)
+                {   
+                    Point tmp = f.poin[0];
+                    foreach (Point p in f.poin)
                     {
-                        f.Draw();
+                        drawer.Draw(f);
                         //brush.DrawLine(tmp.X,tmp.Y, p.X,p.Y );
                         tmp = p;
                     }
-                    brush.DrawLine(tmp.X, tmp.Y, f.points[0].X, f.points[0].Y);
+                    //drower.brush.DrawLine(tmp.X, tmp.Y, f.points[0].X, f.points[0].Y);
                     Graphics graph = Graphics.FromImage(bitmap);
                     graph.DrawImage(bitFigure, 0, 0);
                 }
             }
         }
-        public void DrowOnlyOneFigure(Drower drower)
+        public void DrowOnlyOneFigure(CreatedFigure cf)
         {
-            drower.Draw();
+            drawer.Draw(cf);
             Graphics graph = Graphics.FromImage(bitmap);
             graph.DrawImage(bitFigure, 0, 0);
         }

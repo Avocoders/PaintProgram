@@ -12,15 +12,19 @@ namespace WindowsFormsApp7.MovingChange
     {
         SingleBitmap move = SingleBitmap.Create();
         Point keepP;
-        Drower figur;
+        IFigur figur;
         Drower drower;
+        CreatedFigure cf;
         
         public void ChangeFigure(Point p)
         {
             int dx, dy;
             dx = p.X - keepP.X;
             dy = p.Y - keepP.Y;
-            figur.figure.ChangeFigurePosition(dx,dy);
+            for (int i = 0; i < cf.poin.Count; i++)
+            {
+                cf.poin[i] = new Point(cf.poin[i].X + dx, cf.poin[i].Y + dy);
+            }
             keepP = p;
         }
 
@@ -29,21 +33,40 @@ namespace WindowsFormsApp7.MovingChange
             throw new NotImplementedException();
         }
 
-        public Drower FindPoint(Point p)
+        public CreatedFigure FindPoint(Point p)
         {
-            foreach (Drower f in move.listOfFigure)
+            for (int i = -10; i <= 10; i++)
             {
-                foreach (Point t in f.points)
+                for (int j = -10; j <= 10; j++)
                 {
-                    if (Math.Abs(t.X - p.X) <= 10 && Math.Abs(t.Y - p.Y) <= 10)
+                    Point g = new Point(p.X + i, p.Y + j);
+                    foreach (CreatedFigure f in move.listOfFigure)
                     {
-                        keepP = p;
-                        figur = f;
-                        return f;
+                        if (f.poin.Contains(g))
+                        {
+                            cf = f;
+                            keepP = p;
+                            return cf;
+                        }
                     }
                 }
             }
+
             return null;
+            //foreach (Drower f in move.listOfFigure)
+            //{
+            //    foreach (Point t in f.points)
+            //    {
+            //        if (Math.Abs(t.X - p.X) <= 100 && Math.Abs(t.Y - p.Y) <= 100)
+            //        {
+            //            keepP = p;
+            //            figur = f.figure;
+            //            drower = f;
+            //            return f;
+            //        }
+            //    }
+            //}
+            //return null;
         }
 
         public void PointChangeMode(PictureBox pictureBox)

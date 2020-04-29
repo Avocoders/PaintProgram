@@ -21,13 +21,13 @@ namespace WindowsFormsApp7.MovingChange
             throw new NotImplementedException();
         }
 
-        public Drower FindPoint(Point p)
+        public CreatedFigure FindPoint(Point p)
         {
-            foreach(Drower f in move.listOfFigure)
+            foreach(CreatedFigure f in move.listOfFigure)
             {
-                if (f.points.Contains(p))
+                if (f.poin.Contains(p))
                 {
-                    IFigur q = f.figure;
+                    IFigur q = f.figur;
                     return f;
                 }
             }

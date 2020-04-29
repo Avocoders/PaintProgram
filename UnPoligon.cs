@@ -15,7 +15,7 @@ namespace WindowsFormsApp7
         {
         }
 
-        public override void Draw(Point point, Point point2, int nAngle)
+        public override void Draw(Point point, Point point2, int nAngle, CreatedFigure cf)
         {
             //if (points == null)
             if (points == null)
@@ -32,7 +32,7 @@ namespace WindowsFormsApp7
             }
         }
 
-        public override void Draw()
+        public override void Draw(CreatedFigure cf)
         {
             for (int i = 0; i < points.Count - 1; i++)
             {

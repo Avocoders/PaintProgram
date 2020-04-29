@@ -19,9 +19,10 @@ namespace WindowsFormsApp7
             this.brush = brush;
             this.figure = figur;
             this.fill = fill;
+            points = new List<Point>();
         }
         
-        public abstract void Draw(Point point1, Point point2,int nAngle);
-        public abstract void Draw();
+        public abstract void Draw(Point point1, Point point2,int nAngle,CreatedFigure cf);
+        public abstract void Draw(CreatedFigure cf);
     }
 }
