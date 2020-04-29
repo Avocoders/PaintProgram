@@ -19,6 +19,7 @@ namespace WindowsFormsApp7.Figure
             int r = Convert.ToInt32(Math.Sqrt(Math.Abs((x2 - x1) * (x2 - x1)) + Math.Abs((y2 - y1) * (y2 - y1)))); 
             int aPol = 180 * (n_ - 2) / n_;
             int bPol = 180 - aPol;
+            centr = new Point(x1, y1);
 
             for (int i = 0; i < 360; i += bPol)
             {
@@ -40,6 +41,7 @@ namespace WindowsFormsApp7.Figure
             {
                 points[i] = new Point(points[i].X + dX, points[i].Y + dY);
             }
+            centr = new Point(centr.X + dX, centr.Y + dY);
         }
 
         public override bool CheckForMatches(int x1, int y1, int x2, int y2, int c, int[] ExPoints)
