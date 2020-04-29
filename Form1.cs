@@ -461,10 +461,10 @@ namespace WindowsFormsApp7
             if (!(abstractFabric is UncommonPoligon))
             { 
                 q.Clone();
-                if(isHanded!=true&&isTop!=true)
-                q.SaveBitmap();
-                
-            
+                //if (isHanded != true && isTop != true)
+                //    q.SaveBitmap();
+
+
             }
             //q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
 
