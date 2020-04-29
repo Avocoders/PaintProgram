@@ -212,7 +212,7 @@ namespace WindowsFormsApp7
                         pictureBox1.Image = q.bitmap;
                     }
                 }
-                else if (isHanded == true)
+                else if (isHanded == true && currentFigur != null)
                 {
                    // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -226,7 +226,7 @@ namespace WindowsFormsApp7
                     fx = e.X;
                     fy = e.Y;
                 }
-                else if (isTop == true)
+                else if (isTop == true && currentFigur != null)
                 {
                    // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -389,15 +389,17 @@ namespace WindowsFormsApp7
                 //    break;
                 //}
                 //currentFigur.points[0] = new Point(1, 1);    
-               
-                q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                q.GetBrush(brush,drower);
-                q.DrowNotAllFigure(currentFigur);
-                q.Clone();
-                pictureBox1.Image = q.bitmap;
-                q.DrowOnlyOneFigure(currentFigur);
-                fx = e.X;
-                fy = e.Y;
+                if (currentFigur != null)
+                {
+                    q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.GetBrush(brush, drower);
+                    q.DrowNotAllFigure(currentFigur);
+                    q.Clone();
+                    pictureBox1.Image = q.bitmap;
+                    q.DrowOnlyOneFigure(currentFigur);
+                    fx = e.X;
+                    fy = e.Y;
+                }        
 
             }
             else if (isTop == true && isHanded != true)
@@ -420,12 +422,15 @@ namespace WindowsFormsApp7
                         break;
                     }
                 }
-                q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                q.GetBrush(brush,drower);
-                q.DrowNotAllFigure(currentFigur);
-                pictureBox1.Image = q.bitmap;
-                q.Clone();
-                q.DrowOnlyOneFigure(currentFigur);
+                if (currentFigur != null)
+                {
+                    q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.GetBrush(brush, drower);
+                    q.DrowNotAllFigure(currentFigur);
+                    pictureBox1.Image = q.bitmap;
+                    q.Clone();
+                    q.DrowOnlyOneFigure(currentFigur);
+                }          
                 
             }
             
@@ -806,7 +811,9 @@ namespace WindowsFormsApp7
                 textBox3.Visible = false;
                 fill = false;
                 color = Color.Black;                
-                brush = new Brush(pictureBox1.Width, pictureBox1.Height);               
+                brush = new Brush(pictureBox1.Width, pictureBox1.Height);
+                isTop = false;
+                isHanded = false;
             }
         }
         
@@ -909,6 +916,8 @@ namespace WindowsFormsApp7
             fill = false;
             isFirstPoligon = true;
             drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+            isTop = false;
+            isHanded = false;
         }
         private void deleteAll_Click(object sender, EventArgs e)
         {            
@@ -919,6 +928,8 @@ namespace WindowsFormsApp7
             Pipetka = false;
             fill = false;
             textBox3.Visible = false;
+            isTop = false;
+            isHanded = false;
         }
 
         private void deleteTheLastOne_Click(object sender, EventArgs e)
