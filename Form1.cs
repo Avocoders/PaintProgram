@@ -232,8 +232,9 @@ namespace WindowsFormsApp7
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     currentFigur.poin[tmpIndex] = e.Location;
                     q.DrawFigure();
-                    q.DrowOnlyOneFigure(currentFigur);
                     pictureBox1.Image = q.bitmap;
+                    q.DrowOnlyOneFigure(currentFigur);
+                    
                 }                
             }
             
@@ -394,7 +395,7 @@ namespace WindowsFormsApp7
                     q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.GetBrush(brush, drower);
                     q.DrowNotAllFigure(currentFigur);
-                    q.Clone();
+                    q.Clone2();
                     pictureBox1.Image = q.bitmap;
                     q.DrowOnlyOneFigure(currentFigur);
                     fx = e.X;
@@ -427,8 +428,8 @@ namespace WindowsFormsApp7
                     q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.GetBrush(brush, drower);
                     q.DrowNotAllFigure(currentFigur);
-                    pictureBox1.Image = q.bitmap;
-                    q.Clone();
+                    q.Clone2();
+                    pictureBox1.Image = q.bitmap;                    
                     q.DrowOnlyOneFigure(currentFigur);
                 }          
                 
