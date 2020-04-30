@@ -11,7 +11,7 @@ namespace WindowsFormsApp7
     {
         public List<Point> poin;
         public IFigur figur;
-       public  Brush brush;
+        public  Brush brush;
         public IFill fill;
         public CreatedFigure(Brush brush, IFigur figur, IFill fill)
         {

@@ -13,11 +13,13 @@ namespace WindowsFormsApp7.Figure
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             points = new List<Point>();
+            int cx, cy;
             int y3 = 0;
             int x3 = 0;
             int dx = Math.Abs(x2 - x1);
-            
-            
+            int dy = Math.Abs(y2 - y1);
+
+
 
             if (x2 > x1)
             {
@@ -29,20 +31,16 @@ namespace WindowsFormsApp7.Figure
                 x3 = x1 - 2 * dx;
                 y3 = y1;
             }
-
-            int a = Convert.ToInt32(Math.Sqrt(Math.Abs((x2 - x1) * (x2 - x1)) + Math.Abs((y2 - y1) * (y2 - y1))));
-            int b = Convert.ToInt32(Math.Sqrt(Math.Abs((x3 - x1) * (x3 - x1)) + Math.Abs((y3 - y1) * (y3 - y1))));
-            int r = Convert.ToInt32(b / 2 * Math.Sqrt((2 * a - b) / (2 * a + b)));
-            int cx, cy;
-            cx = Convert.ToInt32((x3 - x1) / 2);
+          
+            cx =x1+ Convert.ToInt32((x3 - x1) / 2);
 
             if (y2 < y1)
             {
-                cy = Convert.ToInt32((y2 - y1) + r);
+                cy = y1 - dy/3;
             }
             else
             {
-                cy = Convert.ToInt32((y2 - y1) - r);
+                cy = y1 + dy / 3;
             }
 
             centr = new Point(cx, cy);

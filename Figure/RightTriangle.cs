@@ -12,11 +12,34 @@ namespace WindowsFormsApp7.Figure
         List<Point> points;
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
-            int cx, cy;
+             int cx, cy;
 
-            cx = (x2 - x1) / 3;
-            cy = (y2 - y1) / 3;
+            int dx = Math.Abs((x2 - x1) / 3);
+            int dy = Math.Abs((y2 - y1) / 3);
+            int x3 = x1;
+            int y3 = y2;
 
+            if (x2 > x1 && y2 > y1)
+            {
+                cx = x3 + dx;
+                cy = y3 - dy;
+
+            }
+            else if (x2 > x1 && y2 < y1)
+            {
+                cx = x3 + dx;
+                cy = y3 + dy;
+            }
+            else if (x2 < x1 && y2 > y1)
+            {
+                cx = x3 - dx;
+                cy = y3 - dy;
+            }
+            else
+            {
+                cx = x3 - dx;
+                cy = y3 + dy;
+            }
             centr = new Point(cx, cy);
 
             points = new List<Point>();

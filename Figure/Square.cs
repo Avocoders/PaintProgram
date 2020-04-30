@@ -15,36 +15,42 @@ namespace WindowsFormsApp7.Figure
 
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
-            int cx, cy;
-
-            cx = (x2 - x1) / 2;
-            cy = (y2 - y1) / 2;
-
-            centr = new Point(cx, cy);
             points = new List<Point>();
+            int cx, cy;
+      
             int dx = Math.Abs(x2 - x1);
+
             if (x2 > x1 && y2 > y1)
             {
                 x2 = x1 + dx;
                 y2 = y1 + dx;
+                cx = x1 + dx / 2;
+                cy = y1 + dx / 2;
+
             }
             else if (x2 > x1 && y2 < y1)
             {
                 x2 = x1 + dx;
                 y2 = y1 - dx;
+                cx = x1 + dx / 2;
+                cy = y1 - dx / 2;
             }
             else if (x2 < x1 && y2 > y1)
             {
                 x2 = x1 - dx;
                 y2 = y1 + dx;
+                cx = x1 - dx / 2;
+                cy = y1 + dx / 2;
             }
             else
             {
                 x2 = x1 - dx;
                 y2 = y1 - dx;
+                cx = x1 - dx / 2;
+                cy = y1 - dx / 2;
             }
+            centr = new Point(cx, cy);
 
-            
 
             points.Add(new Point(x1, y1));
             points.Add(new Point(x2, y1));

@@ -25,10 +25,11 @@ namespace WindowsFormsApp7.MovingChange
 
         public void ChangeFigure(Point p)
         {
-            int dx, dy;
-            dx = Math.Abs(p.X - keepP.X);
-            dy = Math.Abs(p.Y - keepP.Y);            
             x = cf.figur.centr;
+            int dx, dy;
+            dx =(x.X - keepP.X);
+            dy = (x.Y - keepP.Y);            
+            
             for (int i = 0; i < cf.poin.Count; i++)
             {
                 int a = Math.Abs(cf.poin[i].X - x.X);
