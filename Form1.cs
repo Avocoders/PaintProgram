@@ -881,24 +881,9 @@ namespace WindowsFormsApp7
                 Fill = new SolidFill(button4.BackColor);
             }
 
-        }
+        }    
 
-        private void hand_Click(object sender, EventArgs e)
-        {
-            isHanded = true;
-            isTop = false;
-            moving = new FigureMove();
-        }
-
-        private void top_Click(object sender, EventArgs e)
-        {
-            isTop = true;
-            isHanded = false;
-            moving = new PointMove();
-            //moving.PointChangeMode(pictureBox1);
-            //pictureBox1.Image = q.bitmap;
-        }
-
+        
         private void button9_Click(object sender, EventArgs e)
         {
             pictureBox2.BackColor = button1.BackColor;
@@ -922,6 +907,37 @@ namespace WindowsFormsApp7
             isHanded = false;
             isTop = false;
             moving = new ChangeSizeFigure();
+        }
+
+        private void topToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripDropDownButton2.Image = topToolStripMenuItem.Image;
+            isHanded = false;
+            isTop = false;
+        }
+
+        private void перемещениеToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            isHanded = true;
+            isTop = false;
+            moving = new FigureMove();
+            toolStripDropDownButton2.Image = перемещениеToolStripMenuItem1.Image;
+        }
+
+        private void верхушкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            isTop = true;
+            isHanded = false;
+            moving = new PointMove();
+            toolStripDropDownButton2.Image = верхушкаToolStripMenuItem.Image;
+        }
+
+        private void масштабируемToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripDropDownButton2.Image = масштабируемToolStripMenuItem.Image;
+            isTop = false;
+            isHanded = false;
+            //moving = new PointMove();
         }
 
         private void button11_Click_1(object sender, EventArgs e)
