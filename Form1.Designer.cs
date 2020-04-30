@@ -369,6 +369,7 @@
             this.margin.Size = new System.Drawing.Size(39, 32);
             this.margin.TabIndex = 43;
             this.margin.UseVisualStyleBackColor = false;
+            this.margin.Click += new System.EventHandler(this.margin_Click);
             // 
             // top
             // 

@@ -26,6 +26,7 @@ namespace WindowsFormsApp7
         int n = 1;
         bool isHanded = false;
         bool isTop = false;
+        bool isZoom = false;
         int xnow, ynow;
         Color color;
         bool firstColor = true;        
@@ -148,7 +149,7 @@ namespace WindowsFormsApp7
 
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {
-                if (isHanded != true && isTop != true)
+                if (isHanded != true && isTop != true&& isZoom!= true)
                 {
                     brush.SetIsFirst(isFirst);
                     isFirst = false;
@@ -226,6 +227,21 @@ namespace WindowsFormsApp7
                     fx = e.X;
                     fy = e.Y;
                 }
+                else if (isZoom == true && currentFigur != null)
+                {
+                    // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    //moving.ChangeFigure(e.Location);
+                    // currentFigur.figur.ChangeFigurePosition(e.X-fx,e.Y-fy);
+                    moving.ChangeFigure(e.Location);
+                    q.DrawFigure();
+                    q.DrowOnlyOneFigure(currentFigur);
+                    //cf.poin = drower.points;
+                    pictureBox1.Image = q.bitmap;
+                    fx = e.X;
+                    fy = e.Y;
+                }
+
                 else if (isTop == true && currentFigur != null)
                 {
                    // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -242,7 +258,7 @@ namespace WindowsFormsApp7
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (isHanded != true && isTop != true)
+            if (isHanded != true && isTop != true&& isZoom!= true)
             {
                 if (!(abstractFabric is UncommonPoligon))
                 {
@@ -378,7 +394,7 @@ namespace WindowsFormsApp7
                     pictureBox1.Image = q.bitmap;
                 }
             }
-            else if (isHanded == true && isTop != true)
+            else if ((isHanded == true|| isZoom==true) && isTop != true)
             {
                 isDrow = true;
                 //currentFigur = moving.FindPoint(e.Location);
@@ -892,6 +908,14 @@ namespace WindowsFormsApp7
                 color = button4.BackColor;
                 brush.SetColor(button4.BackColor);
             }
+        }
+
+        private void margin_Click(object sender, EventArgs e)
+        {
+            isZoom = true;
+            isHanded = false;
+            isTop = false;
+            moving = new ChangeSizeFigure();
         }
 
         private void button11_Click_1(object sender, EventArgs e)

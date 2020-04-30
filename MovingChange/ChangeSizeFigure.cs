@@ -8,12 +8,30 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp7.MovingChange
 {
-    class ChangeSizeFigure : IMovingChange
+    public class ChangeSizeFigure : IMovingChange
     {
         SingleBitmap move = SingleBitmap.Create();
-        public void ChangeFigure(Point p)
+        Point keepP;
+        CreatedFigure cf;
+        IFigur figur;
+
+         //for (int i = 0; i<points.Count; i++)
+         //   {
+         //       points[i] = new Point(centr.X+((points[i].X-centr.X) + dX), centr.Y+((points[i].Y-centr.Y) + dY));
+         //   }
+
+    public void ChangeFigure(Point p)
         {
-            throw new NotImplementedException();
+            int dx, dy;
+            dx = p.X - keepP.X;
+            dy = p.Y - keepP.Y;
+            figur.ZoomingFigure(dx, dy);
+            //for (int i = 0; i < cf.poin.Count; i++)
+            //{
+            //    //cf.poin[i] = new Point(cf.poin[i].X + dx, cf.poin[i].Y + dy);
+            //    cf.poin[i] = new Point(centr.X+((cf.poin[i].X-centr.X) + dX), centr.Y+((cf.poin[i].Y-centr.Y) + dY));
+            //}
+            //keepP = p;
         }
 
         public int FindMainPoint(Point p)
@@ -23,22 +41,30 @@ namespace WindowsFormsApp7.MovingChange
 
         public CreatedFigure FindPoint(Point p)
         {
-            foreach(CreatedFigure f in move.listOfFigure)
+            for (int i = -10; i <= 10; i++)
             {
-                if (f.poin.Contains(p))
+                for (int j = -10; j <= 10; j++)
                 {
-                    IFigur q = f.figur;
-                    return f;
+                    Point g = new Point(p.X + i, p.Y + j);
+                    foreach (CreatedFigure f in move.listOfFigure)
+                    {
+                        if (f.poin.Contains(g))
+                        {
+                            cf = f;
+                            keepP = p;
+                            return cf;
+                        }
+                    }
                 }
             }
 
             return null;
         }
 
+
         public void PointChangeMode(PictureBox pictureBox)
         {
-           // foreach(Point p in )
-
+            throw new NotImplementedException();
         }
     }
 }
