@@ -23,6 +23,7 @@ namespace WindowsFormsApp7.Figure
             int dy = Math.Abs(y2 - y1);
             int cx = (x1 + x2) / 2;
             int cy = (y1 + y2) / 2;
+            centr = new Point(cx, cy);
 
             if (x2 > x1 && y2 < y1)
             {
@@ -94,6 +95,7 @@ namespace WindowsFormsApp7.Figure
             {
                 points[i] = new Point(points[i].X + dX, points[i].Y + dY);
             }
+            centr = new Point(centr.X + dX, centr.Y + dY);
         }
 
         public override bool CheckForMatches(int x1, int y1, int x2, int y2, int c, int[] ExPoints)
@@ -108,6 +110,7 @@ namespace WindowsFormsApp7.Figure
                 {
                     point = false;
                 }
+
             }
             return point;
         }
