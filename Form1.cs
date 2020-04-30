@@ -940,6 +940,11 @@ namespace WindowsFormsApp7
             //moving = new PointMove();
         }
 
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void button11_Click_1(object sender, EventArgs e)
         {
             q.DrowAllFigure();
