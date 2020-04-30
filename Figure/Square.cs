@@ -11,9 +11,16 @@ namespace WindowsFormsApp7.Figure
 {
     public class Square : IFigur
     {
-        List<Point> points;
+        List<Point> points;        
+
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
+            int cx, cy;
+
+            cx = (x2 - x1) / 2;
+            cy = (y2 - y1) / 2;
+
+            centr = new Point(cx, cy);
             points = new List<Point>();
             int dx = Math.Abs(x2 - x1);
             if (x2 > x1 && y2 > y1)
@@ -37,12 +44,7 @@ namespace WindowsFormsApp7.Figure
                 y2 = y1 - dx;
             }
 
-            int cx, cy;
-
-            cx = (x2 - x1) / 2;
-            cy = (y2 - y1) / 2;
-
-            centr = new Point(cx, cy);
+            
 
             points.Add(new Point(x1, y1));
             points.Add(new Point(x2, y1));

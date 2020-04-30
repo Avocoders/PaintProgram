@@ -208,8 +208,9 @@ namespace WindowsFormsApp7
 
                         if (drower is ClassLine)
                         { first = last; }
-                       // cf.poin = drower.points;
-
+                        // cf.poin = drower.points;
+                        brush.SetDot(cf.figur.centr.X, cf.figur.centr.Y);
+                        q.DrawLine();
                         pictureBox1.Image = q.bitmap;
                     }
                 }
@@ -240,6 +241,7 @@ namespace WindowsFormsApp7
                     pictureBox1.Image = q.bitmap;
                     fx = e.X;
                     fy = e.Y;
+                    
                 }
 
                 else if (isTop == true && currentFigur != null)
@@ -258,6 +260,7 @@ namespace WindowsFormsApp7
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
+            
             if (isHanded != true && isTop != true&& isZoom!= true)
             {
                 if (!(abstractFabric is UncommonPoligon))
