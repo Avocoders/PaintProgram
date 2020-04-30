@@ -209,8 +209,8 @@ namespace WindowsFormsApp7
                         if (drower is ClassLine)
                         { first = last; }
                         // cf.poin = drower.points;
-                        brush.SetDot(cf.figur.centr.X, cf.figur.centr.Y);
-                        q.DrawLine();
+                        //brush.SetDot(cf.figur.centr.X, cf.figur.centr.Y);
+                        //q.DrawLine();
                         pictureBox1.Image = q.bitmap;
                     }
                 }
@@ -854,17 +854,20 @@ namespace WindowsFormsApp7
         private void заливкаToolStripMenuItem_Click(object sender, EventArgs e)
         {            
             Fill = new TwoColorFill(button4.BackColor);
+            toolStripDropDownButton1.Image = заливкаToolStripMenuItem.Image;
 
         }
 
         private void безЗаливкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Fill = new WithoutFill();
+            toolStripDropDownButton1.Image = безЗаливкиToolStripMenuItem.Image;
         }
 
         private void заливкаОднотоннаяToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Fill = new TwoColorFill(button1.BackColor);
+            toolStripDropDownButton1.Image = заливкаОднотоннаяToolStripMenuItem.Image;
         }
 
         private void button4_BackColorChanged(object sender, EventArgs e)
