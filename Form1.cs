@@ -209,8 +209,8 @@ namespace WindowsFormsApp7
                         if (drower is ClassLine)
                         { first = last; }
                         // cf.poin = drower.points;
-                        brush.SetDot(cf.figur.centr.X, cf.figur.centr.Y);
-                        q.DrawLine();
+                        //brush.SetDot(cf.figur.centr.X, cf.figur.centr.Y);
+                        //q.DrawLine();
                         pictureBox1.Image = q.bitmap;
                     }
                 }
@@ -854,17 +854,20 @@ namespace WindowsFormsApp7
         private void заливкаToolStripMenuItem_Click(object sender, EventArgs e)
         {            
             Fill = new TwoColorFill(button4.BackColor);
+            toolStripDropDownButton1.Image = заливкаToolStripMenuItem.Image;
 
         }
 
         private void безЗаливкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Fill = new WithoutFill();
+            toolStripDropDownButton1.Image = безЗаливкиToolStripMenuItem.Image;
         }
 
         private void заливкаОднотоннаяToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Fill = new TwoColorFill(button1.BackColor);
+            toolStripDropDownButton1.Image = заливкаОднотоннаяToolStripMenuItem.Image;
         }
 
         private void button4_BackColorChanged(object sender, EventArgs e)
@@ -878,24 +881,9 @@ namespace WindowsFormsApp7
                 Fill = new SolidFill(button4.BackColor);
             }
 
-        }
+        }    
 
-        private void hand_Click(object sender, EventArgs e)
-        {
-            isHanded = true;
-            isTop = false;
-            moving = new FigureMove();
-        }
-
-        private void top_Click(object sender, EventArgs e)
-        {
-            isTop = true;
-            isHanded = false;
-            moving = new PointMove();
-            //moving.PointChangeMode(pictureBox1);
-            //pictureBox1.Image = q.bitmap;
-        }
-
+        
         private void button9_Click(object sender, EventArgs e)
         {
             pictureBox2.BackColor = button1.BackColor;
@@ -919,6 +907,37 @@ namespace WindowsFormsApp7
             isHanded = false;
             isTop = false;
             moving = new ChangeSizeFigure();
+        }
+
+        private void topToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripDropDownButton2.Image = topToolStripMenuItem.Image;
+            isHanded = false;
+            isTop = false;
+        }
+
+        private void перемещениеToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            isHanded = true;
+            isTop = false;
+            moving = new FigureMove();
+            toolStripDropDownButton2.Image = перемещениеToolStripMenuItem1.Image;
+        }
+
+        private void верхушкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            isTop = true;
+            isHanded = false;
+            moving = new PointMove();
+            toolStripDropDownButton2.Image = верхушкаToolStripMenuItem.Image;
+        }
+
+        private void масштабируемToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripDropDownButton2.Image = масштабируемToolStripMenuItem.Image;
+            isTop = false;
+            isHanded = false;
+            //moving = new PointMove();
         }
 
         private void button11_Click_1(object sender, EventArgs e)
