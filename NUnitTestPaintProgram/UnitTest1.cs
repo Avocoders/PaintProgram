@@ -22,6 +22,19 @@ namespace NUnitTestPaint
             Assert.AreEqual(Expected, ActualPoint);
         }
 
+        [TestCase(0, 0, 20, 10, new int[] {20, 5, 13, 10, 2, 8, 2, 2, 13, 0 })]
+        [TestCase(20, 10, 0, 0, new int[] { 20, 5, 13, 10, 2, 8, 2, 2, 13, 10 })]
+        [TestCase(20, 0, 0, 10, new int[] { 20, 5, 13, 10, 2, 8, 2, 2, 13, 10 })]
+        [TestCase(0, 20, 10, 0, new int[] { 10, 10, 6, 20, 1, 16, 1, 4, 6, 0 })]
+
+        public void TestEllipse(int x1, int y1, int x2, int y2, int[] ExPoints)
+        {
+            Ellipse Actual = new Ellipse();
+            bool ActualPoint = Actual.CheckForMatches(x1, y1, x2, y2, 0, ExPoints);
+            bool Expected = true;
+            Assert.AreEqual(Expected, ActualPoint);
+        }
+
         [TestCase(2, 2, 4, 4, new int[] { 2, 2, 4, 2, 4, 4, 2, 4 })]
         [TestCase(0, 0, 4, 4, new int[] { 0, 0, 4, 0, 4, 4, 0, 4 })]
         [TestCase(2, 2, 0, 0, new int[] { 2, 2, 0, 2, 0, 0, 2, 0 })]

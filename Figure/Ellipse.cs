@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp7.Figure
 {
-    class Ellipse : IFigur
+    public class Ellipse : IFigur
     {
 
         Point point;
