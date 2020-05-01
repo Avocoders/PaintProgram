@@ -266,7 +266,7 @@ namespace WindowsFormsApp7
                     
                 }
 
-                else if (isTop == true && currentFigur != null&&currentFigur.fill == null)
+                else if (isTop == true && currentFigur != null)
                 {
                    // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -282,8 +282,9 @@ namespace WindowsFormsApp7
                     currentFigur.poin[tmpIndex] = e.Location;
                     drower.Draw(first, currentFigur.poin[tmpIndex], nAngle, cf);
                     //moving.ChangeFigure(e.Location);
-                    q.DrowOnlyOneFigure(currentFigur);
+                    //q.DrawFigure();
                     q.Move();
+                    q.DrowOnlyOneFigure(currentFigur);                    
                     //cf.poin = drower.points;
                     pictureBox1.Image = q.bitmap;                    
                 }
@@ -501,15 +502,20 @@ namespace WindowsFormsApp7
                         q.DrowOnlyOneFigure(currentFigur);
                         pictureBox1.Image = q.bitmap;
                     }
-                    //else
-                    //{
-                    //    q.GetBrush(brush, drower);
-                    //    q.Clone2();
-                    //    pictureBox1.Image = q.bitmap;
-                    //    brush.SetColor(button1.BackColor);
-                    //    Fill = new TwoColorFill(button4.BackColor);                        
-                    //    q.DrowOnlyOneFigure(currentFigur);
-                    //}
+                    else
+                    {
+                        q.Clone2();
+                        //cf = new CreatedFigure(brush, Figure, Fill);
+                        brush.SetColor(button1.BackColor);                        
+                        //currentFigur.fill.SetColor(e.X, e.Y);
+                        Fill = new TwoColorFill(button4.BackColor);
+                        Fill.SetColor(e.X, e.Y);
+                        Fill.Casting(e.X, e.Y);
+                        drower = abstractFabric.CreateDrower(currentFigur.figur, currentFigur.brush, currentFigur.fill);
+                        q.GetBrush(brush, drower);                         
+                        q.DrowOnlyOneFigure(currentFigur);
+                        pictureBox1.Image = q.bitmap;
+                    }
                 }                
             }
         }
