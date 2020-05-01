@@ -28,6 +28,7 @@ namespace WindowsFormsApp7
         bool isHanded = false;
         bool isTop = false;
         bool isZoom = false;
+        bool isFigureChanged = false;
         int xnow, ynow;
         Color color;
         bool firstColor = true;        
@@ -35,7 +36,7 @@ namespace WindowsFormsApp7
         bool isDrow, isFirst,isFirstPoligon,isCollapsed;
         bool expend = false;
         bool noexpend = true;
-        bool isFigureChanged = false;
+        
         Drower fdrower;
         CreatedFigure cf;
         //int lastX, lastY;
@@ -150,7 +151,7 @@ namespace WindowsFormsApp7
 
                 if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
                 {
-                if (isHanded != true && isTop != true&& isZoom!= true)
+                if (drowing == true)
                 {
                     brush.SetIsFirst(isFirst);
                     isFirst = false;
@@ -262,7 +263,7 @@ namespace WindowsFormsApp7
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             
-            if (isHanded != true && isTop != true&& isZoom!= true)
+            if (drowing == true)
             {
                 if (!(abstractFabric is UncommonPoligon))
                 {
@@ -398,7 +399,7 @@ namespace WindowsFormsApp7
                     pictureBox1.Image = q.bitmap;
                 }
             }
-            else if ((isHanded == true|| isZoom==true) && isTop != true)
+            else if (isHanded == true|| isZoom==true)
             {
                 isDrow = true;
                 //currentFigur = moving.FindPoint(e.Location);
@@ -423,7 +424,7 @@ namespace WindowsFormsApp7
                 }        
 
             }
-            else if (isTop == true && isHanded != true)
+            else if (isTop == true)
             {
                 isDrow = true;
                 for (int i = -10; i <= 10; i++)
@@ -452,7 +453,7 @@ namespace WindowsFormsApp7
                     q.Clone2();
                     q.DrowOnlyOneFigure(currentFigur);
                     pictureBox1.Image = q.bitmap;                    
-                }          
+                }         
                 
             }
             
@@ -958,7 +959,12 @@ namespace WindowsFormsApp7
 
         private void меняетФигуруToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            drowing = false;
+            toolStripDropDownButton2.Image = меняетФигуруToolStripMenuItem.Image;
+            isTop = false;
+            isHanded = false;
+            isZoom = false;
+            isFigureChanged = true;            
         }
 
         private void button11_Click_1(object sender, EventArgs e)
