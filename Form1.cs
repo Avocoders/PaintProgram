@@ -446,10 +446,11 @@ namespace WindowsFormsApp7
                 {
                     q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.GetBrush(brush, drower);
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.DrowNotAllFigure(currentFigur);
                     q.Clone2();
-                    pictureBox1.Image = q.bitmap;                    
                     q.DrowOnlyOneFigure(currentFigur);
+                    pictureBox1.Image = q.bitmap;                    
                 }          
                 
             }
@@ -479,8 +480,8 @@ namespace WindowsFormsApp7
             isDrow = false;
             if (!(abstractFabric is UncommonPoligon))
             { 
+                if (isHanded != true && isTop != true)
                 q.Clone();
-                //if (isHanded != true && isTop != true)
                 //    q.SaveBitmap();
 
 

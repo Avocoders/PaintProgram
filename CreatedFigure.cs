@@ -14,6 +14,8 @@ namespace WindowsFormsApp7
         public  Brush brush;
         public IFill fill;
         public Point centr;
+        public Point f;
+        public Point l;
         
         public CreatedFigure(Brush brush, IFigur figur, IFill fill)
         {
@@ -22,6 +24,8 @@ namespace WindowsFormsApp7
             this.fill = fill;
             poin = new List<Point>();
             centr = new Point();
+            f = new Point();
+            l = new Point();
         }
         public void SetPoint(List<Point> po)
         {

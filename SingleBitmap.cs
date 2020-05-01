@@ -82,13 +82,13 @@ namespace WindowsFormsApp7
             {
                 if(f!=cf2)
                 {   
-                    Point tmp = f.poin[0];
-                    foreach (Point p in f.poin)
-                    {
+                   // Point tmp = f.poin[0];
+                    //foreach (Point p in f.poin)
+                   // {
                         drawer.Draw(f);
                         //brush.DrawLine(tmp.X,tmp.Y, p.X,p.Y );
-                        tmp = p;
-                    }
+                    //    tmp = p;
+                    //}
                     //drower.brush.DrawLine(tmp.X, tmp.Y, f.points[0].X, f.points[0].Y);
                     Graphics graph = Graphics.FromImage(bitmap);
                     graph.DrawImage(bitFigure, 0, 0);

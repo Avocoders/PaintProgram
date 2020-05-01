@@ -15,7 +15,8 @@ namespace WindowsFormsApp7.MovingChange
         Point keepP;
         CreatedFigure cf;
         Point x;
-
+        double a;
+        double b;
         public void ChangeFigure(Point p)
         {
             x = cf.centr;
@@ -37,8 +38,11 @@ namespace WindowsFormsApp7.MovingChange
                     dxPoint = (double)Math.Abs(cf.poin[i].X - x.X);
                     dyPoint = (double)Math.Abs(cf.poin[i].Y - x.Y);
                     rPoint = (double)Math.Sqrt((dxPoint * dxPoint) + (dyPoint * dyPoint));
-                    double a = (double)(cf.poin[i].X - x.X) / rPoint;
-                    double b = (double)(cf.poin[i].Y - x.Y) / rPoint;
+                    if (rPoint != 0)
+                    {
+                        a = (double)(cf.poin[i].X - x.X) / rPoint;
+                        b = (double)(cf.poin[i].Y - x.Y) / rPoint;
+                    }
                     cf.poin[i] = new Point(Convert.ToInt32(x.X + (rPoint + r) * a), Convert.ToInt32(x.Y + (rPoint + r) * b));
                 }
             }
@@ -50,11 +54,16 @@ namespace WindowsFormsApp7.MovingChange
                     dxPoint = (double)Math.Abs(cf.poin[i].X - x.X);
                     dyPoint = (double)Math.Abs(cf.poin[i].Y - x.Y);
                     rPoint = (double)Math.Sqrt((dxPoint * dxPoint) + (dyPoint * dyPoint));
-                    double a = (double)(cf.poin[i].X - x.X) / rPoint;
-                    double b = (double)(cf.poin[i].Y - x.Y) / rPoint;
+                    if (rPoint != 0)
+                    {
+                        a = (double)(cf.poin[i].X - x.X) / rPoint;
+                         b = (double)(cf.poin[i].Y - x.Y) / rPoint;
+                    }
+                    
                     cf.poin[i] = new Point(Convert.ToInt32(x.X + (rPoint - r) * a), Convert.ToInt32(x.Y + (rPoint - r) * b));
                 }
             }
+            keepP = p;
         }
 
         public int FindMainPoint(Point p)
