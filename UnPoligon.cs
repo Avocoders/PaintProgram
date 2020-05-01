@@ -9,7 +9,8 @@ namespace WindowsFormsApp7
 {
     public class UnPoligon : Drower
     {
-        //List<Point> points ;
+        List<Point> points ;
+        
         int n = 0;
         public UnPoligon(Brush brush, IFigur figur, IFill fill) : base(brush, figur, fill)
         {
