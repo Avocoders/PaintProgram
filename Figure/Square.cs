@@ -60,44 +60,6 @@ namespace WindowsFormsApp7.Figure
             return points;
         }
 
-        public override void ChangeFigurePosition(int dX, int dY)
-        {
-            for (int i = 0; i < points.Count; i++)
-            {
-                points[i] = new Point(points[i].X + dX, points[i].Y + dY);
-            }
-            centr = new Point(centr.X + dX, centr.Y + dY);
-        }
-
-        public override void ZoomingFigure(int dX, int dY)
-        {
-
-            for (int i = 0; i < points.Count; i++)
-            {
-                int dx = dX;
-                int dy = dY;
-                int a = Math.Abs(points[i].X - centr.X);
-                int b = Math.Abs(points[i].Y - centr.Y);
-
-                if (points[i].X >= centr.X && points[i].Y >= centr.Y)
-                {
-                    points[i] = new Point(centr.X + a + dx, centr.Y + b + dy);
-                }
-                else if (points[i].X >= centr.X && points[i].Y <= centr.Y)
-                {
-                    points[i] = new Point(centr.X + a + dx, centr.Y - b - dy);
-                }
-                else if (points[i].X <= centr.X && points[i].Y <= centr.Y)
-                {
-                    points[i] = new Point(centr.X - a - dx, centr.Y - b - dy);
-                }
-                else if (points[i].X <= centr.X && points[i].Y >= centr.Y)
-                {
-                    points[i] = new Point(centr.X - a - dx, centr.Y + b + dy);
-                }
-            }
-        }
-
         public override bool CheckForMatches(int x1, int y1, int x2, int y2,int c, int[] ExPoints)
         {
             bool point = true;
@@ -114,18 +76,5 @@ namespace WindowsFormsApp7.Figure
             return point;
         }
 
-        //public override Point CenterFigure11(List<Point> points)
-        //{
-        //    Point centr;
-        //    Point point1 = points[0];
-        //    Point point2 = points[2];
-        //    int cx, cy;
-
-        //    cx = (point2.X - point1.X) / 2;
-        //    cy = (point2.Y - point1.Y) / 2;
-
-        //    centr = new Point(cx, cy);
-        //    return centr;
-        //}
     }
 }
