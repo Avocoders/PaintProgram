@@ -7,6 +7,7 @@ using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp7.DrawerFabric;
 
 namespace WindowsFormsApp7
 {
@@ -30,6 +31,7 @@ namespace WindowsFormsApp7
         public Bitmap bitmap;
         public Bitmap first;
         public Bitmap bitFigure;
+        AbstractFabric abstractFabric;
         public List<Bitmap> bitmap2;
         public List<Bitmap> listOfBitmap;
         public List<CreatedFigure> listOfFigure;
@@ -51,12 +53,14 @@ namespace WindowsFormsApp7
             n = 0;
             end = n;
             listOfBitmap.Insert(n, bitFigure);
+            
             //bitFigure = new Bitmap(width, heigth);
         }
-        public void GetBrush(Brush brush,Drower drower)
+        public void GetBrush(Brush brush,AbstractFabric abstractFabric)
         {
             this.brush = brush;
-            this.drawer = drower;
+            this.abstractFabric = abstractFabric;
+
         }
 
         public void DrowAllFigure()
@@ -71,7 +75,7 @@ namespace WindowsFormsApp7
                     //brush.DrawLine(tmp.X,tmp.Y, p.X,p.Y );
                    tmp = p;
                 }
-                brush.DrawLine(tmp.X, tmp.Y, f.poin[0].X, f.poin[0].Y);
+                f.brush.DrawLine(tmp.X, tmp.Y, f.poin[0].X, f.poin[0].Y);
                 Graphics graph = Graphics.FromImage(bitmap);
                 graph.DrawImage(bitFigure, 0, 0);
             }
@@ -81,8 +85,8 @@ namespace WindowsFormsApp7
             foreach (CreatedFigure f in listOfFigure)
             {
                 if(f!=cf2)
-                {   
-                   
+                {
+                    drawer = abstractFabric.CreateDrower(f.figur, f.brush, f.fill);
                         drawer.Draw(f);
                        
                 }
@@ -92,6 +96,7 @@ namespace WindowsFormsApp7
         }
         public void DrowOnlyOneFigure(CreatedFigure cf)
         {
+            drawer = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
             drawer.Draw(cf);
             Graphics graph = Graphics.FromImage(bitmap);
             graph.DrawImage(bitFigure, 0, 0);

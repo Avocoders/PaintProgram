@@ -20,7 +20,14 @@ namespace WindowsFormsApp7
         public Brush()
         {
         }
-
+        public Brush(Brush brush)
+        {
+            this.color = brush.color;
+            this.heigth = brush.heigth;
+            this.isFirst = brush.isFirst;
+            this.width = brush.width;
+            this.n = brush.n;
+        }
         public Brush(int width, int heigth)
         {            
             this.width = width;
