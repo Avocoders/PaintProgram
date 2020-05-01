@@ -22,23 +22,24 @@ namespace WindowsFormsApp7
             if (points == null)
             {
                 points = new List<Point>();
-                points.Add(point);
+                cf.poin.Add(point);
                 brush.SetDot(point.X, point.Y);
             }
             else
             {
-                brush.DrawLine(points[n].X, points[n].Y, point2.X, point2.Y);
-                points.Add(point);
+                brush.DrawLine(cf.poin[n].X, cf.poin[n].Y, point2.X, point2.Y);
+                cf.poin.Add(point);
                 n++;
             }
         }
 
         public override void Draw(CreatedFigure cf)
         {
-            for (int i = 0; i < points.Count - 1; i++)
+            for (int i = 0; i < cf.poin.Count - 1; i++)
             {
-                brush.DrawLine(points[i].X, points[i].Y, points[i + 1].X, points[i + 1].Y);
+                brush.DrawLine(cf.poin[i].X, cf.poin[i].Y, cf.poin[i + 1].X, cf.poin[i + 1].Y);
             }
+            brush.DrawLine(cf.poin[0].X, cf.poin[0].Y, cf.poin[cf.poin.Count - 1].X, cf.poin[cf.poin.Count - 1].Y);
         }
     }
 }
