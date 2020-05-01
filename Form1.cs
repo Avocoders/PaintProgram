@@ -914,14 +914,6 @@ namespace WindowsFormsApp7
             }
         }
 
-        private void margin_Click(object sender, EventArgs e)
-        {
-            isZoom = true;
-            isHanded = false;
-            isTop = false;
-            moving = new ChangeSizeFigure();
-        }
-
         private void topToolStripMenuItem_Click(object sender, EventArgs e)
         {
             toolStripDropDownButton2.Image = topToolStripMenuItem.Image;
@@ -950,6 +942,8 @@ namespace WindowsFormsApp7
             toolStripDropDownButton2.Image = масштабируемToolStripMenuItem.Image;
             isTop = false;
             isHanded = false;
+            isZoom = true;            
+            moving = new ChangeSizeFigure();
             //moving = new PointMove();
         }
 
