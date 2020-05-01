@@ -17,7 +17,7 @@ namespace WindowsFormsApp7.Figure
         {
             points = new List<Point>();
             int cx, cy;
-      
+
             int dx = Math.Abs(x2 - x1);
 
             if (x2 > x1 && y2 > y1)
@@ -71,11 +71,31 @@ namespace WindowsFormsApp7.Figure
 
         public override void ZoomingFigure(int dX, int dY)
         {
+
             for (int i = 0; i < points.Count; i++)
             {
-                points[i] = new Point(centr.X + ((points[i].X - centr.X) + dX), centr.Y + ((points[i].Y - centr.Y) + dY));
-            }
+                int dx = dX;
+                int dy = dY;
+                int a = Math.Abs(points[i].X - centr.X);
+                int b = Math.Abs(points[i].Y - centr.Y);
 
+                if (points[i].X >= centr.X && points[i].Y >= centr.Y)
+                {
+                    points[i] = new Point(centr.X + a + dx, centr.Y + b + dy);
+                }
+                else if (points[i].X >= centr.X && points[i].Y <= centr.Y)
+                {
+                    points[i] = new Point(centr.X + a + dx, centr.Y - b - dy);
+                }
+                else if (points[i].X <= centr.X && points[i].Y <= centr.Y)
+                {
+                    points[i] = new Point(centr.X - a - dx, centr.Y - b - dy);
+                }
+                else if (points[i].X <= centr.X && points[i].Y >= centr.Y)
+                {
+                    points[i] = new Point(centr.X - a - dx, centr.Y + b + dy);
+                }
+            }
         }
 
         public override bool CheckForMatches(int x1, int y1, int x2, int y2,int c, int[] ExPoints)

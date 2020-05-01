@@ -17,49 +17,71 @@ namespace WindowsFormsApp7.MovingChange
         //IFigur figur;
         Point x;
 
-
-        //for (int i = 0; i<points.Count; i++)
-        //   {
-        //       points[i] = new Point(centr.X+((points[i].X-centr.X) + dX), centr.Y+((points[i].Y-centr.Y) + dY));
-        //   }
-
         public void ChangeFigure(Point p)
         {
             x = cf.figur.centr;
             int dx, dy;
-            dx =(x.X - keepP.X);
-            dy = (x.Y - keepP.Y);            
-            
+            //dx = Math.Abs(Math.Abs(p.X - x.X) - Math.Abs(keepP.Y - x.Y));
+            //dy = Math.Abs(Math.Abs(p.Y - x.Y) - Math.Abs(keepP.Y - x.Y));
+
+            dx = Math.Abs(p.X - keepP.X);
+            dy = Math.Abs(p.Y - keepP.Y);
+            int r = Convert.ToInt32(Math.Sqrt(Math.Abs(dx * dx) + Math.Abs(dy * dy)));
+
+
             for (int i = 0; i < cf.poin.Count; i++)
             {
-                int a = Math.Abs(cf.poin[i].X - x.X);
-                int b = Math.Abs(cf.poin[i].Y - x.Y);
+                int dxPoint, dyPoint, rPoint;
+                dxPoint = Math.Abs(cf.poin[i].X - x.X);
+                dyPoint = Math.Abs(cf.poin[i].Y - x.Y);
+                rPoint = Convert.ToInt32(Math.Sqrt((dxPoint * dxPoint) + (dyPoint * dyPoint)));
+                int a = Convert.ToInt32((cf.poin[i].X - x.X) / rPoint);
+                int b = Convert.ToInt32((cf.poin[i].Y - x.Y) / rPoint);
+                cf.poin[i] = new Point(x.X + (r + rPoint) * a, x.Y + (r + rPoint) * b);
 
-                if (cf.poin[i].X >= x.X && cf.poin[i].Y >= x.Y)
-                {
-                    cf.poin[i] = new Point(x.X + a + dx, x.Y + b + dy);
-                }
-                else if (cf.poin[i].X >= x.X && cf.poin[i].Y <= x.Y)
-                {
-                    cf.poin[i] = new Point(x.X + a + dx, x.Y - b - dy);
-                }
-                else if (cf.poin[i].X <= x.X && cf.poin[i].Y <= x.Y)
-                {
-                    cf.poin[i] = new Point(x.X - a - dx, x.Y - b - dy);
-                }
-                else if (cf.poin[i].X <= x.X && cf.poin[i].Y >= x.Y)
-                {
-                    cf.poin[i] = new Point(x.X - a - dx, x.Y + b + dy);
-                }
-                //cf.poin[i] = new Point(x.X + ((cf.poin[i].X - x.X) + dx), x.Y + ((cf.poin[i].Y - x.Y) + dy));
+                //int a = Math.Abs(cf.poin[i].X - x.X);
+                //int b = Math.Abs(cf.poin[i].Y - x.Y);
+
+                //if (cf.poin[i].X > x.X && cf.poin[i].Y > x.Y)
+                //{
+                //    cf.poin[i] = new Point(x.X + a + dx, x.Y + b + dy);
+                //}
+                //else if (cf.poin[i].X > x.X && cf.poin[i].Y < x.Y)
+                //{
+                //    cf.poin[i] = new Point(x.X + a + dx, x.Y - b - dy);
+                //}
+                //else if (cf.poin[i].X < x.X && cf.poin[i].Y < x.Y)
+                //{
+                //    cf.poin[i] = new Point(x.X - a - dx, x.Y - b - dy);
+                //}
+                //else if (cf.poin[i].X < x.X && cf.poin[i].Y > x.Y)
+                //{
+                //    cf.poin[i] = new Point(x.X - a - dx, x.Y + b + dy);
+                //}
+                //else if (cf.poin[i].X == x.X && cf.poin[i].Y != x.Y)
+                //{
+                //    if (cf.poin[i].Y > x.Y)
+                //    {
+                //        cf.poin[i] = new Point(x.X, x.Y + b + dy);
+                //    }
+                //    else
+                //    {
+                //        cf.poin[i] = new Point(x.X, x.Y - b - dy);
+                //    }
+                //}
+                //else if (cf.poin[i].X != x.X && cf.poin[i].Y == x.Y)
+                //{
+                //    if (cf.poin[i].X > x.X)
+                //    {
+                //        cf.poin[i] = new Point(x.X + a + dx, x.Y);
+                //    }
+                //    else
+                //    {
+                //        cf.poin[i] = new Point(x.X - a - dx, x.Y);
+                //    }
+                //}
             }
-            //figur.ZoomingFigure(dx, dy);
-            //for (int i = 0; i < cf.poin.Count; i++)
-            //{
-            //    //cf.poin[i] = new Point(cf.poin[i].X + dx, cf.poin[i].Y + dy);
-            //    cf.poin[i] = new Point(centr.X+((cf.poin[i].X-centr.X) + dX), centr.Y+((cf.poin[i].Y-centr.Y) + dY));
-            //}
-            //keepP = p;
+
         }
 
         public int FindMainPoint(Point p)

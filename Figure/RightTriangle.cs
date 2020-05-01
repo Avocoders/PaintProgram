@@ -14,6 +14,7 @@ namespace WindowsFormsApp7.Figure
         {
              int cx, cy;
 
+
             int dx = Math.Abs((x2 - x1) / 3);
             int dy = Math.Abs((y2 - y1) / 3);
             int x3 = x1;

@@ -25,6 +25,7 @@ namespace WindowsFormsApp7.Figure
             int cy = (y1 + y2) / 2;
             centr = new Point(cx, cy);
 
+
             if (x2 > x1 && y2 < y1)
             {
                 bx1 = x1 + dx / 2;

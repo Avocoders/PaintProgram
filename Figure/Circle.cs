@@ -12,6 +12,7 @@ namespace WindowsFormsApp7.Figure
     public class Сircle : IFigur
     {
         Point point;
+        
 
         int n=0;
         List<Point> points;
@@ -20,6 +21,7 @@ namespace WindowsFormsApp7.Figure
             points = new List<Point>();
             int r = Convert.ToInt32(Math.Sqrt(Math.Abs((x2 - x1)* (x2 - x1)) + Math.Abs((y2 - y1)* (y2 - y1))));
             centr = new Point(x1, y1);
+
 
             for (int i = 0; i < 360; i++)
             {
@@ -43,10 +45,7 @@ namespace WindowsFormsApp7.Figure
 
         public override void ZoomingFigure(int dX, int dY)
         {
-            for (int i = 0; i < points.Count; i++)
-            {
-                points[i] = new Point(centr.X+((points[i].X-centr.X) + dX), centr.Y+((points[i].Y-centr.Y) + dY));
-            }
+            
 
         }
 

@@ -20,7 +20,6 @@ namespace WindowsFormsApp7.Figure
             int aPol = 180 * (n_ - 2) / n_;
             int bPol = 180 - aPol;
             centr = new Point(x1, y1);
-
             for (int i = 0; i < 360; i += bPol)
             {
                 int xFirst = x1 + Convert.ToInt32(r * Math.Cos(i * Math.PI / 180));

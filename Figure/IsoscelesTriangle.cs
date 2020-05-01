@@ -21,6 +21,7 @@ namespace WindowsFormsApp7.Figure
 
 
 
+
             if (x2 > x1)
             {
                 x3 = x1 + 2 * dx;
