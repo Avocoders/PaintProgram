@@ -7,18 +7,37 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp7.Figure
 {
-    class StraightLine : IFigur
+    public class StraightLine : IFigur
     {
-        List <Point> straightLine ;
-
-        public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
+        List<Point> points;
+        public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
-            straightLine = new List<Point>();
-            //q.DrawLine(x1, y1, x2, y2);
-            straightLine.Add(new Point(x1, y1));
-            straightLine.Add(new Point(x2, y2));
+            int cx = (x2 - x1) / 2;
+            int cy = (y2 - y1) / 2;
+            centr = new Point(cx, cy);
 
-            return straightLine;
+            points = new List<Point>();
+
+            points.Add(new Point(x1, y1));
+            points.Add(new Point(x2, y2));
+
+            return points;            
         }
+        public override bool CheckForMatches(int x1, int y1, int x2, int y2,int c, int[] ExPoints)
+        {
+            bool point = true;
+            StraightLine New = new StraightLine();
+            List<Point> NewPointCircle = New.Drow(x1, y1, x2, y2, 0);
+            for (int i = 0; i < ExPoints.Length; i += 2)
+            {
+                Point a = new Point(ExPoints[i], ExPoints[i + 1]);
+                if (!NewPointCircle.Contains(a))
+                {
+                    point = false;
+                }
+            }
+            return point;
+        }
+
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="Brush.cs" />
     <Compile Include="ClassFigure.cs" />
     <Compile Include="ClassLine.cs" />
+    <Compile Include="CreatedFigure.cs" />
     <Compile Include="DrawerFabric\AbstractFabric.cs" />
     <Compile Include="DrawerFabric\FigureFabric.cs" />
     <Compile Include="DrawerFabric\LineFabric.cs" />
@@ -74,6 +75,10 @@
     </Compile>
     <Compile Include="IFill.cs" />
     <Compile Include="IFigure.cs" />
+    <Compile Include="IMovingChange.cs" />
+    <Compile Include="MovingChange\ChangeSizeFigure.cs" />
+    <Compile Include="MovingChange\FigureMove.cs" />
+    <Compile Include="MovingChange\PointMove.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleBitmap.cs" />

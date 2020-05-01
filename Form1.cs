@@ -12,6 +12,8 @@ using WindowsFormsApp7.Figure;
 using System.Drawing.Imaging;
 using WindowsFormsApp7.Fill;
 using WindowsFormsApp7.DrawerFabric;
+using WindowsFormsApp7.MovingChange;
+
 
 namespace WindowsFormsApp7
 {
@@ -22,6 +24,12 @@ namespace WindowsFormsApp7
         Drower drower;
         SingleBitmap q = SingleBitmap.Create();        
         int n = 1;
+        bool drowing = true;
+        bool isHanded = false;
+        bool isTop = false;
+        bool isZoom = false;
+        bool isFigureChanged = false;
+        bool isColorChanged = false;
         int xnow, ynow;
         Color color;
         bool firstColor = true;        
@@ -29,11 +37,14 @@ namespace WindowsFormsApp7
         bool isDrow, isFirst,isFirstPoligon,isCollapsed;
         bool expend = false;
         bool noexpend = true;
-        bool isFigureChanged = false;
-        int lastX, lastY;
-        int startX = 0;
-        int startY = 0;
+        
+        Drower fdrower;
+        CreatedFigure cf;
+        //int lastX, lastY;
+        //int startX = 0;
+        //int startY = 0;
         IFigur Figure;
+        CreatedFigure currentFigur;
         IFill Fill;        
         bool fill = false;
         bool Eraser = false;
@@ -42,6 +53,9 @@ namespace WindowsFormsApp7
         OpenFileDialog open = new OpenFileDialog();
         int nAngle=5;
         Point first, last;
+        IMovingChange moving;
+        int fx, fy;
+        int tmpIndex;
        
         public Form1()
         {
@@ -131,166 +145,210 @@ namespace WindowsFormsApp7
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             
-            if (e.X < 0 || e.X > pictureBox1.Width || e.Y < 0 || e.Y > pictureBox1.Height)
-            {
-                isFirst = true;
-            }
+                if (e.X < 0 || e.X > pictureBox1.Width || e.Y < 0 || e.Y > pictureBox1.Height)
+                {
+                    isFirst = true;
+                }
 
-            if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
-            {
-                brush.SetIsFirst(isFirst);
-                isFirst = false;
-                if (!(abstractFabric is UncommonPoligon))
+                if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
+                {
+                if (drowing == true)
+                {
+                    brush.SetIsFirst(isFirst);
+                    isFirst = false;
+                    if (!(abstractFabric is UncommonPoligon))
+                    {
+                        q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                        if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+                        {
+                            if (Figure is Ellipse)
+                            {
+                                cf.figur=new Сircle();
+
+                                drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
+                                isFigureChanged = true;
+                            }
+                            else if (Figure is Rectangl)
+                            {
+                                cf.figur = new Square();
+                                drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
+                                isFigureChanged = true;
+                            }
+                            else if (Figure is IsoscelesTriangle)
+                            {
+                                cf.figur = new RightTriangle();
+                                drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
+                                isFigureChanged = true;
+                            }
+
+                           // drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                        }
+                        else if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
+                        {
+                            if (Figure is Сircle && isFigureChanged == true)
+                            {
+                                cf.figur = new Ellipse();
+                                drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
+                                isFigureChanged = false;
+                            }
+                            else if (Figure is Square && isFigureChanged == true)
+                            {
+                                cf.figur = new Rectangl();
+                                drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
+                                isFigureChanged = false;
+                            }
+                            else if (Figure is RightTriangle && isFigureChanged == true)
+                            {
+                                cf.figur = new IsoscelesTriangle();
+                                drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
+                                isFigureChanged = false;
+                            }
+                            //drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                        }
+
+                        last = e.Location;
+                        drower.Draw(first, last, nAngle,cf);
+                        if (!(drower is ClassLine))
+                        { q.DrawFigure(); }
+                        else if (drower is ClassLine)
+                        { q.DrawLine(); }
+
+                        if (drower is ClassLine)
+                        { first = last; }
+                        // cf.poin = drower.points;
+                        //brush.SetDot(cf.figur.centr.X, cf.figur.centr.Y);
+                        //q.DrawLine();
+                        pictureBox1.Image = q.bitmap;
+                    }
+                }
+                else if (isHanded == true && currentFigur != null)
+                {
+                   // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    //moving.ChangeFigure(e.Location);
+                   // currentFigur.figur.ChangeFigurePosition(e.X-fx,e.Y-fy);
+                    moving.ChangeFigure(e.Location);
+                    q.Move();
+                    q.DrowOnlyOneFigure(currentFigur);
+                    //cf.poin = drower.points;
+                    pictureBox1.Image = q.bitmap;
+                    fx = e.X;
+                    fy = e.Y;
+                }
+                else if (isZoom == true && currentFigur != null)
+                {
+                    // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    //moving.ChangeFigure(e.Location);
+                    // currentFigur.figur.ChangeFigurePosition(e.X-fx,e.Y-fy);
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height); 
+                    if (cf.figur is Сircle)
+                    {
+                        
+                        drower.Draw(currentFigur.start, e.Location, nAngle,currentFigur);
+                    }
+                    else if (cf.figur is Ellipse)
+                    {
+                        Point po = new Point(cf.l.X + (e.X - first.X), cf.l.Y + (e.Y - first.Y));
+                        drower.Draw(currentFigur.f, po, nAngle, currentFigur);
+                        first = e.Location;
+                    }
+                    else
+                    {
+                        moving.ChangeFigure(e.Location);
+                    }
+                    q.DrawFigure();
+                    q.DrowOnlyOneFigure(currentFigur);
+                    //cf.poin = drower.points;
+                    pictureBox1.Image = q.bitmap;
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    fx = e.X;
+                    fy = e.Y;
+                    
+                }
+
+                else if (isTop == true && currentFigur != null&&currentFigur.fill == null)
+                {
+                   // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    currentFigur.poin[tmpIndex] = e.Location;
+                    q.DrowOnlyOneFigure(currentFigur);
+                    q.DrawFigure();
+                    pictureBox1.Image = q.bitmap;
+                    
+                }
+                else if (isFigureChanged == true && currentFigur != null)
                 {
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                    if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
-                    {
-                        if (Figure is Ellipse)
-                        {
-                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                            Figure = new Сircle();
-                            isFigureChanged = true;
-                        }
-                        else if (Figure is Rectangl)
-                        {
-                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                            Figure = new Square();
-                            isFigureChanged = true;
-                        }
-                        else if (Figure is IsoscelesTriangle)
-                        {
-                            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                            Figure = new RightTriangle();
-                            isFigureChanged = true;
-                        }
-                        
-                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                    }
-                    else if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
-                    {
-                         if (Figure is Сircle && isFigureChanged == true)
-                        {
-                            Figure = new Ellipse();
-                            isFigureChanged = false;
-                        }
-                        else if (Figure is Square && isFigureChanged == true)
-                        {
-                            Figure = new Rectangl();
-                            isFigureChanged = false;
-                        }
-                        else if (Figure is RightTriangle && isFigureChanged == true)
-                        {
-                            Figure = new IsoscelesTriangle();
-                            isFigureChanged = false;
-                        }
-                        drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                    }
-
-                    last = e.Location;
-                    drower.Draw(first, last, nAngle);
-                    if (!(drower is ClassLine))
-                    { q.DrawFigure(); }
-                    else if(drower is ClassLine)
-                    { q.DrawLine(); }
-
-                    if (drower is ClassLine)
-                    { first = last; }
-
-                    
-                    pictureBox1.Image = q.bitmap;
+                    currentFigur.poin[tmpIndex] = e.Location;
+                    drower.Draw(first, currentFigur.poin[tmpIndex], nAngle, cf);
+                    //moving.ChangeFigure(e.Location);
+                    q.DrowOnlyOneFigure(currentFigur);
+                    q.Move();
+                    //cf.poin = drower.points;
+                    pictureBox1.Image = q.bitmap;                    
                 }
             }
-           
+            
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (!(abstractFabric is UncommonPoligon))
+            
+            if (drowing == true)
             {
-                drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                q.Clone2();
-            }           
-            first = e.Location;
-            isDrow = true;
-            isFirst = true;
+                if (!(abstractFabric is UncommonPoligon))
+                {
+                    cf = new CreatedFigure(brush, Figure, Fill);
+                    drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
+                    //drower.Draw(e.Location, e.Location, nAngle);
+                    q.listOfFigure.Add(cf);
+                    //drower = q.listOfFigure[q.listOfFigure.Count-1];
 
-            if (firstColor == true)
-            {
-                if (e.Button == MouseButtons.Left)
+                    q.Clone2();
+                }
+                first = e.Location;
+                isDrow = true;
+                isFirst = true;
+
+                if (firstColor == true)
                 {
-                    color = button1.BackColor;
-                    if (fill == true)
-                    {                        
-                        if (button1.BackColor != q.bitmap.GetPixel(e.X, e.Y))
-                        {
-                            Fill = new SolidFill(button1.BackColor);
-                            Fill.SetColor(e.X, e.Y);
-                            Fill.Casting(e.X, e.Y);
-                            pictureBox1.Image = q.bitmap;
-                        }
-                    }
-                    else if (Pipetka == true)
+                    if (e.Button == MouseButtons.Left)
                     {
-                        button1.BackColor = q.bitmap.GetPixel(e.X, e.Y);
                         color = button1.BackColor;
-                        brush.SetColor(color);
-                    }
-                    else if (Eraser == true)
-                    {
-                        brush.SetColor(Color.White);
-                        brush.SetDot(e.X, e.Y);
-                        pictureBox1.Image = q.bitmap;
-                    }
-                    else
-                    {
-                        brush.SetColor(color);
-                        if (abstractFabric is LineFabric)
+                        if (fill == true)
                         {
+                            if (button1.BackColor != q.bitmap.GetPixel(e.X, e.Y))
+                            {
+                                Fill = new SolidFill(button1.BackColor);
+                                Fill.SetColor(e.X, e.Y);
+                                Fill.Casting(e.X, e.Y);
+                                pictureBox1.Image = q.bitmap;
+                            }
+                        }
+                        else if (Pipetka == true)
+                        {
+                            button1.BackColor = q.bitmap.GetPixel(e.X, e.Y);
+                            color = button1.BackColor;
+                            brush.SetColor(color);
+                        }
+                        else if (Eraser == true)
+                        {
+                            brush.SetColor(Color.White);
                             brush.SetDot(e.X, e.Y);
-                            q.DrawLine();
                             pictureBox1.Image = q.bitmap;
                         }
-                    }                                    
-                }
-                else if (e.Button == MouseButtons.Right)
-                {
-                    brush.SetColor(button4.BackColor);
-                    if (abstractFabric is LineFabric)
-                    {
-                        brush.SetDot(e.X, e.Y);
-                        q.DrawLine();
-                        pictureBox1.Image = q.bitmap;
-                    }
-                }
-            }
-            else
-            {
-                if (e.Button == MouseButtons.Left)
-                {
-                    color = button4.BackColor;
-                    if (fill == true)
-                    {
-                        if (button4.BackColor != q.bitmap.GetPixel(e.X, e.Y))
+                        else
                         {
-                            Fill = new SolidFill(button4.BackColor);
-                            Fill.SetColor(e.X, e.Y);
-                            Fill.Casting(e.X, e.Y);
-                            pictureBox1.Image = q.bitmap;
+                            brush.SetColor(color);
+                            if (abstractFabric is LineFabric)
+                            {
+                                brush.SetDot(e.X, e.Y);
+                                q.DrawLine();
+                                pictureBox1.Image = q.bitmap;
+                            }
                         }
                     }
-                    else if (Pipetka == true)
-                    {
-                        button4.BackColor = q.bitmap.GetPixel(e.X, e.Y);
-                        color = button4.BackColor;
-                        brush.SetColor(color);
-                    }
-                    else if (Eraser == true)
-                    {
-                        brush.SetColor(Color.White);
-                        brush.SetDot(e.X, e.Y);
-                        pictureBox1.Image = q.bitmap;
-                    }
-                    else
+                    else if (e.Button == MouseButtons.Right)
                     {
                         brush.SetColor(button4.BackColor);
                         if (abstractFabric is LineFabric)
@@ -299,70 +357,161 @@ namespace WindowsFormsApp7
                             q.DrawLine();
                             pictureBox1.Image = q.bitmap;
                         }
-                    }               
-                }
-                else if (e.Button == MouseButtons.Right)
-                {
-                    brush.SetColor(button1.BackColor);
-                    if (abstractFabric is LineFabric)
-                    {
-                        brush.SetDot(e.X, e.Y);
-                        q.DrawLine();
-                        pictureBox1.Image = q.bitmap;
                     }
                 }
+                else 
+                {
+                    if (e.Button == MouseButtons.Left)
+                    {
+                        color = button4.BackColor;
+                        if (fill == true)
+                        {
+                            if (button4.BackColor != q.bitmap.GetPixel(e.X, e.Y))
+                            {
+                                Fill = new SolidFill(button4.BackColor);
+                                Fill.SetColor(e.X, e.Y);
+                                Fill.Casting(e.X, e.Y);
+                                pictureBox1.Image = q.bitmap;
+                            }
+                        }
+                        else if (Pipetka == true)
+                        {
+                            button4.BackColor = q.bitmap.GetPixel(e.X, e.Y);
+                            color = button4.BackColor;
+                            brush.SetColor(color);
+                        }
+                        else if (Eraser == true)
+                        {
+                            brush.SetColor(Color.White);
+                            brush.SetDot(e.X, e.Y);
+                            pictureBox1.Image = q.bitmap;
+                        }
+                        else
+                        {
+                            brush.SetColor(button4.BackColor);
+                            if (abstractFabric is LineFabric)
+                            {
+                                brush.SetDot(e.X, e.Y);
+                                q.DrawLine();
+                                pictureBox1.Image = q.bitmap;
+                            }
+                        }
+                    }
+                    else if (e.Button == MouseButtons.Right)
+                    {
+                        brush.SetColor(button1.BackColor);
+                        if (abstractFabric is LineFabric)
+                        {
+                            brush.SetDot(e.X, e.Y);
+                            q.DrawLine();
+                            pictureBox1.Image = q.bitmap;
+                        }
+                    }
+                }
+                
+                if (abstractFabric is UncommonPoligon)
+                {
+                    if (isFirstPoligon == true)
+                    {
+
+                        isFirstPoligon = false;
+                        first = e.Location;
+                        last = e.Location;
+                        drower.Draw(e.Location, e.Location, nAngle,cf);
+                        q.DrawLine();
+                        q.Clone2();
+                    }
+                    else
+                    {
+                        drower.Draw(e.Location, first, nAngle,cf);
+                        q.DrawLine();
+                        
+                    }
+                    pictureBox1.Image = q.bitmap;
+                }
             }
-            //if(abstractFabric is LineFabric)
-            //{
-            //    brush.SetDot(e.X, e.Y);
-            //    q.DrawLine();
-            //    pictureBox1.Image = q.bitmap;
-            //}        
-            if(abstractFabric is UncommonPoligon)
+            else if (isHanded == true|| isZoom==true)
             {
-                if (isFirstPoligon == true)
-                {
-                   
-                    isFirstPoligon = false;
-                    first = e.Location;
-                   last = e.Location;
-                    drower.Draw(e.Location, e.Location, nAngle);
-                    q.DrawLine();
-                    q.Clone2();
-                }
-                else
-                {
-                    drower.Draw(e.Location, first, nAngle);
-                    q.DrawLine();                    
-                    //last = e.Location;
-                }
-                pictureBox1.Image = q.bitmap;
+                isDrow = true;
+                
+                currentFigur = moving.FindPoint(e.Location);
+               
+                if (currentFigur != null)
+                {                   
+                    q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.GetBrush(brush, drower);
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.DrowNotAllFigure(currentFigur);
+                    q.SetTmp();
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                   // q.Move();
+                    q.DrowOnlyOneFigure(currentFigur);
+                    //q.DrawFigure();
+                    pictureBox1.Image = q.bitmap;
+                    fx = e.X;
+                    fy = e.Y;
+                }        
+
             }
-
-            //if (tmp == 11)
-            //{
-            //    if (isFirstPoligon == true)
-            //    {
-            //        startX = e.X;
-            //        startY = e.Y;
-            //        lastX = startX;
-            //        lastY = startY;
-            //        brush.SetDot(startX, startY);
-            //        isFirstPoligon = false;
-            //        pictureBox1.Image = q.bitmap;
-            //    }
-            //    else
-            //    {
-            //        xnow = e.X;
-            //        ynow = e.Y;
-            //        brush.DrawLine(lastX, lastY, xnow, ynow);
-            //        lastX = e.X;
-            //        lastY = e.Y;
-            //        pictureBox1.Image = q.bitmap;
-
-            //    }
-            //}
-            
+            else if (isTop == true || isFigureChanged == true)
+            {
+                isDrow = true;
+                for (int i = -10; i <= 10; i++)
+                {
+                    for (int j = -10; j <= 10; j++)
+                    {
+                        Point p = new Point(e.X + i, e.Y + j);
+                        currentFigur = moving.FindPoint(p);
+                        if (currentFigur != null)
+                        {
+                            tmpIndex = moving.FindMainPoint(p);
+                            first = moving.FirstPoint(p);
+                            break;
+                        }
+                    }
+                    if (currentFigur != null)
+                    {
+                        break;
+                    }
+                }
+                if (currentFigur != null)
+                {
+                    q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.GetBrush(brush, drower);
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.DrowNotAllFigure(currentFigur);
+                    q.SetTmp();
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.DrowOnlyOneFigure(currentFigur);
+                    q.DrawFigure();
+                    pictureBox1.Image = q.bitmap;                    
+                }                   
+            }
+            else if (isColorChanged == true)
+            {
+                isDrow = true;                
+                currentFigur = moving.FindPoint(e.Location);    
+                if (currentFigur != null)
+                {
+                    if (currentFigur.fill == null)
+                    {
+                        q.GetBrush(brush, drower);
+                        q.Clone2();
+                        pictureBox1.Image = q.bitmap;
+                        currentFigur.brush.SetColor(button1.BackColor);
+                        q.DrowOnlyOneFigure(currentFigur);
+                    }
+                    //else
+                    //{
+                    //    q.GetBrush(brush, drower);
+                    //    q.Clone2();
+                    //    pictureBox1.Image = q.bitmap;
+                    //    brush.SetColor(button1.BackColor);
+                    //    Fill = new TwoColorFill(button4.BackColor);                        
+                    //    q.DrowOnlyOneFigure(currentFigur);
+                    //}
+                }                
+            }
         }
        
         private void Form1_Load(object sender, EventArgs e)
@@ -388,9 +537,9 @@ namespace WindowsFormsApp7
             isDrow = false;
             if (!(abstractFabric is UncommonPoligon))
             { 
-                q.Clone(); 
+                q.Clone();
             }
-            q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            
         }        
 
         private void lineThickness_Scroll(object sender, EventArgs e)
@@ -535,7 +684,7 @@ namespace WindowsFormsApp7
             textBox3.Visible = false;
             Eraser = false;
             Pipetka = false;
-            fill = false;
+            fill = false;            
         }
 
         private void rectangle_Click(object sender, EventArgs e)
@@ -545,7 +694,7 @@ namespace WindowsFormsApp7
             textBox3.Visible = false;
             Eraser = false;
             Pipetka = false;
-            fill = false;
+            fill = false;            
         }
 
         private void RightTriangle_Click(object sender, EventArgs e)
@@ -556,6 +705,9 @@ namespace WindowsFormsApp7
             Eraser = false;
             Pipetka = false;
             fill = false;
+            isTop = false;
+            isHanded = false;
+            isZoom = false;
         }
 
         private void IsoscelesTriangle_Click(object sender, EventArgs e)
@@ -565,7 +717,7 @@ namespace WindowsFormsApp7
             textBox3.Visible = false;
             Eraser = false;
             Pipetka = false;
-            fill = false;
+            fill = false;            
         }
         private void straightLine_Click(object sender, EventArgs e)
         {
@@ -574,7 +726,7 @@ namespace WindowsFormsApp7
             textBox3.Visible = false;
             Eraser = false;
             Pipetka = false;
-            fill = false;
+            fill = false;            
         }
         private void choosePen_Click(object sender, EventArgs e)
         {
@@ -582,11 +734,11 @@ namespace WindowsFormsApp7
             Eraser = false;
             textBox3.Visible = false;
             Pipetka = false;
-            fill = false;
+            fill = false;           
         }
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
-            drower.Draw(first, last, nAngle);
+            drower.Draw(first, last, nAngle,cf);
             q.DrawLine();
             pictureBox1.Image = q.bitmap;
             drower = abstractFabric.CreateDrower(Figure, brush, Fill);
@@ -616,7 +768,7 @@ namespace WindowsFormsApp7
             textBox3.Visible = true;
             Eraser = false;
             Pipetka = false;
-            fill = false;
+            fill = false;            
         }
 
         private void textBox3_KeyDown_1(object sender, KeyEventArgs e)
@@ -637,7 +789,7 @@ namespace WindowsFormsApp7
             textBox3.Visible = false;
             Eraser = false;
             Pipetka = false;
-            fill = false;
+            fill = false;            
         }
 
         private void circle_Click(object sender, EventArgs e)
@@ -647,7 +799,7 @@ namespace WindowsFormsApp7
             textBox3.Visible = false;
             Eraser = false;
             Pipetka = false;
-            fill = false;
+            fill = false;            
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -657,7 +809,7 @@ namespace WindowsFormsApp7
             textBox3.Visible = true;
             Eraser = false;
             Pipetka = false;
-            fill = false;
+            fill = false;            
         }
 
         private void pictureBox1_SizeChanged(object sender, EventArgs e)
@@ -683,7 +835,7 @@ namespace WindowsFormsApp7
             Eraser = false;
             Pipetka = false;
             textBox3.Visible = false;
-            fill = true;
+            fill = true;            
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -712,7 +864,13 @@ namespace WindowsFormsApp7
                 textBox3.Visible = false;
                 fill = false;
                 color = Color.Black;                
-                brush = new Brush(pictureBox1.Width, pictureBox1.Height);               
+                brush = new Brush(pictureBox1.Width, pictureBox1.Height);
+                isTop = false;
+                isHanded = false;
+                isZoom = false;
+                isFigureChanged = false;
+                drowing = true;
+                toolStripDropDownButton2.Image = topToolStripMenuItem.Image;
             }
         }
         
@@ -733,17 +891,20 @@ namespace WindowsFormsApp7
         private void заливкаToolStripMenuItem_Click(object sender, EventArgs e)
         {            
             Fill = new TwoColorFill(button4.BackColor);
+            toolStripDropDownButton1.Image = заливкаToolStripMenuItem.Image;
 
         }
 
         private void безЗаливкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Fill = new WithoutFill();
+            toolStripDropDownButton1.Image = безЗаливкиToolStripMenuItem.Image;
         }
 
         private void заливкаОднотоннаяToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Fill = new TwoColorFill(button1.BackColor);
+            toolStripDropDownButton1.Image = заливкаОднотоннаяToolStripMenuItem.Image;
         }
 
         private void button4_BackColorChanged(object sender, EventArgs e)
@@ -757,8 +918,9 @@ namespace WindowsFormsApp7
                 Fill = new SolidFill(button4.BackColor);
             }
 
-        }
+        }    
 
+        
         private void button9_Click(object sender, EventArgs e)
         {
             pictureBox2.BackColor = button1.BackColor;
@@ -776,11 +938,84 @@ namespace WindowsFormsApp7
             }
         }
 
+        private void topToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            drowing = true;
+            toolStripDropDownButton2.Image = topToolStripMenuItem.Image;
+            isHanded = false;
+            isTop = false;
+            isZoom = false;
+            isFigureChanged = false;
+
+        }
+
+        private void перемещениеToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            drowing = false;
+            isZoom = false;
+            isHanded = true;
+            isTop = false;
+            isFigureChanged = false;
+            moving = new FigureMove();
+            toolStripDropDownButton2.Image = перемещениеToolStripMenuItem1.Image;
+        }
+
+        private void верхушкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            drowing = false;
+            isZoom = false;
+            isTop = true;
+            isHanded = false;
+            isFigureChanged = false;
+            moving = new PointMove();
+            toolStripDropDownButton2.Image = верхушкаToolStripMenuItem.Image;
+        }
+
+        private void масштабируемToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            drowing = false;
+            toolStripDropDownButton2.Image = масштабируемToolStripMenuItem.Image;
+            isTop = false;
+            isHanded = false;
+            isZoom = true;
+            isFigureChanged = false;
+            moving = new ChangeSizeFigure();
+            //moving = new PointMove();
+        }
+
+        private void меняетФигуруToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            drowing = false;
+            toolStripDropDownButton2.Image = меняетФигуруToolStripMenuItem.Image;
+            isTop = false;
+            isHanded = false;
+            isZoom = false;
+            isFigureChanged = true;
+            moving = new PointMove();
+        }
+
+        private void поToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            isColorChanged = true;
+            toolStripDropDownButton2.Image = поToolStripMenuItem.Image;
+            drowing = false;            
+            isTop = false;
+            isHanded = false;
+            isZoom = false;
+            isFigureChanged = false;
+            moving = new FigureMove();
+        }
+
+        private void button11_Click_1(object sender, EventArgs e)
+        {
+            q.DrowAllFigure();
+        }
+
         private void choosePipette_Click(object sender, EventArgs e)
         {            
             Pipetka = true;
             Eraser = false;
-            fill = false;
+            fill = false;            
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -791,7 +1026,7 @@ namespace WindowsFormsApp7
             Pipetka = false;
             fill = false;
             isFirstPoligon = true;
-            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+            drower = abstractFabric.CreateDrower(Figure, brush, Fill);           
         }
         private void deleteAll_Click(object sender, EventArgs e)
         {            
@@ -802,6 +1037,12 @@ namespace WindowsFormsApp7
             Pipetka = false;
             fill = false;
             textBox3.Visible = false;
+            isTop = false;
+            isHanded = false;
+            isZoom = false;
+            isFigureChanged = false;
+            drowing = true;
+            toolStripDropDownButton2.Image = topToolStripMenuItem.Image;
         }
 
         private void deleteTheLastOne_Click(object sender, EventArgs e)
@@ -817,7 +1058,7 @@ namespace WindowsFormsApp7
             Eraser = true;
             textBox3.Visible = false;
             Pipetka = false;
-            fill = false;
+            fill = false;            
         }                
     }
 }

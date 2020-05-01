@@ -9,18 +9,41 @@ namespace WindowsFormsApp7.Figure
 {
     public class RightTriangle : IFigur
     {
-        List <Point> rightTriangle ;
-        public List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
+        List<Point> points;
+        public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
-            rightTriangle = new List<Point>();
-            rightTriangle.Add(new Point(x1, y1));
-            rightTriangle.Add(new Point(x2, y2));
-            rightTriangle.Add(new Point(x1, y2));
+             int cx, cy;
 
-            //q.DrawLine(x2, y2, x1, y1);
-            //q.DrawLine(x1, y2, x2, y2);
-            //q.DrawLine(x1, y1, x1, y2);
-            return rightTriangle;
+
+          
+           
+
+            cx = (x1 + x2) / 2;
+            cy = (y1 + y2) / 2;
+            centr = new Point(cx, cy);
+
+            points = new List<Point>();
+            points.Add(new Point(x1, y1));
+            points.Add(new Point(x2, y2));
+            points.Add(new Point(x1, y2));
+
+            return points;
+        }
+
+        public override bool CheckForMatches(int x1, int y1, int x2, int y2, int c, int[] ExPoints)
+        {
+            bool point = true;
+            RightTriangle New = new RightTriangle();
+            List<Point> NewPointCircle = New.Drow(x1, y1, x2, y2, 0);
+            for (int i = 0; i < ExPoints.Length; i += 2)
+            {
+                Point a = new Point(ExPoints[i], ExPoints[i + 1]);
+                if (!NewPointCircle.Contains(a))
+                {
+                    point = false;
+                }
+            }
+            return point;
         }
     }
 }
