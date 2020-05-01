@@ -15,32 +15,11 @@ namespace WindowsFormsApp7.Figure
              int cx, cy;
 
 
-            int dx = Math.Abs((x2 - x1) / 3);
-            int dy = Math.Abs((y2 - y1) / 3);
-            int x3 = x1;
-            int y3 = y2;
+          
+           
 
-            if (x2 > x1 && y2 > y1)
-            {
-                cx = x3 + dx;
-                cy = y3 - dy;
-
-            }
-            else if (x2 > x1 && y2 < y1)
-            {
-                cx = x3 + dx;
-                cy = y3 + dy;
-            }
-            else if (x2 < x1 && y2 > y1)
-            {
-                cx = x3 - dx;
-                cy = y3 - dy;
-            }
-            else
-            {
-                cx = x3 - dx;
-                cy = y3 + dy;
-            }
+            cx = (x1 + x2) / 2;
+            cy = (y1 + y2) / 2;
             centr = new Point(cx, cy);
 
             points = new List<Point>();
