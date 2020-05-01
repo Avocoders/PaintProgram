@@ -339,11 +339,11 @@ namespace WindowsFormsApp7
                         }
                         else
                         {
-                            brush = new Brush(brush);
+                            //brush = new Brush(brush);
                             brush.SetColor(color);
                             if (abstractFabric is LineFabric)
                             {
-                                brush = new Brush(brush);
+                                //brush = new Brush(brush);
                                 brush.SetDot(e.X, e.Y);
                                 q.DrawLine();
                                 pictureBox1.Image = q.bitmap;
@@ -352,11 +352,11 @@ namespace WindowsFormsApp7
                     }
                     else if (e.Button == MouseButtons.Right)
                     {
-                        brush = new Brush(brush);
+                        //brush = new Brush(brush);
                         brush.SetColor(button4.BackColor);
                         if (abstractFabric is LineFabric)
                         {
-                            brush = new Brush(brush);
+                            //brush = new Brush(brush);
                             brush.SetDot(e.X, e.Y);
                             q.DrawLine();
                             pictureBox1.Image = q.bitmap;
@@ -392,11 +392,11 @@ namespace WindowsFormsApp7
                         }
                         else
                         {
-                            brush = new Brush(brush);
+                            //brush = new Brush(brush);
                             brush.SetColor(button4.BackColor);
                             if (abstractFabric is LineFabric)
                             {
-                                brush = new Brush(brush);
+                                //brush = new Brush(brush);
                                 brush.SetDot(e.X, e.Y);
                                 q.DrawLine();
                                 pictureBox1.Image = q.bitmap;
