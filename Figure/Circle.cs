@@ -21,7 +21,7 @@ namespace WindowsFormsApp7.Figure
             points = new List<Point>();
             int r = Convert.ToInt32( Math.Sqrt(Math.Abs((x2 - x1)* (x2 - x1)) + Math.Abs((y2 - y1)* (y2 - y1))));
             centr = new Point(x1, y1);
-
+            start = new Point(x1, y1);
 
             for (double i = 0; i < 360; i+=2)
             {

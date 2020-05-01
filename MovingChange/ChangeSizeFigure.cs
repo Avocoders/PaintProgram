@@ -19,51 +19,46 @@ namespace WindowsFormsApp7.MovingChange
         double b;
         public void ChangeFigure(Point p)
         {
-            x = cf.centr;
-            int dx, dy;
-
-            dx = Math.Abs(p.X - keepP.X);
-            dy = Math.Abs(p.Y - keepP.Y);
-            
-            double rCentr = (double)Math.Sqrt(Math.Abs((p.X - x.X) * (p.X - x.X)) + Math.Abs((p.Y - x.Y) * (p.Y - x.Y)));
-            double rKeepP = (double)Math.Sqrt(Math.Abs((keepP.X - x.X) * (keepP.X - x.X)) + Math.Abs((keepP.Y - x.Y) * (keepP.Y - x.Y)));
-            double r = (double)Math.Sqrt(Math.Abs(dx * dx) + Math.Abs(dy * dy))/*rCentr-rKeepP*/;
-
-
-            if (rCentr > rKeepP)
+            if (cf.figur is Сircle)
             {
+                cf.figur.Drow(cf.start.X, cf.start.Y, p.X, p.Y,1);
+            }
+            else
+            {
+                x = cf.centr;
+                int dx, dy;
+
+                double dx2 = Math.Abs(p.X - keepP.X);
+                double dy2 = Math.Abs(p.Y - keepP.Y);
+                //dx = Math.Abs()
+                double xmax = cf.poin[0].X, xmin = cf.poin[0].X, ymax = cf.poin[0].Y, ymin = cf.poin[0].Y;
                 for (int i = 0; i < cf.poin.Count; i++)
                 {
-                    double dxPoint, dyPoint, rPoint;
-                    dxPoint = (double)Math.Abs(cf.poin[i].X - x.X);
-                    dyPoint = (double)Math.Abs(cf.poin[i].Y - x.Y);
-                    rPoint = (double)Math.Sqrt((dxPoint * dxPoint) + (dyPoint * dyPoint));
-                    if (rPoint != 0)
-                    {
-                        a = (double)(cf.poin[i].X - x.X) / rPoint;
-                        b = (double)(cf.poin[i].Y - x.Y) / rPoint;
-                    }
-                    cf.poin[i] = new Point(Convert.ToInt32(x.X + (rPoint + r) * a), Convert.ToInt32(x.Y + (rPoint + r) * b));
+                    if (xmax < cf.poin[i].X)
+                    { xmax = cf.poin[i].X; }
+                    if (xmin > cf.poin[i].X)
+                    { xmin = cf.poin[i].X; }
+                    if (ymax < cf.poin[i].Y)
+                    { ymax = cf.poin[i].Y; }
+                    if (ymin > cf.poin[i].Y)
+                    { ymin = cf.poin[i].Y; }
                 }
-            }
-            else if(rCentr < rKeepP) 
-            {
+                double weightAll = xmax - xmin;
+                double heigthAll = ymax - ymin;
+                double keepPW = keepP.X - xmin;
+                double keepPH = keepP.Y - ymin;
+                double delW = p.X - xmin - keepPW;
+                double delH = p.Y - ymin - keepPH;
                 for (int i = 0; i < cf.poin.Count; i++)
                 {
-                    double dxPoint, dyPoint, rPoint;
-                    dxPoint = (double)Math.Abs(cf.poin[i].X - x.X);
-                    dyPoint = (double)Math.Abs(cf.poin[i].Y - x.Y);
-                    rPoint = (double)Math.Sqrt((dxPoint * dxPoint) + (dyPoint * dyPoint));
-                    if (rPoint != 0)
-                    {
-                        a = (double)(cf.poin[i].X - x.X) / rPoint;
-                         b = (double)(cf.poin[i].Y - x.Y) / rPoint;
-                    }
-                    
-                    cf.poin[i] = new Point(Convert.ToInt32(x.X + (rPoint - r) * a), Convert.ToInt32(x.Y + (rPoint - r) * b));
+                    int newX = Convert.ToInt32((cf.poin[i].X - xmin) / keepPW * delW + cf.poin[i].X);
+                    int newY = Convert.ToInt32((cf.poin[i].Y - ymin) / keepPH * delH + cf.poin[i].Y);
+                    cf.poin[i] = new Point(newX, newY);
                 }
+
+
+                keepP = p;
             }
-            keepP = p;
         }
 
         public int FindMainPoint(Point p)

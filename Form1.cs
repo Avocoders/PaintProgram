@@ -162,20 +162,21 @@ namespace WindowsFormsApp7
                         {
                             if (Figure is Ellipse)
                             {
-                                drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                                Figure = new Сircle();
+                                cf.figur=new Сircle();
+
+                                drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
                                 isFigureChanged = true;
                             }
                             else if (Figure is Rectangl)
                             {
-                                drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                                Figure = new Square();
+                                cf.figur = new Square();
+                                drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
                                 isFigureChanged = true;
                             }
                             else if (Figure is IsoscelesTriangle)
                             {
-                                drower = abstractFabric.CreateDrower(Figure, brush, Fill);
-                                Figure = new RightTriangle();
+                                cf.figur = new RightTriangle();
+                                drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
                                 isFigureChanged = true;
                             }
 
@@ -185,17 +186,20 @@ namespace WindowsFormsApp7
                         {
                             if (Figure is Сircle && isFigureChanged == true)
                             {
-                                Figure = new Ellipse();
+                                cf.figur = new Ellipse();
+                                drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
                                 isFigureChanged = false;
                             }
                             else if (Figure is Square && isFigureChanged == true)
                             {
-                                Figure = new Rectangl();
+                                cf.figur = new Rectangl();
+                                drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
                                 isFigureChanged = false;
                             }
                             else if (Figure is RightTriangle && isFigureChanged == true)
                             {
-                                Figure = new IsoscelesTriangle();
+                                cf.figur = new IsoscelesTriangle();
+                                drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
                                 isFigureChanged = false;
                             }
                             //drower = abstractFabric.CreateDrower(Figure, brush, Fill);
@@ -233,20 +237,35 @@ namespace WindowsFormsApp7
                 else if (isZoom == true && currentFigur != null)
                 {
                     // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     //moving.ChangeFigure(e.Location);
                     // currentFigur.figur.ChangeFigurePosition(e.X-fx,e.Y-fy);
-                    moving.ChangeFigure(e.Location);
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height); 
+                    if (cf.figur is Сircle)
+                    {
+                        
+                        drower.Draw(currentFigur.start, e.Location, nAngle,currentFigur);
+                    }
+                    else if (cf.figur is Ellipse)
+                    {
+                        Point po = new Point(cf.l.X + (e.X - first.X), cf.l.Y + (e.Y - first.Y));
+                        drower.Draw(currentFigur.f, po, nAngle, currentFigur);
+                        first = e.Location;
+                    }
+                    else
+                    {
+                        moving.ChangeFigure(e.Location);
+                    }
                     q.DrawFigure();
                     q.DrowOnlyOneFigure(currentFigur);
                     //cf.poin = drower.points;
                     pictureBox1.Image = q.bitmap;
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     fx = e.X;
                     fy = e.Y;
                     
                 }
 
-                else if (isTop == true && currentFigur != null)
+                else if (isTop == true && currentFigur != null&&currentFigur.fill == null)
                 {
                    // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -428,8 +447,9 @@ namespace WindowsFormsApp7
                     q.GetBrush(brush, drower);
                     q.DrowNotAllFigure(currentFigur);
                     q.Clone2();
-                    pictureBox1.Image = q.bitmap;
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.DrowOnlyOneFigure(currentFigur);
+                    pictureBox1.Image = q.bitmap;
                     fx = e.X;
                     fy = e.Y;
                 }        
@@ -495,7 +515,7 @@ namespace WindowsFormsApp7
             isDrow = false;
             if (!(abstractFabric is UncommonPoligon))
             { 
-                if (isHanded != true && isTop != true)
+                if (isHanded != true && isTop != true && isZoom != true)
                 q.Clone();
                 //    q.SaveBitmap();
 

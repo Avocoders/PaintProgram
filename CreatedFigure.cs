@@ -16,7 +16,7 @@ namespace WindowsFormsApp7
         public Point centr;
         public Point f;
         public Point l;
-        
+        public Point start;
         public CreatedFigure(Brush brush, IFigur figur, IFill fill)
         {
             this.brush = brush;
