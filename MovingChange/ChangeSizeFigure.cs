@@ -79,7 +79,7 @@ namespace WindowsFormsApp7.MovingChange
                         {
                             cf = f;
                             keepP = p;
-                            return cf;
+                            return f;
                         }
                     }
                 }

@@ -16,10 +16,10 @@ namespace WindowsFormsApp7
         }
         public override void Draw(Point first, Point last,int nAngle,CreatedFigure cf)
         {
-            cf.poin = figure.Drow(first.X, first.Y, last.X, last.Y, nAngle);
+            cf.poin = cf.figur.Drow(first.X, first.Y, last.X, last.Y, nAngle);
             cf.f = first;
-            cf.centr = figure.centr;
-            cf.start = figure.start;
+            cf.centr = cf.figur.centr;
+            cf.start = cf.figur.start;
             cf.l = last;
             for(int i = 0; i<cf.poin.Count-1;i++)
             {
