@@ -494,12 +494,12 @@ namespace WindowsFormsApp7
                 if (currentFigur != null)
                 {
                     if (currentFigur.fill == null)
-                    {
+                    {                        
+                        q.Clone2();                        
+                        brush.SetColor(button1.BackColor);
                         q.GetBrush(brush, drower);
-                        q.Clone2();
-                        pictureBox1.Image = q.bitmap;
-                        currentFigur.brush.SetColor(button1.BackColor);
                         q.DrowOnlyOneFigure(currentFigur);
+                        pictureBox1.Image = q.bitmap;
                     }
                     //else
                     //{
