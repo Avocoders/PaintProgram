@@ -52,7 +52,7 @@ namespace WindowsFormsApp7.MovingChange
                     return q.poin[0];
                 }
             }
-            else if (q.poin.IndexOf(p) > 4)
+            else if (q.poin.IndexOf(p) > 4 || q.poin.IndexOf(p) < 4)
             {
                 return q.poin[0];
             }
