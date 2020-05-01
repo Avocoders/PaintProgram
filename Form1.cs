@@ -241,14 +241,14 @@ namespace WindowsFormsApp7
                     //moving.ChangeFigure(e.Location);
                     // currentFigur.figur.ChangeFigurePosition(e.X-fx,e.Y-fy);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height); 
-                    if (cf.figur is Сircle)
+                    if (currentFigur.figur is Сircle)
                     {
                         
-                        drower.Draw(currentFigur.start, e.Location, nAngle,currentFigur);
+                        drower.Draw(currentFigur.centr, e.Location, nAngle,currentFigur);
                     }
-                    else if (cf.figur is Ellipse)
+                    else if (currentFigur.figur is Ellipse)
                     {
-                        Point po = new Point(cf.l.X + (e.X - first.X), cf.l.Y + (e.Y - first.Y));
+                        Point po = new Point(currentFigur.l.X + (e.X - first.X), currentFigur.l.Y + (e.Y - first.Y));
                         drower.Draw(currentFigur.f, po, nAngle, currentFigur);
                         first = e.Location;
                     }
