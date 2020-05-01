@@ -25,6 +25,7 @@ namespace WindowsFormsApp7.MovingChange
             {
                 cf.poin[i] = new Point(cf.poin[i].X + dx, cf.poin[i].Y + dy);
             }
+            cf.centr = new Point(cf.centr.X + dx, cf.centr.Y + dy);
             keepP = p;
         }
 

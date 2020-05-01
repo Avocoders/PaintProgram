@@ -82,17 +82,12 @@ namespace WindowsFormsApp7
             {
                 if(f!=cf2)
                 {   
-                   // Point tmp = f.poin[0];
-                    //foreach (Point p in f.poin)
-                   // {
+                   
                         drawer.Draw(f);
-                        //brush.DrawLine(tmp.X,tmp.Y, p.X,p.Y );
-                    //    tmp = p;
-                    //}
-                    //drower.brush.DrawLine(tmp.X, tmp.Y, f.points[0].X, f.points[0].Y);
+                       
+                }
                     Graphics graph = Graphics.FromImage(bitmap);
                     graph.DrawImage(bitFigure, 0, 0);
-                }
             }
         }
         public void DrowOnlyOneFigure(CreatedFigure cf)
@@ -110,7 +105,10 @@ namespace WindowsFormsApp7
             end = n;
             bitmap2.Insert(n, tmp1);           
         }
-
+        public void Move()
+        {
+            bitmap = new Bitmap(tmp1);
+        }
         public void DrawFigure()
         {
             bitmap = new Bitmap(tmp1);
@@ -150,7 +148,10 @@ namespace WindowsFormsApp7
             }
             tmp1 = new Bitmap(bitmap);
         }
-
+        public void SetTmp()
+        {
+            tmp1 = new Bitmap(bitmap);
+        }
         public void Undo()
         {
             if (n > 1)

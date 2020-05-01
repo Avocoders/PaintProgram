@@ -227,7 +227,7 @@ namespace WindowsFormsApp7
                     //moving.ChangeFigure(e.Location);
                    // currentFigur.figur.ChangeFigurePosition(e.X-fx,e.Y-fy);
                     moving.ChangeFigure(e.Location);
-                    q.DrawFigure();
+                    q.Move();
                     q.DrowOnlyOneFigure(currentFigur);
                     //cf.poin = drower.points;
                     pictureBox1.Image = q.bitmap;
@@ -270,9 +270,9 @@ namespace WindowsFormsApp7
                    // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     currentFigur.poin[tmpIndex] = e.Location;
+                    q.DrowOnlyOneFigure(currentFigur);
                     q.DrawFigure();
                     pictureBox1.Image = q.bitmap;
-                    q.DrowOnlyOneFigure(currentFigur);
                     
                 }
                 else if (isFigureChanged == true && currentFigur != null)
@@ -281,8 +281,8 @@ namespace WindowsFormsApp7
                     currentFigur.poin[tmpIndex] = e.Location;
                     drower.Draw(first, currentFigur.poin[tmpIndex], nAngle, cf);
                     //moving.ChangeFigure(e.Location);
-                    q.DrawFigure();
                     q.DrowOnlyOneFigure(currentFigur);
+                    q.Move();
                     //cf.poin = drower.points;
                     pictureBox1.Image = q.bitmap;                    
                 }
@@ -358,7 +358,7 @@ namespace WindowsFormsApp7
                         }
                     }
                 }
-                else
+                else 
                 {
                     if (e.Button == MouseButtons.Left)
                     {
@@ -432,23 +432,20 @@ namespace WindowsFormsApp7
             else if (isHanded == true|| isZoom==true)
             {
                 isDrow = true;
-                //currentFigur = moving.FindPoint(e.Location);
                 
                 currentFigur = moving.FindPoint(e.Location);
-                //if (currentFigur != null)
-                //{
-                //    tmpIndex = moving.FindMainPoint(p);
-                //    break;
-                //}
-                //currentFigur.points[0] = new Point(1, 1);    
+               
                 if (currentFigur != null)
                 {
                     q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.GetBrush(brush, drower);
-                    q.DrowNotAllFigure(currentFigur);
-                    q.Clone2();
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.DrowNotAllFigure(currentFigur);
+                    q.SetTmp();
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                   // q.Move();
                     q.DrowOnlyOneFigure(currentFigur);
+                    //q.DrawFigure();
                     pictureBox1.Image = q.bitmap;
                     fx = e.X;
                     fy = e.Y;
@@ -482,8 +479,10 @@ namespace WindowsFormsApp7
                     q.GetBrush(brush, drower);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.DrowNotAllFigure(currentFigur);
-                    q.Clone2();
+                    q.SetTmp();
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.DrowOnlyOneFigure(currentFigur);
+                    q.DrawFigure();
                     pictureBox1.Image = q.bitmap;                    
                 }   
                 
@@ -515,15 +514,9 @@ namespace WindowsFormsApp7
             isDrow = false;
             if (!(abstractFabric is UncommonPoligon))
             { 
-                if (isHanded != true && isTop != true && isZoom != true)
                 q.Clone();
-                //    q.SaveBitmap();
-
-
             }
-            //q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-
-            //q.listOfFigure.Add(drower);
+            
         }        
 
         private void lineThickness_Scroll(object sender, EventArgs e)
