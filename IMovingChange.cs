@@ -14,5 +14,6 @@ namespace WindowsFormsApp7
         void ChangeFigure(Point p);
         int FindMainPoint(Point p);
         void PointChangeMode(PictureBox pictureBox);
+        Point FirstPoint(Point p);
     }
 }

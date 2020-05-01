@@ -255,7 +255,18 @@ namespace WindowsFormsApp7
                     pictureBox1.Image = q.bitmap;
                     q.DrowOnlyOneFigure(currentFigur);
                     
-                }                
+                }
+                else if (isFigureChanged == true && currentFigur != null)
+                {
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    currentFigur.poin[tmpIndex] = e.Location;
+                    drower.Draw(first, currentFigur.poin[tmpIndex], nAngle, cf);
+                    //moving.ChangeFigure(e.Location);
+                    q.DrawFigure();
+                    q.DrowOnlyOneFigure(currentFigur);
+                    //cf.poin = drower.points;
+                    pictureBox1.Image = q.bitmap;                    
+                }
             }
             
         }
@@ -424,7 +435,7 @@ namespace WindowsFormsApp7
                 }        
 
             }
-            else if (isTop == true)
+            else if (isTop == true || isFigureChanged == true)
             {
                 isDrow = true;
                 for (int i = -10; i <= 10; i++)
@@ -436,6 +447,7 @@ namespace WindowsFormsApp7
                         if (currentFigur != null)
                         {
                             tmpIndex = moving.FindMainPoint(p);
+                            first = moving.FirstPoint(p);
                             break;
                         }
                     }
@@ -453,7 +465,8 @@ namespace WindowsFormsApp7
                     q.Clone2();
                     q.DrowOnlyOneFigure(currentFigur);
                     pictureBox1.Image = q.bitmap;                    
-                }         
+                }   
+                
                 
             }
             
@@ -941,7 +954,8 @@ namespace WindowsFormsApp7
             isTop = false;
             isHanded = false;
             isZoom = false;
-            isFigureChanged = true;            
+            isFigureChanged = true;
+            moving = new PointMove();
         }
 
         private void button11_Click_1(object sender, EventArgs e)

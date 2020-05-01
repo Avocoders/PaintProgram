@@ -10,11 +10,51 @@ namespace WindowsFormsApp7.MovingChange
 {
     public class PointMove : IMovingChange
     {
-        SingleBitmap move = SingleBitmap.Create();           
+        SingleBitmap move = SingleBitmap.Create();
+        CreatedFigure q;
         public void ChangeFigure(Point p)
-        {                              
+        {            
         }
-       CreatedFigure q;
+
+        public Point FirstPoint(Point p)
+        {
+            if (q.poin.Count != 3)
+            {
+                if (q.poin.IndexOf(p) == 0)
+                {
+                    return q.poin[2];
+                }
+                else if (q.poin.IndexOf(p) == 1)
+                {
+                    return q.poin[3];
+                }
+                else if (q.poin.IndexOf(p) == 2)
+                {
+                    return q.poin[0];
+                }
+                else if (q.poin.IndexOf(p) == 3)
+                {
+                    return q.poin[1];
+                }
+            }
+            else
+            {
+                if (q.poin.IndexOf(p) == 0)
+                {
+                    return q.poin[2];
+                }
+                else if (q.poin.IndexOf(p) == 1)
+                {
+                    return q.poin[0];
+                }
+                else if (q.poin.IndexOf(p) == 2)
+                {
+                    return q.poin[0];
+                }
+            }
+            return q.poin[-1];
+        }
+       
         public CreatedFigure FindPoint(Point p)
         {
             foreach (CreatedFigure f in move.listOfFigure)

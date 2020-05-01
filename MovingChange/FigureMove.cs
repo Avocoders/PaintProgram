@@ -55,6 +55,11 @@ namespace WindowsFormsApp7.MovingChange
             return null;
         }
 
+        public Point FirstPoint(Point p)
+        {
+            throw new NotImplementedException();
+        }
+
         public void PointChangeMode(PictureBox pictureBox)
         {
             throw new NotImplementedException();
