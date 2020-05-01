@@ -12,8 +12,8 @@ namespace WindowsFormsApp7.MovingChange
     {
         SingleBitmap move = SingleBitmap.Create();
         Point keepP;
-        IFigur figur;
-        Drower drower;
+        //IFigur figur;
+        //Drower drower;
         CreatedFigure cf;
         
         public void ChangeFigure(Point p)
@@ -53,20 +53,6 @@ namespace WindowsFormsApp7.MovingChange
             }
 
             return null;
-            //foreach (Drower f in move.listOfFigure)
-            //{
-            //    foreach (Point t in f.points)
-            //    {
-            //        if (Math.Abs(t.X - p.X) <= 100 && Math.Abs(t.Y - p.Y) <= 100)
-            //        {
-            //            keepP = p;
-            //            figur = f.figure;
-            //            drower = f;
-            //            return f;
-            //        }
-            //    }
-            //}
-            //return null;
         }
 
         public void PointChangeMode(PictureBox pictureBox)

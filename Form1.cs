@@ -635,6 +635,7 @@ namespace WindowsFormsApp7
             fill = false;
             isTop = false;
             isHanded = false;
+            isZoom = false;
         }
 
         private void rectangle_Click(object sender, EventArgs e)
@@ -647,6 +648,7 @@ namespace WindowsFormsApp7
             fill = false;
             isTop = false;
             isHanded = false;
+            isZoom = false;
         }
 
         private void RightTriangle_Click(object sender, EventArgs e)
@@ -659,6 +661,7 @@ namespace WindowsFormsApp7
             fill = false;
             isTop = false;
             isHanded = false;
+            isZoom = false;
         }
 
         private void IsoscelesTriangle_Click(object sender, EventArgs e)
@@ -671,6 +674,7 @@ namespace WindowsFormsApp7
             fill = false;
             isTop = false;
             isHanded = false;
+            isZoom = false;
         }
         private void straightLine_Click(object sender, EventArgs e)
         {
@@ -682,6 +686,7 @@ namespace WindowsFormsApp7
             fill = false;
             isTop = false;
             isHanded = false;
+            isZoom = false;
         }
         private void choosePen_Click(object sender, EventArgs e)
         {
@@ -692,6 +697,7 @@ namespace WindowsFormsApp7
             fill = false;
             isTop = false;
             isHanded = false;
+            isZoom = false;
         }
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
@@ -728,6 +734,7 @@ namespace WindowsFormsApp7
             fill = false;
             isTop = false;
             isHanded = false;
+            isZoom = false;
         }
 
         private void textBox3_KeyDown_1(object sender, KeyEventArgs e)
@@ -751,6 +758,7 @@ namespace WindowsFormsApp7
             fill = false;
             isTop = false;
             isHanded = false;
+            isZoom = false;
         }
 
         private void circle_Click(object sender, EventArgs e)
@@ -763,6 +771,7 @@ namespace WindowsFormsApp7
             fill = false;
             isTop = false;
             isHanded = false;
+            isZoom = false;
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -775,6 +784,7 @@ namespace WindowsFormsApp7
             fill = false;
             isTop = false;
             isHanded = false;
+            isZoom = false;
         }
 
         private void pictureBox1_SizeChanged(object sender, EventArgs e)
@@ -803,6 +813,7 @@ namespace WindowsFormsApp7
             fill = true;
             isTop = false;
             isHanded = false;
+            isZoom = false;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -834,6 +845,7 @@ namespace WindowsFormsApp7
                 brush = new Brush(pictureBox1.Width, pictureBox1.Height);
                 isTop = false;
                 isHanded = false;
+                isZoom = false;
             }
         }
         
@@ -957,6 +969,7 @@ namespace WindowsFormsApp7
             fill = false;
             isTop = false;
             isHanded = false;
+            isZoom = false;
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -970,6 +983,7 @@ namespace WindowsFormsApp7
             drower = abstractFabric.CreateDrower(Figure, brush, Fill);
             isTop = false;
             isHanded = false;
+            isZoom = false;
         }
         private void deleteAll_Click(object sender, EventArgs e)
         {            
@@ -982,6 +996,7 @@ namespace WindowsFormsApp7
             textBox3.Visible = false;
             isTop = false;
             isHanded = false;
+            isZoom = false;
         }
 
         private void deleteTheLastOne_Click(object sender, EventArgs e)
@@ -1000,6 +1015,7 @@ namespace WindowsFormsApp7
             fill = false;
             isTop = false;
             isHanded = false;
+            isZoom = false;
         }                
     }
 }

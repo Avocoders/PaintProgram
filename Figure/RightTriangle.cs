@@ -12,11 +12,14 @@ namespace WindowsFormsApp7.Figure
         List<Point> points;
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
-            int cx, cy;
+             int cx, cy;
 
-            cx = (x2 - x1) / 3;
-            cy = (y2 - y1) / 3;
 
+          
+           
+
+            cx = (x1 + x2) / 2;
+            cy = (y1 + y2) / 2;
             centr = new Point(cx, cy);
 
             points = new List<Point>();
@@ -25,24 +28,6 @@ namespace WindowsFormsApp7.Figure
             points.Add(new Point(x1, y2));
 
             return points;
-        }
-
-        public override void ChangeFigurePosition(int dX, int dY)
-        {
-            for (int i = 0; i < points.Count; i++)
-            {
-                points[i] = new Point(points[i].X + dX, points[i].Y + dY);
-            }
-            centr = new Point(centr.X + dX, centr.Y + dY);
-        }
-
-        public override void ZoomingFigure(int dX, int dY)
-        {
-            for (int i = 0; i < points.Count; i++)
-            {
-                points[i] = new Point(centr.X + ((points[i].X - centr.X) + dX), centr.Y + ((points[i].Y - centr.Y) + dY));
-            }
-
         }
 
         public override bool CheckForMatches(int x1, int y1, int x2, int y2, int c, int[] ExPoints)

@@ -11,14 +11,17 @@ namespace WindowsFormsApp7
     {
         public List<Point> poin;
         public IFigur figur;
-       public  Brush brush;
+        public  Brush brush;
         public IFill fill;
+        public Point centr;
+        
         public CreatedFigure(Brush brush, IFigur figur, IFill fill)
         {
             this.brush = brush;
             this.figur = figur;
             this.fill = fill;
             poin = new List<Point>();
+            centr = new Point();
         }
         public void SetPoint(List<Point> po)
         {

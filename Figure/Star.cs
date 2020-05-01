@@ -20,7 +20,6 @@ namespace WindowsFormsApp7.Figure
             int aPol = 180 * (n_ - 2) / n_;
             int bPol = 180 - aPol;
             centr = new Point(x1, y1);
-
             for (int i = 0; i < 360; i += bPol)
             {
                 int xFirst = x1 + Convert.ToInt32(r * Math.Cos(i * Math.PI / 180));
@@ -33,24 +32,6 @@ namespace WindowsFormsApp7.Figure
                 n++;
             }
             return points;
-        }
-
-        public override void ChangeFigurePosition(int dX, int dY)
-        {
-            for (int i = 0; i < points.Count; i++)
-            {
-                points[i] = new Point(points[i].X + dX, points[i].Y + dY);
-            }
-            centr = new Point(centr.X + dX, centr.Y + dY);
-        }
-
-        public override void ZoomingFigure(int dX, int dY)
-        {
-            for (int i = 0; i < points.Count; i++)
-            {
-                points[i] = new Point(centr.X + ((points[i].X - centr.X) + dX), centr.Y + ((points[i].Y - centr.Y) + dY));
-            }
-
         }
 
         public override bool CheckForMatches(int x1, int y1, int x2, int y2, int c, int[] ExPoints)

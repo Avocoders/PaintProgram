@@ -25,6 +25,7 @@ namespace WindowsFormsApp7.Figure
             int cy = (y1 + y2) / 2;
             centr = new Point(cx, cy);
 
+
             if (x2 > x1 && y2 < y1)
             {
                 bx1 = x1 + dx / 2;
@@ -71,8 +72,7 @@ namespace WindowsFormsApp7.Figure
             }
             a = Convert.ToInt32(Math.Sqrt((ax2 - ax1) * (ax2 - ax1) + (ay2 - ay1) * (ay2 - ay1)) / 2);
             b = Convert.ToInt32(Math.Sqrt((bx2 - bx1) * (bx2 - bx1) + (by2 - by1) * (by2 - by1)) / 2);
-            //int x = cx + Convert.ToInt32(a * Math.Cos(0 * Math.PI / 180));
-            //int y = cy + Convert.ToInt32(b * Math.Sin(0 * Math.PI / 180));
+
 
 
             for (int i = 0; i < 360; i++)
@@ -80,31 +80,11 @@ namespace WindowsFormsApp7.Figure
                 int ex = cx + Convert.ToInt32(a * Math.Cos(i * Math.PI / 180));
                 int ey = cy + Convert.ToInt32(b * Math.Sin(i * Math.PI / 180));
 
-                //q.DrawLine(ex, ey, x, y);
-                //x = ex;
-                //y = ey;
                 point = new Point(ex, ey);
                 points.Add(point);
                 n++;
             }
             return points;
-        }
-        public override void ChangeFigurePosition(int dX, int dY)
-        {
-            for (int i = 0; i < points.Count; i++)
-            {
-                points[i] = new Point(points[i].X + dX, points[i].Y + dY);
-            }
-            centr = new Point(centr.X + dX, centr.Y + dY);
-        }
-
-        public override void ZoomingFigure(int dX, int dY)
-        {
-            for (int i = 0; i < points.Count; i++)
-            {
-                points[i] = new Point(centr.X + ((points[i].X - centr.X) + dX), centr.Y + ((points[i].Y - centr.Y) + dY));
-            }
-
         }
 
         public override bool CheckForMatches(int x1, int y1, int x2, int y2, int c, int[] ExPoints)

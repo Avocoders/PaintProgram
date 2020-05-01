@@ -17,31 +17,12 @@ namespace WindowsFormsApp7.Figure
             centr = new Point(cx, cy);
 
             points = new List<Point>();
-            //q.DrawLine(x1, y1, x2, y2);
+
             points.Add(new Point(x1, y1));
             points.Add(new Point(x2, y2));
 
             return points;            
         }
-
-        public override void ChangeFigurePosition(int dX, int dY)
-        {
-            for (int i = 0; i < points.Count; i++)
-            {
-                points[i] = new Point(points[i].X + dX, points[i].Y + dY);
-            }
-            centr = new Point(centr.X + dX, centr.Y + dY);
-        }
-
-        public override void ZoomingFigure(int dX, int dY)
-        {
-            for (int i = 0; i < points.Count; i++)
-            {
-                points[i] = new Point(centr.X + ((points[i].X - centr.X) + dX), centr.Y + ((points[i].Y - centr.Y) + dY));
-            }
-
-        }
-
         public override bool CheckForMatches(int x1, int y1, int x2, int y2,int c, int[] ExPoints)
         {
             bool point = true;
