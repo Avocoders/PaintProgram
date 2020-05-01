@@ -45,7 +45,6 @@
             this.buttonRollUp = new System.Windows.Forms.Button();
             this.buttonExpend = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -86,6 +85,7 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -94,6 +94,7 @@
             this.toolStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -312,25 +313,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox3.TabIndex = 26;
             this.pictureBox3.TabStop = false;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(1)))), ((int)(((byte)(2)))));
-            this.textBox2.HideSelection = false;
-            this.textBox2.Location = new System.Drawing.Point(316, 5);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.ShortcutsEnabled = false;
-            this.textBox2.Size = new System.Drawing.Size(426, 38);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "Геометрия";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel2
             // 
@@ -866,19 +848,29 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(364, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(367, 88);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox4.TabIndex = 39;
+            this.pictureBox4.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
             this.ClientSize = new System.Drawing.Size(1105, 772);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonReturn);
             this.Controls.Add(this.buttonDeleteLastOne);
             this.Controls.Add(this.buttonDeleteAll);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.buttonExpend);
             this.Controls.Add(this.buttonRollUp);
@@ -902,8 +894,8 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -923,7 +915,6 @@
         private System.Windows.Forms.Button buttonRollUp;
         private System.Windows.Forms.Button buttonExpend;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button moreColor;
         private System.Windows.Forms.Button button2;
@@ -965,6 +956,7 @@
         private System.Windows.Forms.ToolStripMenuItem верхушкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem масштабируемToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem меняетФигуруToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
 
