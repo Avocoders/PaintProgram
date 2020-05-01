@@ -18,7 +18,7 @@ namespace WindowsFormsApp7.MovingChange
 
         public Point FirstPoint(Point p)
         {
-            if (q.poin.Count != 3)
+            if (q.poin.Count == 4)
             {
                 if (q.poin.IndexOf(p) == 0)
                 {
@@ -37,7 +37,7 @@ namespace WindowsFormsApp7.MovingChange
                     return q.poin[1];
                 }
             }
-            else
+            else if (q.poin.Count == 3)
             {
                 if (q.poin.IndexOf(p) == 0)
                 {
@@ -51,6 +51,10 @@ namespace WindowsFormsApp7.MovingChange
                 {
                     return q.poin[0];
                 }
+            }
+            else if (q.poin.IndexOf(p) > 4)
+            {
+                return q.poin[0];
             }
             return q.poin[-1];
         }
