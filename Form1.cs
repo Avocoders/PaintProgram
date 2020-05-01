@@ -413,7 +413,8 @@ namespace WindowsFormsApp7
                 {
                     if (isFirstPoligon == true)
                     {
-
+                        cf = new CreatedFigure(brush, Figure, Fill);
+                        q.listOfFigure.Add(cf);
                         isFirstPoligon = false;
                         first = e.Location;
                         last = e.Location;
@@ -740,8 +741,9 @@ namespace WindowsFormsApp7
         {
             drower.Draw(first, last, nAngle,cf);
             q.DrawLine();
+            
             pictureBox1.Image = q.bitmap;
-            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+            drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
             isFirstPoligon = true;
             //q.Clone2();
             q.Clone();
@@ -1026,6 +1028,7 @@ namespace WindowsFormsApp7
             Pipetka = false;
             fill = false;
             isFirstPoligon = true;
+            
             drower = abstractFabric.CreateDrower(Figure, brush, Fill);           
         }
         private void deleteAll_Click(object sender, EventArgs e)
