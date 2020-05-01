@@ -15,7 +15,7 @@ namespace WindowsFormsApp7.MovingChange
         //IFigur figur;
         //Drower drower;
         CreatedFigure cf;
-        
+                
         public void ChangeFigure(Point p)
         {
             int dx, dy;

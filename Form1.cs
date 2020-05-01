@@ -29,6 +29,7 @@ namespace WindowsFormsApp7
         bool isTop = false;
         bool isZoom = false;
         bool isFigureChanged = false;
+        bool isColorChanged = false;
         int xnow, ynow;
         Color color;
         bool firstColor = true;        
@@ -436,7 +437,7 @@ namespace WindowsFormsApp7
                 currentFigur = moving.FindPoint(e.Location);
                
                 if (currentFigur != null)
-                {
+                {                   
                     q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.GetBrush(brush, drower);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -484,11 +485,33 @@ namespace WindowsFormsApp7
                     q.DrowOnlyOneFigure(currentFigur);
                     q.DrawFigure();
                     pictureBox1.Image = q.bitmap;                    
-                }   
-                
-                
+                }                   
             }
-            
+            else if (isColorChanged == true)
+            {
+                isDrow = true;                
+                currentFigur = moving.FindPoint(e.Location);    
+                if (currentFigur != null)
+                {
+                    if (currentFigur.fill == null)
+                    {
+                        q.GetBrush(brush, drower);
+                        q.Clone2();
+                        pictureBox1.Image = q.bitmap;
+                        currentFigur.brush.SetColor(button1.BackColor);
+                        q.DrowOnlyOneFigure(currentFigur);
+                    }
+                    //else
+                    //{
+                    //    q.GetBrush(brush, drower);
+                    //    q.Clone2();
+                    //    pictureBox1.Image = q.bitmap;
+                    //    brush.SetColor(button1.BackColor);
+                    //    Fill = new TwoColorFill(button4.BackColor);                        
+                    //    q.DrowOnlyOneFigure(currentFigur);
+                    //}
+                }                
+            }
         }
        
         private void Form1_Load(object sender, EventArgs e)
@@ -969,6 +992,18 @@ namespace WindowsFormsApp7
             isZoom = false;
             isFigureChanged = true;
             moving = new PointMove();
+        }
+
+        private void поToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            isColorChanged = true;
+            toolStripDropDownButton2.Image = поToolStripMenuItem.Image;
+            drowing = false;            
+            isTop = false;
+            isHanded = false;
+            isZoom = false;
+            isFigureChanged = false;
+            moving = new FigureMove();
         }
 
         private void button11_Click_1(object sender, EventArgs e)
