@@ -419,7 +419,7 @@
             this.topToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("topToolStripMenuItem.Image")));
             this.topToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.topToolStripMenuItem.Name = "topToolStripMenuItem";
-            this.topToolStripMenuItem.Size = new System.Drawing.Size(214, 56);
+            this.topToolStripMenuItem.Size = new System.Drawing.Size(211, 56);
             this.topToolStripMenuItem.Text = "Рисование";
             this.topToolStripMenuItem.Click += new System.EventHandler(this.topToolStripMenuItem_Click);
             // 
@@ -433,7 +433,7 @@
             this.перемещениеToolStripMenuItem.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.перемещениеToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.перемещениеToolStripMenuItem.Name = "перемещениеToolStripMenuItem";
-            this.перемещениеToolStripMenuItem.Size = new System.Drawing.Size(214, 56);
+            this.перемещениеToolStripMenuItem.Size = new System.Drawing.Size(211, 56);
             this.перемещениеToolStripMenuItem.Text = "Вектора";
             // 
             // перемещениеToolStripMenuItem1
@@ -474,6 +474,7 @@
             this.меняетФигуруToolStripMenuItem.Name = "меняетФигуруToolStripMenuItem";
             this.меняетФигуруToolStripMenuItem.Size = new System.Drawing.Size(263, 56);
             this.меняетФигуруToolStripMenuItem.Text = "Меняет фигуру";
+            this.меняетФигуруToolStripMenuItem.Click += new System.EventHandler(this.меняетФигуруToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -505,7 +506,6 @@
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(63, 54);
             this.toolStripDropDownButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.toolStripDropDownButton1.Click += new System.EventHandler(this.toolStripDropDownButton1_Click);
             // 
             // заливкаToolStripMenuItem
             // 

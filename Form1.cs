@@ -24,6 +24,7 @@ namespace WindowsFormsApp7
         Drower drower;
         SingleBitmap q = SingleBitmap.Create();        
         int n = 1;
+        bool drowing = true;
         bool isHanded = false;
         bool isTop = false;
         bool isZoom = false;
@@ -916,13 +917,18 @@ namespace WindowsFormsApp7
 
         private void topToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            drowing = true;
             toolStripDropDownButton2.Image = topToolStripMenuItem.Image;
             isHanded = false;
             isTop = false;
+            isZoom = false;
+
         }
 
         private void перемещениеToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            drowing = false;
+            isZoom = false;
             isHanded = true;
             isTop = false;
             moving = new FigureMove();
@@ -931,6 +937,8 @@ namespace WindowsFormsApp7
 
         private void верхушкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            drowing = false;
+            isZoom = false;
             isTop = true;
             isHanded = false;
             moving = new PointMove();
@@ -939,6 +947,7 @@ namespace WindowsFormsApp7
 
         private void масштабируемToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            drowing = false;
             toolStripDropDownButton2.Image = масштабируемToolStripMenuItem.Image;
             isTop = false;
             isHanded = false;
@@ -947,7 +956,7 @@ namespace WindowsFormsApp7
             //moving = new PointMove();
         }
 
-        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        private void меняетФигуруToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
