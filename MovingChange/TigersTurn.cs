@@ -16,7 +16,7 @@ namespace WindowsFormsApp7.MovingChange
         Point keepP;
         CreatedFigure cf;
         Point x;
-        Bitmap q;
+
         public void ChangeFigure(Point p)
         {
             
@@ -28,12 +28,12 @@ namespace WindowsFormsApp7.MovingChange
                 
             if (dx > 0 || dy > 0)
                 {
-                    j+=15;
+                    j+=30;
                 }
                 
             else if (dx < 0 || dy < 0)
                 {
-                        j-=15;
+                        j-=30;
                 }
 
             int da = j;
