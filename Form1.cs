@@ -527,10 +527,8 @@ namespace WindowsFormsApp7
                     q.Clone2();
                     currentFigur.brush.ChangePaint(n);
                     //currentFigur.brush.SetColor(button1.BackColor);
-                    q.GetBrush(brush, abstractFabric);
-                    q.DrowNotAllFigure(currentFigur);
-                    q.DrowOnlyOneFigure(currentFigur);
-                    
+                    q.GetBrush(brush, abstractFabric);                    
+                    q.DrowOnlyOneFigure(currentFigur);                    
                     pictureBox1.Image = q.bitmap;
                 }
             }
