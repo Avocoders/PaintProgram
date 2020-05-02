@@ -38,6 +38,7 @@ namespace WindowsFormsApp7
         bool isDrow, isFirst,isFirstPoligon,isCollapsed;
         bool expend = false;
         bool noexpend = true;
+        bool isGran = false;
         
         Drower fdrower;
         CreatedFigure cf;
@@ -222,7 +223,7 @@ namespace WindowsFormsApp7
                         pictureBox1.Image = q.bitmap;
                     }
                 }
-                else if (isHanded == true && currentFigur != null)
+                else if ((isHanded == true || isGran == true)&& currentFigur != null)
                 {
                    // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -288,7 +289,7 @@ namespace WindowsFormsApp7
                     q.DrowOnlyOneFigure(currentFigur);                    
                     //cf.poin = drower.points;
                     pictureBox1.Image = q.bitmap;                    
-                }
+                }                
             }
             
         }
@@ -503,6 +504,44 @@ namespace WindowsFormsApp7
                     
                 }                   
             }
+            else if(isGran == true)
+            {
+                isDrow = true;
+
+                for (int i = -10; i <= 10; i++)
+                {
+                    for (int j = -10; j <= 10; j++)
+                    {
+                        Point p = new Point(e.X + i, e.Y + j);
+                        currentFigur = moving.FindPoint(p);
+                        if (currentFigur != null)
+                        {
+                            tmpIndex = moving.FindMainPoint(p);                            
+                            break;
+                        }
+                    }
+                    if (currentFigur != null)
+                    {
+                        break;
+                    }
+                }
+                if (currentFigur != null)
+                {
+
+                    q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.GetBrush(brush, abstractFabric);
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.DrowNotAllFigure(currentFigur);
+                    q.Clone2();
+                    //q.SetTmp();
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.DrowOnlyOneFigure(currentFigur);
+                    q.DrawFigure();
+                    pictureBox1.Image = q.bitmap;
+
+                }
+            }
+
             else if (isColorChanged == true)
             {
                 isDrow = true;                
@@ -1062,6 +1101,19 @@ namespace WindowsFormsApp7
             isFigureChanged = false;
             isThicknessChange = true;
             moving = new FigureMove();
+        }
+
+        private void button11_Click_2(object sender, EventArgs e)
+        {
+            isColorChanged = false;
+            drowing = false;
+            isTop = false;
+            isHanded = false;
+            isZoom = false;
+            isFigureChanged = false;
+            isThicknessChange = false;
+            isGran = true;
+            moving = new GranMove();
         }
 
         private void button11_Click_1(object sender, EventArgs e)

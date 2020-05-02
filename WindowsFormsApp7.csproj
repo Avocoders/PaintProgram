@@ -81,6 +81,7 @@
     <Compile Include="IMovingChange.cs" />
     <Compile Include="MovingChange\ChangeSizeFigure.cs" />
     <Compile Include="MovingChange\FigureMove.cs" />
+    <Compile Include="MovingChange\GranMove.cs" />
     <Compile Include="MovingChange\PointMove.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
