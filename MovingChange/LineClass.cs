@@ -35,25 +35,40 @@ namespace WindowsFormsApp7.MovingChange
 
         public CreatedFigure FindPoint(Point p)
         {
-            
-            foreach (CreatedFigure f in move.listOfFigure)
+            for (int i = -10; i <= 10; i++)
             {
-                for (int l = 0; l < f.poin.Count - 1; l++)
-                {     
-                    for (int g = f.poin[l].X; g < f.poin[l+1].X; g++)
+                for (int j = -10; j <= 5000; j++)
+                {
+                    Point g = new Point(p.X + i, p.Y + j);
+                    foreach (CreatedFigure f in move.listOfFigure)
                     {
-                        for (int m = f.poin[l].Y; m < f.poin[l+1].Y; m++)
+                        if (f.poin.Contains(g))
                         {
-                            Point a = new Point(g, m);
-                            if(f.poin.Contains(a))
-                            {
-                                cf = f;
-                                return f;
-                            }
+                            cf = f;
+                            keepP = p;
+                            return cf;
                         }
-                    }                         
-                }              
+                    }
+                }
             }
+
+            return null;
+            //foreach (CreatedFigure f in move.listOfFigure)
+            //{
+            //    for (int i = -10; i <= 10; i++)
+            //    {
+            //        for (int j = f.poin[1].Y; j <= f.poin[2].Y; j++)
+            //        {
+            //            Point g = new Point(p.X + i, p.Y + j);
+            //            if (f.poin.Contains(g))
+            //            {
+            //                cf = f;
+            //                keepP = p;
+            //                return cf;
+            //            }
+            //        }
+            //    }
+            //}
             return null;
         }
 

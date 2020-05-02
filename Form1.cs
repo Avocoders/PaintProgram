@@ -524,10 +524,10 @@ namespace WindowsFormsApp7
                 currentFigur = moving.FindPoint(e.Location);
                 if (currentFigur != null)
                 {
-                    q.Clone2();
+                    q.Clone2();                    
                     currentFigur.brush.ChangePaint(n);
                     //currentFigur.brush.SetColor(button1.BackColor);
-                    q.GetBrush(brush, abstractFabric);                    
+                    q.GetBrush(brush, abstractFabric);                        
                     q.DrowOnlyOneFigure(currentFigur);                    
                     pictureBox1.Image = q.bitmap;
                 }
@@ -558,8 +558,7 @@ namespace WindowsFormsApp7
             if (!(abstractFabric is UncommonPoligon))
             { 
                 q.Clone();
-            }
-            
+            }           
         }        
 
         private void lineThickness_Scroll(object sender, EventArgs e)
