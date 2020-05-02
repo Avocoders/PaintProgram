@@ -79,6 +79,7 @@
     <Compile Include="MovingChange\ChangeSizeFigure.cs" />
     <Compile Include="MovingChange\FigureMove.cs" />
     <Compile Include="MovingChange\PointMove.cs" />
+    <Compile Include="MovingChange\TigersTurn.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleBitmap.cs" />
