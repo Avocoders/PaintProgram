@@ -22,39 +22,19 @@ namespace WindowsFormsApp7.MovingChange
             x = cf.centr;
             double r = (double)Math.Sqrt((keepP.X - x.X) * (keepP.X - x.X) + (keepP.Y - x.Y) * (keepP.Y - x.Y));
             double rP = (double)Math.Sqrt((p.X - x.X) * (p.X - x.X) + (p.Y - x.Y) * (p.Y - x.Y));
-            double aP = (double)Math.Abs(Math.Acos((p.X - x.X) / rP) * 180 / Math.PI-90);
-            double aKeepP = (double)Math.Abs(Math.Acos((keepP.X - x.X) / r) * 180 / Math.PI-90); 
+            double aP = (double)Math.Abs(Math.Acos((p.X - x.X) / rP) * 180 / Math.PI);
+            double aKeepP = (double)Math.Abs(Math.Acos((keepP.X - x.X) / r) * 180 / Math.PI); 
             double da = (double)Math.Abs(aP - aKeepP);
 
             for (int i = 0; i < cf.poin.Count; i++)
             {
-
-                if (cf.poin[i].X > x.X && cf.poin[i].Y < x.Y)
-                {
-                    int newPointX = Convert.ToInt32(x.X + (cf.poin[i].X - x.X) * Math.Cos(da * Math.PI / 180) - (cf.poin[i].Y - x.Y) * Math.Sin(da * Math.PI / 180)); 
-                    int newPointY = Convert.ToInt32(x.Y + (cf.poin[i].Y - x.Y) * Math.Cos(da * Math.PI / 180) + (cf.poin[i].X - x.X) * Math.Sin(da * Math.PI / 180)); 
-                    cf.poin[i] = new Point(newPointX, newPointY);
-                }
-                else if (cf.poin[i].X > x.X && cf.poin[i].Y > x.Y)
-                {
-                    int newPointX = Convert.ToInt32(x.X + (cf.poin[i].X - x.X) * Math.Cos(da * Math.PI / 180) - (cf.poin[i].Y - x.Y) * Math.Sin(da * Math.PI / 180)); 
-                    int newPointY = Convert.ToInt32(x.Y + (cf.poin[i].Y - x.Y) * Math.Cos(da * Math.PI / 180) + (cf.poin[i].X - x.X) * Math.Sin(da * Math.PI / 180)); 
-                    cf.poin[i] = new Point(newPointX, newPointY);
-                }
-                else if (cf.poin[i].X < x.X && cf.poin[i].Y > x.Y)
-                {
-                    int newPointX = Convert.ToInt32(x.X + (cf.poin[i].X - x.X) * Math.Cos(da * Math.PI / 180) - (cf.poin[i].Y - x.Y) * Math.Sin(da * Math.PI / 180)); 
-                    int newPointY = Convert.ToInt32(x.Y + (cf.poin[i].Y - x.Y) * Math.Cos(da * Math.PI / 180) + (cf.poin[i].X - x.X) * Math.Sin(da * Math.PI / 180)); 
-                    cf.poin[i] = new Point(newPointX, newPointY);
-                }
-                else if (cf.poin[i].X < x.X && cf.poin[i].Y < x.Y)
-                {
-                    int newPointX = Convert.ToInt32(x.X+ (cf.poin[i].X-x.X) * Math.Cos(da * Math.PI / 180)- (cf.poin[i].Y - x.Y) * Math.Sin(da * Math.PI / 180)); 
-                    int newPointY = Convert.ToInt32(x.Y + (cf.poin[i].Y - x.Y) * Math.Cos(da * Math.PI / 180) + (cf.poin[i].X - x.X) * Math.Sin(da * Math.PI / 180)); 
-                    cf.poin[i] = new Point(newPointX, newPointY);
-                }             
+                int newPointX = Convert.ToInt32(x.X + (cf.poin[i].X - x.X) * Math.Cos(da * Math.PI / 180) - (cf.poin[i].Y - x.Y) * Math.Sin(da * Math.PI / 180));
+                int newPointY = Convert.ToInt32(x.Y + (cf.poin[i].Y - x.Y) * Math.Cos(da * Math.PI / 180) + (cf.poin[i].X - x.X) * Math.Sin(da * Math.PI / 180));
+                cf.poin[i] = new Point(newPointX, newPointY);          
             }
-            keepP = p;
+            int keepPX = Convert.ToInt32(x.X + (keepP.X - x.X) * Math.Cos(da * Math.PI / 180) - (keepP.Y - x.Y) * Math.Sin(da * Math.PI / 180));
+            int keepPY = Convert.ToInt32(x.Y + (keepP.Y - x.Y) * Math.Cos(da * Math.PI / 180) + (keepP.X - x.X) * Math.Sin(da * Math.PI / 180));
+            keepP = new Point(keepPX, keepPY);
         }
 
         public int FindMainPoint(Point p)
