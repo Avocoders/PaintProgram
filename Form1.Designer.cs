@@ -468,7 +468,7 @@
             this.topToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("topToolStripMenuItem.Image")));
             this.topToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.topToolStripMenuItem.Name = "topToolStripMenuItem";
-            this.topToolStripMenuItem.Size = new System.Drawing.Size(179, 56);
+            this.topToolStripMenuItem.Size = new System.Drawing.Size(214, 56);
             this.topToolStripMenuItem.Text = "Рисуй!";
             this.topToolStripMenuItem.Click += new System.EventHandler(this.topToolStripMenuItem_Click);
             // 
@@ -485,7 +485,7 @@
             this.перемещениеToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("перемещениеToolStripMenuItem.Image")));
             this.перемещениеToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.перемещениеToolStripMenuItem.Name = "перемещениеToolStripMenuItem";
-            this.перемещениеToolStripMenuItem.Size = new System.Drawing.Size(179, 56);
+            this.перемещениеToolStripMenuItem.Size = new System.Drawing.Size(214, 56);
             this.перемещениеToolStripMenuItem.Text = "Меняй!";
             // 
             // перемещениеToolStripMenuItem1
@@ -530,6 +530,7 @@
             // 
             // поToolStripMenuItem
             // 
+            this.поToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.поToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("поToolStripMenuItem.Image")));
             this.поToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.поToolStripMenuItem.Name = "поToolStripMenuItem";
@@ -927,11 +928,11 @@
             // 
             // thicknesschange
             // 
-            this.thicknesschange.Location = new System.Drawing.Point(857, 59);
+            this.thicknesschange.Location = new System.Drawing.Point(852, 57);
             this.thicknesschange.Name = "thicknesschange";
-            this.thicknesschange.Size = new System.Drawing.Size(50, 39);
+            this.thicknesschange.Size = new System.Drawing.Size(68, 42);
             this.thicknesschange.TabIndex = 41;
-            this.thicknesschange.Text = "меняем толщину";
+            this.thicknesschange.Text = "толщина";
             this.thicknesschange.UseVisualStyleBackColor = true;
             this.thicknesschange.Click += new System.EventHandler(this.thicknesschange_Click);
             // 

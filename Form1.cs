@@ -285,10 +285,13 @@ namespace WindowsFormsApp7
                     drower.Draw(first, currentFigur.poin[tmpIndex], nAngle, cf);
                     //moving.ChangeFigure(e.Location);
                     //q.DrawFigure();
-                    q.Move();
-                    q.DrowOnlyOneFigure(currentFigur);                    
+                    //q.Move();
+                    
+                    q.DrowOnlyOneFigure(currentFigur);
+                    q.DrawFigure();
                     //cf.poin = drower.points;
-                    pictureBox1.Image = q.bitmap;                    
+                    pictureBox1.Image = q.bitmap;                 
+                   // q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);                    
                 }                
             }
             
@@ -499,7 +502,7 @@ namespace WindowsFormsApp7
                     //q.SetTmp();
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.DrowOnlyOneFigure(currentFigur);
-                    q.DrawFigure();
+                    //q.DrawFigure();
                     pictureBox1.Image = q.bitmap;   
                     
                 }                   
