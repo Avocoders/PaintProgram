@@ -30,6 +30,8 @@ namespace WindowsFormsApp7
         bool isZoom = false;
         bool isFigureChanged = false;
         bool isColorChanged = false;
+        bool isThicknessChange = false;
+        bool islineClass = false;
         int xnow, ynow;
         Color color;
         bool firstColor = true;        
@@ -221,7 +223,7 @@ namespace WindowsFormsApp7
                         pictureBox1.Image = q.bitmap;
                     }
                 }
-                else if (isHanded == true && currentFigur != null)
+                else if ((isHanded == true || islineClass == true) && currentFigur != null)
                 {
                    // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -440,7 +442,7 @@ namespace WindowsFormsApp7
                     pictureBox1.Image = q.bitmap;
                 }
             }
-            else if (isHanded == true|| isZoom==true)
+            else if (isHanded == true|| isZoom==true || islineClass == true)
             {
                 isDrow = true;
                 
@@ -509,27 +511,28 @@ namespace WindowsFormsApp7
                 if (currentFigur != null)
                 {
                     q.Clone2();
-                    brush.SetColor(button1.BackColor);
+                    //currentFigur.brush.ChangePaint(n);
+                    currentFigur.brush.SetColor(button1.BackColor);                    
                     q.GetBrush(brush, abstractFabric);
                     q.DrowOnlyOneFigure(currentFigur);
-                    pictureBox1.Image = q.bitmap;
-                    
-                    //else
-                    //{
-                    //    q.GetBrush(brush, abstractFabric);
-                    //    q.Clone2();
-                    //    cf = new CreatedFigure(brush, Figure, Fill);
-                    //    brush.SetColor(button1.BackColor);
-                    //    currentFigur.fill.SetColor(e.X, e.Y);
-                    //    Fill = new TwoColorFill(button4.BackColor);
-                    //    Fill.SetColor(e.X, e.Y);
-                    //    Fill.Casting(e.X, e.Y);
-                    //    drower = abstractFabric.CreateDrower(currentFigur.figur, currentFigur.brush, currentFigur.fill);
-                    //    q.GetBrush(brush, drower);
-                    //    q.DrowOnlyOneFigure(currentFigur);
-                    //    pictureBox1.Image = q.bitmap;
-                    //}
+                    pictureBox1.Image = q.bitmap;                    
                 }                
+            }
+            else if (isThicknessChange == true)
+            {
+                isDrow = true;
+                currentFigur = moving.FindPoint(e.Location);
+                if (currentFigur != null)
+                {
+                    q.Clone2();
+                    currentFigur.brush.ChangePaint(n);
+                    //currentFigur.brush.SetColor(button1.BackColor);
+                    q.GetBrush(brush, abstractFabric);
+                    q.DrowNotAllFigure(currentFigur);
+                    q.DrowOnlyOneFigure(currentFigur);
+                    
+                    pictureBox1.Image = q.bitmap;
+                }
             }
         }
        
@@ -1050,6 +1053,30 @@ namespace WindowsFormsApp7
             isHanded = false;
             isZoom = false;
             isFigureChanged = false;
+            moving = new FigureMove();
+        }
+
+        private void button11_Click_2(object sender, EventArgs e)
+        {
+            drowing = false;            
+            isTop = false;
+            isHanded = false;
+            isZoom = false;
+            isFigureChanged = false;
+            isColorChanged = false;
+            moving = new LineClass();
+            islineClass = true;
+        }
+
+        private void thicknesschange_Click(object sender, EventArgs e)
+        {
+            isColorChanged = false;            
+            drowing = false;
+            isTop = false;
+            isHanded = false;
+            isZoom = false;
+            isFigureChanged = false;
+            isThicknessChange = true;
             moving = new FigureMove();
         }
 
