@@ -452,7 +452,8 @@ namespace WindowsFormsApp7
                     q.GetBrush(brush, abstractFabric);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.DrowNotAllFigure(currentFigur);
-                    q.SetTmp();
+                    q.Clone2();
+                    //q.SetTmp();
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                    // q.Move();
                     q.DrowOnlyOneFigure(currentFigur);
@@ -466,6 +467,7 @@ namespace WindowsFormsApp7
             else if (isTop == true || isFigureChanged == true)
             {
                 isDrow = true;
+                
                 for (int i = -10; i <= 10; i++)
                 {
                     for (int j = -10; j <= 10; j++)
@@ -486,15 +488,18 @@ namespace WindowsFormsApp7
                 }
                 if (currentFigur != null)
                 {
+                    
                     q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.GetBrush(brush, abstractFabric);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.DrowNotAllFigure(currentFigur);
-                    q.SetTmp();
+                    q.Clone2();
+                    //q.SetTmp();
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.DrowOnlyOneFigure(currentFigur);
                     q.DrawFigure();
-                    pictureBox1.Image = q.bitmap;                    
+                    pictureBox1.Image = q.bitmap;   
+                    
                 }                   
             }
             else if (isColorChanged == true)
