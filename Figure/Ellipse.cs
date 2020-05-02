@@ -75,7 +75,7 @@ namespace WindowsFormsApp7.Figure
 
 
 
-            for (int i = 0; i < 360; i++)
+            for (int i = 0; i < 360; i+=10)
             {                
                 int ex = cx + Convert.ToInt32(a * Math.Cos(i * Math.PI / 180));
                 int ey = cy + Convert.ToInt32(b * Math.Sin(i * Math.PI / 180));

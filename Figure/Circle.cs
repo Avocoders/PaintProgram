@@ -23,7 +23,7 @@ namespace WindowsFormsApp7.Figure
             centr = new Point(x1, y1);
             start = new Point(x1, y1);
 
-            for (double i = 0; i < 360; i+=2)
+            for (double i = 0; i < 360; i+=10)
             {
                 int xNext = x1 + Convert.ToInt32(r * Math.Cos(i * Math.PI / 180));
                 int yNext = y1 + Convert.ToInt32(r * Math.Sin(i * Math.PI / 180));
@@ -39,7 +39,7 @@ namespace WindowsFormsApp7.Figure
             bool point = true;
             Сircle New = new Сircle();
             List<Point> NewPointCircle = New.Drow(x1, y1, x2, y2, 0);
-            for (int i = 0; i < ExPoints.Length; i += 2)
+            for (int i = 0; i < ExPoints.Length; i += 10)
             {
                 Point a = new Point(ExPoints[i], ExPoints[i + 1]);
                 if (!NewPointCircle.Contains(a))
