@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp7.Figure;
 
 namespace WindowsFormsApp7.MovingChange
 {
@@ -17,7 +18,7 @@ namespace WindowsFormsApp7.MovingChange
         }
 
         public Point FirstPoint(Point p)
-        {
+        {            
             if (q.poin.Count == 4)
             {
                 if (q.poin.IndexOf(p) == 0)
@@ -41,7 +42,7 @@ namespace WindowsFormsApp7.MovingChange
             {
                 if (q.poin.IndexOf(p) == 0)
                 {
-                    return q.poin[2];
+                    return q.poin[1];
                 }
                 else if (q.poin.IndexOf(p) == 1)
                 {
@@ -52,9 +53,28 @@ namespace WindowsFormsApp7.MovingChange
                     return q.poin[0];
                 }
             }
-            else if (q.poin.IndexOf(p) > 4 || q.poin.IndexOf(p) < 4)
+            else if (q.poin.Count == 2)
             {
-                return q.poin[0];
+                if (q.poin.IndexOf(p) == 0)
+                {
+                    return q.poin[1];
+                }
+                else if (q.poin.IndexOf(p) == 1)
+                {
+                    return q.poin[0];
+                }                
+            }
+            else if (q.poin.Count > 4)
+            {
+                int a = q.poin.Count / 2;
+                if (q.poin.IndexOf(p) >= a)
+                {
+                    return q.poin[q.poin.IndexOf(p) - a];
+                }
+                else
+                {
+                    return q.poin[q.poin.IndexOf(p) + a];
+                }                         
             }
             return q.poin[-1];
         }
@@ -105,5 +125,9 @@ namespace WindowsFormsApp7.MovingChange
                 }
             }            
         }
+    }
+
+    internal class Circle
+    {
     }
 }
