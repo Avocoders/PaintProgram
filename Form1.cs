@@ -30,8 +30,7 @@ namespace WindowsFormsApp7
         bool isZoom = false;
         bool isFigureChanged = false;
         bool isColorChanged = false;
-        bool isThicknessChange = false;
-        bool islineClass = false;
+        bool isThicknessChange = false;        
         int xnow, ynow;
         Color color;
         bool firstColor = true;        
@@ -223,7 +222,7 @@ namespace WindowsFormsApp7
                         pictureBox1.Image = q.bitmap;
                     }
                 }
-                else if ((isHanded == true || islineClass == true) && currentFigur != null)
+                else if (isHanded == true && currentFigur != null)
                 {
                    // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -442,7 +441,7 @@ namespace WindowsFormsApp7
                     pictureBox1.Image = q.bitmap;
                 }
             }
-            else if (isHanded == true|| isZoom==true || islineClass == true)
+            else if (isHanded == true|| isZoom==true)
             {
                 isDrow = true;
                 
@@ -524,10 +523,10 @@ namespace WindowsFormsApp7
                 currentFigur = moving.FindPoint(e.Location);
                 if (currentFigur != null)
                 {
-                    q.Clone2();
+                    q.Clone2();                    
                     currentFigur.brush.ChangePaint(n);
                     //currentFigur.brush.SetColor(button1.BackColor);
-                    q.GetBrush(brush, abstractFabric);                    
+                    q.GetBrush(brush, abstractFabric);                        
                     q.DrowOnlyOneFigure(currentFigur);                    
                     pictureBox1.Image = q.bitmap;
                 }
@@ -558,8 +557,7 @@ namespace WindowsFormsApp7
             if (!(abstractFabric is UncommonPoligon))
             { 
                 q.Clone();
-            }
-            
+            }           
         }        
 
         private void lineThickness_Scroll(object sender, EventArgs e)
@@ -1052,18 +1050,6 @@ namespace WindowsFormsApp7
             isZoom = false;
             isFigureChanged = false;
             moving = new FigureMove();
-        }
-
-        private void button11_Click_2(object sender, EventArgs e)
-        {
-            drowing = false;            
-            isTop = false;
-            isHanded = false;
-            isZoom = false;
-            isFigureChanged = false;
-            isColorChanged = false;
-            moving = new LineClass();
-            islineClass = true;
         }
 
         private void thicknesschange_Click(object sender, EventArgs e)
