@@ -92,6 +92,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.thicknesschange = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -934,12 +935,23 @@
             this.thicknesschange.UseVisualStyleBackColor = true;
             this.thicknesschange.Click += new System.EventHandler(this.thicknesschange_Click);
             // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(788, 53);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(58, 51);
+            this.button11.TabIndex = 42;
+            this.button11.Text = "грань";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click_2);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(232)))), ((int)(((byte)(221)))));
             this.ClientSize = new System.Drawing.Size(1105, 772);
+            this.Controls.Add(this.button11);
             this.Controls.Add(this.thicknesschange);
             this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.toolStrip1);
@@ -1044,6 +1056,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button11;
     }
 }
 
