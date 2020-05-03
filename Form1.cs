@@ -1116,31 +1116,6 @@ namespace WindowsFormsApp7
             moving = new FigureMove();
         }
 
-        private void thicknesschange_Click(object sender, EventArgs e)
-        {
-            isColorChanged = false;            
-            drowing = false;
-            isTop = false;
-            isHanded = false;
-            isZoom = false;
-            isFigureChanged = false;
-            isThicknessChange = true;
-            moving = new FigureMove();
-        }
-
-        private void button11_Click_2(object sender, EventArgs e)
-        {
-            isColorChanged = false;
-            drowing = false;
-            isTop = false;
-            isHanded = false;
-            isZoom = false;
-            isFigureChanged = false;
-            isThicknessChange = false;
-            isGran = true;
-            moving = new GranMove();
-        }
-
         
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
@@ -1152,6 +1127,31 @@ namespace WindowsFormsApp7
             isFigureChanged = false;
             isColorChanged = false;
             moving = new TigersTurn();
+        }
+
+        private void увеличьТолщинуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            isColorChanged = false;
+            drowing = false;
+            isTop = false;
+            isHanded = false;
+            isZoom = false;
+            isFigureChanged = false;
+            isThicknessChange = true;
+            moving = new FigureMove();
+        }
+
+        private void переместиГраньToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            isColorChanged = false;
+            drowing = false;
+            isTop = false;
+            isHanded = false;
+            isZoom = false;
+            isFigureChanged = false;
+            isThicknessChange = false;
+            isGran = true;
+            moving = new GranMove();
         }
 
         private void button11_Click_1(object sender, EventArgs e)
