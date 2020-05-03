@@ -326,11 +326,19 @@ namespace WindowsFormsApp7
             {
                 if (!(abstractFabric is UncommonPoligon))
                 {
-                    cf = new CreatedFigure(brush, Figure, Fill);
+                    if (Figure == null)
+                    {
+                        cf = new CreatedFigure(new Brush(brush), null, Fill);
+                    }
+                    else
+                    {
+                    cf = new CreatedFigure(new Brush(brush), Figure, Fill);
+                    }
                     drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);                    
                     q.listOfFigure.Add(cf);
                     q.Clone2();
                 }
+                
                 first = e.Location;
                 isDrow = true;
                 isFirst = true;
@@ -340,6 +348,7 @@ namespace WindowsFormsApp7
                     if (e.Button == MouseButtons.Left)
                     {
                         color = button1.BackColor;
+                        cf.brush.SetColor(button1.BackColor);
                         if (fill == true)
                         {
                             if (button1.BackColor != q.bitmap.GetPixel(e.X, e.Y))
@@ -374,7 +383,8 @@ namespace WindowsFormsApp7
                         }
                     }
                     else if (e.Button == MouseButtons.Right)
-                    {                        
+                    {
+                        cf.brush.SetColor(button4.BackColor);
                         brush.SetColor(button4.BackColor);
                         if (abstractFabric is LineFabric)
                         {                            
@@ -387,8 +397,9 @@ namespace WindowsFormsApp7
                 else 
                 {
                     if (e.Button == MouseButtons.Left)
-                    {
+                    {                        
                         color = button4.BackColor;
+                        cf.brush.SetColor(button4.BackColor);
                         if (fill == true)
                         {
                             if (button4.BackColor != q.bitmap.GetPixel(e.X, e.Y))
@@ -424,6 +435,7 @@ namespace WindowsFormsApp7
                     }
                     else if (e.Button == MouseButtons.Right)
                     {
+                        cf.brush.SetColor(button1.BackColor);
                         brush = new Brush(brush);
                         brush.SetColor(button1.BackColor);
                         if (abstractFabric is LineFabric)
@@ -556,10 +568,16 @@ namespace WindowsFormsApp7
                 currentFigur = moving.FindPoint(e.Location);    
                 if (currentFigur != null)
                 {
+                    q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.GetBrush(brush, abstractFabric);
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.DrowNotAllFigure(currentFigur);
                     q.Clone2();                    
                     currentFigur.brush.SetColor(button1.BackColor);                    
                     q.GetBrush(brush, abstractFabric);
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.DrowOnlyOneFigure(currentFigur);
+                    q.DrawFigure();
                     pictureBox1.Image = q.bitmap;                    
                 }                
             }
@@ -569,10 +587,16 @@ namespace WindowsFormsApp7
                 currentFigur = moving.FindPoint(e.Location);
                 if (currentFigur != null)
                 {
+                    q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.GetBrush(brush, abstractFabric);
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.DrowNotAllFigure(currentFigur);
                     q.Clone2();                    
                     currentFigur.brush.ChangePaint(n);                    
-                    q.GetBrush(brush, abstractFabric);                        
-                    q.DrowOnlyOneFigure(currentFigur);                    
+                    q.GetBrush(brush, abstractFabric);
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    q.DrowOnlyOneFigure(currentFigur);
+                    q.DrawFigure();
                     pictureBox1.Image = q.bitmap;
                 }
             }
@@ -1119,6 +1143,7 @@ namespace WindowsFormsApp7
             q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = q.bitmap;
             q.CreateBitmapList();
+            q.tmp1 = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             Eraser = false;
             Pipetka = false;
             fill = false;

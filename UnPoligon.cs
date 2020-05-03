@@ -9,16 +9,15 @@ namespace WindowsFormsApp7
 {
     public class UnPoligon : Drower
     {
-        List<Point> points ;
-        
+        List<Point> points ;        
         int n = 0;
+
         public UnPoligon(Brush brush, IFigur figur, IFill fill) : base(brush, figur, fill)
         {
         }
 
         public override void Draw(Point point, Point point2, int nAngle, CreatedFigure cf)
-        {
-            //if (points == null)
+        {            
             if (points == null)
             {
                 points = new List<Point>();

@@ -10,13 +10,10 @@ namespace WindowsFormsApp7.Figure
     public class RightTriangle : IFigur
     {
         List<Point> points;
+
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
-             int cx, cy;
-
-
-          
-           
+            int cx, cy;               
 
             cx = (x1 + x2) / 2;
             cy = (y1 + y2) / 2;

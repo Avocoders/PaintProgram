@@ -12,13 +12,11 @@ namespace WindowsFormsApp7.Fill
         {            
         }
         public void Casting(int x, int y)
-        {
-            //throw new NotImplementedException();
+        {            
         }
 
         public void SetColor(int x, int y)
-        {
-            //throw new NotImplementedException();
+        {            
         }
     }
 }

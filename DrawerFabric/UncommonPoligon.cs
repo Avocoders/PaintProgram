@@ -10,7 +10,7 @@ namespace WindowsFormsApp7.DrawerFabric
     {
         public override Drower CreateDrower(IFigur selectedFigur, Brush brush, IFill fill)
         {
-            abstractDrower = new UnPoligon(brush, selectedFigur, fill); // IFill fill
+            abstractDrower = new UnPoligon(brush, selectedFigur, fill); 
             return abstractDrower;
         }
     }

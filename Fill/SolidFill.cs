@@ -8,23 +8,23 @@ using System.Threading.Tasks;
 namespace WindowsFormsApp7.Fill
 {
     public class SolidFill : IFill
-    {
-        int x, y;
-        SingleBitmap q = SingleBitmap.Create();
-        Color color = Color.Black;
+    {        
+        SingleBitmap q = SingleBitmap.Create();        
         Color fillColor;
         Color startColor;
+
         public SolidFill(Color fillColor)
         {
             this.fillColor = fillColor;
         }
+
         public void SetColor(int x,int y)
         {
             startColor = q.bitmap.GetPixel(x, y);
         }
+
         public void Casting(int x, int y)
-        {
-           
+        {           
             if (fillColor.ToArgb() != startColor.ToArgb())
             {
                 int leftX = x;
@@ -55,7 +55,6 @@ namespace WindowsFormsApp7.Fill
                     }
                 }
             }
-
         }
     }
 }
