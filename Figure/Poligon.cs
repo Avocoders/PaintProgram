@@ -9,7 +9,6 @@ namespace WindowsFormsApp7.Figure
 {
     public class Poligon : IFigur
     {
-        int n = 0;
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
              points = new List<Point>();
@@ -27,7 +26,6 @@ namespace WindowsFormsApp7.Figure
 
                 Point point = new Point(xNext, yNext);
                 points.Add(point);
-                n++;
             }
 
             return points;

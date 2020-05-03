@@ -9,10 +9,7 @@ namespace WindowsFormsApp7.Figure
 {
     public class Ellipse : IFigur
     {
-
         Point point;
-        int n = 0;
-        //List<Point> points;
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             points = new List<Point>();
@@ -81,7 +78,6 @@ namespace WindowsFormsApp7.Figure
 
                 point = new Point(ex, ey);
                 points.Add(point);
-                n++;
             }
             return points;
         }

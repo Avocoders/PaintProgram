@@ -12,10 +12,6 @@ namespace WindowsFormsApp7.Figure
     public class Сircle : IFigur
     {
         Point point;
-        
-
-        int n=0;
-        List<Point> points;
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             points = new List<Point>();
@@ -29,7 +25,6 @@ namespace WindowsFormsApp7.Figure
                 int yNext = y1 + Convert.ToInt32(r * Math.Sin(i * Math.PI / 180));
                 point = new Point(xNext, yNext);
                 points.Add(point);
-                n++;
             }
             return points;
         }

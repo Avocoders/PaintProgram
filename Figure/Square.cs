@@ -11,8 +11,6 @@ namespace WindowsFormsApp7.Figure
 {
     public class Square : IFigur
     {
-        List<Point> points;        
-
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             points = new List<Point>();

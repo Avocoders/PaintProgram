@@ -9,7 +9,6 @@ namespace WindowsFormsApp7.Figure
 {
     public class IsoscelesTriangle : IFigur
     {
-        List<Point> points;
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             points = new List<Point>();
@@ -18,10 +17,6 @@ namespace WindowsFormsApp7.Figure
             int x3 = 0;
             int dx = Math.Abs(x2 - x1);
             int dy = Math.Abs(y2 - y1);
-
-
-
-
             if (x2 > x1)
             {
                 x3 = x1 + 2 * dx;
