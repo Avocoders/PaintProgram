@@ -349,9 +349,7 @@ namespace WindowsFormsApp7
                 if (firstColor == true)
                 {
                     if (e.Button == MouseButtons.Left)
-                    {
-                        color = button1.BackColor;
-                        cf.brush.SetColor(button1.BackColor);
+                    {                        
                         if (fill == true)
                         {
                             if (button1.BackColor != q.bitmap.GetPixel(e.X, e.Y))
@@ -367,15 +365,18 @@ namespace WindowsFormsApp7
                             button1.BackColor = q.bitmap.GetPixel(e.X, e.Y);
                             color = button1.BackColor;
                             brush.SetColor(color);
+                            cf.brush.SetColor(color);
                         }
                         else if (Eraser == true)
                         {
+                            cf.brush.SetColor(Color.White);
                             brush.SetColor(Color.White);
                             brush.SetDot(e.X, e.Y);
                             pictureBox1.Image = q.bitmap;
                         }
                         else
-                        {                            
+                        {
+                            cf.brush.SetColor(button1.BackColor);
                             brush.SetColor(color);
                             if (abstractFabric is LineFabric)
                             {                                
@@ -400,9 +401,8 @@ namespace WindowsFormsApp7
                 else 
                 {
                     if (e.Button == MouseButtons.Left)
-                    {                        
-                        color = button4.BackColor;
-                        cf.brush.SetColor(button4.BackColor);
+                    {                       
+                       
                         if (fill == true)
                         {
                             if (button4.BackColor != q.bitmap.GetPixel(e.X, e.Y))
@@ -418,15 +418,18 @@ namespace WindowsFormsApp7
                             button4.BackColor = q.bitmap.GetPixel(e.X, e.Y);
                             color = button4.BackColor;
                             brush.SetColor(color);
+                            cf.brush.SetColor(color);
                         }
                         else if (Eraser == true)
                         {
+                            cf.brush.SetColor(Color.White);
                             brush.SetColor(Color.White);
                             brush.SetDot(e.X, e.Y);
                             pictureBox1.Image = q.bitmap;
                         }
                         else
-                        {                            
+                        {
+                            cf.brush.SetColor(button4.BackColor);
                             brush.SetColor(button4.BackColor);
                             if (abstractFabric is LineFabric)
                             {                                
