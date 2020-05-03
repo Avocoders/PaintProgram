@@ -18,12 +18,23 @@ using WindowsFormsApp7.MovingChange;
 namespace WindowsFormsApp7
 {
     public partial class Form1 : Form
-    {
-        Point moveStart;
+    {        
         AbstractFabric abstractFabric;
         Drower drower;
-        SingleBitmap q = SingleBitmap.Create();        
+        SingleBitmap q = SingleBitmap.Create();
+        IFigur Figure;
+        CreatedFigure currentFigur;        
+        CreatedFigure cf;
+        Brush brush;
+        SaveFileDialog save = new SaveFileDialog();
+        OpenFileDialog open = new OpenFileDialog();
+        IMovingChange moving;
+        IFill Fill;
+        Color color;        
+        Point moveStart;
+        Point first, last;
         int n = 1;
+        int nAngle = 5;
         bool drowing = true;
         bool isHanded = false;
         bool isTop = false;
@@ -32,33 +43,14 @@ namespace WindowsFormsApp7
         bool isFigureChanged = false;
         bool isColorChanged = false;
         bool isThicknessChange = false;
-        bool isGran = false;
-        int xnow, ynow;
-        Color color;
-        bool firstColor = true;        
-        Brush brush;        
-        bool isDrow, isFirst,isFirstPoligon,isCollapsed;
+        bool isGran = false;         
+        bool firstColor = true;                 
+        bool isDrow, isFirst, isFirstPoligon, isCollapsed;
         bool expend = false;
-        bool noexpend = true;
-        
-        
-        Drower fdrower;
-        CreatedFigure cf;
-        //int lastX, lastY;
-        //int startX = 0;
-        //int startY = 0;
-        IFigur Figure;
-        CreatedFigure currentFigur;
-        IFill Fill;        
+        bool noexpend = true;         
         bool fill = false;
         bool Eraser = false;
-        bool Pipetka = false;
-        SaveFileDialog save = new SaveFileDialog();
-        OpenFileDialog open = new OpenFileDialog();
-        int nAngle=5;
-        Point first, last;
-        IMovingChange moving;
-        int fx, fy;
+        bool Pipetka = false;         
         int tmpIndex;
        
         public Form1()
@@ -71,7 +63,7 @@ namespace WindowsFormsApp7
             this.MouseDown += Form1_MouseDown;
             this.MouseMove += Form1_MouseMove;
             this.WindowState = FormWindowState.Maximized;
-            this.WindowState = FormWindowState.Normal;            
+            this.WindowState = FormWindowState.Normal;            
             // расширенное окно для выбора цвета
             colorDialog1.FullOpen = true;
             // установка начального цвета для colorDialog
@@ -97,23 +89,15 @@ namespace WindowsFormsApp7
             }
         }
 
-        private void textBox3_KeyDown(object sender, KeyEventArgs e)
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if ((e.Button & MouseButtons.Left) != 0)
             {
-                nAngle = Convert.ToInt32(textBox3.Text);
+                Point deltaPos = new Point(e.X - moveStart.X, e.Y - moveStart.Y);
+                this.Location = new Point(this.Location.X + deltaPos.X, this.Location.Y + deltaPos.Y);
             }
         }
 
-        private void Form1_MouseMove(object sender, MouseEventArgs e)
-        {   
-            if ((e.Button & MouseButtons.Left) != 0)
-            { 
-                Point deltaPos = new Point(e.X - moveStart.X, e.Y - moveStart.Y);
-                this.Location = new Point(this.Location.X + deltaPos.X, this.Location.Y + deltaPos.Y);  
-            }
-        }
-        
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -123,15 +107,27 @@ namespace WindowsFormsApp7
             {
                 isCollapsed = true;
                 this.WindowState = FormWindowState.Minimized;
-            }            
+            }
+        }        private void pictureBox1_SizeChanged(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null && isCollapsed != true)
+            {
+                q.ChangeSize(pictureBox1.Width, pictureBox1.Height);
+                q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                pictureBox1.Image = q.bitmap;
+                brush = new Brush(brush);
+                brush.SetSize(pictureBox1.Width, pictureBox1.Height);
+            }
+            isCollapsed = false;
         }
         private void buttonExpend_Click(object sender, EventArgs e)
-        {                        if (expend == false)
+        {
+            if (expend == false)
             {
                 this.WindowState = FormWindowState.Maximized;
                 expend = true;
                 noexpend = false;
-               
+
             }
             else if (noexpend == false)
             {
@@ -141,6 +137,53 @@ namespace WindowsFormsApp7
             }
         }
 
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            pictureBox7.Visible = true;
+            pictureBox7.Image = Image.FromFile("D:/ckr.gif");
+            if (q.bitmap != null)
+            {
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    q.bitmap.Save(save.FileName);
+                }
+            }
+            pictureBox7.Visible = false;
+        }
+
+        private void buttonOpen_Click(object sender, EventArgs e)
+        {
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                q.bitmap = new Bitmap(open.FileName);                
+            }
+            pictureBox1.Image = q.bitmap;
+            q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            q.CreateBitmapList();
+            isDrow = false;
+            isFirst = false;
+            isFirstPoligon = false;
+            Eraser = false;
+            Pipetka = false;
+            textBox3.Visible = false;
+            fill = false;             
+            isTop = false;
+            isHanded = false;
+            isZoom = false;
+            isTurn = false;
+            isFigureChanged = false;
+            drowing = true;
+            isColorChanged = false;
+            isGran = false;
+            isThicknessChange = false;            
+            toolStripDropDownButton2.Image = topToolStripMenuItem.Image;
+            Fill = null;
+            toolStripDropDownButton1.Image = безЗаливкиToolStripMenuItem.Image;
+            isCollapsed = false;
+            q.heigth = pictureBox1.Height;
+            q.width = pictureBox1.Width;
+        }
+
         public Color GetColor()
         {
             return color;
@@ -148,14 +191,12 @@ namespace WindowsFormsApp7
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            
-                if (e.X < 0 || e.X > pictureBox1.Width || e.Y < 0 || e.Y > pictureBox1.Height)
-                {
-                    isFirst = true;
-                }
-
-                if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
-                {
+            if (e.X < 0 || e.X > pictureBox1.Width || e.Y < 0 || e.Y > pictureBox1.Height)
+            {
+                isFirst = true;
+            }
+            if (isDrow == true && e.X > 0 && e.X < pictureBox1.Width && e.Y > 0 && e.Y < pictureBox1.Height)
+            {
                 if (drowing == true)
                 {
                     brush.SetIsFirst(isFirst);
@@ -183,9 +224,7 @@ namespace WindowsFormsApp7
                                 cf.figur = new RightTriangle();
                                 drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
                                 isFigureChanged = true;
-                            }
-
-                           // drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                            }                           
                         }
                         else if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
                         {
@@ -206,48 +245,33 @@ namespace WindowsFormsApp7
                                 cf.figur = new IsoscelesTriangle();
                                 drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
                                 isFigureChanged = false;
-                            }
-                            //drower = abstractFabric.CreateDrower(Figure, brush, Fill);
+                            }                            
                         }
-
                         last = e.Location;
                         drower.Draw(first, last, nAngle,cf);
                         if (!(drower is ClassLine))
                         { q.DrawFigure(); }
                         else if (drower is ClassLine)
-                        { q.DrawLine(); }
-
-                        if (drower is ClassLine)
-                        { first = last; }
-                        // cf.poin = drower.points;
-                        //brush.SetDot(cf.figur.centr.X, cf.figur.centr.Y);
-                        //q.DrawLine();
+                        { 
+                            q.DrawLine();
+                            first = last;
+                        }
                         pictureBox1.Image = q.bitmap;
                     }
                 }
                 else if ((isHanded == true || isGran == true)&& currentFigur != null)
-                {
-                   // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                    //moving.ChangeFigure(e.Location);
-                   // currentFigur.figur.ChangeFigurePosition(e.X-fx,e.Y-fy);
+                {                   
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);                    
                     moving.ChangeFigure(e.Location);
                     q.Move();
-                    q.DrowOnlyOneFigure(currentFigur);
-                    //cf.poin = drower.points;
-                    pictureBox1.Image = q.bitmap;
-                    fx = e.X;
-                    fy = e.Y;
+                    q.DrowOnlyOneFigure(currentFigur);                    
+                    pictureBox1.Image = q.bitmap;                    
                 }
                 else if (isZoom == true && currentFigur != null)
-                {
-                    // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                    //moving.ChangeFigure(e.Location);
-                    // currentFigur.figur.ChangeFigurePosition(e.X-fx,e.Y-fy);
+                {                    
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height); 
                     if (currentFigur.figur is Сircle)
-                    {
-                        
+                    {                        
                         drower.Draw(currentFigur.centr, e.Location, nAngle,currentFigur);
                     }
                     else if (currentFigur.figur is Ellipse)
@@ -261,13 +285,9 @@ namespace WindowsFormsApp7
                         moving.ChangeFigure(e.Location);
                     }
                     q.DrawFigure();
-                    q.DrowOnlyOneFigure(currentFigur);
-                    //cf.poin = drower.points;
+                    q.DrowOnlyOneFigure(currentFigur);                    
                     pictureBox1.Image = q.bitmap;
-                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                    fx = e.X;
-                    fy = e.Y;
-                    
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);                 
                 }
 
                 else if (isTurn == true && currentFigur != null)
@@ -276,15 +296,11 @@ namespace WindowsFormsApp7
                     moving.ChangeFigure(e.Location);
                     q.Move();
                     q.DrowOnlyOneFigure(currentFigur);
-                    pictureBox1.Image = q.bitmap;
-                    fx = e.X;
-                    fy = e.Y;
-
+                    pictureBox1.Image = q.bitmap;                    
                 }
 
                 else if (isTop == true && currentFigur != null)
-                {
-                   // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                {                   
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     currentFigur.poin[tmpIndex] = e.Location;
                     q.DrowOnlyOneFigure(currentFigur);
@@ -296,34 +312,23 @@ namespace WindowsFormsApp7
                 {
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     currentFigur.poin[tmpIndex] = e.Location;
-                    drower.Draw(first, currentFigur.poin[tmpIndex], nAngle, cf);
-                    //moving.ChangeFigure(e.Location);
-                    //q.DrawFigure();
-                    //q.Move();
-                    
+                    drower.Draw(first, currentFigur.poin[tmpIndex], nAngle, cf);                    
                     q.DrowOnlyOneFigure(currentFigur);
-                    q.DrawFigure();
-                    //cf.poin = drower.points;
-                    pictureBox1.Image = q.bitmap;                 
-                   // q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);                    
+                    q.DrawFigure();                    
+                    pictureBox1.Image = q.bitmap;                                       
                 }                
-            }
-            
+            }            
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
-        {
-            
+        {            
             if (drowing == true)
             {
                 if (!(abstractFabric is UncommonPoligon))
                 {
                     cf = new CreatedFigure(brush, Figure, Fill);
-                    drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
-                    //drower.Draw(e.Location, e.Location, nAngle);
+                    drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);                    
                     q.listOfFigure.Add(cf);
-                    //drower = q.listOfFigure[q.listOfFigure.Count-1];
-
                     q.Clone2();
                 }
                 first = e.Location;
@@ -358,12 +363,10 @@ namespace WindowsFormsApp7
                             pictureBox1.Image = q.bitmap;
                         }
                         else
-                        {
-                            //brush = new Brush(brush);
+                        {                            
                             brush.SetColor(color);
                             if (abstractFabric is LineFabric)
-                            {
-                                //brush = new Brush(brush);
+                            {                                
                                 brush.SetDot(e.X, e.Y);
                                 q.DrawLine();
                                 pictureBox1.Image = q.bitmap;
@@ -371,12 +374,10 @@ namespace WindowsFormsApp7
                         }
                     }
                     else if (e.Button == MouseButtons.Right)
-                    {
-                        //brush = new Brush(brush);
+                    {                        
                         brush.SetColor(button4.BackColor);
                         if (abstractFabric is LineFabric)
-                        {
-                            //brush = new Brush(brush);
+                        {                            
                             brush.SetDot(e.X, e.Y);
                             q.DrawLine();
                             pictureBox1.Image = q.bitmap;
@@ -411,12 +412,10 @@ namespace WindowsFormsApp7
                             pictureBox1.Image = q.bitmap;
                         }
                         else
-                        {
-                            //brush = new Brush(brush);
+                        {                            
                             brush.SetColor(button4.BackColor);
                             if (abstractFabric is LineFabric)
-                            {
-                                //brush = new Brush(brush);
+                            {                                
                                 brush.SetDot(e.X, e.Y);
                                 q.DrawLine();
                                 pictureBox1.Image = q.bitmap;
@@ -453,8 +452,7 @@ namespace WindowsFormsApp7
                     else
                     {
                         drower.Draw(e.Location, first, nAngle,cf);
-                        q.DrawLine();
-                        
+                        q.DrawLine();                        
                     }
                     pictureBox1.Image = q.bitmap;
                 }
@@ -473,13 +471,9 @@ namespace WindowsFormsApp7
                     q.DrowNotAllFigure(currentFigur);
                     q.Clone2();
                     //q.SetTmp();
-                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                   // q.Move();
-                    q.DrowOnlyOneFigure(currentFigur);
-                    //q.DrawFigure();
-                    pictureBox1.Image = q.bitmap;
-                    fx = e.X;
-                    fy = e.Y;
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);                   
+                    q.DrowOnlyOneFigure(currentFigur);                    
+                    pictureBox1.Image = q.bitmap;                    
                 }        
 
             }
@@ -515,10 +509,8 @@ namespace WindowsFormsApp7
                     q.Clone2();
                     //q.SetTmp();
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                    q.DrowOnlyOneFigure(currentFigur);
-                    //q.DrawFigure();
-                    pictureBox1.Image = q.bitmap;   
-                    
+                    q.DrowOnlyOneFigure(currentFigur);                    
+                    pictureBox1.Image = q.bitmap;                     
                 }                   
             }
             else if(isGran == true)
@@ -555,7 +547,6 @@ namespace WindowsFormsApp7
                     q.DrowOnlyOneFigure(currentFigur);
                     q.DrawFigure();
                     pictureBox1.Image = q.bitmap;
-
                 }
             }
 
@@ -565,8 +556,7 @@ namespace WindowsFormsApp7
                 currentFigur = moving.FindPoint(e.Location);    
                 if (currentFigur != null)
                 {
-                    q.Clone2();
-                    //currentFigur.brush.ChangePaint(n);
+                    q.Clone2();                    
                     currentFigur.brush.SetColor(button1.BackColor);                    
                     q.GetBrush(brush, abstractFabric);
                     q.DrowOnlyOneFigure(currentFigur);
@@ -580,8 +570,7 @@ namespace WindowsFormsApp7
                 if (currentFigur != null)
                 {
                     q.Clone2();                    
-                    currentFigur.brush.ChangePaint(n);
-                    //currentFigur.brush.SetColor(button1.BackColor);
+                    currentFigur.brush.ChangePaint(n);                    
                     q.GetBrush(brush, abstractFabric);                        
                     q.DrowOnlyOneFigure(currentFigur);                    
                     pictureBox1.Image = q.bitmap;
@@ -752,6 +741,94 @@ namespace WindowsFormsApp7
             }
         }
 
+        private void moreColor_Click(object sender, EventArgs e)
+        {            colorDialog1.AllowFullOpen = true;
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            { color = colorDialog1.Color; }
+            // установка цвета формы
+
+            if (firstColor == true)
+            {
+                button1.BackColor = color;
+            }
+            else
+            {
+                button4.BackColor = color;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            firstColor = true;
+            this.button1.BringToFront();
+            color = button1.BackColor;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            firstColor = false;
+            this.button4.BringToFront();
+            color = button4.BackColor;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            pictureBox2.BackColor = button1.BackColor;
+            button1.BackColor = button4.BackColor;
+            button4.BackColor = pictureBox2.BackColor;
+            brush = new Brush(brush);
+            if (firstColor == true)
+            {
+                color = button1.BackColor;
+
+                brush.SetColor(button1.BackColor);
+            }
+            else
+            {
+                color = button4.BackColor;
+                brush.SetColor(button4.BackColor);
+            }
+        }
+
+        private void button4_BackColorChanged(object sender, EventArgs e)
+        {
+            if (Fill is TwoColorFill)
+            {
+                Fill = new TwoColorFill(button4.BackColor);
+            }
+            else if (Fill is SolidFill)
+            {
+                Fill = new SolidFill(button4.BackColor);
+            }
+        }
+
+        private void chooseFill_Click(object sender, EventArgs e)
+        {
+            Eraser = false;
+            Pipetka = false;
+            textBox3.Visible = false;
+            fill = true;
+        }
+
+        private void заливкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fill = new TwoColorFill(button4.BackColor);
+            toolStripDropDownButton1.Image = заливкаToolStripMenuItem.Image;
+
+        }
+
+        private void безЗаливкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fill = new WithoutFill();
+            toolStripDropDownButton1.Image = безЗаливкиToolStripMenuItem.Image;
+        }
+
+        private void заливкаОднотоннаяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fill = new TwoColorFill(button1.BackColor);
+            toolStripDropDownButton1.Image = заливкаОднотоннаяToolStripMenuItem.Image;
+        }
+
         private void square_Click(object sender, EventArgs e)
         {
             abstractFabric = new FigureFabric();
@@ -816,33 +893,31 @@ namespace WindowsFormsApp7
             Eraser = false;
             textBox3.Visible = false;
             Pipetka = false;
-            fill = false;        
+            fill = false;
+            Fill = null;
         }
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
             drower.Draw(first, last, nAngle,cf);
-            q.DrawLine();
-            
+            q.DrawLine();            
             pictureBox1.Image = q.bitmap;
             drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
-            isFirstPoligon = true;
-            //q.Clone2();
+            isFirstPoligon = true;            
             q.Clone();
-        }
-        private void moreColor_Click(object sender, EventArgs e)
-        {            colorDialog1.AllowFullOpen = true;
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            { color = colorDialog1.Color; }
-            // установка цвета формы
-            
-            if (firstColor == true)
-            {
-                button1.BackColor = color;
-            }
-            else
-            {
-                button4.BackColor = color;
-            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Figure = null;
+            abstractFabric = new UncommonPoligon();
+            textBox3.Visible = false;
+            Eraser = false;
+            Pipetka = false;
+            fill = false;
+            isFirstPoligon = true;
+            Fill = null;
+            toolStripDropDownButton1.Image = безЗаливкиToolStripMenuItem.Image;
+            drower = abstractFabric.CreateDrower(Figure, brush, Fill);
         }
         private void button5_Click(object sender, EventArgs e)
         {
@@ -864,7 +939,6 @@ namespace WindowsFormsApp7
                 textBox3.Text = "";
                 textBox3.Visible = false;
             }
-            
         }
 
         private void oval_Click(object sender, EventArgs e)
@@ -901,143 +975,7 @@ namespace WindowsFormsApp7
             fill = false;
             Fill = null;
             toolStripDropDownButton1.Image = безЗаливкиToolStripMenuItem.Image;
-        }
-
-        private void pictureBox1_SizeChanged(object sender, EventArgs e)
-        {
-            if (pictureBox1.Image != null && isCollapsed!=true)
-            {
-                q.ChangeSize(pictureBox1.Width, pictureBox1.Height);
-                q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                pictureBox1.Image = q.bitmap;
-                brush = new Brush(brush);
-                brush.SetSize(pictureBox1.Width, pictureBox1.Height);                
-            }
-            isCollapsed = false;
-        }
-
-        private void buttonReturn_Click(object sender, EventArgs e)
-        {
-            q.Redo();
-            pictureBox1.Image = q.tmp1;           
-        }
-
-        private void chooseFill_Click(object sender, EventArgs e)
-        {            
-            Eraser = false;
-            Pipetka = false;
-            textBox3.Visible = false;
-            fill = true;            
-        }
-
-        private void buttonSave_Click(object sender, EventArgs e)
-        {
-            pictureBox7.Visible = true;
-            pictureBox7.Image = Image.FromFile("D:/ckr.gif");
-            if (q.bitmap != null)
-            {
-                if (save.ShowDialog() == DialogResult.OK)
-                {                    
-                    q.bitmap.Save(save.FileName);
-                }
-            }
-            pictureBox7.Visible = false;
-        }
-
-        private void buttonOpen_Click(object sender, EventArgs e)
-        {
-            if (open.ShowDialog() == DialogResult.OK)
-            {
-                q.bitmap = new Bitmap(open.FileName);
-                pictureBox1.Image = q.bitmap;
-                q.CreateBitmapList();
-                isDrow = false;
-                isFirst = false;
-                isFirstPoligon = false;
-                Eraser = false;
-                Pipetka = false;
-                textBox3.Visible = false;
-                fill = false;
-                color = Color.Black;                
-                brush = new Brush(pictureBox1.Width, pictureBox1.Height);
-                isTop = false;
-                isHanded = false;
-                isZoom = false;
-                isTurn = false;
-                isFigureChanged = false;
-                drowing = true;
-                isColorChanged = false;
-                toolStripDropDownButton2.Image = topToolStripMenuItem.Image;
-                Fill = null;
-                toolStripDropDownButton1.Image = безЗаливкиToolStripMenuItem.Image;
-            }
-        }
-        
-        private void button1_Click(object sender, EventArgs e)
-        {
-            firstColor = true;
-            this.button1.BringToFront();
-            color = button1.BackColor;           
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            firstColor = false;
-            this.button4.BringToFront();
-            color = button4.BackColor;            
-        }
-
-        private void заливкаToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
-            Fill = new TwoColorFill(button4.BackColor);
-            toolStripDropDownButton1.Image = заливкаToolStripMenuItem.Image;
-
-        }
-
-        private void безЗаливкиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Fill = new WithoutFill();
-            toolStripDropDownButton1.Image = безЗаливкиToolStripMenuItem.Image;
-        }
-
-        private void заливкаОднотоннаяToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Fill = new TwoColorFill(button1.BackColor);
-            toolStripDropDownButton1.Image = заливкаОднотоннаяToolStripMenuItem.Image;
-        }
-
-        private void button4_BackColorChanged(object sender, EventArgs e)
-        {
-            if (Fill is TwoColorFill)
-            {
-                Fill = new TwoColorFill(button4.BackColor);
-            }
-            else if (Fill is SolidFill)
-            {
-                Fill = new SolidFill(button4.BackColor);
-            }
-
-        }    
-
-        
-        private void button9_Click(object sender, EventArgs e)
-        {
-            pictureBox2.BackColor = button1.BackColor;
-            button1.BackColor = button4.BackColor;
-            button4.BackColor = pictureBox2.BackColor;
-            brush = new Brush(brush);
-            if (firstColor == true)
-            {               
-                color = button1.BackColor;
-                
-                brush.SetColor(button1.BackColor);
-            }
-            else
-            {
-                color = button4.BackColor;
-                brush.SetColor(button4.BackColor);
-            }
-        }
+        }       
 
         private void topToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1127,7 +1065,6 @@ namespace WindowsFormsApp7
             moving = new FigureMove();
             toolStripDropDownButton2.Image = поToolStripMenuItem.Image;
         }
-
         
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
@@ -1172,32 +1109,7 @@ namespace WindowsFormsApp7
             isGran = true;
             moving = new GranMove();
             toolStripDropDownButton2.Image = переместиГраньToolStripMenuItem.Image;
-        }
-
-        private void button11_Click_1(object sender, EventArgs e)
-        {
-            q.DrowAllFigure();
-        }
-
-        private void choosePipette_Click(object sender, EventArgs e)
-        {            
-            Pipetka = true;
-            Eraser = false;
-            fill = false;            
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Figure = null;
-            abstractFabric = new UncommonPoligon();
-            textBox3.Visible = false;
-            Eraser = false;
-            Pipetka = false;
-            fill = false;
-            isFirstPoligon = true;
-            Fill = null;
-            toolStripDropDownButton1.Image = безЗаливкиToolStripMenuItem.Image;
-            drower = abstractFabric.CreateDrower(Figure, brush, Fill);           
-        }
+        }           
         private void deleteAll_Click(object sender, EventArgs e)
         {
             isDrow = false;
@@ -1231,15 +1143,27 @@ namespace WindowsFormsApp7
             pictureBox1.Image = q.tmp1;            
         }
 
+        private void buttonReturn_Click(object sender, EventArgs e)
+        {
+            q.Redo();
+            pictureBox1.Image = q.tmp1;
+        }
+
         private void chooseEraser_Click(object sender, EventArgs e)
         {
-            abstractFabric =new LineFabric();
-            //brush.SetColor(Color.White);
+            abstractFabric =new LineFabric();            
             Eraser = true;
             textBox3.Visible = false;
             Pipetka = false;
             fill = false;            
-        }                
+        }
+
+        private void choosePipette_Click(object sender, EventArgs e)
+        {
+            Pipetka = true;
+            Eraser = false;
+            fill = false;
+        }
     }
 }
 
