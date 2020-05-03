@@ -153,6 +153,8 @@ namespace WindowsFormsApp7
 
         private void buttonOpen_Click(object sender, EventArgs e)
         {
+            pictureBox8.Visible = true;
+            pictureBox8.Image = Image.FromFile("D:/1f.gif");
             if (open.ShowDialog() == DialogResult.OK)
             {
                 q.bitmap = new Bitmap(open.FileName);                
@@ -182,6 +184,7 @@ namespace WindowsFormsApp7
             isCollapsed = false;
             q.heigth = pictureBox1.Height;
             q.width = pictureBox1.Width;
+            pictureBox8.Visible = false;
         }
 
         public Color GetColor()
