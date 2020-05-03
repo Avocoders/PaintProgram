@@ -918,13 +918,16 @@ namespace WindowsFormsApp7
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            pictureBox7.Visible = true;
+            pictureBox7.Image = Image.FromFile("D:/ckr.gif");
             if (q.bitmap != null)
             {
                 if (save.ShowDialog() == DialogResult.OK)
                 {                    
                     q.bitmap.Save(save.FileName);
                 }
-            }            
+            }
+            pictureBox7.Visible = false;
         }
 
         private void buttonOpen_Click(object sender, EventArgs e)
@@ -1119,6 +1122,7 @@ namespace WindowsFormsApp7
             moving = new GranMove();
         }
 
+        
         private void button11_Click_1(object sender, EventArgs e)
         {
             q.DrowAllFigure();
