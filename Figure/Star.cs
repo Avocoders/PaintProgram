@@ -25,7 +25,7 @@ namespace WindowsFormsApp7.Figure
                 int yNext = y1 + Convert.ToInt32(r/2 * Math.Sin((i + bPol / 2) * Math.PI / 180));
 
                 points.Add(new Point(xFirst, yFirst));
-                points.Add(new Point(xNext, yNext));
+                points.Add(new Point(xNext, yNext));                
             }
             return points;
         }

@@ -83,7 +83,7 @@
     <Compile Include="MovingChange\FigureMove.cs" />
     <Compile Include="MovingChange\GranMove.cs" />
     <Compile Include="MovingChange\PointMove.cs" />
-    <Compile Include="StubForTest\Form1Stub.cs" />
+    <Compile Include="MovingChange\TigersTurn.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleBitmap.cs" />

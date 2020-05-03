@@ -14,7 +14,6 @@ namespace WindowsFormsApp7.Figure
         {
             points = new List<Point>();
             int bx1=0, by1=0, bx2 = 0, by2 = 0, ax1 = 0, ay1 = 0, ax2 = 0, ay2 = 0;
-            int a, b;
             int dx = Math.Abs(x2 - x1);
             int dy = Math.Abs(y2 - y1);
             int cx = (x1 + x2) / 2;
@@ -68,16 +67,13 @@ namespace WindowsFormsApp7.Figure
             }
             a = Convert.ToInt32(Math.Sqrt((ax2 - ax1) * (ax2 - ax1) + (ay2 - ay1) * (ay2 - ay1)) / 2);
             b = Convert.ToInt32(Math.Sqrt((bx2 - bx1) * (bx2 - bx1) + (by2 - by1) * (by2 - by1)) / 2);
-
-
-
-            for (int i = 0; i < 360; i++)
+            for (int i = 0; i < 360; i+=10)
             {                
                 int ex = cx + Convert.ToInt32(a * Math.Cos(i * Math.PI / 180));
                 int ey = cy + Convert.ToInt32(b * Math.Sin(i * Math.PI / 180));
 
                 point = new Point(ex, ey);
-                points.Add(point);
+                points.Add(point);               
             }
             return points;
         }
@@ -94,7 +90,6 @@ namespace WindowsFormsApp7.Figure
                 {
                     point = false;
                 }
-
             }
             return point;
         }

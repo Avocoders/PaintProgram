@@ -9,7 +9,6 @@ namespace WindowsFormsApp7.Figure
 {
     public class StraightLine : IFigur
     {
-        List<Point> points;
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             int cx = (x2 - x1) / 2;
@@ -23,6 +22,7 @@ namespace WindowsFormsApp7.Figure
 
             return points;            
         }
+
         public override bool CheckForMatches(int x1, int y1, int x2, int y2,int c, int[] ExPoints)
         {
             bool point = true;
@@ -38,6 +38,5 @@ namespace WindowsFormsApp7.Figure
             }
             return point;
         }
-
     }
 }
