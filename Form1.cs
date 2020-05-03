@@ -31,7 +31,8 @@ namespace WindowsFormsApp7
         bool isTurn = false;
         bool isFigureChanged = false;
         bool isColorChanged = false;
-        bool isThicknessChange = false;        
+        bool isThicknessChange = false;
+        bool isGran = false;
         int xnow, ynow;
         Color color;
         bool firstColor = true;        
@@ -39,7 +40,7 @@ namespace WindowsFormsApp7
         bool isDrow, isFirst,isFirstPoligon,isCollapsed;
         bool expend = false;
         bool noexpend = true;
-        bool isGran = false;
+        
         
         Drower fdrower;
         CreatedFigure cf;
@@ -1041,25 +1042,28 @@ namespace WindowsFormsApp7
         private void topToolStripMenuItem_Click(object sender, EventArgs e)
         {
             drowing = true;
-            isColorChanged = false;
-            toolStripDropDownButton2.Image = topToolStripMenuItem.Image;
             isHanded = false;
             isTop = false;
             isZoom = false;
             isTurn = false;
             isFigureChanged = false;
-
+            isColorChanged = false;
+            isThicknessChange = false;
+            isGran = false;            
+            toolStripDropDownButton2.Image = topToolStripMenuItem.Image;
         }
 
         private void перемещениеToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             drowing = false;
-            isZoom = false;
             isHanded = true;
             isTop = false;
+            isZoom = false;
             isTurn = false;
             isFigureChanged = false;
             isColorChanged = false;
+            isThicknessChange = false;
+            isGran = false;            
             moving = new FigureMove();
             toolStripDropDownButton2.Image = перемещениеToolStripMenuItem1.Image;
         }
@@ -1067,91 +1071,107 @@ namespace WindowsFormsApp7
         private void верхушкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             drowing = false;
-            isZoom = false;
-            isTop = true;
             isHanded = false;
+            isTop = true;
+            isZoom = false;
             isTurn = false;
             isFigureChanged = false;
             isColorChanged = false;
+            isThicknessChange = false;
+            isGran = false;            
             moving = new PointMove();
             toolStripDropDownButton2.Image = верхушкаToolStripMenuItem.Image;
         }
 
         private void масштабируемToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        {            
             drowing = false;
-            toolStripDropDownButton2.Image = масштабируемToolStripMenuItem.Image;
-            isTop = false;
             isHanded = false;
+            isTop = false;
             isZoom = true;
             isTurn = false;
             isFigureChanged = false;
             isColorChanged = false;
+            isThicknessChange = false;
+            isGran = false;            
             moving = new ChangeSizeFigure();
-            //moving = new PointMove();
+            toolStripDropDownButton2.Image = масштабируемToolStripMenuItem.Image;            
         }
 
         private void меняетФигуруToolStripMenuItem_Click(object sender, EventArgs e)
         {
             drowing = false;
-            toolStripDropDownButton2.Image = меняетФигуруToolStripMenuItem.Image;
-            isTop = false;
             isHanded = false;
+            isTop = false;
             isZoom = false;
             isTurn = false;
             isFigureChanged = true;
             isColorChanged = false;
+            isThicknessChange = false;
+            isGran = false;            
             moving = new PointMove();
+            toolStripDropDownButton2.Image = меняетФигуруToolStripMenuItem.Image;
         }
 
         private void поToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            isColorChanged = true;
-            toolStripDropDownButton2.Image = поToolStripMenuItem.Image;
-            drowing = false;            
-            isTop = false;
+            drowing = false;
             isHanded = false;
+            isTop = false;
             isZoom = false;
+            isTurn = false;
             isFigureChanged = false;
+            isColorChanged = true;
+            isThicknessChange = false;
+            isGran = false;            
             moving = new FigureMove();
+            toolStripDropDownButton2.Image = поToolStripMenuItem.Image;
         }
 
         
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             drowing = false;
-            isTop = false;
             isHanded = false;
+            isTop = false;
             isZoom = false;
             isTurn = true;
             isFigureChanged = false;
             isColorChanged = false;
+            isThicknessChange = false;
+            isGran = false;
             moving = new TigersTurn();
+            toolStripDropDownButton2.Image = toolStripMenuItem2.Image;
         }
 
         private void увеличьТолщинуToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            isColorChanged = false;
             drowing = false;
-            isTop = false;
             isHanded = false;
+            isTop = false;
             isZoom = false;
+            isTurn = false;
             isFigureChanged = false;
+            isColorChanged = false;
             isThicknessChange = true;
+            isGran = false;
             moving = new FigureMove();
+            toolStripDropDownButton2.Image = увеличьТолщинуToolStripMenuItem.Image;
         }
 
         private void переместиГраньToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            isColorChanged = false;
             drowing = false;
-            isTop = false;
             isHanded = false;
+            isTop = false;
             isZoom = false;
+            isTurn = false;
             isFigureChanged = false;
+            isColorChanged = false;
             isThicknessChange = false;
             isGran = true;
             moving = new GranMove();
+            toolStripDropDownButton2.Image = переместиГраньToolStripMenuItem.Image;
         }
 
         private void button11_Click_1(object sender, EventArgs e)
