@@ -512,8 +512,7 @@ namespace WindowsFormsApp7
                     }
                 }
                 if (currentFigur != null)
-                {
-                    
+                {                    
                     q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.GetBrush(brush, abstractFabric);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -548,7 +547,6 @@ namespace WindowsFormsApp7
                 }
                 if (currentFigur != null)
                 {
-
                     q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     q.GetBrush(brush, abstractFabric);
                     q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -838,7 +836,6 @@ namespace WindowsFormsApp7
         {
             Fill = new TwoColorFill(button4.BackColor);
             toolStripDropDownButton1.Image = заливкаToolStripMenuItem.Image;
-
         }
 
         private void безЗаливкиToolStripMenuItem_Click(object sender, EventArgs e)
