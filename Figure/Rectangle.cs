@@ -62,19 +62,6 @@ namespace WindowsFormsApp7.Figure
                 }
             }
             return point;
-        }
-        //public override Point CenterFigure11(List<Point> points)
-        //{
-        //    Point centr;
-        //    Point point1 = points[0];
-        //    Point point2 = points[2];
-        //    int cx, cy;
-
-        //    cx = (point2.X - point1.X) / 2;
-        //    cy = (point2.Y - point1.Y) / 2;
-
-        //    centr = new Point(cx, cy);
-        //    return centr;
-        //}
+        }        
     }
 }

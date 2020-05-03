@@ -18,9 +18,6 @@ namespace WindowsFormsApp7.Figure
             int dx = Math.Abs(x2 - x1);
             int dy = Math.Abs(y2 - y1);
 
-
-
-
             if (x2 > x1)
             {
                 x3 = x1 + 2 * dx;
@@ -69,32 +66,5 @@ namespace WindowsFormsApp7.Figure
             }
             return point;
         }
-
-        //public override Point CenterFigure11(List<Point> points)
-        //{
-        //    Point centr;
-        //    Point point1 = points[0];
-        //    Point point2 = points[1];
-        //    Point point3 = points[2];
-        //    int cx, cy;
-
-        //    int a = Convert.ToInt32(Math.Sqrt(Math.Abs((point2.X - point1.X) * (point2.X - point1.X)) + Math.Abs((point2.Y - point1.Y) * (point2.Y - point1.Y))));
-        //    int b = Convert.ToInt32(Math.Sqrt(Math.Abs((point3.X - point1.X) * (point3.X - point1.X)) + Math.Abs((point3.Y - point1.Y) * (point3.Y - point1.Y))));
-        //    int r = Convert.ToInt32(b / 2 * Math.Sqrt((2 * a - b) / (2 * a + b)));
-
-        //    cx = Convert.ToInt32((point3.X - point1.X) / 2);
-
-        //    if (point2.Y < point1.Y)
-        //    {
-        //        cy = Convert.ToInt32((point2.X - point1.X) + r);
-        //    }
-        //    else 
-        //    {
-        //        cy = Convert.ToInt32((point2.X - point1.X) - r);
-        //    }
-            
-        //    centr = new Point(cx, cy);
-        //    return centr;
-        //}
     }
 }

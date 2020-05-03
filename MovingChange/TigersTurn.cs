@@ -2,29 +2,47 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp7.Figure;
 
 namespace WindowsFormsApp7.MovingChange
 {
-    public class FigureMove : IMovingChange
+    public class TigersTurn : IMovingChange
     {
         SingleBitmap move = SingleBitmap.Create();
-        Point keepP;        
+        Point keepP;
         CreatedFigure cf;
-                
+        Point x;
+
         public void ChangeFigure(Point p)
         {
-            int dx, dy;
-            dx = p.X - keepP.X;
-            dy = p.Y - keepP.Y;
+            
+            x = cf.centr;
+
+            int dx = p.X - x.X;
+            int dy = p.Y - x.Y;
+            int j = 0;
+                
+            if (dx > 0 || dy > 0)
+                {
+                    j+=30;
+                }
+                
+            else if (dx < 0 || dy < 0)
+                {
+                        j-=30;
+                }
+
+            int da = j;            
             for (int i = 0; i < cf.poin.Count; i++)
-            {
-                cf.poin[i] = new Point(cf.poin[i].X + dx, cf.poin[i].Y + dy);
+            {                
+                int newPointX = Convert.ToInt32((double)x.X + ((double)cf.poin[i].X - (double)x.X) * Math.Cos((double)da * Math.PI / 180) - ((double)cf.poin[i].Y - x.Y) * Math.Sin((double)da * Math.PI / 180));
+                int newPointY = Convert.ToInt32((double)x.Y + ((double)cf.poin[i].Y - (double)x.Y) * Math.Cos((double)da * Math.PI / 180) + ((double)cf.poin[i].X - x.X) * Math.Sin((double)da * Math.PI / 180));
+                cf.poin[i] = new Point(newPointX, newPointY);
             }
-            cf.centr = new Point(cf.centr.X + dx, cf.centr.Y + dy);
-            keepP = p;
         }
 
         public int FindMainPoint(Point p)
@@ -45,7 +63,7 @@ namespace WindowsFormsApp7.MovingChange
                         {
                             cf = f;
                             keepP = p;
-                            return cf;
+                            return f;
                         }
                     }
                 }

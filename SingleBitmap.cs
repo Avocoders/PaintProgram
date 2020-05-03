@@ -42,11 +42,10 @@ namespace WindowsFormsApp7
         public Bitmap tmp1;
         Brush brush;
         public int width,heigth;
-        int n, end;       
-       
+        int n, end;              
+
         public void CreateBitmapList()
         {
-
             first = new Bitmap(bitmap);
             bitmap2 = new List<Bitmap>();
             listOfBitmap = new List<Bitmap>();
@@ -54,15 +53,13 @@ namespace WindowsFormsApp7
             bitmap2.Insert(0, bitmap);
             n = 0;
             end = n;
-            listOfBitmap.Insert(n, bitFigure);
-            
-            //bitFigure = new Bitmap(width, heigth);
+            listOfBitmap.Insert(n, bitFigure);            
         }
+
         public void GetBrush(Brush brush,AbstractFabric abstractFabric)
         {
             this.brush = brush;
             this.abstractFabric = abstractFabric;
-
         }
 
         public void DrowAllFigure()
@@ -71,17 +68,15 @@ namespace WindowsFormsApp7
             {
                 Point tmp = f.poin[0];
                 foreach (Point p in f.poin)
-                {
-                    
-                    drawer.Draw(f);
-                    //brush.DrawLine(tmp.X,tmp.Y, p.X,p.Y );
-                   tmp = p;
-                }
-                f.brush.DrawLine(tmp.X, tmp.Y, f.poin[0].X, f.poin[0].Y);
+                {                      
+                    drawer.Draw(f);                    
+                    tmp = p;
+                }                
                 Graphics graph = Graphics.FromImage(bitmap);
                 graph.DrawImage(bitFigure, 0, 0);
             }
         }
+
         public void DrowNotAllFigure(CreatedFigure cf2)
         {
             foreach (CreatedFigure f in listOfFigure)
@@ -92,10 +87,11 @@ namespace WindowsFormsApp7
                         drawer.Draw(f);
                        
                 }
-                    Graphics graph = Graphics.FromImage(bitmap);
-                    graph.DrawImage(bitFigure, 0, 0);
+                Graphics graph = Graphics.FromImage(bitmap);
+                graph.DrawImage(bitFigure, 0, 0);
             }
         }
+
         public void DrowOnlyOneFigure(CreatedFigure cf)
         {
             drawer = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
@@ -112,10 +108,12 @@ namespace WindowsFormsApp7
             end = n;
             bitmap2.Insert(n, tmp1);           
         }
+
         public void Move()
         {
             bitmap = new Bitmap(tmp1);
         }
+
         public void DrawFigure()
         {
             bitmap = new Bitmap(tmp1);
@@ -124,15 +122,18 @@ namespace WindowsFormsApp7
             graph.DrawImage(bitFigure, 0, 0);
             
         }
-       public void DrawLine()
+
+        public void DrawLine()
         {
             Graphics graph = Graphics.FromImage(bitmap);
             graph.DrawImage(bitFigure, 0, 0);
         }
+
         public void SaveBitmap()
         { 
             listOfBitmap.Insert(n,bitFigure);
         }
+
         public void ChangeSize(int w, int h)
         {
             Bitmap ResultBitmap = new Bitmap(w, h);
@@ -140,7 +141,6 @@ namespace WindowsFormsApp7
             graph.DrawImage(bitmap, 0, 0);
             bitmap = new Bitmap(w, h);
             bitmap = ResultBitmap;
-
         }       
 
         public void Clone2()
@@ -155,10 +155,12 @@ namespace WindowsFormsApp7
             }
             tmp1 = new Bitmap(bitmap);
         }
+
         public void SetTmp()
         {
             tmp1 = new Bitmap(bitmap);
         }
+
         public void Undo()
         {
             if (n > 1)

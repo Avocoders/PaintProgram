@@ -207,6 +207,7 @@ namespace WindowsFormsApp7
                 }
             }
         }
+
         public void Pain(int x, int y)
         {
             int del = n / 2;
