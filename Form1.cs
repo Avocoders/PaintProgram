@@ -1199,7 +1199,11 @@ namespace WindowsFormsApp7
             drower = abstractFabric.CreateDrower(Figure, brush, Fill);           
         }
         private void deleteAll_Click(object sender, EventArgs e)
-        {            
+        {
+            isDrow = false;
+            isFirst = false;
+            isFirstPoligon = false;            
+            q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);            
             q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = q.bitmap;
             q.CreateBitmapList();
@@ -1213,6 +1217,9 @@ namespace WindowsFormsApp7
             isColorChanged = false;
             isFigureChanged = false;
             drowing = true;
+            isTop = false;
+            isTurn = false;
+            isGran = false;
             toolStripDropDownButton2.Image = topToolStripMenuItem.Image;
             Fill = null;
             toolStripDropDownButton1.Image = безЗаливкиToolStripMenuItem.Image;
