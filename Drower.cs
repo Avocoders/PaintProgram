@@ -23,6 +23,7 @@ namespace WindowsFormsApp7
         }
         
         public abstract void Draw(Point point1, Point point2,int nAngle,CreatedFigure cf);
+
         public abstract void Draw(CreatedFigure cf);
     }
 }

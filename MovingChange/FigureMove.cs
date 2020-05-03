@@ -11,9 +11,7 @@ namespace WindowsFormsApp7.MovingChange
     public class FigureMove : IMovingChange
     {
         SingleBitmap move = SingleBitmap.Create();
-        Point keepP;
-        //IFigur figur;
-        //Drower drower;
+        Point keepP;        
         CreatedFigure cf;
                 
         public void ChangeFigure(Point p)
@@ -52,7 +50,6 @@ namespace WindowsFormsApp7.MovingChange
                     }
                 }
             }
-
             return null;
         }
 

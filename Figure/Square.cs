@@ -51,7 +51,6 @@ namespace WindowsFormsApp7.Figure
             }
             centr = new Point(cx, cy);
 
-
             points.Add(new Point(x1, y1));
             points.Add(new Point(x2, y1));
             points.Add(new Point(x2, y2));
@@ -75,6 +74,5 @@ namespace WindowsFormsApp7.Figure
             }
             return point;
         }
-
     }
 }

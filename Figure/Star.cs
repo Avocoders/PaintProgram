@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 namespace WindowsFormsApp7.Figure
 {
     public class Star:IFigur
-    {
-
-        int n=0 ;
+    {        
         List<Point> points;
+
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             points = new List<Point>();
@@ -28,8 +27,7 @@ namespace WindowsFormsApp7.Figure
                 int yNext = y1 + Convert.ToInt32(r/2 * Math.Sin((i + bPol / 2) * Math.PI / 180));
 
                 points.Add(new Point(xFirst, yFirst));
-                points.Add(new Point(xNext, yNext));
-                n++;
+                points.Add(new Point(xNext, yNext));                
             }
             return points;
         }

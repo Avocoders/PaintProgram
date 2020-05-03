@@ -36,20 +36,9 @@ namespace WindowsFormsApp7.MovingChange
                         j-=30;
                 }
 
-            int da = j;
-            //double r = (double)Math.Sqrt(((double)keepP.X - (double)x.X) * ((double)keepP.X - (double)x.X) + ((double)keepP.Y - (double)x.Y) * ((double)keepP.Y - (double)x.Y));
-            //double rP = (double)Math.Sqrt(((double)p.X - (double)x.X) * ((double)p.X - (double)x.X) + ((double)p.Y - x.Y) * ((double)p.Y - x.Y));
-            //double aP = (double)Math.Abs(Math.Acos(((double)p.X - (double)x.X) / (double)rP) * 180 / Math.PI);
-            //double aKeepP = (double)Math.Abs(Math.Acos(((double)keepP.X - (double)x.X) / (double)r) * 180 / Math.PI);
-            //double da = (double)Math.Abs((double)aP - (double)aKeepP);
+            int da = j;            
             for (int i = 0; i < cf.poin.Count; i++)
-            {
-                //double rPoint= (double)Math.Sqrt(((double)cf.poin[i].X - (double)x.X) * ((double)cf.poin[i].X - (double)x.X) + ((double)cf.poin[i].Y - (double)x.Y) * ((double)cf.poin[i].Y - (double)x.Y));
-                //double aCos = (double)((double)cf.poin[i].X - (double)x.X) / (double)rPoint;
-                //double aSin = (double)((double)cf.poin[i].Y - (double)x.Y) / (double)rPoint;
-                //int newPointX = Convert.ToInt32((double)x.X + (double)rPoint * (double)aCos * (double)Math.Cos(da * Math.PI / 180) - (double)rPoint * (double)aSin * (double)Math.Sin(da * Math.PI / 180));
-                //int newPointY = Convert.ToInt32((double)x.Y + (double)rPoint * (double)aSin * (double)Math.Cos(da * Math.PI / 180) + (double)rPoint * (double)aCos * (double)Math.Sin(da * Math.PI / 180));
-
+            {                
                 int newPointX = Convert.ToInt32((double)x.X + ((double)cf.poin[i].X - (double)x.X) * Math.Cos((double)da * Math.PI / 180) - ((double)cf.poin[i].Y - x.Y) * Math.Sin((double)da * Math.PI / 180));
                 int newPointY = Convert.ToInt32((double)x.Y + ((double)cf.poin[i].Y - (double)x.Y) * Math.Cos((double)da * Math.PI / 180) + ((double)cf.poin[i].X - x.X) * Math.Sin((double)da * Math.PI / 180));
                 cf.poin[i] = new Point(newPointX, newPointY);
@@ -79,7 +68,6 @@ namespace WindowsFormsApp7.MovingChange
                     }
                 }
             }
-
             return null;
         }
 

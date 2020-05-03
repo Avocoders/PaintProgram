@@ -11,9 +11,13 @@ namespace WindowsFormsApp7
     public interface IMovingChange
     {
         CreatedFigure FindPoint(Point p);
+
         void ChangeFigure(Point p);
+
         int FindMainPoint(Point p);
+
         void PointChangeMode(PictureBox pictureBox);
+
         Point FirstPoint(Point p);
     }
 }

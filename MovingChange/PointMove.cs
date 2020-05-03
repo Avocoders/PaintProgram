@@ -89,18 +89,15 @@ namespace WindowsFormsApp7.MovingChange
                     return f;
                 }
             }
-
             return null;
         }
 
         public int FindMainPoint(Point p)
         {
-            
-                if (q.poin.Contains(p))
-                {
-                    return q.poin.IndexOf(p);
-                }
-            
+            if (q.poin.Contains(p))
+            {
+                return q.poin.IndexOf(p);
+            }
             return -1;
         }
 
@@ -108,8 +105,7 @@ namespace WindowsFormsApp7.MovingChange
         {
             
             Brush brush = new Brush();
-            brush.SetColor(Color.Red);
-           // move.GetBrush(brush,drower);
+            brush.SetColor(Color.Red);           
             move.DrowAllFigure();            
 
             foreach (CreatedFigure f in move.listOfFigure)
@@ -125,9 +121,5 @@ namespace WindowsFormsApp7.MovingChange
                 }
             }            
         }
-    }
-
-    internal class Circle
-    {
     }
 }

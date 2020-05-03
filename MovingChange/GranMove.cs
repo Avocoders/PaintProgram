@@ -31,8 +31,7 @@ namespace WindowsFormsApp7.MovingChange
             {
                 q.poin[index] = new Point(q.poin[index].X + dx, q.poin[index].Y + dy);
                 q.poin[0] = new Point(q.poin[0].X + dx, q.poin[0].Y + dy);
-            }
-            
+            }            
             q.centr = new Point(q.centr.X + dx, q.centr.Y + dy);
             keepP = p;
         }
@@ -44,7 +43,6 @@ namespace WindowsFormsApp7.MovingChange
                 index = q.poin.IndexOf(p);
                 return q.poin.IndexOf(p);
             }
-
             return -1;
         }
 
@@ -59,7 +57,6 @@ namespace WindowsFormsApp7.MovingChange
                     return f;
                 }
             }
-
             return null;
         }
 

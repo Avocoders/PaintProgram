@@ -14,9 +14,7 @@ namespace WindowsFormsApp7.MovingChange
         SingleBitmap move = SingleBitmap.Create();
         Point keepP;
         CreatedFigure cf;
-        Point x;
-        double a;
-        double b;
+        
         public void ChangeFigure(Point p)
         {
             if (cf.figur is Сircle)
@@ -24,13 +22,7 @@ namespace WindowsFormsApp7.MovingChange
                 cf.figur.Drow(cf.start.X, cf.start.Y, p.X, p.Y,1);
             }
             else
-            {
-                x = cf.centr;
-                int dx, dy;
-
-                double dx2 = Math.Abs(p.X - keepP.X);
-                double dy2 = Math.Abs(p.Y - keepP.Y);
-                //dx = Math.Abs()
+            {                                               
                 double xmax = cf.poin[0].X, xmin = cf.poin[0].X, ymax = cf.poin[0].Y, ymin = cf.poin[0].Y;
                 for (int i = 0; i < cf.poin.Count; i++)
                 {
@@ -42,9 +34,7 @@ namespace WindowsFormsApp7.MovingChange
                     { ymax = cf.poin[i].Y; }
                     if (ymin > cf.poin[i].Y)
                     { ymin = cf.poin[i].Y; }
-                }
-                double weightAll = xmax - xmin;
-                double heigthAll = ymax - ymin;
+                }                
                 double keepPW = keepP.X - xmin;
                 double keepPH = keepP.Y - ymin;
                 double delW = p.X - xmin - keepPW;
@@ -55,8 +45,6 @@ namespace WindowsFormsApp7.MovingChange
                     int newY = Convert.ToInt32((cf.poin[i].Y - ymin) / keepPH * delH + cf.poin[i].Y);
                     cf.poin[i] = new Point(newX, newY);
                 }
-
-
                 keepP = p;
             }
         }
@@ -84,7 +72,6 @@ namespace WindowsFormsApp7.MovingChange
                     }
                 }
             }
-
             return null;
         }
 

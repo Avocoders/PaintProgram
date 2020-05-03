@@ -11,10 +11,9 @@ namespace WindowsFormsApp7.Figure
     {
 
         Point point;
-        int a, b;
-       // List <Point> points;
-        int n = 0;
+        int a, b;          
         List<Point> points;
+
         public override List<Point> Drow(int x1, int y1, int x2, int y2, int nAngle)
         {
             points = new List<Point>();
@@ -72,17 +71,13 @@ namespace WindowsFormsApp7.Figure
             }
             a = Convert.ToInt32(Math.Sqrt((ax2 - ax1) * (ax2 - ax1) + (ay2 - ay1) * (ay2 - ay1)) / 2);
             b = Convert.ToInt32(Math.Sqrt((bx2 - bx1) * (bx2 - bx1) + (by2 - by1) * (by2 - by1)) / 2);
-
-
-
             for (int i = 0; i < 360; i+=10)
             {                
                 int ex = cx + Convert.ToInt32(a * Math.Cos(i * Math.PI / 180));
                 int ey = cy + Convert.ToInt32(b * Math.Sin(i * Math.PI / 180));
 
                 point = new Point(ex, ey);
-                points.Add(point);
-                n++;
+                points.Add(point);               
             }
             return points;
         }
@@ -99,7 +94,6 @@ namespace WindowsFormsApp7.Figure
                 {
                     point = false;
                 }
-
             }
             return point;
         }

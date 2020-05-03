@@ -8,20 +8,21 @@ using System.Threading.Tasks;
 namespace WindowsFormsApp7.Fill
 {
     public class TwoColorFill : IFill
-    {
-        int x, y;
-        SingleBitmap q = SingleBitmap.Create();
-        Color color = Color.Black;
+    {        
+        SingleBitmap q = SingleBitmap.Create();        
         Color fillColor;
         Color startColor;
+
         public TwoColorFill(Color fillColor)
         {
             this.fillColor = fillColor;
         }
+
         public void SetColor(int x, int y)
         {
             startColor = q.bitFigure.GetPixel(x, y);
         }
+
         public void Casting(int x, int y)
         {
 
@@ -55,7 +56,6 @@ namespace WindowsFormsApp7.Fill
                     }
                 }
             }
-
         }
     }
 }
