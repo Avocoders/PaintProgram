@@ -28,6 +28,7 @@ namespace WindowsFormsApp7
         bool isHanded = false;
         bool isTop = false;
         bool isZoom = false;
+        bool isTurn = false;
         bool isFigureChanged = false;
         bool isColorChanged = false;
         bool isThicknessChange = false;        
@@ -268,6 +269,18 @@ namespace WindowsFormsApp7
                     
                 }
 
+                else if (isTurn == true && currentFigur != null)
+                {
+                    q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    moving.ChangeFigure(e.Location);
+                    q.Move();
+                    q.DrowOnlyOneFigure(currentFigur);
+                    pictureBox1.Image = q.bitmap;
+                    fx = e.X;
+                    fy = e.Y;
+
+                }
+
                 else if (isTop == true && currentFigur != null)
                 {
                    // q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -445,7 +458,7 @@ namespace WindowsFormsApp7
                     pictureBox1.Image = q.bitmap;
                 }
             }
-            else if (isHanded == true|| isZoom==true)
+            else if (isHanded == true|| isZoom==true|| isTurn==true)
             {
                 isDrow = true;
                 
@@ -949,6 +962,7 @@ namespace WindowsFormsApp7
                 isTop = false;
                 isHanded = false;
                 isZoom = false;
+                isTurn = false;
                 isFigureChanged = false;
                 drowing = true;
                 isColorChanged = false;
@@ -1032,6 +1046,7 @@ namespace WindowsFormsApp7
             isHanded = false;
             isTop = false;
             isZoom = false;
+            isTurn = false;
             isFigureChanged = false;
 
         }
@@ -1042,6 +1057,7 @@ namespace WindowsFormsApp7
             isZoom = false;
             isHanded = true;
             isTop = false;
+            isTurn = false;
             isFigureChanged = false;
             isColorChanged = false;
             moving = new FigureMove();
@@ -1054,6 +1070,7 @@ namespace WindowsFormsApp7
             isZoom = false;
             isTop = true;
             isHanded = false;
+            isTurn = false;
             isFigureChanged = false;
             isColorChanged = false;
             moving = new PointMove();
@@ -1067,6 +1084,7 @@ namespace WindowsFormsApp7
             isTop = false;
             isHanded = false;
             isZoom = true;
+            isTurn = false;
             isFigureChanged = false;
             isColorChanged = false;
             moving = new ChangeSizeFigure();
@@ -1080,6 +1098,7 @@ namespace WindowsFormsApp7
             isTop = false;
             isHanded = false;
             isZoom = false;
+            isTurn = false;
             isFigureChanged = true;
             isColorChanged = false;
             moving = new PointMove();
@@ -1123,6 +1142,18 @@ namespace WindowsFormsApp7
         }
 
         
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            drowing = false;
+            isTop = false;
+            isHanded = false;
+            isZoom = false;
+            isTurn = true;
+            isFigureChanged = false;
+            isColorChanged = false;
+            moving = new TigersTurn();
+        }
+
         private void button11_Click_1(object sender, EventArgs e)
         {
             q.DrowAllFigure();
