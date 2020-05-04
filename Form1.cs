@@ -1146,7 +1146,7 @@ namespace WindowsFormsApp7
         {
             isDrow = false;
             isFirst = false;
-            isFirstPoligon = false;            
+            isFirstPoligon = true;            
             q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);            
             q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = q.bitmap;
