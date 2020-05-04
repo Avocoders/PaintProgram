@@ -231,19 +231,19 @@ namespace WindowsFormsApp7
                         }
                         else if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
                         {
-                            if (Figure is Сircle && isFigureChanged == true)
+                            if (Figure is Ellipse && isFigureChanged == true)
                             {
                                 cf.figur = new Ellipse();
                                 drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
                                 isFigureChanged = false;
                             }
-                            else if (Figure is Square && isFigureChanged == true)
+                            else if (Figure is Rectangl && isFigureChanged == true)
                             {
                                 cf.figur = new Rectangl();
                                 drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
                                 isFigureChanged = false;
                             }
-                            else if (Figure is RightTriangle && isFigureChanged == true)
+                            else if (Figure is IsoscelesTriangle&& isFigureChanged == true)
                             {
                                 cf.figur = new IsoscelesTriangle();
                                 drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
