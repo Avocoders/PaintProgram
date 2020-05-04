@@ -231,19 +231,19 @@ namespace WindowsFormsApp7
                         }
                         else if ((Control.ModifierKeys & Keys.Shift) != Keys.Shift)
                         {
-                            if (Figure is Сircle && isFigureChanged == true)
+                            if (Figure is Ellipse && isFigureChanged == true)
                             {
                                 cf.figur = new Ellipse();
                                 drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
                                 isFigureChanged = false;
                             }
-                            else if (Figure is Square && isFigureChanged == true)
+                            else if (Figure is Rectangl && isFigureChanged == true)
                             {
                                 cf.figur = new Rectangl();
                                 drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
                                 isFigureChanged = false;
                             }
-                            else if (Figure is RightTriangle && isFigureChanged == true)
+                            else if (Figure is IsoscelesTriangle&& isFigureChanged == true)
                             {
                                 cf.figur = new IsoscelesTriangle();
                                 drower = abstractFabric.CreateDrower(cf.figur, cf.brush, cf.fill);
@@ -369,13 +369,15 @@ namespace WindowsFormsApp7
                         }
                         else if (Eraser == true)
                         {
-                            cf.brush.SetColor(Color.White);
+                            if (cf != null)
+                                cf.brush.SetColor(Color.White);
                             brush.SetColor(Color.White);
                             brush.SetDot(e.X, e.Y);
                             pictureBox1.Image = q.bitmap;
                         }
                         else
                         {
+                            if(cf!=null)
                             cf.brush.SetColor(button1.BackColor);
                             brush.SetColor(color);
                             if (abstractFabric is LineFabric)
@@ -418,7 +420,8 @@ namespace WindowsFormsApp7
                             button4.BackColor = q.bitmap.GetPixel(e.X, e.Y);
                             color = button4.BackColor;
                             brush.SetColor(color);
-                            cf.brush.SetColor(color);
+                            if (cf != null)
+                                cf.brush.SetColor(color);
                         }
                         else if (Eraser == true)
                         {
@@ -429,7 +432,8 @@ namespace WindowsFormsApp7
                         }
                         else
                         {
-                            cf.brush.SetColor(button4.BackColor);
+                            if (cf != null)
+                                cf.brush.SetColor(button4.BackColor);
                             brush.SetColor(button4.BackColor);
                             if (abstractFabric is LineFabric)
                             {                                
@@ -441,7 +445,8 @@ namespace WindowsFormsApp7
                     }
                     else if (e.Button == MouseButtons.Right)
                     {
-                        cf.brush.SetColor(button1.BackColor);
+                        if (cf != null)
+                            cf.brush.SetColor(button1.BackColor);
                         brush = new Brush(brush);
                         brush.SetColor(button1.BackColor);
                         if (abstractFabric is LineFabric)
@@ -1141,7 +1146,7 @@ namespace WindowsFormsApp7
         {
             isDrow = false;
             isFirst = false;
-            isFirstPoligon = false;            
+            isFirstPoligon = true;            
             q.bitFigure = new Bitmap(pictureBox1.Width, pictureBox1.Height);            
             q.bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = q.bitmap;
